@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/Aktualisiert-15.08.2026-coral)
 ![Static Badge](https://img.shields.io/badge/Status-In_Review-orange)
 
-> Im 3. Semester der Interaktiven Medien lernt ihr, mit PHP echte Daten zu verarbeiten und in einer Data-Story datenjournalistisch aufzubereiten.
+> Im dritten Semester der Interaktiven Medien lernt ihr, mit PHP echte Daten zu verarbeiten und in einer Data-Story datenjournalistisch aufzubereiten.
 
 #### Quicklinks
 
