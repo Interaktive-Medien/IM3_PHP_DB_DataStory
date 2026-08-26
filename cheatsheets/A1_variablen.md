@@ -73,9 +73,9 @@ geschweifte Klammern: `"Stadt: {$row['city']}"`.
 ## Typ umwandeln
 
 ```php
-$month = (int) '07';          // 7
-$temperatureC = (float) '31.2';  // 31.2
-$yearRaw = (string) 1985;     // "1985"
+$month = (int) '07';                // 7
+$temperatureC = (float) '31.2';     // 31.2
+$yearRaw = (string) 1985;           // "1985"
 ```
 
 Achtung: `(int) 'keine Angabe'` ergibt stillschweigend `0`. Vor der Umwandlung
@@ -84,12 +84,14 @@ deshalb `is_numeric()` prüfen – mehr dazu in [C1 Transform](C1_transform.md).
 ## Rechnen
 
 ```php
-$sum = 10 + 5;      $diff = 10 - 5;
-$product = 10 * 5;  $quotient = 10 / 4;    // 2.5
-$rest = 10 % 3;     // 1 – Rest der Division
+$sum = 10 + 5;      
+$diff = 10 - 5;
+$product = 10 * 5;  
+$quotient = 10 / 4;     // 2.5
+$rest = 10 % 3;         // 1 – Rest der Division
 
 $count = $count + 1;
-$count++;           // dasselbe, kürzer
+$count++;               // dasselbe, kürzer
 $counts['bern'] = ($counts['bern'] ?? 0) + 1;   // zählen, auch beim ersten Mal
 ```
 

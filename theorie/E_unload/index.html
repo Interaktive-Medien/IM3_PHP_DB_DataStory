@@ -210,12 +210,16 @@
               <div class="mini-table">
                 <div class="mini-name">cities</div>
                 <div class="mini-row is-head"><span>id</span><span>name</span></div>
-                <div class="mini-row"><span><mark>1</mark></span><span>Bern</span></div>
+                  <div class="mini-row"><span><mark>1</mark></span><span>Bern</span></div>
+                  <div class="mini-row"><span><mark>2</mark></span><span>Chur</span></div>
+                  <div class="mini-row"><span><mark>3</mark></span><span>Zürich</span></div>
               </div>
               <div class="mini-table">
                 <div class="mini-name">heat_summers</div>
-                <div class="mini-row is-head"><span>city_id</span><span>year</span><span>hot_days</span></div>
-                <div class="mini-row"><span><mark>1</mark></span><span>2023</span><span>12</span></div>
+                <div class="mini-row is-head"><span>id</span><span>city_id</span><span>year</span><span>hot_days</span></div>
+                  <div class="mini-row"><span>1</span><span><mark>1</mark></span><span>2023</span><span>12</span></div>
+                  <div class="mini-row"><span>2</span><span><mark>1</mark></span><span>2024</span><span>14</span></div>
+                  <div class="mini-row"><span>3</span><span><mark>2</mark></span><span>2023</span><span>23</span></div>
               </div>
             </div>
             <div class="shape-arrow">→</div>
@@ -277,10 +281,10 @@ JOIN cities AS c ON c.id = hs.city_id
 ORDER BY hs.year, c.name
           </code></pre>
           <ul class="list-tight text-sm mt-1">
-            <li><code>AS city</code> gibt dem Feld direkt den vereinbarten JSON-Namen</li>
-            <li><code>JOIN</code> ergänzt den Stadtnamen aus der zweiten Tabelle</li>
-            <li><code>ORDER BY</code> macht die Reihenfolge verlässlich</li>
-            <li><code>SELECT *</code> bleibt weg, weil der Endpunkt nur vereinbarte Felder ausliefert</li>
+              <li><code>SELECT *</code> bleibt weg, weil der Endpunkt nur vereinbarte Felder ausliefert</li>
+              <li><code>AS city</code> gibt dem Feld direkt den vereinbarten JSON-Namen</li>
+              <li><code>JOIN</code> ergänzt den Stadtnamen aus der zweiten Tabelle</li>
+              <li><code>ORDER BY</code> macht die Reihenfolge verlässlich</li>
           </ul>
         </div>
         <aside class="notes">Die Reihenfolge ist Teil der Endpunkt-Entscheidung: zuerst Jahr, dann Stadt.
@@ -297,6 +301,11 @@ ORDER BY hs.year, c.name
 require __DIR__ . '/../../../config.php';
 
 $pdo = new PDO($dsn, $username, $password, $options);
+
+$sql = "SELECT
+            c.name AS city,
+            ...
+        ORDER BY hs.year, c.name";
 
 $statement = $pdo-&gt;prepare($sql);
 $statement-&gt;execute();
@@ -355,9 +364,9 @@ header('Content-Type: application/json; charset=utf-8');
           <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center;">
             <div>
               <span class="code-label">PHP-Array</span>
-              <div class="output">[
+              <div class="output">$data = [
   ['city' =&gt; 'Bern', 'year' =&gt; 2023]
-]</div>
+];</div>
             </div>
             <div class="flow-arrow">→</div>
             <div>

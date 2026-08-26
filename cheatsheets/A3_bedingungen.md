@@ -70,7 +70,7 @@ $city = trim($_GET['city'] ?? '');
 $dates = $location['source']['daily']['time'] ?? [];
 ```
 
-Der rechte Wert greift, wenn der Schlüssel fehlt oder `null` ist. Bei einem
+Der Wert rechts der beiden Fragezeichen `??` greift, wenn der Schlüssel fehlt oder `null` ist. Bei einem
 leeren Text oder bei `0` greift er **nicht**.
 
 ## if / elseif / else

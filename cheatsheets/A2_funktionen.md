@@ -114,17 +114,17 @@ an einer anderen Stelle wiederverwenden kann.
 
 PHP bringt Tausende mit. Diese begegnen euch im Kurs am häufigsten:
 
-| Funktion | Zweck |
-| --- | --- |
-| `count($array)` | Anzahl Einträge |
-| `max($array)`, `min($array)` | grösster / kleinster Wert |
-| `round($zahl, 1)` | runden |
-| `trim($text)` | Leerzeichen am Rand entfernen |
-| `strtolower()`, `strtoupper()` | Klein-/Grossschreibung vereinheitlichen |
-| `implode(', ', $array)` | Array zu Text verbinden |
-| `substr($text, 5, 2)` | Textausschnitt |
-| `is_numeric($wert)` | Steckt eine Zahl darin? |
-| `date('Y-m-d H:i:s')` | aktueller Zeitpunkt als Text |
+| Funktion                       | Zweck                                   | Manual                                                                                                                                    |
+|--------------------------------|-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| `count($array)`                | Anzahl Einträge                         | [count](https://www.php.net/count)                                                                                                        |
+| `max($array)`, `min($array)`   | grösster / kleinster Wert               | [max](https://www.php.net/manual/de/function.max.php) / [min](https://www.php.net/manual/de/function.min.php)                             |
+| `round($zahl, 1)`              | runden                                  | [round](https://www.php.net/manual/de/function.round.php)                                                                                 |
+| `trim($text)`                  | Leerzeichen am Rand entfernen           | [trim](https://www.php.net/manual/de/function.trim.php)                                                                                   |
+| `strtolower()`, `strtoupper()` | Klein-/Grossschreibung vereinheitlichen | [strtolower](https://www.php.net/manual/de/function.strtolower.php) / [strtoupper](https://www.php.net/manual/de/function.strtoupper.php) |                                                                       |
+| `implode(', ', $array)`        | Array zu Text verbinden                 | [implode](https://www.php.net/manual/de/function.implode.php)                                                                             |
+| `substr($text, 5, 2)`          | Textausschnitt                          | [substr](https://www.php.net/manual/de/function.substr.php)                                                                               |
+| `is_numeric($wert)`            | Steckt eine Zahl darin?                 | [is_numeric](https://www.php.net/manual/en/function.is-numeric.php)                                                                       |
+| `date('Y-m-d H:i:s')`          | aktueller Zeitpunkt als Text            | [date](https://www.php.net/manual/de/function.date.php)                                                                                   |
 
 ## Verwandte Cheatsheets
 

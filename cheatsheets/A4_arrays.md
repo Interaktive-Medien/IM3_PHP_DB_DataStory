@@ -35,7 +35,7 @@ hinaus.
 echo $temperatures[1];                  // 19.4 – Achtung, der erste Index ist 0
 echo $measurement['location'];          // Bern
 echo $measurements[0]['temperature_c']; // 18.9
-echo count($measurements);              // Anzahl Einträge
+echo count($measurements);              // 2 (Anzahl Einträge)
 ```
 
 Bei unsicheren Schlüsseln `??` benutzen:
@@ -47,7 +47,7 @@ $temperature = $measurement['temperature_c'] ?? null;
 ## Schreiben und ergänzen
 
 ```php
-$temperatures[] = 20.3;                    // ans Ende anhängen
+$temperatures[] = 20.3;                    // Wert am Ende einer Liste anhängen
 $stations['Interlaken'] = 17.5;            // Schlüssel setzen oder überschreiben
 $measurements[] = ['time' => '16:00', 'temperature_c' => 20.0];
 
