@@ -6,7 +6,7 @@
 ![Static Badge](https://img.shields.io/badge/Aktualisiert-15.08.2026-coral)
 ![Static Badge](https://img.shields.io/badge/Status-In_Review-orange)
 
-> Im 3.. Semester der Interaktiven Medien lernt ihr, mit PHP echte Daten zu verarbeiten und in einer Data-Story datenjournalistisch aufzubereiten.
+> Im 3. Semester der Interaktiven Medien lernt ihr, mit PHP echte Daten zu verarbeiten und in einer Data-Story datenjournalistisch aufzubereiten.
 
 #### Quicklinks
 
@@ -76,7 +76,7 @@ Ihr entwickelt auf eurem eigenen Rechner. Zwei kurze Setups gehören dazu:
 
 - [Lokaler PHP-Server](theorie/00_lokaler_php_server/index.html): richten wir
   ganz am Anfang ein, bevor die PHP-Grundlagen starten.
-- [Lokale Datenbank](theorie/00_lokale_db/): kommt vor dem Load-Block dazu,
+- [Lokale Datenbank](theorie/00_lokale_db/README.md): kommt vor dem Load-Block dazu,
   sobald ihr Daten speichert.
 
 Auf einen richtigen Webserver kommt euer Projekt erst am Schluss im
