@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Werkstatt – Tag-Karten zum Ausschneiden</title>
+<style>
+  @page { size: A4 portrait; margin: 12mm; }
+  :root { --petrol: #4b93a4; --oliv: #8b8a6e; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+  }
+  .kopf { margin-bottom: 7mm; }
+  .kopf h1 { font-size: 15pt; color: var(--oliv); margin: 0 0 2mm; }
+  .kopf p { font-size: 9pt; color: #777; margin: 0; }
+  .blatt {
+    display: grid;
+    grid-template-columns: repeat(4, 44mm);
+    gap: 4mm;
+    justify-content: start;
+  }
+  .karte {
+    border: 1px dashed #bbb;
+    border-radius: 2px;
+    height: 30mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 16pt;
+    font-weight: 600;
+    color: var(--petrol);
+  }
+  .fuss { margin-top: 6mm; font-size: 8pt; color: #999; }
+</style>
+</head>
+<body>
+
+  <div class="kopf">
+    <h1>Tag-Karten – ein Satz pro Paar</h1>
+    <p>18 Karten. Ausschneiden und gemischt abgeben.</p>
+  </div>
+
+  <div class="blatt">
+    <div class="karte">&lt;h1&gt;</div>
+    <div class="karte">&lt;/h1&gt;</div>
+    <div class="karte">&lt;h2&gt;</div>
+    <div class="karte">&lt;/h2&gt;</div>
+    <div class="karte">&lt;p&gt;</div>
+    <div class="karte">&lt;/p&gt;</div>
+    <div class="karte">&lt;p&gt;</div>
+    <div class="karte">&lt;/p&gt;</div>
+    <div class="karte">&lt;ul&gt;</div>
+    <div class="karte">&lt;/ul&gt;</div>
+    <div class="karte">&lt;li&gt;</div>
+    <div class="karte">&lt;/li&gt;</div>
+    <div class="karte">&lt;li&gt;</div>
+    <div class="karte">&lt;/li&gt;</div>
+    <div class="karte">&lt;li&gt;</div>
+    <div class="karte">&lt;/li&gt;</div>
+    <div class="karte">&lt;strong&gt;</div>
+    <div class="karte">&lt;/strong&gt;</div>
+  </div>
+
+  <div class="fuss">18 Karten · HTML-Werkstatt</div>
+
+</body>
+</html>

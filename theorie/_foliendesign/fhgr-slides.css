@@ -221,35 +221,42 @@
    TITELFOLIE
    =========================================== */
 
+/* Titelfolie: linksbuendig wie alle anderen Folien, Titel gross auf der
+ * Fluchtlinie, Kontakt unten in der Ecke, ein Petrolband als Abschluss. */
 .reveal .slides section.title-slide {
   justify-content: center !important;
-  align-items: center !important;
-  text-align: center;
+  align-items: flex-start !important;
+  text-align: left;
 }
 
 .reveal .slides section.title-slide h1 {
-  font-size: 60pt;
-  text-align: center;
+  font-size: 68pt;
+  line-height: 1.05;
+  text-align: left;
+  max-width: 84%;
 }
 
 .reveal .slides section.title-slide .rule {
-  width: 64px;
-  height: 7px;
+  width: 96px;
+  height: 6px;
   background: var(--primary-color);
-  margin: 34px 0;
+  margin: 30px 0 26px;
 }
 
 .reveal .slides section.title-slide p {
   font-size: 20pt;
   color: var(--text-color);
-  margin: 0 0 6px 0;
-  text-align: center;
+  margin: 0;
+  text-align: left;
 }
 
 .reveal .slides section.title-slide p.sub {
-  font-size: 14pt;
+  position: absolute;
+  left: var(--slide-padding);
+  bottom: 54px;
+  font-size: 13pt;
   color: var(--muted-color);
-  margin-top: 12px;
+  margin: 0;
 }
 
 /* ===========================================
@@ -469,6 +476,14 @@
 .box ul li:last-child,
 .callout ul li:last-child { margin-bottom: 0; }
 
+/* Ein Callout am Schluss einer Folie sitzt immer auf der Unterkante des
+ * Inhaltsbereichs. Callouts mitten im Inhalt bleiben, wo sie stehen.
+ * Das !important schlaegt eine mitgegebene .mt-2-Klasse und ein inline
+ * gesetztes margin-top. */
+.reveal .slides section > .content > .callout:last-child {
+  margin-top: auto !important;
+}
+
 .callout p:first-child,
 .box p:first-child { margin-top: 0; }
 
@@ -526,7 +541,7 @@
   display: block;
   font-size: 15pt;
   color: #4a4a4a;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 4px;
 }
 
@@ -580,10 +595,73 @@
 .reveal table td code { font-size: 0.95em; }
 
 /* ===========================================
+   BILDER
+   =========================================== */
+
+.reveal img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Screenshot: duenner Rahmen, damit auch ein Bild mit weissem Rand
+ * als eigenes Element erkennbar bleibt. */
+.reveal .shot {
+  border: 1px solid var(--box-border);
+  border-radius: var(--box-radius);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Bild mit Bildlegende.
+ * Die Legende steht direkt unter dem Bild, nicht am Folienrand. Damit das
+ * Bild trotzdem nie ueber die Folie hinauswaechst, deckelt max-height es auf
+ * die Hoehe des figure abzueglich Legende und Abstand. Die Prozentangabe
+ * funktioniert nur, weil das figure ueber flex: 1 eine feste Hoehe bekommt. */
+.reveal figure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  min-height: 0;
+}
+
+.reveal figure img {
+  min-height: 0;
+  max-height: calc(100% - 32px);
+  width: auto;
+  object-fit: contain;
+}
+
+/* Verlinktes Bild: der Link tritt an die Stelle des img und uebernimmt
+ * dessen Hoehendeckelung, damit ein Screenshot auch verlinkt nicht ueber
+ * die Folie hinauswaechst. */
+.reveal figure > a {
+  display: flex;
+  min-height: 0;
+  max-height: calc(100% - 32px);
+  text-decoration: none;
+}
+
+.reveal figure > a > img { max-height: 100%; }
+
+.reveal figure.figure-center { align-items: center; }
+
+.reveal figcaption {
+  font-size: var(--footnote-size);
+  color: var(--muted-color);
+  line-height: 1.4;
+}
+
+/* Bildfolie: das figure bekommt den ganzen freien Platz unter dem Titel. */
+.reveal .slides section > .content > figure { flex: 1; }
+
+/* ===========================================
    MARKER / KLEINTEILE
    =========================================== */
 
 .eyebrow {
+  display: block;
   font-size: 11pt;
   letter-spacing: 0.14em;
   text-transform: uppercase;

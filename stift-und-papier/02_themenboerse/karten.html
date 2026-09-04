@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Karten – Themenbörse</title>
+<!-- Druckstil liegt gemeinsam fuer alle Kickoff-Uebungen eine Ebene hoeher. -->
+<link rel="stylesheet" href="../arbeitsblatt.css">
+<style>
+  /* Seite 1: Selbsteinschaetzung und zwei Themenkarten zum Abtrennen.
+     Seite 2: Teamblatt, wird nur einmal pro Gruppe ausgefuellt. */
+  .themenkarte {
+    border: 1px dashed var(--muted);
+    border-radius: 2mm;
+    padding: 5mm;
+    min-height: 45mm;
+  }
+  .themenkarte .beschriftung { margin-bottom: 3mm; }
+  table.skala td { border: none; padding: 1.5mm 3mm 1.5mm 0; }
+  table.skala td:first-child { width: 55mm; }
+  .stufe { white-space: nowrap; color: var(--muted); }
+  .kreis {
+    display: inline-block;
+    width: 4mm; height: 4mm;
+    margin-right: 1.5mm;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    vertical-align: -0.8mm;
+  }
+  .rollen { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .rollenbox { border: 1px solid var(--line); border-radius: 1.5mm; padding: 4mm; }
+  .rollenbox h3 { color: var(--petrol-dark); }
+</style>
+</head>
+<body class="a4-hoch">
+<div class="blatt">
+
+  <!-- ================= Seite 1: pro Person ================= -->
+  <section class="seite">
+    <header>
+      <h1>Themenbörse – deine Karte</h1>
+      <div class="meta">Name: _______________________<br>Interaktive Medien 3 · Kickoff</div>
+    </header>
+
+    <h2>1 · Wie sicher fühlst du dich?</h2>
+    <p class="klein">Keine Note, keine falsche Antwort. Die Angaben helfen nur beim Zusammenstellen der Gruppen.</p>
+    <table class="skala">
+        <tr>
+          <td>Programmieren</td>
+          <td class="stufe"><span class="kreis"></span> geht so</td>
+          <td class="stufe"><span class="kreis"></span> mittel</td>
+          <td class="stufe"><span class="kreis"></span> sicher</td>
+        </tr>
+        <tr>
+          <td>Gestalten und Layout</td>
+          <td class="stufe"><span class="kreis"></span> geht so</td>
+          <td class="stufe"><span class="kreis"></span> mittel</td>
+          <td class="stufe"><span class="kreis"></span> sicher</td>
+        </tr>
+        <tr>
+          <td>Schreiben und Recherchieren</td>
+          <td class="stufe"><span class="kreis"></span> geht so</td>
+          <td class="stufe"><span class="kreis"></span> mittel</td>
+          <td class="stufe"><span class="kreis"></span> sicher</td>
+        </tr>
+    </table>
+
+    <h2>2 · Zwei Themen, die dich interessieren</h2>
+    <div class="hinweis">
+      <p>Kein Datensatz, keine fertige Frage. Ein Wort oder ein Satz genügt – aber konkret genug,
+        dass man Zahlen dahinter vermuten kann.</p>
+      <p class="klein">Besser: «Wie laut ist es im Ausgang?» &nbsp;·&nbsp; Schwächer: «Musik»</p>
+    </div>
+
+    <div class="raster zwei">
+      <div class="themenkarte">
+        <span class="beschriftung">Thema A</span>
+        <div class="linie"></div>
+        <div class="linie"></div>
+        <div class="linie"></div>
+        <p class="klein">Warum interessiert dich das?</p>
+        <div class="linie kurz"></div>
+      </div>
+      <div class="themenkarte">
+        <span class="beschriftung">Thema B</span>
+        <div class="linie"></div>
+        <div class="linie"></div>
+        <div class="linie"></div>
+        <p class="klein">Warum interessiert dich das?</p>
+        <div class="linie kurz"></div>
+      </div>
+    </div>
+
+    <p class="klein" style="margin-top: 5mm;">
+      Die beiden Themenkarten werden abgetrennt und an die Wand gehängt. Der obere Teil bleibt bei dir.
+    </p>
+  </section>
+
+  <!-- ================= Seite 2: pro Team ================= -->
+  <section class="seite">
+    <header>
+      <h1>Teamblatt</h1>
+      <div class="meta">Einmal pro Vierergruppe ausfüllen<br>und abgeben – das ist M1</div>
+    </header>
+
+    <h2>Unser Thema</h2>
+    <div class="feld" style="min-height: 16mm;"></div>
+
+    <h2>Wer wir sind</h2>
+    <div class="rollen">
+      <div class="rollenbox">
+        <h3>Backend zu zweit</h3>
+        <p class="klein">Daten holen, säubern, speichern und als JSON ausliefern.</p>
+        <div class="linie"></div>
+        <div class="linie"></div>
+      </div>
+      <div class="rollenbox">
+        <h3>Frontend zu zweit</h3>
+        <p class="klein">Story, Grafik mit Chart.js und Gestaltung.</p>
+        <div class="linie"></div>
+        <div class="linie"></div>
+      </div>
+    </div>
+
+    <h2>Wie wir uns erreichen</h2>
+    <table class="skala">
+      <tr><td>Kanal für Absprachen</td><td><div class="linie kurz"></div></td></tr>
+      <tr><td>Wo der Code liegt</td><td><div class="linie kurz"></div></td></tr>
+    </table>
+
+    <h2>Was uns gerade am meisten interessiert</h2>
+    <p class="klein">Noch keine fertige Datenfrage – die formuliert ihr für M2.
+      Hier reicht die Richtung.</p>
+    <div class="feld" style="min-height: 22mm;"></div>
+
+    <div class="hinweis">
+      <p><strong>Die Rollenteilung ist keine Wand.</strong> Beide Zweierteams bleiben für das
+        ganze Projekt verantwortlich und erklären am Marktstand auch die andere Hälfte.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

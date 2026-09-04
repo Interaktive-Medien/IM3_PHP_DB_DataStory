@@ -140,3 +140,51 @@ Ein kurzer Einleitungssatz vor einer Aufzählung erhält immer denselben Abstand
 zu den ersten Aufzählungspunkten.
 
 Dafür wird die Klasse `list-intro` verwendet.
+
+## 16. Callouts sitzen auf der Unterkante
+
+Ein Callout am Schluss einer Folie steht immer ganz unten am Inhaltsbereich,
+nicht direkt unter dem letzten Absatz.
+
+So liegen die farbigen Kaesten ueber alle Folien hinweg auf derselben Linie,
+und die Kernaussage steht dort, wo der Blick am Ende hinwandert.
+
+Das macht das gemeinsame Stylesheet automatisch, sobald der Callout das letzte
+Element in `.content` ist:
+
+```html
+<div class="content">
+  <p class="list-intro">Einleitung:</p>
+  <ul class="list-tight"> ... </ul>
+  <div class="callout callout-green">
+    <p>Die Kernaussage.</p>
+  </div>
+</div>
+```
+
+Es braucht dafuer **kein** `style="margin-top: auto;"` und **kein** `mt-2`.
+
+Ein Callout mitten im Inhalt, auf den noch etwas folgt, bleibt dagegen an
+seiner Stelle stehen.
+
+## 17. Bilder brauchen eine Legende
+
+Jedes Bild bekommt eine `figcaption`, die zwei Dinge sagt: was zu sehen ist und
+woher es stammt.
+
+Ohne diese Zeile muss die Lehrperson das Bild jedes Mal mündlich erklären, und
+im exportierten PDF steht es ohne Zusammenhang da.
+
+```html
+<figure>
+  <img class="shot" src="bilder/beispiel.jpg" alt="Kurze Beschreibung">
+  <figcaption>Abfahrten Bern – Zürich HB, aus der Fahrplan-API.</figcaption>
+</figure>
+```
+
+Ein Bild ist ausserdem kein Ersatz für den Folientitel. Auch eine reine
+Bildfolie bekommt eine `<h2>`, die sagt, worum es geht.
+
+Screenshots bekommen `class="shot"`, damit ihr weisser Rand nicht mit dem
+Folienhintergrund verschmilzt. Der Baustein steht in
+[README.md](README.md#bilder).

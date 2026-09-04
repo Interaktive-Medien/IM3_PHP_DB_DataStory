@@ -1,0 +1,182 @@
+/* ---------------------------------------------------------------------
+   Druckstil fuer die Arbeitsblaetter des Kickoffs.
+   Wird von den vier Uebungsordnern verlinkt, nicht kopiert:
+     <link rel="stylesheet" href="../arbeitsblatt.css">
+
+   Drucken: im Browser oeffnen, Cmd+P, A4, Raender "Standard",
+   Hintergrundgrafiken einschalten. Das Format (hoch oder quer) legt
+   jedes Arbeitsblatt selbst mit .a4-hoch bzw. .a4-quer am <body> fest.
+   --------------------------------------------------------------------- */
+
+:root {
+  --petrol: #4b93a4;
+  --petrol-dark: #35707f;
+  --petrol-bg: #eef5f7;
+  --oliv: #8b8a6e;
+  --text: #575757;
+  --muted: #9a9a92;
+  --line: #1a1a1a;
+  --box-border: #e4e3da;
+  --box-bg: #f6f6f3;
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 10mm;
+  background: #fff;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 10pt;
+  line-height: 1.45;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body.a4-hoch .blatt { width: 190mm; margin: 0 auto; }
+body.a4-quer .blatt { width: 257mm; margin: 0 auto; }
+
+@media print {
+  body { padding: 0; }
+  .blatt { width: auto; }
+  .seite + .seite { break-before: page; }
+}
+
+.seite + .seite { margin-top: 14mm; }
+
+/* --- Kopf ------------------------------------------------------------ */
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10mm;
+  border-bottom: 2px solid var(--petrol);
+  padding-bottom: 3mm;
+  margin-bottom: 4mm;
+}
+
+h1 {
+  margin: 0;
+  color: var(--oliv);
+  font-size: 15pt;
+  font-weight: 400;
+}
+
+header .meta {
+  color: var(--muted);
+  font-size: 9pt;
+  text-align: right;
+  white-space: nowrap;
+}
+
+h2 {
+  margin: 6mm 0 2mm;
+  color: var(--oliv);
+  font-size: 11.5pt;
+  font-weight: 600;
+}
+
+h3 {
+  margin: 0 0 1.5mm;
+  color: var(--text);
+  font-size: 10pt;
+  font-weight: 600;
+}
+
+p { margin: 0 0 2mm; }
+ul, ol { margin: 0 0 2mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+
+.hinweis {
+  border-left: 3px solid var(--petrol);
+  background: var(--petrol-bg);
+  padding: 2.5mm 3.5mm;
+  margin: 3mm 0;
+}
+
+.klein { font-size: 8.5pt; color: var(--muted); }
+.mono { font-family: var(--mono); font-size: 9pt; }
+
+/* --- Karten und Raster ----------------------------------------------- */
+
+.raster { display: grid; gap: 4mm; }
+.raster.zwei { grid-template-columns: 1fr 1fr; }
+.raster.drei { grid-template-columns: repeat(3, 1fr); }
+
+.karte {
+  border: 1px solid var(--box-border);
+  border-radius: 1.5mm;
+  padding: 3.5mm 4mm;
+  background: #fff;
+}
+
+.karte.grau { background: var(--box-bg); }
+
+.karte .nummer {
+  display: inline-block;
+  margin-bottom: 1.5mm;
+  color: var(--petrol);
+  font-family: var(--mono);
+  font-size: 8.5pt;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* --- Schreiblinien --------------------------------------------------- */
+
+.linie {
+  border-bottom: 1px solid var(--line);
+  height: 7mm;
+  margin-bottom: 1mm;
+}
+
+.linie.kurz { height: 6mm; }
+
+.feld {
+  border: 1px solid var(--line);
+  border-radius: 1.5mm;
+  min-height: 18mm;
+  padding: 2mm;
+}
+
+.beschriftung {
+  display: block;
+  margin-bottom: 1mm;
+  color: var(--muted);
+  font-size: 8.5pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* --- Tabelle --------------------------------------------------------- */
+
+table { width: 100%; border-collapse: collapse; }
+
+th {
+  text-align: left;
+  padding: 2mm 3mm 1.5mm 0;
+  border-bottom: 1px solid var(--box-border);
+  color: var(--text);
+  font-size: 9pt;
+}
+
+td {
+  padding: 2mm 3mm 2mm 0;
+  border-bottom: 1px solid #f0f0ea;
+  vertical-align: top;
+  font-size: 9.5pt;
+}
+
+/* --- Ausschneidbare Karten ------------------------------------------- */
+
+.schnittkarte {
+  border: 1px dashed var(--muted);
+  border-radius: 2mm;
+  padding: 4mm;
+  min-height: 62mm;
+  break-inside: avoid;
+}

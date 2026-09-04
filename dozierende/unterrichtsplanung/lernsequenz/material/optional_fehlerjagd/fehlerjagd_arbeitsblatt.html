@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Fehlerjagd – Arbeitsblatt</title>
+<style>
+  @page { size: A4 portrait; margin: 14mm; }
+  :root { --petrol: #4b93a4; --oliv: #8b8a6e; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333; line-height: 1.5;
+  }
+  h1 { font-size: 22pt; color: var(--oliv); margin: 0 0 2mm; }
+  .zeit { font-size: 10pt; color: #999; margin: 0 0 6mm; letter-spacing: .1em; text-transform: uppercase; }
+  .auftrag { font-size: 12pt; margin: 0 0 7mm; }
+  h2 {
+    font-size: 10pt; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--oliv); margin: 0 0 3mm;
+  }
+  .spalten { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; margin-bottom: 8mm; }
+  pre {
+    margin: 0; padding: 4mm 5mm; background: #f6f6f3;
+    border: 1px solid #e4e3da; border-radius: 3px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11pt; line-height: 1.7; white-space: pre;
+  }
+  .num { color: #b9b8ae; }
+  .browser {
+    border: 1px solid #e4e3da; border-radius: 3px; overflow: hidden;
+  }
+  .browserleiste {
+    background: #f6f6f3; border-bottom: 1px solid #e4e3da;
+    padding: 2mm 4mm; font-size: 8pt; color: #999;
+  }
+  .browserinhalt { padding: 4mm 5mm; }
+  .browserinhalt .t1 { font-size: 18pt; font-weight: bold; margin: 0 0 3mm; }
+  .browserinhalt .t2 { font-size: 14pt; font-weight: bold; margin: 4mm 0 2mm; }
+  .browserinhalt p { font-size: 11.5pt; margin: 0 0 3mm; }
+  .browserinhalt .fett { font-weight: bold; }
+  .browserinhalt .listenblock {
+    font-size: 11.5pt; font-weight: bold; margin: 0 0 3mm; padding-left: 10mm;
+  }
+  .antwort { margin-bottom: 6mm; }
+  .antwort .frage { font-size: 11pt; margin: 0 0 2mm; }
+  .linie { border-bottom: 1px solid #ccc; height: 7mm; }
+</style>
+</head>
+<body>
+
+  <h1>Fehlerjagd</h1>
+  <p class="zeit">Zu zweit · 4 Minuten</p>
+
+  <p class="auftrag">Links steht der Code, rechts das Ergebnis im Browser. In diesem Code stecken <strong>zwei</strong> Fehler. Kreist sie ein.</p>
+
+  <div class="spalten">
+
+    <div>
+      <h2>Der Code</h2>
+<pre><span class="num"> 1</span>  &lt;h1&gt;Zopf backen&lt;/h1&gt;
+<span class="num"> 2</span>
+<span class="num"> 3</span>  &lt;p&gt;Ein Zopf braucht
+<span class="num"> 4</span>  &lt;strong&gt;wenig Zutaten
+<span class="num"> 5</span>  und viel Geduld.&lt;/p&gt;
+<span class="num"> 6</span>
+<span class="num"> 7</span>  &lt;h2&gt;Zutaten&lt;/h2&gt;
+<span class="num"> 8</span>
+<span class="num"> 9</span>  &lt;ul&gt;
+<span class="num">10</span>    500 g Mehl
+<span class="num">11</span>    1 Würfel Hefe
+<span class="num">12</span>    2,5 dl Milch
+<span class="num">13</span>  &lt;/ul&gt;
+<span class="num">14</span>
+<span class="num">15</span>  &lt;p&gt;Der Teig muss
+<span class="num">16</span>  zweimal aufgehen.&lt;/p&gt;</pre>
+    </div>
+
+    <div>
+      <h2>Das Ergebnis</h2>
+      <div class="browser">
+        <div class="browserleiste">zopf.html</div>
+        <div class="browserinhalt">
+          <div class="t1">Zopf backen</div>
+          <p>Ein Zopf braucht <span class="fett">wenig Zutaten und viel Geduld.</span></p>
+          <div class="t2">Zutaten</div>
+          <div class="listenblock">500 g Mehl 1 Würfel Hefe 2,5 dl Milch</div>
+          <p class="fett">Der Teig muss zweimal aufgehen.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="antwort">
+    <p class="frage"><strong>Fehler 1</strong> – Zeile: ______ &nbsp;&nbsp; Was sieht man deswegen?</p>
+    <div class="linie"></div>
+    <div class="linie"></div>
+  </div>
+
+  <div class="antwort">
+    <p class="frage"><strong>Fehler 2</strong> – Zeile: ______ &nbsp;&nbsp; Was sieht man deswegen?</p>
+    <div class="linie"></div>
+    <div class="linie"></div>
+  </div>
+
+</body>
+</html>

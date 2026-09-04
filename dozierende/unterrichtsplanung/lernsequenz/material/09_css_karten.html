@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Werkstatt 2 – CSS-Karten und Regel-Streifen zum Ausschneiden</title>
+<style>
+  @page { size: A4 portrait; margin: 12mm; }
+  :root { --petrol: #14495a; --oliv: #4a4830; --wert: #713d12; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+  }
+  .kopf { margin-bottom: 6mm; }
+  .kopf h1 { font-size: 15pt; color: var(--oliv); margin: 0 0 2mm; }
+  .kopf p { font-size: 9pt; color: #555; margin: 0; line-height: 1.5; }
+
+  h2.abschnitt {
+    font-size: 9pt; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--oliv); margin: 0 0 3mm; font-weight: 600;
+  }
+
+  /* Karten */
+  .karten {
+    display: grid;
+    grid-template-columns: repeat(4, 44mm);
+    gap: 4mm 3mm;
+    justify-content: start;
+    margin-bottom: 8mm;
+  }
+  .karte {
+    border: 1px dashed #999;
+    border-radius: 2px;
+    height: 20mm;
+    padding: 2mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .karte .rolle {
+    font-size: 6.5pt; text-transform: uppercase; letter-spacing: .1em;
+    color: #555; margin-bottom: 1mm;
+  }
+  .karte .wort {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 14pt; font-weight: 600;
+  }
+  .k-sel  .wort { color: var(--petrol); }
+  .k-eig  .wort { color: var(--oliv); }
+  .k-wert .wort { color: var(--wert); }
+
+  /* Regel-Streifen */
+  .streifen {
+    border: 1px dashed #999;
+    border-radius: 2px;
+    height: 26mm;
+    padding: 0 5mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    margin-bottom: 4mm;
+  }
+  .zeichen {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 16pt; color: #444;
+  }
+  .feld {
+    width: 44mm; height: 20mm;
+    border: 1px dotted #aaa; border-radius: 2px;
+    background: #fafaf8;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7pt; text-transform: uppercase; letter-spacing: .1em;
+    color: #666;
+  }
+  .fuss { margin-top: 5mm; font-size: 8pt; color: #777; }
+</style>
+</head>
+<body>
+
+  <div class="kopf">
+    <h1>CSS-Karten und Regel-Streifen – ein Satz pro Paar</h1>
+    <p>Oben 12 Karten ausschneiden und mischen. Unten die 4 Regel-Streifen auseinanderschneiden.</p>
+  </div>
+
+  <h2 class="abschnitt">12 Karten</h2>
+  <div class="karten">
+    <div class="karte k-sel"><div class="rolle">Selektor</div><div class="wort">h1</div></div>
+    <div class="karte k-sel"><div class="rolle">Selektor</div><div class="wort">h2</div></div>
+    <div class="karte k-sel"><div class="rolle">Selektor</div><div class="wort">li</div></div>
+    <div class="karte k-sel"><div class="rolle">Selektor</div><div class="wort">strong</div></div>
+
+    <div class="karte k-eig"><div class="rolle">Eigenschaft</div><div class="wort">color</div></div>
+    <div class="karte k-eig"><div class="rolle">Eigenschaft</div><div class="wort">color</div></div>
+    <div class="karte k-eig"><div class="rolle">Eigenschaft</div><div class="wort">color</div></div>
+    <div class="karte k-eig"><div class="rolle">Eigenschaft</div><div class="wort">font-size</div></div>
+
+    <div class="karte k-wert"><div class="rolle">Wert</div><div class="wort">olive</div></div>
+    <div class="karte k-wert"><div class="rolle">Wert</div><div class="wort">teal</div></div>
+    <div class="karte k-wert"><div class="rolle">Wert</div><div class="wort">chocolate</div></div>
+    <div class="karte k-wert"><div class="rolle">Wert</div><div class="wort">22px</div></div>
+  </div>
+
+  <h2 class="abschnitt">4 Regel-Streifen</h2>
+
+  <div class="streifen">
+    <div class="feld">Selektor</div>
+    <span class="zeichen">{</span>
+    <div class="feld">Eigenschaft</div>
+    <span class="zeichen">:</span>
+    <div class="feld">Wert</div>
+    <span class="zeichen">;</span>
+    <span class="zeichen">}</span>
+  </div>
+
+  <div class="streifen">
+    <div class="feld">Selektor</div>
+    <span class="zeichen">{</span>
+    <div class="feld">Eigenschaft</div>
+    <span class="zeichen">:</span>
+    <div class="feld">Wert</div>
+    <span class="zeichen">;</span>
+    <span class="zeichen">}</span>
+  </div>
+
+  <div class="streifen">
+    <div class="feld">Selektor</div>
+    <span class="zeichen">{</span>
+    <div class="feld">Eigenschaft</div>
+    <span class="zeichen">:</span>
+    <div class="feld">Wert</div>
+    <span class="zeichen">;</span>
+    <span class="zeichen">}</span>
+  </div>
+
+  <div class="streifen">
+    <div class="feld">Selektor</div>
+    <span class="zeichen">{</span>
+    <div class="feld">Eigenschaft</div>
+    <span class="zeichen">:</span>
+    <div class="feld">Wert</div>
+    <span class="zeichen">;</span>
+    <span class="zeichen">}</span>
+  </div>
+
+  <div class="fuss">12 Karten · 4 Streifen · HTML-Werkstatt</div>
+
+</body>
+</html>

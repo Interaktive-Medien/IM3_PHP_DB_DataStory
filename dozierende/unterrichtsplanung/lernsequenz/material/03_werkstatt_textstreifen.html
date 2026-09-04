@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Werkstatt – Textstreifen zum Ausschneiden</title>
+<style>
+  @page { size: A4 portrait; margin: 12mm; }
+  :root { --petrol: #4b93a4; --oliv: #8b8a6e; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+  }
+  .kopf { margin-bottom: 7mm; }
+  .kopf h1 { font-size: 15pt; color: var(--oliv); margin: 0 0 2mm; }
+  .kopf p { font-size: 9pt; color: #777; margin: 0; line-height: 1.5; }
+  .blatt {
+    display: grid;
+    grid-template-columns: repeat(2, 88mm);
+    gap: 4mm;
+    justify-content: start;
+  }
+  .streifen {
+    border: 1px dashed #bbb;
+    border-radius: 2px;
+    padding: 4mm 5mm;
+    font-size: 12pt;
+    line-height: 1.35;
+    height: 30mm;
+    display: flex;
+    align-items: center;
+  }
+  .fuss { margin-top: 6mm; font-size: 8pt; color: #999; }
+</style>
+</head>
+<body>
+
+  <div class="kopf">
+    <h1>Textstreifen – ein Satz pro Paar</h1>
+    <p>Entlang der gestrichelten Linien schneiden. Die Streifen werden in der Werkstatt zusammen mit den Tag-Karten ausgelegt.</p>
+  </div>
+
+  <div class="blatt">
+    <div class="streifen">Bircher-Müesli</div>
+    <div class="streifen">Das Bircher-Müesli wurde um 1900 von einem Zürcher Arzt entwickelt. Es besteht aus sehr wenigen Zutaten.</div>
+    <div class="streifen">Zutaten</div>
+    <div class="streifen">3 Esslöffel Haferflocken</div>
+    <div class="streifen">1 dl Milch</div>
+    <div class="streifen">1 Apfel</div>
+    <div class="streifen">Die Haferflocken brauchen Zeit.</div>
+    <div class="streifen">Ohne eine Nacht im Kühlschrank wird das nichts.</div>
+  </div>
+
+  <div class="fuss">8 Streifen · HTML-Werkstatt</div>
+
+</body>
+</html>

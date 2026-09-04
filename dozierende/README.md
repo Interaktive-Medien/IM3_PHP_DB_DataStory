@@ -53,20 +53,32 @@ Die Folien sind mit reveal.js gebaut.
 Installiere zuerst den AI-Skill `Reveal.js` in deinem AI-Tool.
 
 Das Paket liegt hier:
-`dozierende/AI_skill_revealjs/mcpmarket-plugin-me-claude.zip`
+`dozierende/AI_skill_revealjs/revealjs-skill.zip`
+
+Die ZIP enthält nur den Skill selbst (`SKILL.md`, `references/`, `scripts/`).
+
+Für Claude Code gehst du so vor:
+
+1. Entpacke die ZIP-Datei.
+2. Kopiere den entpackten Ordner nach
+   `~/.claude/skills/revealjs-1.0.0` (Ordnername lokal, ausserhalb dieses
+   Repositories).
+3. Starte eine neue Claude-Code-Session, falls der Skill nicht sofort
+   erscheint.
+
+Oder frag einfach Claude, den Skill selber zu installieren 😉
 
 Für Codex gehst du so vor:
 
 1. Entpacke die ZIP-Datei.
-2. Kopiere den Ordner `mcpmarket-me/skills/revealjs` nach
-   `.agents/skills/revealjs` in diesem Repository.
+2. Kopiere den entpackten Ordner nach `.agents/skills/revealjs` in diesem
+   Repository.
 3. Starte Codex neu, falls der Skill nicht sofort erscheint.
 4. Nenne den Skill im Auftrag mit `$revealjs`.
 
 Bei einem anderen AI-Tool kann die Installation anders sein.
 
-Installiere dort ebenfalls den Ordner `mcpmarket-me/skills/revealjs` als
-lokalen Skill.
+Installiere dort ebenfalls den entpackten Ordner als lokalen Skill.
 
 Bitte die AI vor jeder Änderung, diese Dateien zu lesen:
 

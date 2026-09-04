@@ -1,0 +1,136 @@
+/* ---------------------------------------------------------------------
+   Postenblätter der Data-Story-Posten.
+   Ergänzt den gemeinsamen Druckstil der Kickoff-Arbeitsblätter:
+
+     <link rel="stylesheet" href="../../../arbeitsblatt.css">
+     <link rel="stylesheet" href="../posten.css">
+
+   Ein Blatt pro Posten, A4 hoch, hängt am Posten an der Wand.
+   Drucken: im Browser öffnen, Cmd+P, A4 hoch, Ränder "Standard",
+   Hintergrundgrafiken einschalten.
+   --------------------------------------------------------------------- */
+
+body { padding: 12mm; font-size: 11pt; }
+
+.posten { display: flex; flex-direction: column; min-height: 265mm; }
+
+/* --- Kopf ------------------------------------------------------------ */
+
+.posten header {
+  align-items: center;
+  border-bottom-width: 3px;
+  gap: 6mm;
+  margin-bottom: 6mm;
+  padding-bottom: 4mm;
+}
+
+.nr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 18mm;
+  height: 18mm;
+  border-radius: 50%;
+  background: var(--petrol);
+  color: #fff;
+  font-size: 20pt;
+  line-height: 1;
+}
+
+.titelblock { flex: 1 1 auto; }
+.titelblock h1 { font-size: 22pt; line-height: 1.15; }
+
+.teaser {
+  margin: 2mm 0 0;
+  color: var(--text);
+  font-size: 12pt;
+}
+
+/* --- Bild ------------------------------------------------------------ */
+
+.bild {
+  /* Zusammen mit .fuss { margin-top: auto } sitzt das Bild in der Mitte. */
+  margin-top: auto;
+  border: 1px solid var(--box-border);
+  border-radius: 1.5mm;
+  overflow: hidden;
+  background: var(--box-bg);
+}
+
+.bild img { display: block; width: 100%; height: auto; }
+
+.bildnachweis {
+  margin: 1.5mm 0 0;
+  color: var(--muted);
+  font-size: 8pt;
+}
+
+/* --- Platzhalter, wenn noch kein Bild vorhanden ist ------------------- */
+
+.platzhalter {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--muted);
+  border-radius: 1.5mm;
+  min-height: 90mm;
+  padding: 6mm;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* --- Fuss: Auftrag und QR-Code --------------------------------------- */
+
+.fuss {
+  display: flex;
+  align-items: flex-start;
+  gap: 8mm;
+  margin-top: auto;
+  padding-top: 6mm;
+}
+
+.auftrag { flex: 1 1 auto; }
+.auftrag ol { margin: 0; padding-left: 6mm; font-size: 11pt; }
+.auftrag li { margin-bottom: 1.5mm; }
+
+.qr {
+  flex: 0 0 auto;
+  width: 42mm;
+  text-align: center;
+}
+
+.qr img,
+.qr .qr-leer {
+  display: block;
+  width: 42mm;
+  height: 42mm;
+}
+
+.qr .qr-leer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--muted);
+  border-radius: 1.5mm;
+  color: var(--muted);
+  font-size: 8.5pt;
+  text-align: center;
+}
+
+.qr .url {
+  margin-top: 1.5mm;
+  font-family: var(--mono);
+  font-size: 8pt;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+@page { size: A4 portrait; margin: 12mm; }
+
+@media print {
+  body { padding: 0; }
+  /* A4 abzueglich Seitenraender, damit Auftrag und QR-Code unten stehen. */
+  .posten { min-height: 268mm; }
+}

@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IM3 – Kickoff</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Font Awesome fuer Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- FHGR Foliendesign (gemeinsam fuer alle Foliensaetze) -->
+  <link rel="stylesheet" href="../_foliendesign/fhgr-slides.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- =========================================================
+           TITEL
+           ========================================================= -->
+
+      <section id="title" class="title-slide" data-state="is-title">
+        <h1>Kickoff</h1>
+        <div class="rule"></div>
+        <p>Interaktive Medien 3</p>
+        <p class="sub">nick.schneeberger@fhgr.ch</p>
+        <aside class="notes">
+          Rund 20 Minuten bis zum Workshop, danach nochmals rund 25 Minuten
+          fuer das Kapitel zu den Datenquellen. Kein PHP heute.
+        </aside>
+      </section>
+
+      <!-- =========================================================
+           KAPITEL 1 – WO WIR HERKOMMEN
+           ========================================================= -->
+
+      <section id="divider-herkunft" class="section-divider" data-state="is-section-divider">
+        <h1>Rückblick</h1>
+      </section>
+
+      <section id="was-ihr-koennt">
+        <h2>Was wir schon kennen</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch;">
+            <div class="box fragment">
+              <h3>HTML</h3>
+              <p class="text-sm mb-0">Der Aufbau einer Seite.</p>
+            </div>
+            <div class="box fragment">
+              <h3>CSS</h3>
+              <p class="text-sm mb-0">Ihr Aussehen.</p>
+            </div>
+            <div class="box fragment">
+              <h3>JavaScript</h3>
+              <p class="text-sm mb-0">Interaktivität.</p>
+            </div>
+            <div class="box fragment">
+              <h3>fetch()</h3>
+              <p class="text-sm mb-0">Daten von einer API laden.</p>
+            </div>
+          </div>
+          <div class="callout callout-blue mt-2 fragment">
+            <p>Alles davon läuft im Browser und heisst zusammen Frontend.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Kurz halten und in die Klasse fragen, wer sich bei fetch() noch sicher
+          fuehlt. Ziel dieser Folie ist Sicherheit, nicht Repetition: Das meiste
+          von dem, was ihr koennt, braucht ihr weiterhin.
+        </aside>
+      </section>
+
+      <section id="bisher-fremde-api">
+        <h2>Frontend endet hier</h2>
+        <div class="content">
+          <div class="flow">
+            <div class="flow-step is-active">
+              <span class="flow-title">Euer Frontend</span>
+              <span class="flow-sub">HTML, CSS, JavaScript</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="flow-title">fetch()</span>
+              <span class="flow-sub">eine Anfrage im Browser</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="flow-title">Fremde API</span>
+              <span class="flow-sub">liefert JSON zurück</span>
+            </div>
+          </div>
+          <p class="mt-2">Die Daten hat jemand anderes gesammelt, geprüft und gespeichert.</p>
+          <div class="callout callout-orange">
+            <p>Verschwindet die API, verschwindet auch euer Projekt.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Genau dieser Fall kommt spaeter im Workshop vor: Die Karte der
+          Parkbussen lief nur wenige Stunden, dann war die fremde Quelle
+          abgeschaltet.
+        </aside>
+      </section>
+
+      <section id="neu-eigenes-backend">
+        <h2>Neu: die andere Seite gehört euch</h2>
+        <div class="content">
+          <div class="flow">
+            <div class="flow-step">
+              <span class="flow-title">Datenquelle</span>
+              <span class="flow-sub">API, JSON oder CSV</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step is-active">
+              <span class="flow-title">Euer PHP-Server</span>
+              <span class="flow-sub">holt und säubert</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step is-active">
+              <span class="flow-title">Eure Datenbank</span>
+              <span class="flow-sub">behält die Werte</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="flow-title">Euer Frontend</span>
+              <span class="flow-sub">zeigt die Grafik</span>
+            </div>
+          </div>
+          <p class="mt-2">Die beiden markierten Schritte sind neu und heissen zusammen Backend.</p>
+          <div class="callout callout-green">
+            <p>Ab jetzt gehören euch die Daten, weil ihr sie selbst speichert.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Das ist das Bild des ganzen Semesters, absichtlich noch grob. Zwei
+          Saetze genuegen: PHP holt die Daten, die Datenbank behaelt sie. Wie
+          das technisch geht, kommt spaeter.
+        </aside>
+      </section>
+
+      <!-- =========================================================
+           KAPITEL 2 – ZIEL DIESES SEMESTERS
+           ========================================================= -->
+
+      <section id="divider-ziel" class="section-divider" data-state="is-section-divider">
+        <h1>Ziel: eine Data-Story</h1>
+        <p>Eine Geschichte, die ohne Daten nicht erzählbar wäre.</p>
+      </section>
+
+      <section id="beispiel-1kwh">
+        <h2>Wie viel Strom exportiert die Schweiz gerade?</h2>
+        <div class="content">
+          <figure>
+            <a href="https://1kwh.ch" target="_blank" rel="noopener">
+              <img class="shot" src="bilder/data-story-1kwh.jpg"
+                   alt="Liniendiagramm der Schweizer Stromexporte nach Deutschland, Frankreich, Italien und Österreich">
+            </a>
+            <figcaption>1kwh.ch – die Zahlen kommen alle zehn Sekunden von Swissgrid und werden laufend gesammelt.</figcaption>
+          </figure>
+        </div>
+        <aside class="notes">
+          Eigenes Projekt und das einzige ausfuehrliche Beispiel auf den Folien.
+          Offen fragen: Was braucht es, damit diese Grafik existieren kann? Noch
+          keine Antworten geben, der Workshop sammelt sie gleich selbst.
+        </aside>
+      </section>
+
+      <section id="divider-workshop" class="section-divider" data-state="is-section-divider">
+        <h1>Workshop<br>Data-Storys</h1>
+        <aside class="notes">
+          Uebergang in die Uebung: Laufzettel austeilen, die zwei Fragen
+          vorlesen, Posten zeigen, losschicken. 40 Minuten inklusive Auswertung.
+          Material und Drehbuch in
+          stift-und-papier/01_data_story_galerie/.
+        </aside>
+      </section>
+
+      <!-- =========================================================
+           KAPITEL 3 – AUSWERTUNG DES WORKSHOPS
+           ========================================================= -->
+
+      <section id="auswertung-workshop">
+        <h2>Resultate Workshop</h2>
+        <div class="content">
+          <p>Eure Antworten aus dem Workshop, zusammengetragen.</p>
+        </div>
+        <aside class="notes">
+          Direkt nach dem Workshop: die Antworten der Paare einsammeln und am
+          Whiteboard in vier Spalten sortieren. Die Begriffe dazu kommen ein
+          paar Folien spaeter.
+        </aside>
+      </section>
+
+      <!-- =========================================================
+           KAPITEL 4 – KURSAUFBAU
+           ========================================================= -->
+
+      <section id="divider-kursaufbau" class="section-divider" data-state="is-section-divider">
+        <h1>Kursaufbau</h1>
+      </section>
+
+      <section id="die-kette">
+        <h2>Wie kommen wir zur Data-Story?</h2>
+        <div class="content">
+          <div class="flow">
+            <div class="flow-step">
+              <span class="flow-title">Extract</span>
+              <span class="flow-sub">Daten beschaffen</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="flow-title">Transform</span>
+              <span class="flow-sub">Daten bereinigen</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="flow-title">Load</span>
+              <span class="flow-sub">Daten speichern</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="flow-title">Unload</span>
+              <span class="flow-sub">Daten ausgeben</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <span class="flow-title">Frontend</span>
+              <span class="flow-sub">Daten zeigen</span>
+            </div>
+          </div>
+          <p class="mt-2">Jeder Schritt ist eine eigene PHP-Datei mit genau einer Aufgabe.</p>
+          <div class="callout callout-blue">
+            <p>Extract, Transform und Load werden in der Praxis so genannt und zu <strong>ETL</strong> abgekürzt.</p>
+            <p>Unload ist unser eigener Name für den Schritt danach.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Dieselbe Kette wie zwei Folien vorher, jetzt mit ihren richtigen Namen.
+          Sie kommt in jedem weiteren Foliensatz als «Wo wir stehen» wieder. Hier
+          bewusst nur benennen, jeder Schritt bekommt spaeter seinen eigenen Tag.
+        </aside>
+      </section>
+
+      <section id="kursaufbau">
+        <h2>Kursaufbau</h2>
+        <div class="content">
+          <div class="kursaufbau">
+            <div class="box fragment">
+              <span class="stufe">A</span>
+              <span class="name">PHP Basics</span>
+              <span class="was">Variablen, Funktionen, Arrays und Schleifen</span>
+            </div>
+            <div class="box fragment">
+              <span class="stufe">B</span>
+              <span class="name">Extract</span>
+              <span class="was">Daten aus JSON, API und CSV einlesen</span>
+            </div>
+            <div class="box fragment">
+              <span class="stufe">C</span>
+              <span class="name">Transform</span>
+              <span class="was">Daten säubern und in Form bringen</span>
+            </div>
+            <div class="box fragment">
+              <span class="stufe">D</span>
+              <span class="name">Load</span>
+              <span class="was">Daten in der Datenbank speichern</span>
+            </div>
+            <div class="box fragment">
+              <span class="stufe">E</span>
+              <span class="name">Unload</span>
+              <span class="was">Daten als eigenen JSON-Endpunkt ausgeben</span>
+            </div>
+            <div class="box fragment">
+              <span class="stufe">F</span>
+              <span class="name">Visualisierung</span>
+              <span class="was">Aus den Daten eine Grafik und eine Story machen</span>
+            </div>
+          </div>
+          <div class="callout callout-blue fragment">
+            <p>Alle Folien, Übungen und Cheatsheets liegen im <a href="https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory" target="_blank" rel="noopener">GitHub-Repo des Kurses</a>.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Direkt auf die Kette der Folie davor zurueckzeigen: Ab dem zweiten
+          Punkt ist der Kursaufbau derselbe Weg wie der Weg der Daten. PHP
+          Basics steht davor, weil es das Werkzeug fuer alles Weitere ist.
+          Das Repo hier kurz oeffnen und zeigen, dass genau diese Reihenfolge
+          auch dort steht.
+        </aside>
+      </section>
+
+      <section id="blockaufbau">
+        <h2>Wie ein Block abläuft</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: start;">
+            <div class="fragment">
+              <span class="eyebrow">Immer dieselben Bausteine</span>
+              <ul class="icon-list list-tight">
+                <li>📕 Theorie-Input mit Folien</li>
+                <li>🧑‍🏫 Code-Along, gemeinsam entwickelt</li>
+                <li>💻 Digitale Übung mit Lösung</li>
+                <li>📝 Analoge Übung mit Stift und Papier</li>
+                <li>🛠️ Arbeit am eigenen Projekt</li>
+                <li>✅ Meilenstein zum Zeigen</li>
+              </ul>
+            </div>
+            <div class="fragment">
+              <span class="eyebrow">Beispiel Extract</span>
+              <ul class="icon-list list-tight">
+                <li>💻 Daten finden und herunterladen</li>
+                <li>📕 Theorie: Daten einlesen</li>
+                <li>🧑‍🏫 JSON lesen, dann eine API lesen</li>
+                <li>📝 Fetch-Helper auf Papier durchspielen</li>
+                <li>🧑‍🏫 CSV lesen, dann die Sensorbox lesen</li>
+                <li>🛠️ Eigene Datenquelle einlesen</li>
+                <li>✅ Datensatz gefunden</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout callout-gray fragment">
+            <p>Auf jeden Input folgt möglichst schnell etwas zum Selbermachen.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Die Reihenfolge im Beispiel ist echt und steht so in ablauf.md. Wichtig
+          ist die Botschaft: Theorie bleibt kurz, danach wird sofort gearbeitet.
+          Die Symbole sind dieselben wie im Repo, damit sich die Klasse dort
+          zurechtfindet.
+        </aside>
+      </section>
+
+      <!-- =========================================================
+           KAPITEL 5 – PROJEKT
+           ========================================================= -->
+
+      <section id="divider-projekt-start" class="section-divider" data-state="is-section-divider">
+        <h1>Projekt</h1>
+      </section>
+
+      <section id="projekt-in-einem-satz">
+        <h2>Der Auftrag in einem Satz</h2>
+        <div class="content" style="justify-content: center;">
+          <p class="big-statement">Ihr beantwortet eine Frage mit Daten, die ihr selbst beschafft, gespeichert und sichtbar gemacht habt.</p>
+        </div>
+        <aside class="notes">
+          Bewusst ohne Themenvorgabe. Das Thema entsteht gleich in der
+          Themenboerse. Die Frage selbst wird erst spaeter scharf formuliert.
+        </aside>
+      </section>
+
+      <section id="was-ist-data-story">
+        <h2>Vier Bestandteile</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch;">
+            <div class="box">
+              <h3>Daten</h3>
+              <p class="text-sm mb-0">Zahlen, die eine Frage wirklich beantworten können.</p>
+            </div>
+            <div class="box">
+              <h3>Zeit</h3>
+              <p class="text-sm mb-0">Ein Zeitraum, über den sich etwas verändert.</p>
+            </div>
+            <div class="box">
+              <h3>Darstellung</h3>
+              <p class="text-sm mb-0">Eine Grafik, in der man die Veränderung sieht.</p>
+            </div>
+            <div class="box">
+              <h3>Einbettung</h3>
+              <p class="text-sm mb-0">Text, der sagt, warum das jemanden angeht.</p>
+            </div>
+          </div>
+          <div class="callout callout-blue mt-2">
+            <p>Die ersten beiden Teile beschafft ihr, die letzten beiden gestaltet ihr.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Diese vier Begriffe an der Wandtafel mit den Antworten aus dem
+          Workshop abgleichen. Meist fehlt der Klasse der Punkt Zeit – genau
+          der macht aus einer Tabelle eine Geschichte.
+        </aside>
+      </section>
+
+      <section id="was-braucht-es">
+        <h2>Was ihr dafür bauen werdet</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+            <div>
+              <span class="eyebrow">Backend</span>
+              <ul class="list-tight">
+                <li>Eine Datenquelle, die euch Zahlen liefert</li>
+                <li>Ein Skript, das diese Zahlen säubert</li>
+                <li>Eine Datenbank, die sie behält</li>
+                <li>Ein Endpunkt, der sie als JSON ausgibt</li>
+              </ul>
+            </div>
+            <div>
+              <span class="eyebrow">Frontend</span>
+              <ul class="list-tight">
+                <li>HTML, CSS und JavaScript</li>
+                <li>Chart.js für die Grafik</li>
+                <li>Text, Titel und Quellenangaben</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Beruhigend formulieren: Das Frontend koennt ihr bereits. PHP und
+          Datenbank sind das Neue, und wir gehen sie in kleinen Schritten durch.
+        </aside>
+      </section>
+
+      <section id="projekt-grenzen">
+        <h2>Woran ihr euch halten solltet</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; align-items: start;">
+            <div class="box">
+              <h3>Eine Datenquelle</h3>
+              <p class="text-sm mb-0">Nicht drei, auch wenn es verlockend klingt.</p>
+            </div>
+            <div class="box">
+              <h3>Ein kleines Datenmodell</h3>
+              <p class="text-sm mb-0">Eine oder zwei Tabellen reichen völlig.</p>
+            </div>
+            <div class="box">
+              <h3>Ein JSON-Endpunkt</h3>
+              <p class="text-sm mb-0">Er versorgt euer Frontend mit allem Nötigen.</p>
+            </div>
+            <div class="box">
+              <h3>Mindestens eine Grafik</h3>
+              <p class="text-sm mb-0">Sie muss eure Frage beantworten, nicht beeindrucken.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Erfahrungsgemaess scheitern Projekte an zu grossen Plaenen, nie an zu
+          kleinen. Diese vier Grenzen sind eine Hilfe, keine Strafe.
+        </aside>
+      </section>
+
+      <section id="meilensteine">
+        <h2>Meilensteine</h2>
+        <div class="content">
+          <table class="meilensteine">
+            <tr><th style="width: 12%;"></th><th>Was steht</th></tr>
+            <tr><td>M1</td><td>Gruppen gebildet</td></tr>
+            <tr><td>M2</td><td>Datenfrage formuliert</td></tr>
+            <tr><td>M3</td><td>Datensatz gefunden und geprüft</td></tr>
+            <tr><td>M4</td><td>Erster Extract und Datenvertrag stehen</td></tr>
+            <tr><td>M5</td><td>Transform funktioniert</td></tr>
+            <tr><td>M6</td><td>Daten stehen in der Datenbank</td></tr>
+            <tr><td>M7</td><td>JSON-Endpunkt funktioniert</td></tr>
+            <tr><td>M8</td><td>Erste Integration steht</td></tr>
+            <tr><td>M9</td><td>Ausstellungsfähige Fassung steht</td></tr>
+            <tr><td>M10</td><td>Marktstand und Abgabe</td></tr>
+          </table>
+          <div class="callout callout-green">
+            <p>Den ersten Meilenstein macht ihr heute: Die Gruppen bilden wir direkt im Anschluss an diese Folien.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Keine Pruefungen, sondern kurze Zeigemomente. Bei jeder Abnahme drei
+          Fragen: Was laeuft schon? Was habt ihr gelernt oder neu entschieden?
+          Was ist der naechste ueberpruefbare Schritt? Die ausfuehrliche Fassung
+          mit den Abnahmekriterien steht in ablauf.md im Repo.
+        </aside>
+      </section>
+
+      <!-- =========================================================
+           KAPITEL 6 – ADMINISTRATIVES
+           ========================================================= -->
+
+      <section id="divider-administratives" class="section-divider" data-state="is-section-divider">
+        <h1>Administratives</h1>
+      </section>
+
+      <section id="pflichttermine">
+        <h2>Pflichttermine</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch;">
+            <div class="box">
+              <span class="eyebrow">28. September</span>
+              <h3>Input Datenjournalismus</h3>
+              <div class="gast">
+                <img class="portrait" src="bilder/pflichttermin-albisser.jpg"
+                     alt="Porträt von Pascal Albisser">
+                <div>
+                  <p class="text-sm gast-name">Pascal Albisser</p>
+                  <p class="text-sm">Datenjournalist bei SRF und ehemaliger MMP-Student.</p>
+                  <img class="srf-logo" src="bilder/srf-logo.png"
+                       alt="Logo von Schweizer Radio und Fernsehen">
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <span class="eyebrow">13. und 15. Oktober</span>
+              <h3>Marktstand</h3>
+              <div class="gast">
+                <img class="stand" src="bilder/pflichttermin-marktstand.jpg"
+                     alt="Ausstellungsstand mit Bildschirm, bemalter Rückwand und gestalteter Tischdecke">
+                <div>
+                  <p class="text-sm">Zürich am 13.10., Bern und Chur am 15.10.</p>
+                  <p class="text-sm mb-0">Ihr führt euer Projekt am eigenen Stand vor.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="callout callout-orange mt-2">
+            <p>An beiden Terminen ist Anwesenheitspflicht.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Bewusst direkt nach dem Workshop: Der Input von Pascal Albisser ist
+          das Zueckerli, der Marktstand das Ziel. Beim Marktstand die drei
+          Standorte klar auseinanderhalten – Zuerich zwei Tage frueher als Bern
+          und Chur. Details zu Ablauf und Abgabe kommen am Ende des Halbtags.
+        </aside>
+      </section>
+
+      <section id="marktstand-beispiel">
+        <h2>Marktstand Inspiration</h2>
+        <div class="content">
+          <figure>
+            <img src="bilder/pflichttermin-marktstand.jpg"
+                 alt="Ausstellungsstand mit Bildschirm, bemalter Rückwand, Lichterkette und gestalteter Tischdecke">
+            <figcaption>Projekt auf dem Bildschirm, bemalte Rückwand, gestaltete Tischdecke und Postkarten zum Mitnehmen.</figcaption>
+          </figure>
+        </div>
+        <aside class="notes">
+          Kurz zeigen und den Anspruch daempfen: Der Stand muss nicht aufwendig
+          sein, aber er soll zeigen, dass jemand sich Gedanken gemacht hat.
+        </aside>
+      </section>
+
+      <section id="termine">
+        <h2>Termine und Fristen</h2>
+        <div class="content">
+          <table>
+            <tr><th style="width: 46%;">Was</th><th>Wann</th></tr>
+            <tr><td>Gruppen und Rollen stehen</td><td>heute</td></tr>
+            <tr><td>Datenjournalismus mit Pascal Albisser</td><td>28. September</td></tr>
+            <tr><td>Marktstand Zürich</td><td>13. Oktober</td></tr>
+            <tr><td>Marktstand Bern und Chur</td><td>15. Oktober</td></tr>
+            <tr><td>Projektabgabe</td><td>Januar 2027</td></tr>
+          </table>
+        </div>
+        <aside class="notes">
+          Bewertung und Gewichtung stehen auf Moodle.
+        </aside>
+      </section>
+
+      <!-- =========================================================
+           KAPITEL 6 – GRUPPENBILDUNG
+           ========================================================= -->
+
+      <section id="divider-gruppenbildung" class="section-divider" data-state="is-section-divider">
+        <h1>Gruppenbildung</h1>
+      </section>
+
+      <section id="gruppenbildung">
+        <h2>Gruppenbildung</h2>
+        <div class="content">
+          <p class="list-intro">Ihr arbeitet zu viert und teilt euch in zwei Zweierteams:</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+            <div class="box">
+              <h3>Backend zu zweit</h3>
+              <p class="text-sm">Ihr holt die Daten, säubert sie und speichert sie in der Datenbank.</p>
+              <p class="text-sm mb-0">Am Ende liefert ihr einen JSON-Endpunkt aus.</p>
+            </div>
+            <div class="box">
+              <h3>Frontend zu zweit</h3>
+              <p class="text-sm">Ihr baut die Story und die Grafik.</p>
+              <p class="text-sm mb-0">Ihr startet mit erfundenen Daten und wechselt später auf den echten Endpunkt.</p>
+            </div>
+          </div>
+          <div class="callout callout-orange">
+            <p>Damit das zusammenpasst, einigt ihr euch auf einen Datenvertrag.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Datenvertrag hier kurz erklaeren: die Vereinbarung, welche Felder die
+          JSON-Ausgabe hat und wie sie heissen. Nur ankuendigen, festgehalten
+          wird sie erst, wenn die ersten echten Daten da sind.
+          Wichtig: Beide Zweierteams bleiben fuer das Ganze verantwortlich.
+          Gebildet werden die Gruppen am Schluss des Halbtags in der
+          Themenboerse.
+        </aside>
+      </section>
+
+      <section id="uebung-themenboerse">
+        <span class="eyebrow">Workshop</span>
+        <h2>Themenbörse: Gruppen finden</h2>
+        <div class="content">
+          <ol class="text-lg">
+            <li>Schätzt euch selbst kurz ein: Programmieren, Gestalten, Schreiben</li>
+            <li>Schreibt zwei Themen auf, die euch wirklich interessieren</li>
+            <li>Wir hängen alle Karten auf und sortieren sie gemeinsam</li>
+            <li>Ihr findet euch zu viert um ein Thema zusammen</li>
+            <li>Ihr verteilt im Team Backend und Frontend</li>
+          </ol>
+        </div>
+        <aside class="notes">
+          45 Minuten und Abschluss des Halbtags. Material in
+          stift-und-papier/02_themenboerse/. Die Selbsteinschaetzungen bleiben
+          bei mir – sie dienen nur dazu, keine Gruppe ohne Programmiersicherheit
+          zu lassen.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c',
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealHighlight, RevealNotes ]
+    });
+  </script>
+</body>
+</html>

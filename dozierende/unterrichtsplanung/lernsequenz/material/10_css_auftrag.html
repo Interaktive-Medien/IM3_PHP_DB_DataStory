@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Werkstatt 2 – Auftrag</title>
+<style>
+  @page { size: A4 portrait; margin: 15mm; }
+  :root { --petrol: #4b93a4; --oliv: #8b8a6e; --wert: #b5723a; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.55;
+  }
+  h1 { font-size: 24pt; color: var(--oliv); margin: 0 0 2mm; }
+  .zeit { font-size: 10pt; color: #999; margin: 0 0 8mm; letter-spacing: .1em; text-transform: uppercase; }
+  ol { font-size: 13pt; padding-left: 6mm; margin: 0 0 8mm; }
+  ol li { margin-bottom: 3mm; }
+  .box {
+    background: #f6f6f3; border: 1px solid #e4e3da; border-radius: 3px;
+    padding: 5mm 6mm; margin-bottom: 7mm;
+  }
+  .box h2 {
+    font-size: 10pt; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--oliv); margin: 0 0 4mm;
+  }
+  .schema { display: flex; align-items: flex-start; gap: 2mm; }
+  .teil { display: flex; flex-direction: column; align-items: stretch; }
+  .kartchen {
+    border: 1px dashed #999; border-radius: 2px;
+    padding: 3mm 4mm; background: #fff; min-width: 26mm; text-align: center;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12pt; font-weight: 600;
+  }
+  .teil .marke {
+    font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+    color: #aaa; text-align: center; margin-top: 1.5mm;
+  }
+  .schema .zeichen { padding-top: 3mm; }
+  .k-sel  { color: var(--petrol); }
+  .k-eig  { color: var(--oliv); }
+  .k-wert { color: var(--wert); }
+  .zeichen {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 14pt; color: #b9b8ae;
+  }
+  table { border-collapse: collapse; width: 100%; font-size: 11pt; }
+  td { padding: 1.5mm 0; vertical-align: top; }
+  td.rolle { font-weight: 600; width: 32mm; }
+  td.rolle.r-sel  { color: var(--petrol); }
+  td.rolle.r-eig  { color: var(--oliv); }
+  td.rolle.r-wert { color: var(--wert); }
+  .hinweis {
+    border-left: 4px solid var(--petrol); background: #eef5f7;
+    padding: 4mm 6mm; font-size: 11pt; margin-bottom: 7mm;
+  }
+  .hinweis p { margin: 0 0 2mm; }
+  .hinweis p:last-child { margin-bottom: 0; }
+  code {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    color: var(--petrol); font-weight: 600;
+  }
+  .check { font-size: 11pt; margin: 0; padding-left: 5mm; }
+  .check li { margin-bottom: 2mm; }
+</style>
+</head>
+<body>
+
+  <h1>Werkstatt 2: Die Seite gestalten</h1>
+  <p class="zeit">Zu zweit · 3 Minuten</p>
+
+  <ol>
+    <li>Legt die vier Regel-Streifen untereinander neben eure ausgezeichnete Seite.</li>
+    <li>Belegt jeden Streifen mit drei Karten: Selektor, Eigenschaft, Wert.</li>
+    <li>Lest jede fertige Regel einmal laut vor.</li>
+  </ol>
+
+  <div class="box">
+    <h2>So sieht eine Regel aus</h2>
+    <div class="schema">
+      <div class="teil">
+        <div class="kartchen k-sel">h1</div>
+        <div class="marke">Selektor</div>
+      </div>
+      <span class="zeichen">{</span>
+      <div class="teil">
+        <div class="kartchen k-eig">color</div>
+        <div class="marke">Eigenschaft</div>
+      </div>
+      <span class="zeichen">:</span>
+      <div class="teil">
+        <div class="kartchen k-wert">olive</div>
+        <div class="marke">Wert</div>
+      </div>
+      <span class="zeichen">;</span>
+      <span class="zeichen">}</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Die drei Teile</h2>
+    <table>
+      <tr><td class="rolle r-sel">Selektor</td><td>wen es betrifft – einer der Namen, die ihr vorhin vergeben habt</td></tr>
+      <tr><td class="rolle r-eig">Eigenschaft</td><td>was sich ändert, zum Beispiel die Farbe</td></tr>
+      <tr><td class="rolle r-wert">Wert</td><td>wie es danach aussieht</td></tr>
+    </table>
+  </div>
+
+  <div class="hinweis">
+    <p>Welche Farbe zu welchem Teil passt, entscheidet ihr selbst. Wichtig ist nur, dass jede Regel vollständig ist.</p>
+    <p><code>22px</code> ist eine Grösse, die anderen drei Werte sind Farbnamen.</p>
+    <p>Eine Regel für <code>li</code> trifft alle drei Listenpunkte auf einmal. Ihr müsst sie nicht dreimal legen.</p>
+  </div>
+
+  <div class="box">
+    <h2>Selbstkontrolle</h2>
+    <ul class="check">
+      <li>Auf jedem Streifen liegen genau drei Karten.</li>
+      <li>Jede Karte liegt auf dem Feld mit der passenden Beschriftung.</li>
+      <li>Ihr könnt jede Regel als Satz vorlesen: «Alles, was <code>li</code> heisst, bekommt die Schriftgrösse 22 Pixel.»</li>
+    </ul>
+  </div>
+
+</body>
+</html>

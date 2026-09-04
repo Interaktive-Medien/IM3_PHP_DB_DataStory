@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Laufzettel – Data-Story-Posten</title>
+<!-- Druckstil liegt gemeinsam fuer alle Kickoff-Uebungen eine Ebene hoeher. -->
+<link rel="stylesheet" href="../arbeitsblatt.css">
+<style>
+  /* Fünf Posten auf ein Blatt A4 quer, drei nebeneinander. */
+  .posten-raster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .posten-feld { border: 1px solid var(--box-border); border-radius: 1.5mm; padding: 3mm; }
+  .posten-feld .titel { color: var(--oliv); font-size: 10.5pt; font-weight: 600; }
+  .posten-feld .titel .nr { color: var(--petrol); font-family: var(--mono); }
+  .frage { margin-top: 2mm; }
+  .frage .beschriftung { text-transform: none; letter-spacing: 0; font-size: 8.5pt; }
+  .linie { height: 7mm; }
+  .fuss { display: grid; grid-template-columns: 1fr 2fr; gap: 6mm; margin-top: 4mm; }
+</style>
+</head>
+<body class="a4-quer">
+<div class="blatt">
+  <section class="seite">
+
+    <header>
+      <h1>Laufzettel – Data-Story-Posten</h1>
+      <div class="meta">Name: _______________________<br>Interaktive Medien 3 · Kickoff</div>
+    </header>
+
+    <p>Geht zu den Posten, die euch interessieren. Es geht nicht um Technik,
+      sondern nur um die Daten. Drei ausgefüllte Posten reichen.</p>
+
+    <div class="posten-raster">
+
+      <div class="posten-feld">
+        <div class="titel"><span class="nr">1</span> Wo die Parkbussen herkommen</div>
+        <div class="frage">
+          <span class="beschriftung">Welche Daten stecken dahinter? Eine Zeile der Tabelle:</span>
+          <div class="linie"></div><div class="linie"></div><div class="linie"></div>
+        </div>
+        <div class="frage">
+          <span class="beschriftung">Woher, und über welchen Zeitraum gesammelt?</span>
+          <div class="linie"></div><div class="linie"></div>
+        </div>
+      </div>
+
+      <div class="posten-feld">
+        <div class="titel"><span class="nr">2</span> My Social Year 2024</div>
+        <div class="frage">
+          <span class="beschriftung">Welche Daten stecken dahinter? Eine Zeile der Tabelle:</span>
+          <div class="linie"></div><div class="linie"></div><div class="linie"></div>
+        </div>
+        <div class="frage">
+          <span class="beschriftung">Woher, und über welchen Zeitraum gesammelt?</span>
+          <div class="linie"></div><div class="linie"></div>
+        </div>
+      </div>
+
+      <div class="posten-feld">
+        <div class="titel"><span class="nr">3</span> The Pour-igin of Species</div>
+        <div class="frage">
+          <span class="beschriftung">Welche Daten stecken dahinter? Eine Zeile der Tabelle:</span>
+          <div class="linie"></div><div class="linie"></div><div class="linie"></div>
+        </div>
+        <div class="frage">
+          <span class="beschriftung">Woher, und über welchen Zeitraum gesammelt?</span>
+          <div class="linie"></div><div class="linie"></div>
+        </div>
+      </div>
+
+      <div class="posten-feld">
+        <div class="titel"><span class="nr">4</span> Der Spion in unseren Handys</div>
+        <div class="frage">
+          <span class="beschriftung">Welche Daten stecken dahinter? Eine Zeile der Tabelle:</span>
+          <div class="linie"></div><div class="linie"></div><div class="linie"></div>
+        </div>
+        <div class="frage">
+          <span class="beschriftung">Woher, und über welchen Zeitraum gesammelt?</span>
+          <div class="linie"></div><div class="linie"></div>
+        </div>
+      </div>
+
+      <div class="posten-feld">
+        <div class="titel"><span class="nr">5</span> Stromexporte der Schweiz</div>
+        <div class="frage">
+          <span class="beschriftung">Welche Daten stecken dahinter? Eine Zeile der Tabelle:</span>
+          <div class="linie"></div><div class="linie"></div><div class="linie"></div>
+        </div>
+        <div class="frage">
+          <span class="beschriftung">Woher, und über welchen Zeitraum gesammelt?</span>
+          <div class="linie"></div><div class="linie"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="fuss">
+      <div>
+        <span class="beschriftung">Mein Lieblingsposten</span>
+        <div class="feld" style="min-height: 12mm;"></div>
+      </div>
+      <div>
+        <span class="beschriftung">Weil …</span>
+        <div class="feld" style="min-height: 12mm;"></div>
+      </div>
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

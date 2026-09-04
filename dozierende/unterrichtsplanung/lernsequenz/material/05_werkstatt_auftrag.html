@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Werkstatt – Auftrag</title>
+<style>
+  @page { size: A4 portrait; margin: 15mm; }
+  :root { --petrol: #4b93a4; --oliv: #8b8a6e; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.55;
+  }
+  h1 { font-size: 24pt; color: var(--oliv); margin: 0 0 2mm; }
+  .zeit { font-size: 10pt; color: #999; margin: 0 0 8mm; letter-spacing: .1em; text-transform: uppercase; }
+  ol { font-size: 13pt; padding-left: 6mm; margin: 0 0 8mm; }
+  ol li { margin-bottom: 3mm; }
+  .box {
+    background: #f6f6f3; border: 1px solid #e4e3da; border-radius: 3px;
+    padding: 5mm 6mm; margin-bottom: 7mm;
+  }
+  .box h2 {
+    font-size: 10pt; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--oliv); margin: 0 0 4mm;
+  }
+  .schema { display: flex; align-items: center; gap: 3mm; margin-bottom: 3mm; }
+  .kartchen {
+    border: 1px dashed #999; border-radius: 2px;
+    padding: 3mm 4mm; background: #fff;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12pt; font-weight: 600; color: var(--petrol);
+  }
+  .streifchen {
+    border: 1px dashed #999; border-radius: 2px;
+    padding: 3mm 5mm; background: #fff; font-size: 11pt; flex: 1;
+  }
+  .schema-text { font-size: 10pt; color: #777; margin: 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 11pt; }
+  td { padding: 1.5mm 0; vertical-align: top; }
+  td.tag {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    color: var(--petrol); font-weight: 600; width: 28mm;
+  }
+  .hinweis {
+    border-left: 4px solid var(--petrol); background: #eef5f7;
+    padding: 4mm 6mm; font-size: 11pt; margin-bottom: 7mm;
+  }
+  .check { font-size: 11pt; margin: 0; padding-left: 5mm; }
+  .check li { margin-bottom: 2mm; }
+</style>
+</head>
+<body>
+
+  <h1>Werkstatt: Text auszeichnen</h1>
+  <p class="zeit">Zu zweit · 6 Minuten</p>
+
+  <ol>
+    <li>Legt die 8 Textstreifen in der richtigen Reihenfolge untereinander auf den Tisch.</li>
+    <li>Legt zu jedem Streifen links die öffnende und rechts die schliessende Karte.</li>
+    <li>Entscheidet zum Schluss, welcher Streifen besonders wichtig ist, und markiert ihn.</li>
+  </ol>
+
+  <div class="box">
+    <h2>So sieht eine Zeile aus</h2>
+    <div class="schema">
+      <div class="kartchen">&lt;p&gt;</div>
+      <div class="streifchen">Ein Beispielsatz.</div>
+      <div class="kartchen">&lt;/p&gt;</div>
+    </div>
+    <p class="schema-text">Links auf, in der Mitte der Inhalt, rechts wieder zu.</p>
+  </div>
+
+  <div class="box">
+    <h2>Die sechs Markierungen</h2>
+    <table>
+      <tr><td class="tag">h1</td><td>der Titel der Seite, kommt genau einmal vor</td></tr>
+      <tr><td class="tag">h2</td><td>eine Zwischenüberschrift</td></tr>
+      <tr><td class="tag">p</td><td>ein Absatz Fliesstext</td></tr>
+      <tr><td class="tag">ul</td><td>eine Aufzählung als Ganzes</td></tr>
+      <tr><td class="tag">li</td><td>ein einzelner Punkt in dieser Aufzählung</td></tr>
+      <tr><td class="tag">strong</td><td>etwas Wichtiges innerhalb eines Absatzes</td></tr>
+    </table>
+  </div>
+
+  <div class="hinweis">
+    Zwei Markierungen umfassen mehr als einen Streifen. Legt diese Karten weiter aussen.
+  </div>
+
+  <div class="box">
+    <h2>Selbstkontrolle</h2>
+    <ul class="check">
+      <li>Es liegt keine Karte mehr neben dem Tisch.</li>
+      <li>Zu jeder geöffneten Markierung gibt es die passende geschlossene.</li>
+      <li>Ihr könnt eure Lösung von oben nach unten laut vorlesen.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

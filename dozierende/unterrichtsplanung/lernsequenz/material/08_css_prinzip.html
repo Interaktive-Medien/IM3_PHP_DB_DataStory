@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Prinzip: wen – was – wie</title>
+<style>
+  :root {
+    --petrol: #4b93a4; --oliv: #8b8a6e; --wert: #b5723a;
+    --text: #575757; --line: #e4e3da;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px 48px;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--text); background: #fff;
+  }
+
+  .banner {
+    background: #f6f6f3; border-radius: 5px;
+    padding: 34px 24px 26px; margin-bottom: 34px;
+  }
+  .regel {
+    display: flex; align-items: flex-start; justify-content: center; gap: 10px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+  }
+  .teil { display: flex; flex-direction: column; align-items: center; }
+  .teil .wort { font-size: 46px; font-weight: 600; line-height: 1; }
+  .teil .marke {
+    margin-top: 14px; font-size: 13px; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .teil .frage {
+    margin-top: 3px; font-size: 17px; color: #9a9a92;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .sel  .wort, .sel  .marke { color: var(--petrol); }
+  .eig  .wort, .eig  .marke { color: var(--oliv); }
+  .wert .wort, .wert .marke { color: var(--wert); }
+  .zeichen {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 46px; color: #b9b8ae; line-height: 1;
+  }
+
+  .satz {
+    text-align: center; font-size: 25px; line-height: 1.45;
+    margin: 0 0 34px; max-width: 30em; align-self: center;
+  }
+  .satz b { color: var(--petrol); font-weight: 600; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .spalte h3 {
+    font-size: 14px; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--oliv); margin: 0 0 12px; font-weight: 600;
+  }
+  pre {
+    margin: 0; padding: 26px 28px; background: #f6f6f3;
+    border: 1px solid var(--line); border-radius: 4px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 26px; line-height: 1.6; white-space: pre;
+  }
+  .vorschau {
+    padding: 18px 28px 22px; border: 1px solid var(--line); border-radius: 4px;
+    font-family: "Times New Roman", Times, serif; color: #000;
+  }
+  .vorschau ul { margin: 0; padding-left: 30px; }
+  .vorschau li { font-size: 26px; margin-bottom: 8px; }
+  .fuss { margin-top: 26px; text-align: center; font-size: 17px; color: #9a9a92; }
+</style>
+</head>
+<body>
+
+  <div class="banner">
+    <div class="regel">
+      <div class="teil sel">
+        <span class="wort">h1</span>
+        <span class="marke">Selektor</span>
+        <span class="frage">wen es betrifft</span>
+      </div>
+      <span class="zeichen">{</span>
+      <div class="teil eig">
+        <span class="wort">color</span>
+        <span class="marke">Eigenschaft</span>
+        <span class="frage">was sich ändert</span>
+      </div>
+      <span class="zeichen">:</span>
+      <div class="teil wert">
+        <span class="wort">olive</span>
+        <span class="marke">Wert</span>
+        <span class="frage">wie es aussieht</span>
+      </div>
+      <span class="zeichen">;</span>
+      <span class="zeichen">}</span>
+    </div>
+  </div>
+
+  <p class="satz">
+    Sie haben jedem Teil einen <b>Namen</b> gegeben.
+    Jetzt sage ich einmal, wie alles mit diesem Namen aussehen soll.
+  </p>
+
+  <div class="split">
+    <div class="spalte">
+      <h3>Eine Regel</h3>
+<pre><span style="color:#4b93a4;font-weight:600">li</span> <span style="color:#b9b8ae">{</span> <span style="color:#8b8a6e;font-weight:600">font-size</span><span style="color:#b9b8ae">:</span> <span style="color:#b5723a;font-weight:600">22px</span><span style="color:#b9b8ae">; }</span></pre>
+    </div>
+
+    <div class="spalte">
+      <h3>Trifft alle Listenpunkte auf einmal</h3>
+      <div class="vorschau">
+        <ul>
+          <li>3 Esslöffel Haferflocken</li>
+          <li>1 dl Milch</li>
+          <li>1 Apfel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="fuss">Eine Regel · drei Listenpunkte · kein einziges Mal wiederholt</p>
+
+</body>
+</html>
