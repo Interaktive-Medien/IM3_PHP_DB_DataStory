@@ -136,6 +136,25 @@
 
 /* Der Arbeitsauftrag steht auf der Unterkante des Inhaltsbereichs,
  * gleich wie ein Callout am Folienschluss. */
-.reveal .auftrag { margin-top: auto; }
+.reveal .auftrag {
+  margin-top: auto;
+  margin-bottom: 34px;
+}
 
 .reveal .auftrag ul li:last-child { margin-bottom: 0; }
+
+/* Folie "Resultate Workshop": fuenf Zeilen mit drei Spalten Antworten,
+ * deshalb enger und kleiner als eine normale Tabelle. */
+.reveal table.resultate td,
+.reveal table.resultate th {
+  padding: 7px 14px 7px 0;
+  font-size: 13pt;
+  vertical-align: top;
+}
+
+.reveal table.resultate .nr {
+  display: inline-block;
+  margin-right: 7px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
