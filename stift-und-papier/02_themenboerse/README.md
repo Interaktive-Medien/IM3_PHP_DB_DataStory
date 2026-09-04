@@ -1,4 +1,4 @@
-# 04 – Themenbörse
+# 02 – Themenbörse
 
 > **Ziel:** Ihr findet euch zu viert um ein gemeinsames Interesse zusammen und
 > legt fest, wer im Team das Backend und wer das Frontend übernimmt.
@@ -8,7 +8,7 @@
 **Sozialform:** Einzelarbeit → Plenum → Projektteam
 
 **Einsatz:** Abschluss des Kickoffs. Endet mit **M1** aus dem
-[Ablauf](../../../ablauf.md).
+[Ablauf](../../ablauf.md).
 
 ## Warum diese Übung
 

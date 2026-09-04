@@ -58,17 +58,29 @@ ganz am Schluss, im Deployment-Teil.
 
 ### Kickoff
 
-1. `📕` Theorie: [Kickoff – wo wir herkommen und was wir bauen](theorie/00_kickoff/) `20'`
-2. `📝` Analoge Übung: [01 Data-Story-Galerie](uebungen/00_kickoff/01_data_story_galerie/) `40'`
-3. `📕` Theorie: [Kickoff – woher die Daten kommen](theorie/00_kickoff/) `25'`
-4. `🔎` [04 Themenbörse: Gruppen bilden und Rollen festlegen](uebungen/00_kickoff/04_themenboerse/) `45'`
+1. `📕` Theorie: [Kickoff – Rückblick und Ziel](theorie/00_kickoff/) `15'`
+2. `📝` Analoge Übung: [01 Data-Story-Workshop](stift-und-papier/01_data_story_galerie/) `40'`
+3. `📕` Theorie: [Kickoff – Kursaufbau, Projekt und Administratives](theorie/00_kickoff/) `25'`
+4. `🔎` Analoge Übung: [02 Themenbörse](stift-und-papier/02_themenboerse/) `45'`
 5. `✅` **M1: Gruppen gebildet**
+
+Der Foliensatz wird in zwei Portionen gehalten; der Data-Story-Workshop liegt
+dazwischen. Der erste Teil bleibt kurz: Rückblick auf das Frontend, das fehlende
+Backend, die Data-Story als Ziel und das Beispiel 1kwh.ch. Danach übergibt der
+Kapiteltrenner «Workshop Data-Storys» direkt in die Übung.
+
+Der zweite Teil nimmt die Resultate auf und geht weiter zu Kursaufbau, Projekt,
+Meilensteinen und den Pflichtterminen. Er endet mit dem Kapitel Gruppenbildung
+und der Themenbörse.
+
+Der lokale PHP-Server, der ebenfalls zu M1 gehört, wird im anschliessenden
+Tooling-Teil eingerichtet.
 
 ### Block A – PHP Basics
 
 1. `🛠️` Tooling: Editor, Terminal und Git überprüfen `30'`
 2. `🛠️` Tooling: Lokaler Server [00 Lokaler PHP-Server](theorie/00_lokaler_php_server/index.html) `30'`
-3. `📝` Analoge Übung: [01 Von JavaScript zu PHP](stift-und-papier/01_von_js_zu_php/) `35'`
+3. `📝` Analoge Übung: [03 Von JavaScript zu PHP](stift-und-papier/03_von_js_zu_php/) `35'`
 4. `🧑‍🏫` Code-Along: [00 Hallo PHP](code-alongs/A_PHP_Basics/00_hallo_php) `30'`
 5. `📕` Theorie A: [PHP Basics](theorie/A_PHP_Basics) `60'`
 6. `🧑‍🏫` Code-Along: [01 Variablen](code-alongs/A_PHP_Basics/01_variablen) `25'`
@@ -94,7 +106,7 @@ ganz am Schluss, im Deployment-Teil.
 2. `📕` Theorie B: [Extract](theorie/B_extract) `20'`
 3. `🧑‍🏫` Code-Along: [06 JSON lesen](code-alongs/B_extract/06_json_lesen) _(statische Datei)_ `30'`
 4. `🧑‍🏫` Code-Along: [07 API lesen](code-alongs/B_extract/07_api_lesen) _(Live-API)_ `30'`
-5. `📝` Analoge Übung: [02 Fetch Helper](stift-und-papier/02_fetch_helper/) `40'`
+5. `📝` Analoge Übung: [04 Fetch Helper](stift-und-papier/04_fetch_helper/) `40'`
 6. `🧑‍🏫` Code-Along: [08 CSV lesen](code-alongs/B_extract/08_csv_lesen) _(CSV-Datei)_ `30'`
 7. `🧑‍🏫` Code-Along: [09 Sensor lesen](code-alongs/B_extract/09_sensor_lesen) _(Sensor-API)_ `30'`
 8. `🔎` Datenquellen recherchieren & prüfen `60'`
@@ -105,7 +117,7 @@ ganz am Schluss, im Deployment-Teil.
 ### Block C – Transform
 
 1. `📕` [Theorie C: Transform](theorie/C_transform/) `60'`
-2. `📝` Analoge Übung: [03 Wetterdaten transformieren](stift-und-papier/03_transform_weather/) `30'`
+2. `📝` Analoge Übung: [05 Wetterdaten transformieren](stift-und-papier/05_transform_weather/) `30'`
 3. `🧑‍🏫` Code-Along: [09 Hitzesommer transformieren](code-alongs/C_transform/09_hitzesommer_transformieren/) `60'`
 4. `🧑‍🏫` Code-Along: [10 Shark-Daten mit KI transformieren](code-alongs/C_transform/10_sharkdaten_transformieren/) `90'`
 5. `🛠️` Eigene Rohdaten nach dem Datenvertrag säubern und umformen

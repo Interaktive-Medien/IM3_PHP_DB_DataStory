@@ -1,7 +1,7 @@
-# Ablauf `01_data_story_posten`
+# Ablauf `01_data_story_galerie`
 
 > Einstieg in den Kickoff, nach dem ersten Teil der
-> [Kickoff-Folien](../../../../theorie/00_kickoff/index.html). Die Klasse
+> [Kickoff-Folien](../../../theorie/00_kickoff/index.html). Die Klasse
 > läuft an fünf Posten vorbei und leitet daraus selbst ab, was eine
 > Data-Story braucht. Botschaft am Schluss: Hinter jeder dieser Grafiken
 > steht eine Tabelle, ein Datensatz.
@@ -9,7 +9,7 @@
 **Dauer:** 40' · **Sozialform:** freier Postenlauf zu zweit → Plenum
 
 **Lernphase:** Irritation und Vorwissen aktivieren (MOMBI 1–2, siehe
-[Werkzeugkasten](../../../../dozierende/unterrichtsplanung/README.md))
+[Werkzeugkasten](../../../dozierende/unterrichtsplanung/README.md))
 
 ## Raum und Bestuhlung
 

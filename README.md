@@ -155,9 +155,9 @@ mit Lösung. Ihr findet sie thematisch sortiert im Ordner [uebungen](uebungen/).
 
 ### 5.5 📝 Stift und Papier
 
-Manches plant man besser zuerst ohne Computer: den Datenfluss, das Datenmodell
-oder die Schnittstelle. Das Material für diese analogen Übungen liegt im Ordner
-[stift-und-papier](stift-und-papier/).
+Manches macht man besser ohne Computer: fertige Data-Storys auseinandernehmen,
+den Datenfluss planen oder Code auf Papier entschlüsseln. Das Material für diese
+analogen Übungen liegt im Ordner [stift-und-papier](stift-und-papier/).
 
 ### 5.6 🌡️ Beispielprojekt
 

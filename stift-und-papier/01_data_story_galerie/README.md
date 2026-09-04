@@ -7,9 +7,9 @@
 
 **Sozialform:** freier Postenlauf zu zweit, danach Plenum
 
-**Einsatz:** im Kickoff, direkt nach dem ersten Teil der
-[Kickoff-Folien](../../../theorie/00_kickoff/index.html) und vor der Folie
-«Was eine Data-Story ausmacht».
+**Einsatz:** im Kickoff, direkt nach dem Kapiteltrenner «Workshop
+Data-Storys» der [Kickoff-Folien](../../theorie/00_kickoff/index.html). Die
+Auswertung läuft danach über die Folie «Resultate Workshop».
 
 ## Warum diese Übung
 

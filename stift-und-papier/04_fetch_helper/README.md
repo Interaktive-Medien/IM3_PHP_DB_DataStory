@@ -38,4 +38,4 @@ später über jeden Zugriff wie `$data['hourly']['time']`.
 | 5 | Zusatz für schnelle Gruppen | – |
 
 Die vollständige Moderation steht in
-[`Ablauf/02_fetch_helper_ablauf.md`](Ablauf/02_fetch_helper_ablauf.md).
+[`Ablauf/04_fetch_helper_ablauf.md`](Ablauf/04_fetch_helper_ablauf.md).

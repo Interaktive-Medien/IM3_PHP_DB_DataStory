@@ -1,4 +1,4 @@
-# Ablauf `04_themenboerse`
+# Ablauf `02_themenboerse`
 
 > Abschluss des Kickoffs. Die Klasse bildet Vierergruppen um gemeinsame
 > Interessen statt um die Sitzordnung und verteilt im Team die beiden Rollen.
@@ -8,7 +8,7 @@
 
 **Lernphase:** Vertiefen und übertragen (MOMBI 6), Methode: Placemat-Prinzip an
 der Wand, siehe
-[Werkzeugkasten](../../../../dozierende/unterrichtsplanung/README.md)
+[Werkzeugkasten](../../../dozierende/unterrichtsplanung/README.md)
 
 ## Material
 
