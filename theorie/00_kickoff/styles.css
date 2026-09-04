@@ -11,3 +11,82 @@
 .reveal table.meilensteine th {
   padding-bottom: 6px;
 }
+
+/* Folie "Pflichttermine": Porträt des Gasts neben seinen Angaben. */
+.reveal .gast {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-top: 14px;
+}
+
+.reveal .gast .portrait {
+  width: 118px;
+  height: 118px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Marktstand-Foto in der Terminkarte: Originalverhaeltnis 3:4, Text daneben. */
+.reveal .gast .stand {
+  display: block;
+  height: 216px;
+  width: auto;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--box-radius);
+  margin: 0;
+}
+
+.reveal .gast .gast-name {
+  color: var(--text-color);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.reveal .gast .srf-logo {
+  width: 148px;
+  height: auto;
+  margin-top: 14px;
+}
+
+/* Folie "Kursaufbau": die sechs Blöcke als schmale Zeilen untereinander,
+ * damit die Reihenfolge dieselbe Kette zeigt wie die Folie davor. */
+.reveal .kursaufbau {
+  display: grid;
+  gap: 8px;
+}
+
+.reveal .kursaufbau .box {
+  display: grid;
+  grid-template-columns: 30px 220px 1fr;
+  align-items: baseline;
+  gap: 0 14px;
+  padding: 11px 20px;
+  margin: 0;
+}
+
+.reveal .kursaufbau .stufe {
+  font-size: 17pt;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.reveal .kursaufbau .name {
+  font-size: 17pt;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.reveal .kursaufbau .was {
+  font-size: 14pt;
+  color: var(--muted-color);
+}
+
+/* Folie "Wie ein Block abläuft": Listen mit Symbol statt Aufzählungsstrich. */
+.reveal .icon-list li {
+  padding-left: 0;
+  font-size: 15pt;
+}
+
+.reveal .icon-list li::before { content: none; }

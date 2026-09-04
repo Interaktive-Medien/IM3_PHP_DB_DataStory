@@ -17,13 +17,13 @@ Bis auf die Datenspur-Jagd braucht ihr keinen Laptop und kein PHP.
 
 | Was | Richtwert |
 | --- | --------: |
-| Kickoff-Folien, erster Teil: Ziel und Weg | 25' |
+| Kickoff-Folien, erster Teil: wo wir herkommen und was wir bauen | 20' |
 | 01 Data-Story-Posten | 40' |
 | Kickoff-Folien, zweiter Teil: woher die Daten kommen | 25' |
 | 02 Dataset-Blinddate | 30' |
 | 03 Datenspur-Jagd | 25' |
 | 04 Themenbörse und Rollen | 45' |
-| **Total ohne Pausen** | **190'** |
+| **Total ohne Pausen** | **185'** |
 
 Der Halbtag ist bewusst leicht überbucht. Die Datenspur-Jagd ist der Puffer und
 darf entfallen.

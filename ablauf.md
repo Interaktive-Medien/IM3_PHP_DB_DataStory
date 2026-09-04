@@ -58,17 +58,11 @@ ganz am Schluss, im Deployment-Teil.
 
 ### Kickoff
 
-1. `📕` Theorie: [Kickoff – Data-Story und ETL](theorie/00_kickoff/) `25'`
+1. `📕` Theorie: [Kickoff – wo wir herkommen und was wir bauen](theorie/00_kickoff/) `20'`
 2. `📝` Analoge Übung: [01 Data-Story-Galerie](uebungen/00_kickoff/01_data_story_galerie/) `40'`
 3. `📕` Theorie: [Kickoff – woher die Daten kommen](theorie/00_kickoff/) `25'`
-4. `📝` Analoge Übung: [02 Dataset-Blinddate](uebungen/00_kickoff/02_dataset_blinddate/) `30'`
-5. `💻` Digitale Übung: [03 Datenspur-Jagd](uebungen/00_kickoff/03_datenspur_jagd/) `25'`
-6. `🔎` [04 Themenbörse: Gruppen bilden und Rollen festlegen](uebungen/00_kickoff/04_themenboerse/) `45'`
-7. `✅` **M1: Gruppen gebildet**
-
-Der Foliensatz wird in zwei Portionen gehalten; die Galerie liegt dazwischen.
-Die Datenspur-Jagd ist der Zeitpuffer des Halbtags. Der lokale PHP-Server, der
-ebenfalls zu M1 gehört, wird im anschliessenden Tooling-Teil eingerichtet.
+4. `🔎` [04 Themenbörse: Gruppen bilden und Rollen festlegen](uebungen/00_kickoff/04_themenboerse/) `45'`
+5. `✅` **M1: Gruppen gebildet**
 
 ### Block A – PHP Basics
 
@@ -166,6 +160,18 @@ ebenfalls zu M1 gehört, wird im anschliessenden Tooling-Teil eingerichtet.
 4. `✅` **M9: Ausstellungsfähige Fassung steht**
 5. `🛠️` Marktstand aufbauen, Projekt vorführen und definitiv abgeben
 6. `✅` **M10: Marktstand & Abgabe**
+
+## Pflichttermine
+
+Zwei Termine stehen fest und sind für alle verbindlich:
+
+| Termin        | Was                                                                        |
+| ------------- | -------------------------------------------------------------------------- |
+| 28. September | Input Datenjournalismus mit Pascal Albisser, zwei Stunden inklusive Fragen |
+| 13. Oktober   | Marktstand in Zürich                                                       |
+| 15. Oktober   | Marktstand in Bern und Chur                                                |
+
+Die Abgabe erfolgt am Marktstand; eine spätere Frist gibt es nicht.
 
 ## Meilensteine
 

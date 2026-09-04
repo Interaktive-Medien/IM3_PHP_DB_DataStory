@@ -21,8 +21,8 @@ Der Kurs wird in dieser Planung als Folge von zehn Kurstagen behandelt, alle
 als vollwertige Kurstage (kein Halbtag). Tag 10 ist der Marktstand und die
 Abgabe. Tag 1 enthaelt nur Kickoff, Tooling, Servereinrichtung und
 Begleitprogramm, noch keine PHP-Grundlagen. Ein zweistuendiger Input von Pascal
-Alisser zum Datenjournalismus schwebt als Story-Input neben den technischen
-Bloecken und wird flexibel platziert (Richtwert um Tag 4-5). Die
+Albisser zum Datenjournalismus laeuft als Story-Input neben den technischen
+Bloecken und ist auf den 28. September fixiert. Die
 ausstellungsfaehige Fassung sollte bis Ende Tag 9 stehen, spaetestens vor dem
 Marktstand an Tag 10. Details und die genaue Tageszuordnung stehen in
 `dozierende/PLANUNG.md`.
@@ -158,9 +158,12 @@ eine Begleitspur (kein nummerierter Block).
 - Es gibt keinen eigenen Fertigstellungs-/Ausstellungstest-Halbtag mehr. Die
   ausstellungsfaehige Fassung sollte bis Ende Tag 9 stehen und einen
   Offline-/Daten-Fallback besitzen.
-- Den Input von Pascal Alisser als Teil der Story-Begleitspur behandeln: er
-  schwebt neben den technischen Bloecken, ist flexibel platzierbar (Richtwert um
-  Tag 4-5) und dauert zwei Stunden inklusive Fragen.
+- Den Input von Pascal Albisser als Teil der Story-Begleitspur behandeln: er
+  laeuft neben den technischen Bloecken, findet am 28. September statt und
+  dauert zwei Stunden inklusive Fragen. Er ist ein Pflichttermin.
+- Der Marktstand ist ebenfalls ein Pflichttermin und standortabhaengig:
+  Zuerich am 13. Oktober, Bern und Chur am 15. Oktober.
+- Die Projektabgabe ist im Januar 2027 und damit deutlich nach dem Marktstand.
 
 ## Angestrebte Repository-Struktur
 

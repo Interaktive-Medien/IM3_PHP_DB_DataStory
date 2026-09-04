@@ -141,7 +141,33 @@ zu den ersten Aufzählungspunkten.
 
 Dafür wird die Klasse `list-intro` verwendet.
 
-## 16. Bilder brauchen eine Legende
+## 16. Callouts sitzen auf der Unterkante
+
+Ein Callout am Schluss einer Folie steht immer ganz unten am Inhaltsbereich,
+nicht direkt unter dem letzten Absatz.
+
+So liegen die farbigen Kaesten ueber alle Folien hinweg auf derselben Linie,
+und die Kernaussage steht dort, wo der Blick am Ende hinwandert.
+
+Das macht das gemeinsame Stylesheet automatisch, sobald der Callout das letzte
+Element in `.content` ist:
+
+```html
+<div class="content">
+  <p class="list-intro">Einleitung:</p>
+  <ul class="list-tight"> ... </ul>
+  <div class="callout callout-green">
+    <p>Die Kernaussage.</p>
+  </div>
+</div>
+```
+
+Es braucht dafuer **kein** `style="margin-top: auto;"` und **kein** `mt-2`.
+
+Ein Callout mitten im Inhalt, auf den noch etwas folgt, bleibt dagegen an
+seiner Stelle stehen.
+
+## 17. Bilder brauchen eine Legende
 
 Jedes Bild bekommt eine `figcaption`, die zwei Dinge sagt: was zu sehen ist und
 woher es stammt.

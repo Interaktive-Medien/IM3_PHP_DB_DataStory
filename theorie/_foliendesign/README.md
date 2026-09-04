@@ -52,7 +52,7 @@ Schriftgrössen immer in `pt`.
 | `title-slide` + `data-state="is-title"` | Titelfolie, blendet die Foliennummer aus |
 | `section-divider` + `data-state="is-section-divider"` | Kapiteltrenner in Petrol |
 | `.content` | Inhaltsbereich unter dem Folientitel (Pflicht auf Standardfolien) |
-| `.callout` `.callout-blue/-orange/-green/-gray` | Hinweisboxen |
+| `.callout` `.callout-blue/-orange/-green/-gray` | Hinweisboxen; als letztes Element in `.content` sitzen sie automatisch auf der Unterkante |
 | `.box` `.box-outlined` | neutrale Container |
 | `.flow` mit `.flow-step` / `.flow-arrow` | Ablauf oder Pipeline |
 | `.output` | Ausgabe von Terminal oder Browser |
@@ -113,6 +113,14 @@ nicht über die Folie hinauslaufen.
 - `alt` ist Pflicht und beschreibt den Inhalt, nicht die Datei.
 - Steht neben dem Bild noch Text, kommt beides in ein Grid; das `figure`
   braucht dann eine Zelle mit `align-items: stretch`.
+- Soll das Bild im Unterricht anklickbar sein, kommt ein Link direkt um das
+  `img` – die Höhendeckelung bleibt dabei erhalten:
+
+  ```html
+  <a href="https://1kwh.ch" target="_blank" rel="noopener">
+    <img class="shot" src="bilder/beispiel.jpg" alt="Kurze Beschreibung">
+  </a>
+  ```
 
 Bilder vor dem Einchecken auf höchstens 1600px Breite bringen und als JPEG mit
 Qualität 85 speichern. Ein Foliensatz sollte insgesamt unter etwa 3 MB bleiben.
