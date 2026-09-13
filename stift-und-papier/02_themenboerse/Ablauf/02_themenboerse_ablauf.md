@@ -1,7 +1,7 @@
 # Ablauf `02_themenboerse`
 
 > Abschluss des Kickoffs. Die Klasse bildet Vierergruppen um gemeinsame
-> Interessen statt um die Sitzordnung und verteilt im Team die beiden Rollen.
+> Interessen und verteilt im Team die beiden Rollen.
 > Endet mit **M1**.
 
 **Dauer:** 45' · **Sozialform:** Einzelarbeit → Plenum → Projektteam
@@ -21,15 +21,15 @@ Hintergrundgrafiken an.
 
 Dazu Klebeband oder Magnete und eine freie Wand von mindestens drei Metern.
 
-## Verlauf
+## Ablauf
 
-| #   | Schritt                                                                                                                                      | Dauer |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----: |
-| 1   | **Selbsteinschätzung:** Karte austeilen, drei Zeilen ankreuzen lassen. Betonen: keine Note, dient nur der Gruppenbildung.                    |    5' |
-| 2   | **Zwei Themen:** still zwei Themen aufschreiben. Wer blockiert, bekommt den Impuls: Woran denkst du beim Aufwachen? Worüber streitest du?    |    5' |
-| 3   | **Sortieren:** alle Themenkarten an die Wand, gemeinsam zu Häufchen schieben, jedem Häufchen einen Namen geben.                              |   10' |
-| 4   | **Gruppen bilden:** alle stellen sich zu ihrem Wunschhäufchen, danach werden Vierergruppen daraus gebildet.                                  |   15' |
-| 5   | **Rollen und Teamblatt:** im Team Backend und Frontend festlegen, Teamblatt ausfüllen und abgeben.                                           |   10' |
+| #   | Schritt                                                                                                                                   | Dauer |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----: |
+| 1   | **Selbsteinschätzung:** Karte austeilen, drei Zeilen ankreuzen lassen. Betonen: keine Note, dient nur der Gruppenbildung.                 |    5' |
+| 2   | **Zwei Themen:** still zwei Themen aufschreiben. Wer blockiert, bekommt den Impuls: Woran denkst du beim Aufwachen? Worüber streitest du? |    5' |
+| 3   | **Sortieren:** alle Themenkarten an die Wand, gemeinsam zu Häufchen schieben, jedem Häufchen einen Namen geben.                           |   10' |
+| 4   | **Gruppen bilden:** alle stellen sich zu ihrem Wunschhäufchen, danach werden Vierergruppen daraus gebildet.                               |   15' |
+| 5   | **Rollen und Teamblatt:** im Team Backend und Frontend festlegen, Teamblatt ausfüllen und abgeben.                                        |   10' |
 
 ## Worauf es ankommt
 
