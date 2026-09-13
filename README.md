@@ -82,7 +82,7 @@ einen Webserver um:
   sobald ihr Daten speichert. PhpStorm lädt jede gespeicherte Datei per FTP
   hoch, und ihr öffnet die Seiten über eure Domain. Die Einrichtung zeigt die
   YouTube-Playlist im [Ablauf](ablauf.md).
-- [Lokale Datenbank](theorie/00_lokale_db/README.md): Ausweichweg, falls ihr
+- [Lokale Datenbank](theorie/00_lokale_db/index.html): Ausweichweg, falls ihr
   einmal ohne Server arbeiten müsst oder wollt.
 
 ## 4. PHP-Dateien öffnen
