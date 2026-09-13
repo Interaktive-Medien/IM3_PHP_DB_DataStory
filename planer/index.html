@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IM3 Planer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="kopf">
+    <div class="kopf-titel">
+      <h1>IM3 Planer</h1>
+      <p>Herbstsemester 2026</p>
+    </div>
+    <nav id="tabs" class="tabs" aria-label="Standort"></nav>
+    <div id="fortschritt" class="fortschritt"></div>
+    <button id="modus" class="knopf-leise" type="button">Bearbeiten</button>
+  </header>
+
+  <main class="layout">
+    <aside id="ablauf" class="ablauf">
+      <div class="spalten-kopf">
+        <h2>Offen</h2>
+        <p>Aus dem Ablauf, noch keinem Kurstag zugeteilt.</p>
+      </div>
+      <div id="legende" class="legende"></div>
+      <div id="ablauf-inhalt"></div>
+    </aside>
+
+    <section class="tage">
+      <div class="spalten-kopf">
+        <h2>Stundenplan</h2>
+        <p>Geplant ist, was auf einem Kurstag liegt. Erledigt ist, was abgehakt ist.</p>
+      </div>
+      <div id="tage-inhalt"></div>
+    </section>
+  </main>
+
+  <div id="meldung" class="meldung" role="status" hidden></div>
+
+  <dialog id="login-dialog">
+    <form id="login-form">
+      <h2>Bearbeiten-Modus</h2>
+      <label>Passwort <input name="passwort" type="password" autocomplete="current-password" required></label>
+      <div class="aktionen">
+        <span class="luecke"></span>
+        <button type="button" class="knopf-leise" data-schliessen>Abbrechen</button>
+        <button class="knopf">Öffnen</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="eintrag-dialog">
+    <form id="eintrag-form">
+      <h2 id="eintrag-ueberschrift">Eintrag bearbeiten</h2>
+      <div class="emoji-zeile">
+        <label>Emoji <input name="emoji" class="emoji-feld" maxlength="16"></label>
+        <div id="emoji-wahl" class="emoji-wahl"></div>
+      </div>
+      <label>Titel <input name="titel" maxlength="255" required></label>
+      <div class="zeile">
+        <label data-nur-eintrag>Block <input name="block" list="block-liste" maxlength="100"></label>
+        <label>Dauer in Minuten <input name="dauer" type="number" min="0" max="999"></label>
+      </div>
+      <datalist id="block-liste"></datalist>
+      <label class="check" data-nur-eintrag><input type="checkbox" name="zusatz"> Zusatzmaterial</label>
+      <label data-nur-eintrag>Link <input name="link" type="url" maxlength="500" placeholder="https://…"></label>
+      <label>Kurstag <select name="tag_id"></select></label>
+      <label class="check" data-nur-eintrag><input type="checkbox" name="erledigt"> Erledigt</label>
+      <label>Notiz <textarea name="notiz" rows="4" maxlength="5000"></textarea></label>
+      <div class="aktionen">
+        <button type="button" class="knopf-gefahr" id="eintrag-loeschen">Löschen</button>
+        <span class="luecke"></span>
+        <button type="button" class="knopf-leise" data-schliessen>Abbrechen</button>
+        <button class="knopf">Speichern</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="tag-dialog">
+    <form id="tag-form">
+      <h2 id="tag-ueberschrift">Kurstag bearbeiten</h2>
+      <label>Datum <input name="datum" type="date" required></label>
+      <label>Notiz <textarea name="notiz" rows="3" maxlength="2000"></textarea></label>
+      <p class="hinweis">Wird ein Kurstag gelöscht, wandern seine Einträge zurück in den Ablauf.</p>
+      <div class="aktionen">
+        <button type="button" class="knopf-gefahr" id="tag-loeschen">Löschen</button>
+        <span class="luecke"></span>
+        <button type="button" class="knopf-leise" data-schliessen>Abbrechen</button>
+        <button class="knopf">Speichern</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

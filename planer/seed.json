@@ -1,0 +1,748 @@
+{
+    "items": [
+        {
+            "block": "Kickoff",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "Kickoff – Rückblick und Ziel",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/00_kickoff",
+            "dauer": 15
+        },
+        {
+            "block": "Kickoff",
+            "zusatz": 0,
+            "emoji": "📝",
+            "titel": "01 Data-Story-Workshop",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/stift-und-papier/01_data_story_galerie",
+            "dauer": 40
+        },
+        {
+            "block": "Kickoff",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "Kickoff – Kursaufbau, Projekt und Administratives",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/00_kickoff",
+            "dauer": 25
+        },
+        {
+            "block": "Kickoff",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "02 Themenbörse",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/stift-und-papier/02_themenboerse",
+            "dauer": 45
+        },
+        {
+            "block": "Kickoff",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M1: Gruppen gebildet",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "🛠️",
+            "titel": "PhpStorm, Terminal und Git überprüfen",
+            "link": null,
+            "dauer": 30
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "🛠️",
+            "titel": "Lokaler Server 00 Lokaler PHP-Server",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/blob/main/theorie/00_lokaler_php_server/index.html",
+            "dauer": 30
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "📝",
+            "titel": "03 Von JavaScript zu PHP",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/stift-und-papier/03_von_js_zu_php",
+            "dauer": 35
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "00 Hallo PHP",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/A_PHP_Basics/00_hallo_php",
+            "dauer": 30
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "PHP Basics",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/A_PHP_Basics",
+            "dauer": 60
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "01 Variablen",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/A_PHP_Basics/01_variablen",
+            "dauer": 25
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "02 Funktionen",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/A_PHP_Basics/02_funktionen",
+            "dauer": 25
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "03 Bedingungen",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/A_PHP_Basics/03_bedingungen",
+            "dauer": 25
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "04 Arrays",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/A_PHP_Basics/04_arrays",
+            "dauer": 25
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "05 Schleifen",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/A_PHP_Basics/05_schleifen",
+            "dauer": 25
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "💻",
+            "titel": "06 Städtevergleich",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/uebungen/A_PHP_Basics/06_staedtevergleich",
+            "dauer": 45
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "🃏",
+            "titel": "Kapitel 1 Hypothese (Datenfrage formulieren)",
+            "link": "https://codeanddesign.ch/im3/kartenset.html",
+            "dauer": 60
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M2: Eigene Datenfrage formuliert",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 1,
+            "emoji": "💻",
+            "titel": "01 Messwert",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/uebungen/A_PHP_Basics/01_messwert",
+            "dauer": null
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 1,
+            "emoji": "💻",
+            "titel": "02 Badewetter",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/uebungen/A_PHP_Basics/02_badewetter",
+            "dauer": null
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 1,
+            "emoji": "💻",
+            "titel": "03 Warnstufe",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/uebungen/A_PHP_Basics/03_warnstufe",
+            "dauer": null
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 1,
+            "emoji": "💻",
+            "titel": "04 Messstation",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/uebungen/A_PHP_Basics/04_messstation",
+            "dauer": null
+        },
+        {
+            "block": "Block A – PHP Basics",
+            "zusatz": 1,
+            "emoji": "💻",
+            "titel": "05 Aare-Woche",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/uebungen/A_PHP_Basics/05_aare_woche",
+            "dauer": null
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "💻",
+            "titel": "01 Daten finden & herunterladen",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/uebungen/B_extract/01_daten_finden",
+            "dauer": 45
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "Extract",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/B_extract",
+            "dauer": 20
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "06 JSON lesen (statische Datei)",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/B_extract/06_json_lesen",
+            "dauer": 30
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "07 API lesen (Live-API)",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/B_extract/07_api_lesen",
+            "dauer": 30
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "📝",
+            "titel": "04 Fetch Helper",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/stift-und-papier/04_fetch_helper",
+            "dauer": 40
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "08 CSV lesen (CSV-Datei)",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/B_extract/08_csv_lesen",
+            "dauer": 30
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "🎲",
+            "titel": "Sensor lesen (Material von Jan): 09 Sensor lesen (Sensor-API)",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/B_extract/09_sensor_lesen",
+            "dauer": 30
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "🃏",
+            "titel": "Kapitel 2 Datenquellen",
+            "link": "https://codeanddesign.ch/im3/kartenset.html",
+            "dauer": 60
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M3: Datensatz gefunden und geprüft",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "05 Datenvertrag zwischen Frontend und Backend vereinbaren",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/stift-und-papier/05_datenvertrag",
+            "dauer": 45
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "Extract-Step am eigenen Projekt umsetzen",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block B – Extract",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M4: Erster Extract und Datenvertrag stehen",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block C – Transform",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "Transform",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/C_transform",
+            "dauer": 60
+        },
+        {
+            "block": "Block C – Transform",
+            "zusatz": 0,
+            "emoji": "📝",
+            "titel": "06 Wetterdaten transformieren",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/stift-und-papier/06_transform_weather",
+            "dauer": 30
+        },
+        {
+            "block": "Block C – Transform",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "09 Hitzesommer transformieren",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/C_transform/09_hitzesommer_transformieren",
+            "dauer": 60
+        },
+        {
+            "block": "Block C – Transform",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "10 Shark-Daten mit KI transformieren",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/C_transform/10_sharkdaten_transformieren",
+            "dauer": 90
+        },
+        {
+            "block": "Block C – Transform",
+            "zusatz": 0,
+            "emoji": "🃏",
+            "titel": "Kapitel 3 Datenaufbereitung",
+            "link": "https://codeanddesign.ch/im3/kartenset.html",
+            "dauer": null
+        },
+        {
+            "block": "Block C – Transform",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "Eigene Rohdaten nach dem Datenvertrag säubern und umformen",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block C – Transform",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M5: Transform funktioniert",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "Load (bis Kapitel Datenmodell)",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/D_load",
+            "dauer": 30
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "📝",
+            "titel": "eigenes Datenmodell zeichnen",
+            "link": null,
+            "dauer": 35
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "Load (Kapitel SQL und PDO)",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/D_load",
+            "dauer": 45
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "🛠️",
+            "titel": "Datenbank einrichten: YouTube Playlist",
+            "link": "https://www.youtube.com/playlist?list=PLLZlqg08CVic",
+            "dauer": 60
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "11 Datenbank testen",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/D_load/11_datenbank_testen",
+            "dauer": 60
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "12 Hitzesommer laden",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/D_load/12_hitzesommer_laden",
+            "dauer": 70
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "Load (Kapitel Cronjobs)",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/D_load",
+            "dauer": 15
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "🃏",
+            "titel": "Kapitel 4 Datenstory",
+            "link": "https://codeanddesign.ch/im3/kartenset.html",
+            "dauer": null
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "Daten in Datenbank schreiben",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M6: Daten stehen in der Datenbank",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 1,
+            "emoji": "🧑‍🏫",
+            "titel": "13 Shark laden",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/D_load/13_sharkdaten_laden",
+            "dauer": null
+        },
+        {
+            "block": "Block D – Load",
+            "zusatz": 1,
+            "emoji": "🛠️",
+            "titel": "00 Lokale Datenbank (Freiwillig, wer lokal arbeiten will.)",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/00_lokale_db",
+            "dauer": null
+        },
+        {
+            "block": "Block E – Unload",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "Unload",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/E_unload",
+            "dauer": 30
+        },
+        {
+            "block": "Block E – Unload",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "14 Hitzesommer unloaden",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/E_unload/14_hitzesommer_ausliefern",
+            "dauer": 60
+        },
+        {
+            "block": "Block E – Unload",
+            "zusatz": 0,
+            "emoji": "🛠️",
+            "titel": "Eigenen Unload-Endpunkt nach dem Datenvertrag bauen und prüfen",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block E – Unload",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M7: Unload-Endpunkt funktioniert",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block E – Unload",
+            "zusatz": 1,
+            "emoji": "🧑‍🏫",
+            "titel": "15 Shark-Ranglisten ausliefern",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/E_unload/15_sharkdaten_ausliefern",
+            "dauer": 60
+        },
+        {
+            "block": "Block F – Visualisierung",
+            "zusatz": 0,
+            "emoji": "📕",
+            "titel": "Datengrafiken",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/theorie/F_visualisierung",
+            "dauer": 30
+        },
+        {
+            "block": "Block F – Visualisierung",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "16 Hitzesommer visualisieren – Teil 1",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/F_visualisierung/16_hitzesommer_liniendiagramm",
+            "dauer": 70
+        },
+        {
+            "block": "Block F – Visualisierung",
+            "zusatz": 0,
+            "emoji": "🧑‍🏫",
+            "titel": "17 Hitzesommer visualisieren – Teil 2",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/F_visualisierung/17_hitzesommer_ranking",
+            "dauer": 60
+        },
+        {
+            "block": "Block F – Visualisierung",
+            "zusatz": 0,
+            "emoji": "🃏",
+            "titel": "Kapitel 5 Datengrafiken",
+            "link": "https://codeanddesign.ch/im3/kartenset.html",
+            "dauer": null
+        },
+        {
+            "block": "Block F – Visualisierung",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "Diagramme wählen und begründen",
+            "link": null,
+            "dauer": 60
+        },
+        {
+            "block": "Block F – Visualisierung",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "mit dem eigenen JSON-Endpunkt verbinden und erste Grafik bauen",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block F – Visualisierung",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M8: Erste Integration steht",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Block F – Visualisierung",
+            "zusatz": 1,
+            "emoji": "🧑‍🏫",
+            "titel": "18 Shark-Balkendiagramme",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/F_visualisierung/18_sharkdaten_balkendiagramm",
+            "dauer": 45
+        },
+        {
+            "block": "Block F – Visualisierung",
+            "zusatz": 1,
+            "emoji": "🧑‍🏫",
+            "titel": "19 Shark-Karte mit Leaflet",
+            "link": "https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory/tree/main/code-alongs/F_visualisierung/19_sharkdaten_karte",
+            "dauer": 45
+        },
+        {
+            "block": "Marktstand & Abgabe",
+            "zusatz": 0,
+            "emoji": "🃏",
+            "titel": "Kapitel 6 Cognitive Biases",
+            "link": "https://codeanddesign.ch/im3/kartenset.html",
+            "dauer": null
+        },
+        {
+            "block": "Marktstand & Abgabe",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "Datenweg, Story, Oberfläche und Beschriftungen zusammenführen",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Marktstand & Abgabe",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "Marktstand aufbauen und Projekt vorführen",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Marktstand & Abgabe",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M9: Marktstand (Oktober)",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Marktstand & Abgabe",
+            "zusatz": 0,
+            "emoji": "🎨",
+            "titel": "Projekt nach dem Marktstand überarbeiten und finalisieren",
+            "link": null,
+            "dauer": null
+        },
+        {
+            "block": "Marktstand & Abgabe",
+            "zusatz": 0,
+            "emoji": "✅",
+            "titel": "M10: Abgabe (Januar)",
+            "link": null,
+            "dauer": null
+        }
+    ],
+    "tage": {
+        "bern": [
+            {
+                "datum": "2026-09-21",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-22",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-24",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-28",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-29",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-05",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-06",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-08",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-12",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-14",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-15",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-16",
+                "notiz": "18:00 letzte Coachingmöglichkeit"
+            },
+            {
+                "datum": "2027-01-08",
+                "notiz": "23:59 Abgabe Technik-Leistungsnachweis (Projekt)"
+            }
+        ],
+        "chur": [
+            {
+                "datum": "2026-09-21",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-22",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-28",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-29",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-30",
+                "notiz": "nur mmp25c2"
+            },
+            {
+                "datum": "2026-10-01",
+                "notiz": "nur mmp25c1"
+            },
+            {
+                "datum": "2026-10-05",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-06",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-07",
+                "notiz": "nur mmp25c1"
+            },
+            {
+                "datum": "2026-10-08",
+                "notiz": "nur mmp25c2"
+            },
+            {
+                "datum": "2026-10-12",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-13",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-15",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-16",
+                "notiz": "18:00 letzte Coachingmöglichkeit"
+            },
+            {
+                "datum": "2027-01-08",
+                "notiz": "23:59 Abgabe Technik-Leistungsnachweis (Projekt)"
+            }
+        ],
+        "zuerich": [
+            {
+                "datum": "2026-09-21",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-22",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-28",
+                "notiz": null
+            },
+            {
+                "datum": "2026-09-29",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-12",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-13",
+                "notiz": null
+            },
+            {
+                "datum": "2026-10-16",
+                "notiz": "18:00 letzte Coachingmöglichkeit"
+            },
+            {
+                "datum": "2027-01-08",
+                "notiz": "23:59 Abgabe Technik-Leistungsnachweis (Projekt)"
+            }
+        ]
+    }
+}
