@@ -188,3 +188,51 @@ PDF exportieren – nach jeder inhaltlichen Änderung, der Dateiname bleibt glei
 ```bash
 npx decktape reveal theorie/<ordner>/index.html theorie/<ordner>/<name>.pdf --size 1280x720
 ```
+
+## Folien mit AI bearbeiten
+
+Die Folien sind mit reveal.js gebaut.
+
+Installiere zuerst den AI-Skill `Reveal.js` in deinem AI-Tool.
+
+Das Paket liegt hier:
+`dozierende/AI_skill_revealjs/revealjs-skill.zip`
+
+Die ZIP enthält nur den Skill selbst (`SKILL.md`, `references/`, `scripts/`).
+
+Für Claude Code gehst du so vor:
+
+1. Entpacke die ZIP-Datei.
+2. Kopiere den entpackten Ordner nach
+   `~/.claude/skills/revealjs-1.0.0` (Ordnername lokal, ausserhalb dieses
+   Repositories).
+3. Starte eine neue Claude-Code-Session, falls der Skill nicht sofort
+   erscheint.
+
+Oder frag einfach Claude, den Skill selber zu installieren 😉
+
+Für Codex gehst du so vor:
+
+1. Entpacke die ZIP-Datei.
+2. Kopiere den entpackten Ordner nach `.agents/skills/revealjs` in diesem
+   Repository.
+3. Starte Codex neu, falls der Skill nicht sofort erscheint.
+4. Nenne den Skill im Auftrag mit `$revealjs`.
+
+Bei einem anderen AI-Tool kann die Installation anders sein.
+
+Installiere dort ebenfalls den entpackten Ordner als lokalen Skill.
+
+Bitte die AI vor jeder Änderung an den Folien, diese Dateien zu lesen:
+
+- `AGENTS.md`
+- `theorie/_foliendesign/README.md`
+- `theorie/_foliendesign/GESTALTUNGSREGELN.md`
+- `theorie/A_PHP_Basics/index.html`
+
+Ein einfacher Auftrag an die AI kann so aussehen:
+
+> Bearbeite die Folien in `theorie/B_extract/index.html`.
+> Nutze den Skill `$revealjs`.
+> Lies zuerst die Regeln für das Foliendesign.
+> Prüfe danach die Folien und kontrolliere sie als Screenshots.

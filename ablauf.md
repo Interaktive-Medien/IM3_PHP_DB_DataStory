@@ -59,7 +59,7 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 4. `🧑‍🏫` Code-Along: [07 API lesen](code-alongs/B_extract/07_api_lesen) _(Live-API)_ `30'`
 5. `📝` Analoge Übung: [04 Fetch Helper](stift-und-papier/04_fetch_helper/) `40'`
 6. `🧑‍🏫` Code-Along: [08 CSV lesen](code-alongs/B_extract/08_csv_lesen) _(CSV-Datei)_ `30'`
-7. `🧑‍🏫` Code-Along: [09 Sensor lesen](code-alongs/B_extract/09_sensor_lesen) _(Sensor-API)_ `30'`
+7. `🎲` Sensor lesen _(Material von Jan)_: [09 Sensor lesen](code-alongs/B_extract/09_sensor_lesen) _(Sensor-API)_ `30'`
 8. `🃏` Story-Karten: [Kapitel 2 Datenquellen](https://codeanddesign.ch/im3/kartenset.html) `60'`
 9. `✅` **M3: Datensatz gefunden und geprüft**
 10. `🎨` Projekt: [05 Datenvertrag](stift-und-papier/05_datenvertrag/) zwischen Frontend und Backend vereinbaren `45'`

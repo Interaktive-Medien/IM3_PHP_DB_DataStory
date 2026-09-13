@@ -11,6 +11,28 @@ Unterrichtseinheit muss alle hier aufgeführten Phasen oder Methoden enthalten.
 Entscheidend ist, dass Lernziele, Lernaktivitäten und die Überprüfung des
 Lernens zusammenpassen.
 
+## Unterricht mit AI planen
+
+Diese Datei ist vor allem als Wissen für eine AI gedacht.
+
+Bitte die AI, diese Datei vor der Planung zu lesen:
+
+`dozierende/unterrichtsplanung/README.md`
+
+Ein einfacher Auftrag kann so aussehen:
+
+> Erstelle einen Ablaufplan für eine Unterrichtseinheit.
+> Lies zuerst `AGENTS.md` und
+> `dozierende/unterrichtsplanung/README.md`.
+> Formuliere klare Lernziele.
+> Plane kurze Inputs und einfache Übungen.
+
+Prüfe den Vorschlag danach selbst.
+
+Die AI unterstützt die Planung.
+
+Die Verantwortung bleibt bei den Dozierenden.
+
 ## Begriffe auseinanderhalten
 
 | Begriff                        | Leitfrage                                                                                | Beispiele                                                         |
