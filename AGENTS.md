@@ -256,3 +256,13 @@ Gestaltungsregeln sind ausdruecklich als wachsendes Dokument gedacht.
   die konkrete Marktstand-Organisation, Datenjournalismus-Inputs, die
   Platzierung des UX-Blocks und der Code-Along `09_sensor_lesen`, der noch in
   Vorbereitung ist.
+
+## Commit und Push
+
+Vor jedem Push das Datum im Badge `Aktualisiert` in `README.md` auf das
+aktuelle Datum setzen (Format `TT.MM.JJJJ`) und diese Aenderung im selben
+Push mitschicken:
+
+```markdown
+![Static Badge](https://img.shields.io/badge/Aktualisiert-14.09.2026-coral)
+```

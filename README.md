@@ -3,14 +3,15 @@
 ![Static Badge](https://img.shields.io/badge/Sprache-PHP-%23777bb4)
 ![Static Badge](https://img.shields.io/badge/DB-MySQL-%2300758f)
 ![Static Badge](https://img.shields.io/badge/Kurs-MMP_IM3-blue)
-![Static Badge](https://img.shields.io/badge/Aktualisiert-13.09.2026-coral)
-![Static Badge](https://img.shields.io/badge/Status-In_Review-orange)
+![Static Badge](https://img.shields.io/badge/Aktualisiert-14.09.2026-coral)
+![Static Badge](https://img.shields.io/badge/Status-Freigegeben-green)
 
 > Im 3. Semester der Interaktiven Medien lernt ihr, mit PHP echte Daten zu verarbeiten und in einer Data-Story datenjournalistisch aufzubereiten.
 
 #### Quicklinks
 
 - [Ablauf nach Themenblöcken](ablauf.md)
+- [Story-Karten](https://codeanddesign.ch/im3/kartenset.html)
 - [Infos für Dozierende](dozierende/README.md)
 
 ## 1. Unterrichts-Stoff
@@ -169,3 +170,35 @@ analogen Übungen liegt im Ordner [stift-und-papier](stift-und-papier/).
 
 Ein fertiges kleines Projekt von der Datenquelle bis zur Story – zum Anschauen
 und zum Abschauen: [beispielprojekt](beispielprojekt/).
+
+## 6. Inhaltliche Struktur
+
+Damit ihr euch auf die Technik konzentrieren könnt, wechseln wir nicht ständig
+das Thema. Wir arbeiten den ganzen Kurs über mit denselben Datensätzen.
+
+**Block A – die Aare.** Für die PHP-Grundlagen brauchen wir Zahlen, die man
+versteht, ohne sie zu erklären: die Wassertemperatur der Aare in Brienz, Thun
+und Bern. Diese Werte tippt ihr von Hand als PHP-Array ab. Wir benötigen keine Datenquelle.
+
+**Ab Block B – zwei Themen durch den ganzen ETL+U-Prozess.** Sobald wir Daten
+wirklich einlesen, begleiten uns zwei Datensätze bis zur fertigen Grafik:
+
+- 🌡️ **Hitzesommer** – die täglichen Höchsttemperaturen von Bern, Zürich und
+  Chur seit 1940, von der Open-Meteo-API. Das ist unser roter Faden: aufgeräumte
+  Zahlen, mit denen jeder Schritt sauber aufgeht.
+- 🦈 **Shark Attacks** – das Global Shark Attack File als CSV mit rund 25'000
+  Zeilen. Das ist unser Realitätscheck: echte Daten sind unordentlich, lückenhaft
+  und uneinheitlich geschrieben.
+
+Beide Datensätze durchlaufen dieselbe Kette. Pro Block ändert sich damit nur die
+Technik, nicht das Thema:
+
+Der Hitzesommer-Strang ist Pflichtprogramm und wird gemeinsam entwickelt. Der
+Shark-Strang zeigt dieselben Schritte an schwierigeren Daten; ein Teil davon
+steht als Zusatzmaterial zum Nachschauen bereit.
+
+Für die Sensorbox im Kursraum gilt dasselbe Prinzip: Sie ist einfach eine
+weitere Datenquelle, die wir wie eine API auslesen.
+
+**Euer Projekt** läuft parallel mit. Ihr sucht euer eigenes Thema und euren
+eigenen Datensatz und geht dieselbe Kette – nur eben mit euren Daten.
