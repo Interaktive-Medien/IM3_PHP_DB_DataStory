@@ -13,12 +13,15 @@ Fussnote.
 
 ## Starten
 
+Den Ordner auf den Webserver hochladen und über die eigene Domain öffnen:
+`https://eure-domain.ch/beispielprojekt/hitzesommer/`
+
+Zum schnellen Zeigen geht es auch lokal, dann aber nur mit den Musterdaten:
+
 ```bash
 cd beispielprojekt/hitzesommer
 php -S localhost:8000
 ```
-
-Dann <http://localhost:8000> öffnen.
 
 Die Seite läuft **auch ohne Datenbank**: Antwortet `unload.php` nicht, lädt sie
 `data/heat-summers.json` und schreibt es in den Statustext. Wer die ganze Kette
@@ -26,10 +29,10 @@ sehen will, richtet die Datenbank ein:
 
 1. `config.php` im Hauptordner des Kurses anlegen (siehe `config.template.php`).
 2. `etl/schema.sql` in phpMyAdmin ausführen – das legt die zwei Tabellen an.
-3. `php etl/load.php` einmal aufrufen. Danach stehen 258 Zeilen in der Datenbank.
+3. `etl/load.php` einmal im Browser aufrufen. Danach stehen 258 Zeilen in der Datenbank.
 
-> Der Live Server von VS Code (Port 5500) funktioniert **nicht**. Er führt kein
-> PHP aus und liefert den Quelltext von `unload.php` statt der Daten.
+> Der Doppelklick auf `index.html` funktioniert **nicht**: Dann läuft kein PHP,
+> und `unload.php` liefert keine Daten.
 
 ## Was wo liegt
 

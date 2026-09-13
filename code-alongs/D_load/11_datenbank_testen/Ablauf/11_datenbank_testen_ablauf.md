@@ -4,7 +4,7 @@
 > einmal selbst Zeilen geschrieben und wieder gelesen.
 >
 > Der Code selbst dauert rund 30 Minuten. Im Ablauf steht eine Stunde, weil
-> erfahrungsgemäss die halbe Zeit in Zugängen, Ports und Tippfehlern steckt.
+> erfahrungsgemäss die halbe Zeit in Zugängen, Upload und Tippfehlern steckt.
 
 ## Warum dieser Schritt zuerst
 
@@ -14,36 +14,38 @@ Wenn diese Seite Zeilen ausgibt, ist alles Nachfolgende reine Programmierung.
 
 ## Vorbereitung (10')
 
-Die Datenbank läuft auf dem eigenen Rechner. MAMP und die leere Datenbank stehen
-aus dem Tooling-Teil davor bereits – hier geht es nur noch um diesen Ordner.
-Gemeinsam durchgehen, jede Person auf dem eigenen Rechner:
+Ab hier läuft alles auf dem Webserver bei Hostpoint. FTP-Upload in PhpStorm,
+Datenbank und phpMyAdmin stehen aus dem Tooling-Teil davor bereits – hier geht
+es nur noch um diesen Ordner. Gemeinsam durchgehen, jede Person mit dem eigenen
+Zugang:
 
-1. Prüfen, dass MAMP läuft und die Anzeige für MySQL grün ist.
+1. Prüfen, dass PhpStorm beim Speichern hochlädt: eine Datei speichern und im
+   Fenster «File Transfer» nachsehen, ob sie auf dem Server angekommen ist.
 2. Im **Hauptordner** des Kurses `config.template.php` zu `config.php` kopieren:
    ```bash
    cp config.template.php config.php
    ```
    Diese Datei gibt es genau einmal für alle Code-Alongs und Übungen.
-3. Den Namen der Datenbank eintragen. Benutzer und Passwort sind lokal beide
-   `root`, `$host` ist `127.0.0.1`, und im DSN steht `port=8889` – so steht es
-   bereits in der Vorlage.
+3. Host, Datenbank, Benutzer und Passwort aus dem Control Panel von Hostpoint
+   eintragen. Alle drei Namen beginnen mit dem Kontonamen.
 4. Prüfen, dass `config.php` nicht im Git landet:
    ```bash
    git status
    ```
-   Die Datei darf dort **nicht** auftauchen.
-5. Tabelle anlegen: phpMyAdmin über die MAMP-Startseite öffnen und `schema.sql`
+   Die Datei darf dort **nicht** auftauchen. Auf den Server lädt PhpStorm sie
+   trotzdem hoch – dort wird sie gebraucht.
+5. Tabelle anlegen: phpMyAdmin über das Control Panel öffnen und `schema.sql`
    im Reiter «SQL» ausführen – oder dieselben Spalten im Reiter «Struktur»
    zusammenklicken.
-6. Im Ordner des Code-Alongs `php -S localhost:8000` starten.
+6. `index.php` speichern und über die eigene Domain öffnen:
+   `https://eure-domain.ch/code-alongs/D_load/11_datenbank_testen/`
 
-> **`127.0.0.1` und nicht `localhost`:** Bei `localhost` verbindet sich PHP über
-> eine Socket-Datei statt über den Port und meldet
-> `SQLSTATE[HY000] [2002] No such file or directory`. Das ist der häufigste
-> Fehler an dieser Stelle.
+> **Der Kontoname gehört überall davor:** Hostpoint setzt ihn vor Host,
+> Datenbank und Benutzer. Fehlt er, kommt `Access denied` oder
+> `Unknown database`. Das ist der häufigste Fehler an dieser Stelle.
 >
-> **Zwei Ports, zwei Zwecke:** `8888` ist der Webserver von MAMP, den wir nicht
-> brauchen. `8889` ist die Datenbank und gehört in den DSN.
+> **In der Adressleiste steht die eigene Domain:** Wer `localhost` oder
+> `file://` sieht, testet nicht den Stand auf dem Server.
 
 ## Schritte im Code (15')
 
@@ -65,7 +67,7 @@ Gemeinsam durchgehen, jede Person auf dem eigenen Rechner:
 
 ## Kontrolle (5')
 
-- `http://localhost:8000` im Browser öffnen: Es erscheinen vier Zeilen mit Ort,
+- Die Seite über die eigene Domain öffnen: Es erscheinen vier Zeilen mit Ort,
   Temperatur und Zeitpunkt.
 - Dieselbe Tabelle in phpMyAdmin öffnen: dort stehen dieselben vier Zeilen.
   Dieser Doppelblick ist der eigentliche Test – die Daten sind wirklich in der
@@ -87,9 +89,9 @@ Gemeinsam durchgehen, jede Person auf dem eigenen Rechner:
 - **Fehlermeldungen lesen:** `Access denied` heisst Zugangsdaten,
   `Unknown database` heisst Datenbankname, `Unknown column` heisst Tippfehler in
   der Tabelle. Alle drei einmal absichtlich provozieren.
-- **`No such file or directory`** heisst nicht, dass eine PHP-Datei fehlt: PHP
-  sucht dann eine Socket-Datei, weil `localhost` statt `127.0.0.1` im DSN steht.
-  Die Meldung führt in die Irre, deshalb hier einmal benennen.
+- **`getaddrinfo … failed`** heisst nicht, dass das Internet weg ist: Der Host
+  in `config.php` ist falsch geschrieben. Die Meldung führt in die Irre,
+  deshalb hier einmal benennen.
 - **Das Muster bleibt:** `prepare()` einmal, `execute()` oft – im nächsten
   Schritt mit 258 statt vier Zeilen.
 - **`measurements` ist eine Wegwerf-Tabelle:** Das richtige Datenmodell kommt

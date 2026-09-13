@@ -117,7 +117,7 @@ async function ladeVomEndpunkt(url) {
 
   if (!contentType.includes('application/json')) {
     throw new Error(
-      'Die Antwort ist kein JSON. Läuft die Seite über php -S localhost:8000?'
+      'Die Antwort ist kein JSON. Öffne unload.php direkt im Browser.'
     );
   }
 

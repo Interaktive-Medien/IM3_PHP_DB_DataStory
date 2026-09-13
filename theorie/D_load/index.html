@@ -182,34 +182,33 @@
         <div class="content">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
             <div>
-              <h3>Jetzt: auf eurem Rechner</h3>
+              <h3>Bis jetzt: auf eurem Rechner</h3>
               <ul class="list-tight text-sm">
-                <li>MAMP startet eine MySQL-Datenbank auf eurem Laptop</li>
-                <li>PHP startet ihr weiterhin mit <code>php -S localhost:8000</code></li>
-                <li>phpMyAdmin liegt auf der MAMP-Startseite</li>
+                <li>PHP lief mit <code>php -S localhost:8000</code></li>
+                <li>Eine Datenbank gab es noch nicht</li>
               </ul>
             </div>
             <div>
-              <h3>Am Schluss: auf einem Webhosting</h3>
+              <h3>Ab jetzt: auf dem Webserver</h3>
               <ul class="list-tight text-sm">
-                <li>Dort läuft meist MariaDB, eine nahe Verwandte von MySQL</li>
-                <li>Datenbank und Zugangsdaten kommen aus dem Hosting-Panel</li>
-                <li>Bedient wird sie ebenfalls über phpMyAdmin</li>
+                <li>Dateien und Datenbank liegen bei Hostpoint</li>
+                <li>PhpStorm lädt jede gespeicherte Datei per FTP hoch</li>
+                <li>Dort läuft MariaDB, eine nahe Verwandte von MySQL</li>
+                <li>phpMyAdmin öffnet ihr über das Control Panel</li>
               </ul>
             </div>
           </div>
           <div class="callout callout-blue">
-            <p>Beide sprechen dieselbe Sprache, deshalb läuft derselbe Code an beiden Orten.</p>
+            <p>Ihr öffnet die Seiten ab jetzt über eure Domain und nicht mehr über localhost.</p>
           </div>
-          <p class="text-sm mt-1">Unterschiedlich sind nur die Zugangsdaten, und die stehen in einer eigenen
-            Datei.</p>
+          <p class="text-sm mt-1">Die Zugangsdaten zur Datenbank stehen in einer eigenen Datei.</p>
         </div>
-        <aside class="notes">Aus MAMP brauchen wir nur den Datenbankteil, nicht den Apache – deshalb bleibt
-          der Ablauf mit php -S genau wie in den letzten Tagen. Der Stolperstein ist der Port: MAMP legt MySQL
-          auf 8889, Benutzer und Passwort sind beide root. Die rechte Spalte ist nur ein Ausblick auf den
-          Deployment-Teil am Kursende und wird hier in einem Satz erledigt – wichtig ist die Aussage darunter,
-          dass sich beim Umzug nur die Zugangsdaten ändern. Eingerichtet wird die lokale Datenbank im
-          Tooling-Teil direkt davor.</aside>
+        <aside class="notes">Der Umzug passiert genau hier, weil die Datenbank ihn verlangt: Auf dem Server
+          liegen PHP und Datenbank nebeneinander, eine Installation auf dem Laptop entfällt. FTP-Upload in
+          PhpStorm, Datenbank und phpMyAdmin richten alle im Tooling-Teil direkt davor mit der YouTube-Playlist
+          ein. Merkregel für die nächsten Wochen: In der Adressleiste steht die eigene Domain – wer localhost
+          sieht, testet nicht den hochgeladenen Stand. Wer einmal ohne Server arbeiten muss, findet in
+          theorie/00_lokale_db einen Ausweichweg.</aside>
       </section>
 
       <!-- ============ 9 Trenner ============ -->
@@ -686,12 +685,11 @@ DELETE FROM heat_summers;
               <span class="code-label">config.php – einmal im Hauptordner</span>
               <pre class="code-sm"><code data-trim data-noescape class="language-php">
 &lt;?php
-$host     = '127.0.0.1';
-$dbname   = 'im3_hitzesommer';
-$username = 'root';
-$password = 'root';
-
-$dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
+$host     = 'konto.mysql.db.hostpoint.ch';
+$dbname   = 'konto_im3';
+$username = 'konto_im3';
+$password = '…';
+$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
               </code></pre>
             </div>
             <div>
@@ -707,7 +705,7 @@ $pdo = new PDO($dsn, $username, $password, $options);
           <ul class="list-tight text-sm mt-1">
             <li>Es gibt genau eine <code>config.php</code> für alle Übungen</li>
             <li>Der DSN sagt PDO, welche Datenbank wo liegt</li>
-            <li>Der Host heisst <code>127.0.0.1</code> und nicht <code>localhost</code></li>
+            <li>Host, Datenbank und Benutzer beginnen bei Hostpoint mit dem Kontonamen</li>
           </ul>
           <div class="callout callout-red">
             <p class="text-lg"><strong>config.php</strong> enthält euer Passwort und darf nie auf GitHub landen.</p>
@@ -715,11 +713,7 @@ $pdo = new PDO($dsn, $username, $password, $options);
           </div>
         </div>
         <aside class="notes">DSN heisst Data Source Name und ist einfach die Adresse der Datenbank. Der
-          Grund für die eigene Datei ist nicht Ordnung, sondern der Umzug beim Deployment: Nur diese Datei
-          unterscheidet sich, der ganze übrige Code bleibt gleich. Die $options mit ERRMODE_EXCEPTION stehen
-          ebenfalls in config.php und kommen auf der übernächsten Folie. Auf 127.0.0.1 bestehen: Mit localhost
-          verbindet sich PHP über eine Socket-Datei statt über den Port und meldet «No such file or
-          directory». Das ist der häufigste Fehler im ganzen Block.</aside>
+          Grund für die eigene Datei: Alle Code-Alongs teilen dieselben Zugangsdaten, und das Passwort bleibt aus dem Repository draussen. Die $options mit ERRMODE_EXCEPTION stehen ebenfalls in config.php und kommen auf der übernächsten Folie. «konto» steht für den eigenen Kontonamen: Hostpoint setzt ihn vor Host, Datenbank und Benutzer, und wer ihn vergisst, bekommt «Access denied» oder «Unknown database». Das ist der häufigste Fehler im ganzen Block.</aside>
       </section>
 
       <!-- ============ 28 ============ -->

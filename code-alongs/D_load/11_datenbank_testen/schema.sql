@@ -1,7 +1,7 @@
 -- Tabelle für den Verbindungstest.
 --
--- phpMyAdmin öffnest du über die MAMP-Startseite. Dort zwei Wege, beide führen
--- zum selben Ergebnis:
+-- phpMyAdmin öffnest du über das Control Panel von Hostpoint. Dort zwei Wege,
+-- beide führen zum selben Ergebnis:
 --   a) diesen Text in den Reiter «SQL» einfügen und ausführen;
 --   b) dieselben Spalten im Reiter «Struktur» zusammenklicken.
 --

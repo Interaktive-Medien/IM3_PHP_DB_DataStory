@@ -17,17 +17,17 @@
  * Bedienelementen sagen jeweils, welche Sorte es ist.
  *
  * ---------------------------------------------------------------------------
- * WICHTIG: Live Server funktioniert hier nicht.
+ * WICHTIG: Die Seite läuft auf dem Webserver.
  * ---------------------------------------------------------------------------
  *
- * Die Seite muss über den PHP-Server laufen:
+ * In PhpStorm speichern, damit die Datei per FTP hochgeladen wird, und die
+ * Seite über die eigene Domain öffnen:
  *
- *   cd code-alongs/F_visualisierung/17_hitzesommer_ranking
- *   php -S localhost:8000
+ *   https://eure-domain.ch/code-alongs/F_visualisierung/17_hitzesommer_ranking/
  *
- * In der Adressleiste muss 8000 stehen. Steht dort 5500, läuft die Seite über
- * den Live Server von VS Code – der führt kein PHP aus. Per Doppelklick
- * geöffnet (file://) bleibt die Seite ganz leer.
+ * In der Adressleiste steht eure Domain. Steht dort localhost oder file://,
+ * läuft nicht der Stand auf dem Server. Per Doppelklick geöffnet (file://)
+ * bleibt die Seite ganz leer, weil der Browser das Modul gar nicht lädt.
  *
  * Das HTML ist fertig. Neu dazugekommen sind:
  *
@@ -101,7 +101,7 @@ async function loadSummers(city) {
 
   if (!contentType.includes('application/json')) {
     throw new Error(
-      'Die Antwort ist kein JSON. Läuft die Seite über php -S localhost:8000?',
+      'Die Antwort ist kein JSON. Öffne unload.php direkt im Browser.',
     );
   }
 

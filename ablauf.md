@@ -29,7 +29,7 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 
 ### Block A – PHP Basics
 
-1. `🛠️` Tooling: Editor, Terminal und Git überprüfen `30'`
+1. `🛠️` Tooling: PhpStorm, Terminal und Git überprüfen `30'`
 2. `🛠️` Tooling: Lokaler Server [00 Lokaler PHP-Server](theorie/00_lokaler_php_server/index.html) `30'`
 3. `📝` Analoge Übung: [03 Von JavaScript zu PHP](stift-und-papier/03_von_js_zu_php/) `35'`
 4. `🧑‍🏫` Code-Along: [00 Hallo PHP](code-alongs/A_PHP_Basics/00_hallo_php) `30'`
@@ -81,7 +81,7 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 1. `📕` [Theorie D: Load (bis Kapitel Datenmodell)](theorie/D_load/) `30'`
 2. `📝` Analoge Übung: eigenes Datenmodell zeichnen `35'`
 3. `📕` [Theorie D: Load (ab Kapitel SQL)](theorie/D_load/) `45'`
-4. `🛠️` Datenbank einrichten: [00 Lokale Datenbank](theorie/00_lokale_db/) `60'`
+4. `🛠️` Tooling: Datenbank einrichten: [YouTube Playlist](https://www.youtube.com/playlist?list=PLLZlqg08CVic) `60'`
 5. `🧑‍🏫` Code-Along: [11 Datenbank testen](code-alongs/D_load/11_datenbank_testen/) `60'`
 6. `🧑‍🏫` Code-Along: [12 Hitzesommer laden](code-alongs/D_load/12_hitzesommer_laden/) `70'`
 7. `🃏` Story-Karten: [Kapitel 4 Datenstory](https://codeanddesign.ch/im3/kartenset.html)
@@ -91,6 +91,7 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 #### Zusatzmaterial (Block D)
 
 - `🧑‍🏫` Code-Along: [13 Shark laden](code-alongs/D_load/13_sharkdaten_laden/)
+- `🛠️` Tooling: [00 Lokale Datenbank](theorie/00_lokale_db/) _(Freiwillig, wer lokal arbeiten will.)_
 
 ### Block E – Unload
 
@@ -98,7 +99,6 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 2. `🧑‍🏫` Code-Along: [14 Hitzesommer unloaden](code-alongs/E_unload/14_hitzesommer_ausliefern/) `60'`
 3. `🛠️` Eigenen Unload-Endpunkt nach dem Datenvertrag bauen und prüfen
 4. `✅` **M7: Unload-Endpunkt funktioniert**
-5. `🛠️` Tooling: Deployment `60'`
 
 #### Zusatzmaterial (Block E)
 
@@ -130,18 +130,18 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 
 ## Meilensteine
 
-|       | Meilenstein                            | Was ihr zeigt                                                                                                                                                                           |
-| ----- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `M1`  | Gruppen gebildet                       | Der lokale PHP-Server läuft, die Vierergruppe steht, Backend- und Frontend-Zweierteam sind festgelegt.                                                                                  |
-| `M2`  | Eigene Datenfrage formuliert           | Die Gruppe hat eine offene, mit Daten beantwortbare Frage mit Untersuchungseinheit und passendem Zeitraum formuliert.                                                                   |
-| `M3`  | Datensatz gefunden und geprüft         | Eine glaubwürdige Quelle, Beispieldaten, vorhandene Felder und Datenmenge passen zur Frage – oder der Plan für eine Live-Sammlung ist bis zum Marktstand realistisch.                   |
-| `M4`  | Erster Extract und Datenvertrag stehen | Ein PHP-Skript liest echte Daten als Array ein. Der Datenvertrag v0 zeigt Feldnamen, Datentypen und Beispielwerte für die spätere JSON-Ausgabe.                                         |
-| `M5`  | Transform funktioniert                 | Einige echte Rohdatensätze werden ins vereinbarte Format umgeformt. Der Umgang mit fehlenden, ungültigen oder uneinheitlichen Werten ist sichtbar entschieden.                          |
-| `M6`  | Daten stehen in der Datenbank          | Das kleine Datenmodell ist umgesetzt, transformierte Daten sind gespeichert und eine Abfrage zeigt die erwarteten Datensätze.                                                           |
-| `M7`  | Unload-Endpunkt funktioniert           | `unload.php` liest aus der Datenbank und liefert valides JSON nach dem Datenvertrag. Ein benötigter Filter funktioniert, falls das Projekt einen Filter braucht.                        |
-| `M8`  | Erste Integration steht                | Das Frontend lädt echte Daten vom eigenen Endpunkt statt aus den Mock-Daten und zeigt mindestens eine einfache, zur Datenfrage passende Grafik.                                         |
+|       | Meilenstein                            | Was ihr zeigt                                                                                                                                                                                                                                                                                 |
+| ----- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `M1`  | Gruppen gebildet                       | Der lokale PHP-Server läuft, die Vierergruppe steht, Backend- und Frontend-Zweierteam sind festgelegt.                                                                                                                                                                                        |
+| `M2`  | Eigene Datenfrage formuliert           | Die Gruppe hat eine offene, mit Daten beantwortbare Frage mit Untersuchungseinheit und passendem Zeitraum formuliert.                                                                                                                                                                         |
+| `M3`  | Datensatz gefunden und geprüft         | Eine glaubwürdige Quelle, Beispieldaten, vorhandene Felder und Datenmenge passen zur Frage – oder der Plan für eine Live-Sammlung ist bis zum Marktstand realistisch.                                                                                                                         |
+| `M4`  | Erster Extract und Datenvertrag stehen | Ein PHP-Skript liest echte Daten als Array ein. Der Datenvertrag v0 zeigt Feldnamen, Datentypen und Beispielwerte für die spätere JSON-Ausgabe.                                                                                                                                               |
+| `M5`  | Transform funktioniert                 | Einige echte Rohdatensätze werden ins vereinbarte Format umgeformt. Der Umgang mit fehlenden, ungültigen oder uneinheitlichen Werten ist sichtbar entschieden.                                                                                                                                |
+| `M6`  | Daten stehen in der Datenbank          | Das kleine Datenmodell ist umgesetzt, transformierte Daten sind gespeichert und eine Abfrage zeigt die erwarteten Datensätze.                                                                                                                                                                 |
+| `M7`  | Unload-Endpunkt funktioniert           | `unload.php` liest aus der Datenbank und liefert valides JSON nach dem Datenvertrag. Ein benötigter Filter funktioniert, falls das Projekt einen Filter braucht.                                                                                                                              |
+| `M8`  | Erste Integration steht                | Das Frontend lädt echte Daten vom eigenen Endpunkt statt aus den Mock-Daten und zeigt mindestens eine einfache, zur Datenfrage passende Grafik.                                                                                                                                               |
 | `M9`  | Marktstand (Oktober)                   | Das Projekt läuft am Marktstand und auf dem Server. Story, Beschriftungen und Quellen sind verständlich, ein gespeicherter Datenstand dient als Fallback. Das Team kann die ETL+U-Kette, die Datenquelle, den Datenvertrag sowie die zentralen Story- und Visualisierungsentscheide erklären. |
-| `M10` | Abgabe (Januar)                        | Die überarbeitete Fassung liegt im Repository und läuft auf dem Server. Das README erklärt den Betrieb, die Rückmeldungen vom Marktstand sind eingearbeitet.                            |
+| `M10` | Abgabe (Januar)                        | Die überarbeitete Fassung liegt im Repository und läuft auf dem Server. Das README erklärt den Betrieb, die Rückmeldungen vom Marktstand sind eingearbeitet.                                                                                                                                  |
 
 ## Inhaltliche Struktur
 

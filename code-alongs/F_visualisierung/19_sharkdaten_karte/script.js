@@ -12,15 +12,17 @@
  *   3. Ein Land ohne Daten muss anders aussehen als ein Land mit wenig Daten.
  *
  * ---------------------------------------------------------------------------
- * WICHTIG: Live Server funktioniert hier nicht.
+ * WICHTIG: Die Seite läuft auf dem Webserver.
  * ---------------------------------------------------------------------------
  *
- *   cd code-alongs/F_visualisierung/19_sharkdaten_karte
- *   php -S localhost:8000
+ * In PhpStorm speichern, damit die Datei per FTP hochgeladen wird, und die
+ * Seite über die eigene Domain öffnen:
  *
- * In der Adressleiste muss 8000 stehen. Bei 5500 läuft der Live Server von
- * VS Code, der kein PHP ausführt. Per Doppelklick geöffnet (file://) bleibt
- * die Seite ganz leer.
+ *   https://eure-domain.ch/code-alongs/F_visualisierung/19_sharkdaten_karte/
+ *
+ * In der Adressleiste steht eure Domain. Steht dort localhost oder file://,
+ * läuft nicht der Stand auf dem Server. Per Doppelklick geöffnet (file://)
+ * bleibt die Seite ganz leer, weil der Browser das Modul gar nicht lädt.
  *
  * Vorher: Die Tabelle shark_countries muss gefüllt sein – Code-Along 13,
  * load.php einmal aufrufen.
@@ -109,7 +111,7 @@ async function ladeVomEndpunkt(url) {
 
   if (!contentType.includes('application/json')) {
     throw new Error(
-      'Die Antwort ist kein JSON. Läuft die Seite über php -S localhost:8000?'
+      'Die Antwort ist kein JSON. Öffne unload.php direkt im Browser.'
     );
   }
 

@@ -8,12 +8,9 @@
  *   Zeichnen   drei Diagramme, eine einzige render()-Funktion
  *   Reagieren  drei Bedienelemente ändern den Zustand und zeichnen neu
  *
- * Die Seite läuft nur über den PHP-Server:
- *
- *   php -S localhost:8000
- *
- * Der Live Server von VS Code (Port 5500) führt kein PHP aus und liefert den
- * Quelltext von unload.php statt der Daten.
+ * Die Seite läuft auf dem Webserver: hochladen und über die eigene Domain
+ * öffnen. Zum schnellen Zeigen geht auch php -S localhost:8000 – dann mit den
+ * Musterdaten.
  */
 
 // ---------------------------------------------------------------------------

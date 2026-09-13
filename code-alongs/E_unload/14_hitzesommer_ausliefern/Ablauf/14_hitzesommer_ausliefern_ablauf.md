@@ -118,7 +118,7 @@ Zwei Fehler bewusst herbeiführen:
 
 - In der Abfrage `heat_summers` falsch schreiben. Im Browser erscheint die
   kurze JSON-Fehlermeldung mit Status 500, die genaue Ursache steht im
-  Terminal, in dem `php -S` läuft. Zwei Orte, zwei Zielgruppen.
+  Error-Log des Webservers. Zwei Orte, zwei Zielgruppen.
 - Ein `echo 'Test';` über den Header setzen. Die Meldung «headers already sent»
   ist der Grund für Schritt 1 – danach wieder löschen.
 

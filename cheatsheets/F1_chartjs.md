@@ -32,8 +32,8 @@ Karten gibt es [Leaflet](F2_leaflet.md).
 Chart.js zeichnet in ein `<canvas>`. Die Höhe kommt aus CSS, nicht aus dem
 HTML-Attribut.
 
-Die Seite muss über `php -S localhost:8000` laufen. Der Live Server von VS Code
-führt kein PHP aus und liefert den Quelltext von `unload.php`.
+Die Seite muss auf dem Webserver laufen: hochladen und über die eigene Domain
+öffnen. Per Doppelklick oder über `localhost` kommt von `unload.php` kein JSON.
 
 ## Daten holen
 
@@ -53,7 +53,7 @@ async function loadSummers(city) {
 
   if (!contentType.includes('application/json')) {
     throw new Error(
-      'Die Antwort ist kein JSON. Läuft die Seite über php -S localhost:8000?',
+      'Die Antwort ist kein JSON. Öffne unload.php direkt im Browser.',
     );
   }
 
@@ -271,7 +271,7 @@ Bei einer abgeschnittenen Achse wirkt jede Schwankung wie ein Sprung.
 | «Unexpected token '<'» | Der Endpunkt hat kein JSON geliefert – siehe die Content-Type-Prüfung |
 | Das Diagramm wird immer höher | `maintainAspectRatio: false` ohne feste Höhe in CSS |
 | Die X-Achse ist unsortiert | `sort()` ohne Vergleichsfunktion, oder `ORDER BY` fehlt im SQL |
-| Leere Seite beim Doppelklick auf `index.html` | Die Seite braucht `php -S localhost:8000` |
+| Leere Seite beim Doppelklick auf `index.html` | Die Seite muss über die eigene Domain geöffnet werden |
 
 ## Verwandte Cheatsheets
 

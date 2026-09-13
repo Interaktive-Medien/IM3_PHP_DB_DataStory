@@ -31,12 +31,9 @@ Die 17 Ranking-Zeilen und die 120 Länderzeilen liegen seit Code-Along 13 in
 `shark_rankings` und `shark_countries`. Sind die Tabellen leer, dort einmal
 `load.php` aufrufen.
 
-```bash
-cd code-alongs/E_unload/15_sharkdaten_ausliefern
-php -S localhost:8000
-```
+Hochladen und über die eigene Domain öffnen:
 
-→ <http://localhost:8000/unload.php>
+→ `https://eure-domain.ch/code-alongs/E_unload/15_sharkdaten_ausliefern/unload.php`
 
 ## Vor dem Code (10')
 

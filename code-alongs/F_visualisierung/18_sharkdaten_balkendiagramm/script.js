@@ -13,15 +13,17 @@
  * zum ersten Mal jemand.
  *
  * ---------------------------------------------------------------------------
- * WICHTIG: Live Server funktioniert hier nicht.
+ * WICHTIG: Die Seite läuft auf dem Webserver.
  * ---------------------------------------------------------------------------
  *
- *   cd code-alongs/F_visualisierung/18_sharkdaten_balkendiagramm
- *   php -S localhost:8000
+ * In PhpStorm speichern, damit die Datei per FTP hochgeladen wird, und die
+ * Seite über die eigene Domain öffnen:
  *
- * In der Adressleiste muss 8000 stehen. Bei 5500 läuft der Live Server von
- * VS Code, der kein PHP ausführt. Per Doppelklick geöffnet (file://) bleibt
- * die Seite ganz leer.
+ *   https://eure-domain.ch/code-alongs/F_visualisierung/18_sharkdaten_balkendiagramm/
+ *
+ * In der Adressleiste steht eure Domain. Steht dort localhost oder file://,
+ * läuft nicht der Stand auf dem Server. Per Doppelklick geöffnet (file://)
+ * bleibt die Seite ganz leer, weil der Browser das Modul gar nicht lädt.
  *
  * Vorher: Die Tabelle shark_rankings muss gefüllt sein – Code-Along 13,
  * load.php einmal aufrufen.

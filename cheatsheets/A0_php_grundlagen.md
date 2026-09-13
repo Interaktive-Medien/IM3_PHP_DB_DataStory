@@ -9,12 +9,13 @@ bekommt nie den PHP-Code zu sehen, sondern nur das Ergebnis.
 Browser fragt an  ->  Server führt die .php-Datei aus  ->  Browser bekommt das Ergebnis
 ```
 
-In diesem Kurs ist der Server dein eigener Rechner. Erst im Deployment-Teil am
-Schluss zieht das Projekt auf ein Webhosting um.
+In diesem Kurs ist der Server zuerst dein eigener Rechner. Ab dem Load-Block,
+wenn die Datenbank dazukommt, arbeitest du auf dem Webserver von Hostpoint.
 
 ## Den Server starten
 
-Im Ordner der Datei starten, nicht irgendwo:
+Das Terminal öffnest du in PhpStorm mit `⌥ F12` (Windows: `Alt + F12`). Im
+Ordner der Datei starten, nicht irgendwo:
 
 ```bash
 cd code-alongs/A_PHP_Basics/01_variablen
@@ -26,7 +27,7 @@ Dann `http://localhost:8000` im Browser öffnen. Beenden mit `Ctrl + C`.
 | Symptom | Ursache |
 | --- | --- |
 | Der Browser lädt die Datei herunter | Die Seite wurde per Doppelklick geöffnet (`file://`) |
-| Es erscheint der PHP-Quelltext | Live Server von VS Code (Port 5500) führt kein PHP aus |
+| In der Adressleiste steht `63342` | Die Seite wurde über das Browser-Symbol von PhpStorm geöffnet, nicht über `php -S` |
 | «Not Found» | Der Server läuft in einem anderen Ordner |
 
 Änderungen im Code brauchen nur einen Reload im Browser, keinen Neustart des

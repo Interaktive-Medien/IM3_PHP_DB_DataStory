@@ -25,12 +25,9 @@ jemand.
 Die 17 Zeilen liegen seit Code-Along 13 in `shark_rankings`. Ist die Tabelle
 leer, dort einmal `load.php` aufrufen.
 
-```bash
-cd code-alongs/F_visualisierung/18_sharkdaten_balkendiagramm
-php -S localhost:8000
-```
+Hochladen und über die eigene Domain öffnen:
 
-→ <http://localhost:8000> · Auch heute nicht mit Live Server.
+→ `https://eure-domain.ch/code-alongs/F_visualisierung/18_sharkdaten_balkendiagramm/`
 
 Fertig im Ordner: `index.html`, `style.css`, der Endpunkt aus Code-Along 15 und
 `data/shark-rankings.json` als Fallback. Gebaut wird `script.js` mit sechs
@@ -119,7 +116,7 @@ zwei oder drei Stücke, nicht zehn. Danach zurückstellen.
 | auf «Tätigkeiten im Wasser» wechseln | 7 Balken, neuer Titel, Surfing zuoberst |
 | über einen Balken fahren | Zahl und Anteil in Prozent |
 | in `index.html` einen `value` auf `fische` ändern | rote Meldung «Unbekannte Rangliste.» |
-| MAMP stoppen und neu laden | Meldung «Daten konnten nicht geladen werden.» |
+| in `script.js` bei `ENDPUNKT` die Adresse falsch schreiben und neu laden | Meldung «Daten konnten nicht geladen werden.» |
 
 Der vierte Test ist der wichtigste. Danach den Wert wieder zurücksetzen.
 

@@ -16,35 +16,19 @@
  * Interaktion im Browser kommen in Code-Along 17 dazu.
  *
  * ---------------------------------------------------------------------------
- * WICHTIG: Live Server funktioniert hier nicht.
+ * WICHTIG: Die Seite läuft auf dem Webserver.
  * ---------------------------------------------------------------------------
  *
- * Die Seite muss über den PHP-Server laufen:
+ * In PhpStorm speichern, damit die Datei per FTP hochgeladen wird, und die
+ * Seite über die eigene Domain öffnen:
  *
- *   cd code-alongs/F_visualisierung/16_hitzesommer_liniendiagramm
- *   php -S localhost:8000
+ *   https://eure-domain.ch/code-alongs/F_visualisierung/16_hitzesommer_liniendiagramm/
  *
- * Dann http://localhost:8000 im Browser öffnen.
+ * In der Adressleiste steht eure Domain. Steht dort localhost oder file://,
+ * läuft nicht der Stand auf dem Server. Per Doppelklick geöffnet (file://)
+ * bleibt die Seite ganz leer, weil der Browser das Modul gar nicht lädt.
  *
- * In der Adressleiste muss 8000 stehen. Steht dort 5500, läuft die Seite über
- * den Live Server von VS Code. Der kann HTML, CSS und JavaScript – aber kein
- * PHP. Er schickt unload.php aus, wie sie auf der Festplatte liegt, und im
- * Browser steht dann «<?php» statt der Daten.
- *
- * Live Server unten rechts in der Statusleiste beenden: auf «Port: 5500»
- * klicken. Faustregel ab Block E: Sobald eine .php im Spiel ist, ist Live
- * Server das falsche Werkzeug.
- *
- * Per Doppelklick geöffnet (file://) geht es auch nicht, und zwar besonders
- * verwirrend: Dann bleibt die Seite vollständig leer und still. Weil diese
- * Datei als type="module" eingebunden ist, blockiert der Browser schon das
- * Laden des Skripts – es läuft keine einzige Zeile, also gibt es auch keine
- * Fehlermeldung auf der Seite. Der Hinweis steht nur in der Konsole.
- *
- * Kurz: Keine Diagramme, keine Meldung, kein Netzwerkaufruf? Dann steht in der
- * Adressleiste file:// oder 5500 statt http://localhost:8000.
- *
- * Für Baustein 4 muss zusätzlich MAMP laufen, mit den Daten aus Code-Along 12.
+ * Für Baustein 4 muss die Tabelle aus Code-Along 12 gefüllt sein.
  *
  * Das HTML ist fertig. Diese Elemente stehen bereit:
  *

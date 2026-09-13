@@ -17,11 +17,9 @@
  * Im eigenen Projekt liegen index.html und unload.php nebeneinander, dort
  * heisst es einfach 'unload.php'.
  *
- * WICHTIG: Auch die Lösung läuft nur über den PHP-Server. Im Ordner des
- * Code-Alongs `php -S localhost:8000` starten und
- * http://localhost:8000/solution/ öffnen. Der Live Server von VS Code
- * (Port 5500) führt kein PHP aus und liefert den Quelltext von unload.php
- * statt der Daten.
+ * WICHTIG: Auch die Lösung läuft nur auf dem Webserver. Hochladen und
+ * https://eure-domain.ch/code-alongs/F_visualisierung/16_hitzesommer_liniendiagramm/solution/
+ * öffnen.
  */
 
 // ---------------------------------------------------------------------------
@@ -99,15 +97,14 @@ async function loadSummers(city) {
   // Hier zahlt sich der Header aus Block E aus: Wir können nachsehen, was für
   // eine Antwort angekommen ist, bevor wir sie als JSON lesen.
   //
-  // Der häufigste Fall im Unterricht: Die Seite läuft über den Live Server von
-  // VS Code statt über php -S. Der liefert unload.php als Text aus, und die
-  // Antwort beginnt mit «<?php». Ohne diese Prüfung meldet der Browser
+  // Der häufigste Fall im Unterricht: unload.php gibt vor dem JSON eine
+  // PHP-Warnung als HTML aus. Ohne diese Prüfung meldet der Browser
   // «Unexpected token '<'» – und alle suchen im JavaScript.
   const contentType = response.headers.get('content-type') ?? '';
 
   if (!contentType.includes('application/json')) {
     throw new Error(
-      'Die Antwort ist kein JSON. Läuft die Seite über php -S localhost:8000?',
+      'Die Antwort ist kein JSON. Öffne unload.php direkt im Browser.',
     );
   }
 

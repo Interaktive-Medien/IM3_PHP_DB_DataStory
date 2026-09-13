@@ -15,16 +15,16 @@ Daten in die Datenbank sollen – nicht bei jedem Seitenaufruf.
 ## Zugangsdaten: config.php
 
 Die Zugangsdaten stehen **einmal** im Hauptordner des Kurses, in `config.php`.
-Diese Datei steht in `.gitignore` und wird nie hochgeladen; im Repository liegt
-nur `config.template.php` ohne Werte.
+Diese Datei steht in `.gitignore` und landet nie auf GitHub; im Repository
+liegt nur `config.template.php` ohne Werte.
 
 ```php
-$host     = '127.0.0.1';
-$dbname   = 'im3';
-$username = 'root';
-$password = 'root';
+$host     = 'konto.mysql.db.hostpoint.ch';
+$dbname   = 'konto_im3';
+$username = 'konto_im3';
+$password = '…';
 
-$dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
+$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,  // Fehler brechen laut ab
@@ -33,12 +33,12 @@ $options = [
 ];
 ```
 
-Zwei Stolpersteine bei MAMP:
+Alle Werte stehen im Control Panel von Hostpoint. Zwei Stolpersteine:
 
-- `'127.0.0.1'` statt `'localhost'` – sonst kommt
-  «SQLSTATE[HY000] [2002] No such file or directory».
-- Port `8889` ist der MAMP-Standard auf macOS, unter Windows oft `3306`. Der
-  Wert steht in MAMP.
+- Hostpoint setzt den Kontonamen vor Host, Datenbank und Benutzer. Fehlt er,
+  kommt «Access denied» oder «Unknown database».
+- `config.php` landet nicht auf GitHub, muss aber auf den Server. PhpStorm lädt
+  sie beim Speichern mit hoch.
 
 Eingebunden wird die Datei mit dem Pfad zum Hauptordner:
 
@@ -205,8 +205,8 @@ foreach ($lastSummers->fetchAll() as $summer) {
 
 | Meldung | Ursache |
 | --- | --- |
-| `No such file or directory` | `localhost` statt `127.0.0.1`, oder MAMP läuft nicht |
-| `Access denied for user` | Benutzer oder Passwort in `config.php` falsch |
+| `getaddrinfo … failed` | Host in `config.php` falsch geschrieben |
+| `Access denied for user` | Benutzer oder Passwort in `config.php` falsch, oft fehlt der Kontoname davor |
 | `Unknown database` | `$dbname` stimmt nicht mit phpMyAdmin überein |
 | `Base table or view not found` | Tabelle noch nicht angelegt – `schema.sql` ausführen |
 | `Invalid parameter number` | Anzahl Platzhalter und Anzahl Werte in `execute()` stimmen nicht überein |

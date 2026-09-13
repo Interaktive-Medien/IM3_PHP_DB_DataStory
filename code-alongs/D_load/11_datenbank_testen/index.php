@@ -8,8 +8,10 @@
  *
  * Vorher:
  * - config.php im Hauptordner anlegen (aus config.template.php kopieren)
- *   und mit den Zugangsdaten aus MAMP ausfüllen;
- * - Tabelle aus schema.sql in phpMyAdmin anlegen.
+ *   und mit den Zugangsdaten aus dem Control Panel von Hostpoint ausfüllen;
+ * - Tabelle aus schema.sql in phpMyAdmin anlegen;
+ * - speichern, damit PhpStorm hochlädt, und die Seite über die eigene Domain
+ *   öffnen.
  */
 
 // TODO 1: Ausgabe als reinen Text anzeigen lassen.

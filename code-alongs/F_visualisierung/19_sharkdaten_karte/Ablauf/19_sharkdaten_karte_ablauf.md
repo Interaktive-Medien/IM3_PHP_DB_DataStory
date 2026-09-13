@@ -28,13 +28,10 @@ Werkzeug, das am Schluss malt.
 Die 120 Länderzeilen liegen seit Code-Along 13 in `shark_countries` und kommen
 über den Endpunkt aus Code-Along 15.
 
-```bash
-cd code-alongs/F_visualisierung/19_sharkdaten_karte
-php -S localhost:8000
-```
+Hochladen und über die eigene Domain öffnen. Vorher einmal prüfen, ob die Daten
+da sind:
 
-Vorher einmal prüfen, ob die Daten da sind:
-<http://localhost:8000/unload.php?dataset=countries>
+→ `https://eure-domain.ch/code-alongs/F_visualisierung/19_sharkdaten_karte/unload.php?dataset=countries`
 
 Kommt `[]`, wurde `load.php` aus Code-Along 13 nie aufgerufen.
 

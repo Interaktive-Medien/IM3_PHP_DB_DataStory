@@ -72,15 +72,18 @@ Datengrundlage bis zur Story.
 
 ## 3. Technisches Setup
 
-Ihr entwickelt auf eurem eigenen Rechner. Zwei kurze Setups gehören dazu:
+Ihr entwickelt zuerst auf eurem eigenen Rechner und zieht mit der Datenbank auf
+einen Webserver um:
 
 - [Lokaler PHP-Server](theorie/00_lokaler_php_server/index.html): richten wir
-  ganz am Anfang ein, bevor die PHP-Grundlagen starten.
-- [Lokale Datenbank](theorie/00_lokale_db/README.md): kommt vor dem Load-Block dazu,
-  sobald ihr Daten speichert.
-
-Auf einen richtigen Webserver kommt euer Projekt erst am Schluss im
-Deployment-Teil.
+  ganz am Anfang ein, bevor die PHP-Grundlagen starten. Damit arbeitet ihr bis
+  und mit Block C.
+- Webserver und Datenbank bei Hostpoint: kommen vor dem Load-Block dazu,
+  sobald ihr Daten speichert. PhpStorm lädt jede gespeicherte Datei per FTP
+  hoch, und ihr öffnet die Seiten über eure Domain. Die Einrichtung zeigt die
+  YouTube-Playlist im [Ablauf](ablauf.md).
+- [Lokale Datenbank](theorie/00_lokale_db/README.md): Ausweichweg, falls ihr
+  einmal ohne Server arbeiten müsst oder wollt.
 
 ## 4. PHP-Dateien öffnen
 
@@ -88,8 +91,9 @@ Das meiste Material in diesem Repository ist PHP – und PHP läuft nicht per
 Doppelklick. Es braucht einen Server, den ihr selbst startet. Das sind
 drei Handgriffe, einmal pro Arbeitstag:
 
-1. Öffnet den **Kursordner** im Code-Editor.
-2. Öffnet über **Terminal → New Terminal** ein Terminal.
+1. Öffnet den **Kursordner** in PhpStorm.
+2. Öffnet über **View → Tool Windows → Terminal** ein Terminal (`⌥ F12`, unter
+   Windows `Alt + F12`). Es startet direkt im Kursordner.
 3. Startet den Server mit dem Command:
 
 ```bash
@@ -97,8 +101,8 @@ php -S localhost:8000
 ```
 
 Der Server läuft, solange das Terminal offen ist. Eine Übung öffnet ihr im
-Browser über ihren Pfad – das ist derselbe Pfad wie im Seitenbaum eures
-Editors, einfach mit `localhost:8000` davor.
+Browser über ihren Pfad – das ist derselbe Pfad wie im Projektbaum von
+PhpStorm, einfach mit `localhost:8000` davor.
 
 **Test:** Wenn hier Hallo PHP auf einer weissen Seite steht, funktioniert euer Webserver:
 
@@ -106,15 +110,18 @@ http://localhost:8000/code-alongs/A_PHP_Basics/00_hallo_php/solution/index.php
 
 Beenden könnt ihr den Server mit `Ctrl + C` im Terminal.
 
-> ⚠️ **Der Live Server von VS Code funktioniert dafür nicht.** Er kann HTML,
-> CSS und JavaScript, führt aber kein PHP aus – statt der Seite seht ihr den
-> Quelltext. In der Adressleiste muss `8000` stehen, nicht `5500`. Das gilt
+> ⚠️ **Nutzt dafür nicht das Browser-Symbol von PhpStorm.** Es öffnet die Seite
+> über einen eigenen Server von PhpStorm statt über den PHP-Server, den ihr
+> gestartet habt. In der Adressleiste muss `8000` stehen, nicht `63342`. Das gilt
 > auch für HTML-Seiten, die ihre Daten von einer PHP-Datei holen, zum Beispiel
 > das Frontend im Beispielprojekt.
 
+> Ab dem Load-Block braucht ihr `php -S` nicht mehr: Dann liegen die Dateien
+> auf dem Webserver von Hostpoint, und ihr öffnet sie über eure Domain.
+
 Nur die Folien in [theorie](theorie/) sind reine HTML-Dateien. Dort ist alles
-erlaubt: der Live Server, derselbe PHP-Server oder ein Doppelklick auf die
-`index.html`.
+erlaubt: das Browser-Symbol von PhpStorm, derselbe PHP-Server oder ein
+Doppelklick auf die `index.html`.
 
 ## 5. Methoden
 

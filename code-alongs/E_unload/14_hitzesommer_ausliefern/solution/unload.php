@@ -245,7 +245,7 @@ try {
     //    Zeile meldet der Server 200 OK und behauptet, alles sei in Ordnung.
     //
     // 2. error_log() schreibt die echte Meldung dorthin, wo wir sie brauchen:
-    //    ins Server-Log. Beim eingebauten PHP-Server steht sie im Terminal.
+    //    ins Error-Log des Webservers, nicht in den Browser.
     //
     // 3. Die Antwort an die Öffentlichkeit bleibt kurz und höflich. Tabellen-
     //    namen, Pfade oder Passwörter gehören nicht in eine Antwort, die jede

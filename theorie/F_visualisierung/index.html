@@ -373,12 +373,10 @@ if (!contentType.includes('application/json')) {
           </code></pre>
           <p class="mt-1"><code>fetch()</code> wirft bei Status 404 oder 500 keinen Fehler – es ist ja eine Antwort angekommen.</p>
           <div class="callout callout-orange is-bottom">
-            <p>Läuft die Seite über den Live Server statt über <code>php -S</code>, kommt der PHP-Quelltext zurück.</p>
+            <p>Öffnet ihr die Seite nicht über eure Domain, kommt statt JSON etwas anderes zurück.</p>
           </div>
         </div>
-        <aside class="notes">Hier lohnt sich die Demo: Seite einmal mit Live Server öffnen und die Meldung
-          «Unexpected token '&lt;'» zeigen. Der Content-Type-Header aus dem Endpunkt ist genau dafür da.
-          Merkregel für die Klasse: In der Adressleiste muss 8000 stehen, nicht 5500.</aside>
+        <aside class="notes">Hier lohnt sich die Demo: Seite einmal per Doppelklick oder über das Browser-Symbol von PhpStorm öffnen und zeigen, was zurückkommt. Der Content-Type-Header aus dem Endpunkt ist genau dafür da. Merkregel für die Klasse: In der Adressleiste steht die eigene Domain, nicht localhost.</aside>
       </section>
 
       <!-- ============ 17 Übergabe ============ -->

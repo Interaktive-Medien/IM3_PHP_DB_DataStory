@@ -13,9 +13,9 @@
  *
  * Diese Datei liegt in solution/, deshalb steht vor jeder URL ein `../`.
  *
- * WICHTIG: Auch die Lösung läuft nur über den PHP-Server. Im Ordner des
- * Code-Alongs `php -S localhost:8000` starten und
- * http://localhost:8000/solution/ öffnen.
+ * WICHTIG: Auch die Lösung läuft nur auf dem Webserver. Hochladen und
+ * https://eure-domain.ch/code-alongs/F_visualisierung/18_sharkdaten_balkendiagramm/solution/
+ * öffnen.
  */
 
 // ---------------------------------------------------------------------------
@@ -90,7 +90,7 @@ async function loadRankings(dimension) {
   const contentType = response.headers.get('content-type') ?? '';
 
   if (!contentType.includes('application/json')) {
-    throw new Error('Die Antwort ist kein JSON. Läuft die Seite über php -S localhost:8000?');
+    throw new Error('Die Antwort ist kein JSON. Öffne unload.php direkt im Browser.');
   }
 
   return await response.json();

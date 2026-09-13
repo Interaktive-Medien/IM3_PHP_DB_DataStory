@@ -8,9 +8,9 @@ festen Spalten, und jede Spalte hat einen festen Datentyp. Das ist der
 Unterschied zu einer Datei: Die Datenbank prüft mit, ob die Daten zur Struktur
 passen, und sie findet einzelne Zeilen, ohne alles zu lesen.
 
-Im Kurs arbeiten wir mit **MySQL/MariaDB** über MAMP, bedient mit
-**phpMyAdmin**. Die Datenbank läuft auf dem eigenen Rechner
-(siehe `theorie/00_lokale_db/`).
+Im Kurs arbeiten wir mit **MariaDB**, einer nahen Verwandten von MySQL, auf dem
+Webserver von Hostpoint. Bedient wird sie mit **phpMyAdmin** aus dem Control
+Panel.
 
 ## Das Datenmodell planen
 

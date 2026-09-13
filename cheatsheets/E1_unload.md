@@ -186,8 +186,8 @@ Drei Dinge mit drei Adressaten:
 
 - `http_response_code(500)` sagt der Maschine, dass es schiefging. Ohne die
   Zeile meldet der Server 200 OK.
-- `error_log()` schreibt die echte Meldung ins Server-Log – beim eingebauten
-  PHP-Server ins Terminal.
+- `error_log()` schreibt die echte Meldung ins Error-Log des Webservers, nicht
+  in den Browser.
 - Die öffentliche Antwort bleibt kurz. Tabellennamen, Pfade und Passwörter
   gehören nicht in eine Antwort, die jede Person im Netz abrufen kann.
 
@@ -215,7 +215,7 @@ mit `[`?
 | Symptom | Ursache |
 | --- | --- |
 | `headers already sent` | Ausgabe vor `header()`, oft ein Leerzeichen vor `<?php` |
-| Der Browser zeigt den PHP-Quelltext | Die Seite läuft über Live Server statt `php -S` |
+| Der Browser zeigt den PHP-Quelltext | Die Seite läuft nicht auf dem Webserver – in der Adressleiste steht nicht die eigene Domain |
 | «Unexpected token <» im Frontend | Der Endpunkt hat HTML geschickt – eine Fehlerseite oder ein `var_dump` |
 | Zahlen kommen als `"36.3"` an | Die Umwandlung im Datenvertrag fehlt |
 | `Zürich` im JSON | `JSON_UNESCAPED_UNICODE` fehlt |

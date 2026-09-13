@@ -10,9 +10,11 @@
 
 ## Schritte
 
-1. Den Ordner `00_hallo_php` im Editor öffnen.
+1. Den Kursordner in PhpStorm öffnen und im Projektbaum
+   `code-alongs/A_PHP_Basics/00_hallo_php` aufklappen.
 2. Die Datei `index.php` so verändern, dass "Hallo PHP" ausgegeben wird.
-3. Im Terminal in diesen Ordner wechseln und den Server starten:
+3. Das Terminal von PhpStorm öffnen (`⌥ F12`, Windows `Alt + F12`), in diesen
+   Ordner wechseln und den Server starten:
    ```bash
    php -S localhost:8000
    ```
@@ -26,5 +28,5 @@
 Jede Person zeigt `Hallo PHP` im Browser unter `localhost:8000`. Der PHP-Code
 wird an diesem Tag nicht erklärt; er ist nur das Prüfwerkzeug.
 
-Auf einen Webserver kommt das Projekt erst im Deployment-Teil am Ende des
-Kurses. Bis dahin läuft alles auf dem eigenen Rechner.
+Auf den Webserver zieht die Arbeit erst in Block D um, zusammen mit der
+Datenbank. Bis dahin läuft alles auf dem eigenen Rechner.

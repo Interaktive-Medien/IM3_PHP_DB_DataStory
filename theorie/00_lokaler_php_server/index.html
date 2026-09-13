@@ -41,24 +41,20 @@
               </ul>
             </div>
             <div>
-              <p class="list-intro">Auf einen Webserver kommt euer Projekt am Schluss.</p>
+              <p class="list-intro">Mit der Datenbank zieht ihr auf einen Webserver um.</p>
               <ul class="list-tight text-sm">
-                <li>Dort muss es am Marktstand laufen</li>
-                <li>Dafür gibt es einen eigenen Teil im Kurs</li>
-                <li>Bis dahin ändert ihr nichts an eurer Arbeitsweise</li>
+                <li>Dort liegen PHP-Dateien und Datenbank zusammen</li>
+                <li>PhpStorm lädt dann jede gespeicherte Datei hoch</li>
+                <li>Dort muss das Projekt am Marktstand laufen</li>
               </ul>
             </div>
           </div>
           <div class="callout callout-blue">
-            <p>Das hier ist eure Arbeitsumgebung für den ganzen Kurs.</p>
-            <p>Alle Code-Alongs und Übungen setzen sie voraus.</p>
+            <p>Das hier ist eure Arbeitsumgebung, bis die Datenbank dazukommt.</p>
+            <p>Alle Code-Alongs und Übungen bis dahin setzen sie voraus.</p>
           </div>
         </div>
-        <aside class="notes">Das ist eine bewusste Änderung gegenüber früheren Durchläufen: Früher lief der
-          Kurs auf einem Webserver und lokal war der Zusatz. Jetzt ist es umgekehrt, weil das ständige
-          Hochladen beim Ausprobieren am meisten Zeit gekostet hat. Deshalb hier nicht weitergehen, bevor
-          alle eine laufende Ausgabe im Browser haben – es gibt keinen Weg mehr, an dem man vorbeikommt.
-          Wer hängen bleibt, meldet sich sofort und wartet nicht bis zur Pause.</aside>
+        <aside class="notes">Lokal läuft der Kurs bis und mit Block C. Ab Block D arbeiten alle auf dem Webserver bei Hostpoint, weil dort PHP und Datenbank nebeneinander liegen: PhpStorm lädt jede gespeicherte Datei per FTP hoch, eingerichtet über die YouTube-Playlist. Für die Grundlagen bleibt es bewusst lokal, weil das Hochladen beim Ausprobieren früher am meisten Zeit gekostet hat. Deshalb hier nicht weitergehen, bevor alle eine laufende Ausgabe im Browser haben. Wer hängen bleibt, meldet sich sofort und wartet nicht bis zur Pause.</aside>
       </section>
 
       <!-- ============ 3 ============ -->
@@ -71,12 +67,10 @@
             <li>Eure Seite erscheint unter <code>localhost:8000</code></li>
           </ul>
           <div class="callout callout-blue">
-            <p>Die Datenbank kommt später dazu, wenn wir sie brauchen.</p>
+            <p>Datenbank und Webserver kommen später dazu, wenn wir sie brauchen.</p>
           </div>
         </div>
-        <aside class="notes">Die beiden Setup-Foliensätze gehören zusammen: hier PHP, in Block D die
-          Datenbank. Bewusst getrennt und nicht beides am ersten Tag – eine Installation auf einmal reicht,
-          und die Datenbank ergibt erst dann Sinn, wenn es etwas zu speichern gibt.</aside>
+        <aside class="notes">Hier kommt nur PHP auf den eigenen Rechner. Datenbank und Webserver folgen in Block D, eingerichtet über die YouTube-Playlist. Bewusst nicht am ersten Tag – eine Einrichtung auf einmal reicht, und die Datenbank ergibt erst dann Sinn, wenn es etwas zu speichern gibt.</aside>
       </section>
 
       <!-- ============ 4 ============ -->
@@ -169,17 +163,15 @@ Mein Betriebssystem ist macOS.</div>
       <section id="server-starten-agent">
         <h2>Server starten</h2>
         <div class="content">
-          <span class="code-label">1. In den Projektordner wechseln</span>
-          <pre class="code-sm"><code data-trim data-noescape class="language-bash">
-cd Pfad/zu/meinem/kursordner
-          </code></pre>
-          <p class="text-sm">Tipp: <code>cd</code> mit Leerzeichen tippen und den Ordner aus dem Finder ins
-            Terminal ziehen.</p>
-          <span class="code-label">2. Server starten</span>
+          <span class="code-label">1. Kursordner in PhpStorm öffnen und das Terminal starten</span>
+          <div class="output">View → Tool Windows → Terminal</div>
+          <p class="text-sm">Kürzel: <code>⌥</code> + <code>F12</code>, unter Windows <code>Alt</code> + <code>F12</code>.</p>
+          <p class="text-sm">Das Terminal startet direkt im Kursordner.</p>
+          <span class="code-label mt-1">2. Server starten</span>
           <pre class="code-sm"><code data-trim data-noescape class="language-bash">
 php -S localhost:8000
           </code></pre>
-          <p class="text-sm">Der Server läuft, solange das Terminalfenster offen ist – beenden mit
+          <p class="text-sm">Der Server läuft, solange das Terminal offen ist – beenden mit
             <code>Ctrl</code> + <code>C</code>.</p>
         </div>
         <aside class="notes">Damit ist der Agentenweg zu Ende – wer hier ankommt, überspringt das nächste
@@ -237,8 +229,8 @@ php -v
           </div>
           <p class="text-sm text-muted mt-1">Alternative: XAMPP installieren, das bringt PHP fertig mit.</p>
         </div>
-        <aside class="notes">Der häufigste Fehler steht in Schritt fünf: Ein bereits offenes Terminalfenster
-          kennt den neuen PATH nicht. Wer XAMPP nimmt, kann trotzdem mit dem eingebauten Server von der
+        <aside class="notes">Der häufigste Fehler steht in Schritt fünf: Ein bereits offenes Terminal kennt
+          den neuen PATH nicht, auch das Terminal in PhpStorm nicht. Wer XAMPP nimmt, kann trotzdem mit dem eingebauten Server von der
           nächsten Folie arbeiten und muss den Apache von XAMPP nicht benutzen.</aside>
       </section>
 
@@ -246,21 +238,19 @@ php -v
       <section id="server-starten">
         <h2>Server starten</h2>
         <div class="content">
-          <span class="code-label">1. In den Projektordner wechseln</span>
-          <pre class="code-sm"><code data-trim data-noescape class="language-bash">
-cd Pfad/zu/meinem/kursordner
-          </code></pre>
-          <p class="text-sm">Tipp: <code>cd</code> mit Leerzeichen tippen und den Ordner aus dem Finder ins
-            Terminal ziehen.</p>
-          <span class="code-label">2. Server starten</span>
+          <span class="code-label">1. Kursordner in PhpStorm öffnen und das Terminal starten</span>
+          <div class="output">View → Tool Windows → Terminal</div>
+          <p class="text-sm">Kürzel: <code>⌥</code> + <code>F12</code>, unter Windows <code>Alt</code> + <code>F12</code>.</p>
+          <p class="text-sm">Das Terminal startet direkt im Kursordner.</p>
+          <span class="code-label mt-1">2. Server starten</span>
           <pre class="code-sm"><code data-trim data-noescape class="language-bash">
 php -S localhost:8000
           </code></pre>
-          <p class="text-sm">Der Server läuft, solange das Terminalfenster offen ist – beenden mit
+          <p class="text-sm">Der Server läuft, solange das Terminal offen ist – beenden mit
             <code>Ctrl</code> + <code>C</code>.</p>
         </div>
-        <aside class="notes">Der Ziehen-Trick spart erfahrungsgemäss die meiste Zeit; Pfade abzutippen geht
-          fast immer schief. Wichtig zu betonen: Nach einer Änderung an einer Datei genügt im Browser ein Neu
+        <aside class="notes">Weil das Terminal von PhpStorm schon im Kursordner startet, entfällt das Abtippen von Pfaden –
+          das spart erfahrungsgemäss die meiste Zeit. Wichtig zu betonen: Nach einer Änderung an einer Datei genügt im Browser ein Neu
           laden, der Server muss nicht neu gestartet werden.</aside>
       </section>
 

@@ -10,13 +10,11 @@ schon: Sie lädt den Endpunkt, zeichnet das Liniendiagramm und reagiert auf die
 Stadtauswahl. Wer 16 nicht fertig hat, startet trotzdem hier – der Code ist
 vollständig.
 
-```bash
-cd code-alongs/F_visualisierung/17_hitzesommer_ranking
-php -S localhost:8000
-```
+Hochladen und über die eigene Domain öffnen:
 
-→ <http://localhost:8000> · Auch heute nicht mit Live Server, sonst kommt der
-Quelltext von `unload.php` im Browser an.
+→ `https://eure-domain.ch/code-alongs/F_visualisierung/17_hitzesommer_ranking/`
+
+Auch heute gilt: In der Adressleiste steht die eigene Domain, nicht `localhost`.
 
 Neu im HTML sind ein zweites `<canvas>`, ein Schieber und zwei Knöpfe. Im
 JavaScript sind sechs TODO-Marken zu füllen.

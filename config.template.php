@@ -9,38 +9,37 @@
  *
  *     cp config.template.php config.php
  *
- * config.php steht in .gitignore und wird nie hochgeladen. Diese Vorlage ohne
- * Werte bleibt im Repository, damit alle wissen, welche Angaben nötig sind.
+ * config.php steht in .gitignore und landet nie auf GitHub. PhpStorm lädt sie
+ * trotzdem per FTP auf den Server, denn dort wird sie gebraucht. Diese Vorlage
+ * ohne Werte bleibt im Repository, damit alle wissen, welche Angaben nötig sind.
  */
 
 // --- Zugangsdaten -----------------------------------------------------------
 //
-// Die Datenbank läuft auf deinem eigenen Rechner, gestartet mit MAMP. Die Werte
-// stehen in MAMP und in phpMyAdmin, wo du die Datenbank angelegt hast.
+// Die Datenbank läuft auf dem Webserver bei Hostpoint. Datenbank und Benutzer
+// legst du im Control Panel von Hostpoint an, dort stehen auch alle Werte.
 //
-// Benutzer und Passwort sind lokal beide 'root'. Bei $dbname steht der Name,
-// den du in phpMyAdmin vergeben hast.
+// Hostpoint setzt den Namen deines Kontos vor Host, Datenbank und Benutzer.
+// Heisst dein Konto «konto», sieht das so aus:
 //
-// Wichtig: '127.0.0.1' und nicht 'localhost'.
-// Bei 'localhost' verbindet sich PHP nicht über den Port, sondern über eine
-// Socket-Datei – und sucht sie an einer Stelle, an der MAMP keine anlegt.
-// Die Folge ist die Meldung «SQLSTATE[HY000] [2002] No such file or directory».
-// '127.0.0.1' erzwingt die Verbindung über den Port, und dann stimmt alles.
+//   Host       konto.mysql.db.hostpoint.ch
+//   Datenbank  konto_im3
+//   Benutzer   konto_im3
+//
+// Fehlt dieser Vorsatz, meldet PDO «Access denied» oder «Unknown database».
 
-$host     = '127.0.0.1';
+$host     = '';
 $dbname   = '';
-$username = 'root';
-$password = 'root';
+$username = '';
+$password = '';
 
 // --- DSN: die Adresse der Datenbank -----------------------------------------
 //
 // DSN heisst Data Source Name. Er sagt PDO, welche Datenbank wo liegt.
 // charset=utf8mb4 sorgt dafür, dass Umlaute richtig ankommen.
-//
-// MAMP legt MySQL auf Port 8889. Lies den Wert in MAMP nach, wenn die
-// Verbindung nicht zustande kommt – auf Windows steht dort oft 3306.
+// Einen Port braucht es bei Hostpoint nicht.
 
-$dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
+$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 
 // --- Optionen für PDO -------------------------------------------------------
 
@@ -55,17 +54,9 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
-// --- Später: auf einem Webhosting -------------------------------------------
+// --- Ausweichweg ohne Server ------------------------------------------------
 //
-// Im Deployment-Teil am Ende des Kurses zieht dein Projekt auf einen Webserver
-// um. Dann bekommst du dort eine eigene Datenbank, und genau diese Datei
-// bekommt andere Werte:
-//
-// $host     = 'localhost';   // die Datenbank läuft dort neben deinen Dateien
-// $username = '...';         // aus dem Panel des Hostings
-// $password = '...';         // aus dem Panel des Hostings
-//
-// $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";   // ohne port
-//
-// Der übrige Code bleibt unverändert. Genau dafür stehen die Zugangsdaten in
-// einer eigenen Datei.
+// Ist der Server einmal nicht erreichbar, beschreibt theorie/00_lokale_db/ eine
+// Datenbank auf dem eigenen Rechner. Die Werte dafür stehen dort. Der übrige
+// Code bleibt unverändert – genau dafür stehen die Zugangsdaten in einer
+// eigenen Datei.

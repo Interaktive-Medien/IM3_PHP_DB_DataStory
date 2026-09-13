@@ -11,7 +11,7 @@ Im Ordner `data/` liegen die drei Dateien `bern.json`, `zuerich.json` und
 
 ## Schritte
 
-1. `data/bern.json` kurz im Editor /Browser (am besten Firefox) öffnen und den Aufbau ansehen: ganz oben
+1. `data/bern.json` kurz in PhpStorm oder im Browser (am besten Firefox) öffnen und den Aufbau ansehen: ganz oben
    Metadaten, unten das Objekt `daily` mit **zwei Listen** `time` und
    `temperature_2m_max`.
 2. Den Content-Type-Header auf reinen Text setzen (`text/plain`).

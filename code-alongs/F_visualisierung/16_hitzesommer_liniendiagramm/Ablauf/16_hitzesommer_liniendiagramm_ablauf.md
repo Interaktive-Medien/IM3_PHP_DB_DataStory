@@ -27,36 +27,29 @@ Im Ordner liegen bereit:
 | `unload.php` | der fertige Endpunkt aus Code-Along 14 |
 | `data/heat-summers.json` | dieselben 258 Datensätze als Datei |
 
-```bash
-cd code-alongs/F_visualisierung/16_hitzesommer_liniendiagramm
-php -S localhost:8000
-```
+Hochladen und über die eigene Domain öffnen:
 
-→ <http://localhost:8000>
+→ `https://eure-domain.ch/code-alongs/F_visualisierung/16_hitzesommer_liniendiagramm/`
 
-### Nicht mit Live Server – das kostet sonst die halbe Lektion
+### Über die Domain öffnen – das kostet sonst die halbe Lektion
 
-Diese zwei Minuten am Anfang sind gut investiert, weil beide Fälle in jeder
-Klasse vorkommen und beide Fehlermeldungen in die Irre führen.
+Diese zwei Minuten am Anfang sind gut investiert, weil alle Fälle in jeder
+Klasse vorkommen und die Fehlermeldungen in die Irre führen.
 
 | Wie geöffnet | Was passiert |
 | --- | --- |
 | Doppelklick auf die Datei (`file://`) | Die Seite bleibt **komplett leer und still**: `script.js` ist ein Modul, und Module blockiert der Browser von der Festplatte aus. Es läuft keine Zeile, also auch kein `fetch()` und keine Meldung auf der Seite – nur in der Konsole |
-| **Live Server von VS Code** (`5500`) | Die Seite lädt, aber PHP wird nicht ausgeführt: `unload.php` kommt als Quelltext zurück, der Browser meldet `Unexpected token '<', "<?php` |
-| `php -S localhost:8000` | richtig |
+| Browser-Symbol in PhpStorm (`localhost:63342`) | Die Seite läuft über den eingebauten Server von PhpStorm auf dem eigenen Rechner statt auf Hostpoint. `unload.php` liefert dort kein brauchbares JSON |
+| Datei geändert, aber nicht hochgeladen | Der Browser zeigt den alten Stand. Im Fenster «File Transfer» von PhpStorm nachsehen, ob der Upload geklappt hat |
+| `https://eure-domain.ch/…` | richtig |
 
 Der erste Fall ist der unangenehmere, weil er wie ein kaputtes Skript aussieht.
 Deshalb als Merksatz an die Klasse: **Keine Diagramme, keine Meldung, kein
 Netzwerkaufruf – dann liegt es nicht am Code, sondern an der Adresse.**
 
-Beides einmal vorführen und die Regel danebenstellen: **In der Adressleiste
-muss `8000` stehen. Wer `5500` sieht, hat den falschen Server.** Live Server
-beendet man unten rechts in der Statusleiste von VS Code mit einem Klick auf
-«Port: 5500».
-
-Die Faustregel gilt ab Block E für den ganzen Kurs: Sobald eine `.php` im Spiel
-ist, ist Live Server das falsche Werkzeug. Er kann HTML, CSS und JavaScript –
-mehr nicht.
+Die Fälle einmal vorführen und die Regel danebenstellen: **In der Adressleiste
+steht die eigene Domain. Wer `localhost` oder `file://` sieht, testet nicht den
+Stand auf dem Server.**
 
 ## Vor dem Code (10')
 
@@ -146,7 +139,7 @@ dass es das ohne die vier Blöcke davor nicht könnte.
 | Seite laden | «258 Sommer geladen», drei Linien |
 | Stadt «Bern» wählen | «86 Sommer geladen», eine Linie, Netzwerkaufruf mit `?city=Bern` |
 | Stadt «Zürich» wählen | Umlaut korrekt, 86 Sommer |
-| MAMP stoppen, Stadt wechseln | verständliche Meldung in der Statuszeile |
+| in `script.js` bei `ENDPUNKT` die Adresse falsch schreiben, Stadt wechseln | verständliche Meldung in der Statuszeile |
 
 Das Diagramm zum Schluss gemeinsam lesen: Bis in die 1980er-Jahre bleibt die
 Linie fast am Boden, danach steigt sie. Das ist der Moment, in dem aus einer
@@ -179,7 +172,7 @@ steht (die Messmethode, der Schwellenwert, die Definition von «Sommer»).
 | Meldung oder Symptom | Ursache |
 | --- | --- |
 | Seite bleibt leer und still, kein Netzwerkaufruf | Per Doppelklick geöffnet (`file://`) – das Modul wird gar nicht geladen |
-| `Unexpected token '<', "<?php` | Die Seite läuft über den Live Server von VS Code (Port 5500) statt über `php -S` |
+| `Unexpected token '<', "<?php` | Die Seite läuft nicht auf dem Webserver – in der Adressleiste steht nicht die eigene Domain |
 | `Unexpected token '<', "<!DOCTYPE` | Antwort ist eine HTML-Seite: falsche URL oder ein PHP-Fehler im Endpunkt |
 | `Chart is not defined` | Chart.js nicht geladen – Internet weg oder Tippfehler in der CDN-Adresse |
 | `Canvas is already in use` | `new Chart()` steht in `render()` statt daneben |

@@ -29,41 +29,42 @@ jedes Feld hat, hat die Tabelle schon entworfen.
 
 ## Tooling vor dem Input
 
-Der Block beginnt mit ungefähr 45 Minuten Einrichtung. Die Datenbank läuft auf
-dem eigenen Rechner – wie PHP seit Block A. Die ausführliche Anleitung samt
-Agentenweg steht in [`theorie/00_lokale_db/`](../00_lokale_db/); hier nur die
-Schritte in Kurzform.
+Der Block beginnt mit rund 60 Minuten Einrichtung. Ab hier arbeiten wir nicht
+mehr mit `php -S` auf dem eigenen Rechner, sondern auf dem Webserver bei
+Hostpoint: Dort liegen die PHP-Dateien und die Datenbank nebeneinander. Die
+Einrichtung zeigt die YouTube-Playlist im [Ablauf](../../ablauf.md); hier nur
+die Schritte in Kurzform.
 
-1. MAMP installieren und starten. MAMP liefert nur die Datenbank, nicht den
-   Webserver – PHP startet ihr weiterhin mit `php -S localhost:8000`.
-2. In MAMP den MySQL-Port ablesen, üblicherweise `8889`.
-3. phpMyAdmin über MAMP öffnen und eine leere Datenbank anlegen.
-4. Im Hauptordner des Kurses `config.template.php` zu `config.php` kopieren und
+1. In PhpStorm den FTP-Zugang zu Hostpoint einrichten und den automatischen
+   Upload beim Speichern einschalten. Der Kursordner liegt danach 1:1 auf dem
+   Server.
+2. Im Control Panel von Hostpoint eine Datenbank und einen Benutzer anlegen.
+3. Im Hauptordner des Kurses `config.template.php` zu `config.php` kopieren und
    die Werte eintragen. Diese Datei gibt es genau einmal für alle Übungen.
-5. Prüfen, dass `config.php` nicht im Git auftaucht – sie steht in `.gitignore`.
-6. Verbindung mit einer kleinen Testdatei prüfen.
+4. Prüfen, dass `config.php` nicht im Git auftaucht – sie steht in `.gitignore`.
+   Auf den Server lädt PhpStorm sie trotzdem hoch, denn dort wird sie gebraucht.
+5. phpMyAdmin über das Control Panel öffnen.
+6. Verbindung mit Code-Along 11 prüfen.
 
-| Wert | Lokal mit MAMP |
+| Wert | Bei Hostpoint |
 | --- | --- |
-| Host | `127.0.0.1` |
-| Port | `8889` (Windows oft `3306`) |
-| Benutzer | `root` |
-| Passwort | `root` |
-| phpMyAdmin | über die MAMP-Startseite |
+| Host | `konto.mysql.db.hostpoint.ch` |
+| Datenbank | `konto_im3` |
+| Benutzer | `konto_im3` |
+| Passwort | im Control Panel selbst gesetzt |
+| phpMyAdmin | über das Control Panel |
 
-Es muss `127.0.0.1` heissen und nicht `localhost`: Bei `localhost` verbindet
-sich PHP über eine Socket-Datei statt über den Port und sucht sie unter
-`/tmp/mysql.sock`, wo MAMP keine anlegt. Die Meldung lautet dann
-`SQLSTATE[HY000] [2002] No such file or directory`, und der Port im DSN wird
-ignoriert. Das ist der häufigste Fehler des Blocks.
+`konto` steht für den Namen des eigenen Hostpoint-Kontos. Hostpoint setzt ihn
+vor Host, Datenbank und Benutzer. Wer ihn weglässt, bekommt `Access denied` oder
+`Unknown database` – das ist der häufigste Fehler des Blocks.
 
 ```php
-$dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
+$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 ```
 
-Beim Deployment am Ende des Kurses ändern sich genau diese vier Werte, und der
-`port` fällt meist weg. Alles andere bleibt gleich – genau dafür stehen die
-Zugangsdaten in einer eigenen Datei.
+Einen Port braucht es nicht. Wer einmal ohne Server arbeiten muss, findet in
+[`theorie/00_lokale_db/`](../00_lokale_db/) eine Datenbank auf dem eigenen
+Rechner als Ausweichweg.
 
 ## Was eine Datenbank ist
 
@@ -263,8 +264,8 @@ die Tabelle bleibt leer. Die drei häufigsten Meldungen:
 | Meldung | Ursache |
 | --- | --- |
 | `Unknown column` | Tippfehler im Spaltennamen |
-| `No such file or directory` | im DSN steht `localhost` statt `127.0.0.1` |
-| `Access denied` | falsche Zugangsdaten in `config.php` |
+| `getaddrinfo … failed` | Host in `config.php` falsch geschrieben |
+| `Access denied` | falsche Zugangsdaten in `config.php`, oft fehlt der Kontoname davor |
 | `Cannot add or update a child row` | Fremdschlüssel ohne passende Zeile |
 
 ## Ein Ladeskript muss mehrmals laufen können
@@ -395,10 +396,10 @@ npx decktape reveal theorie/D_load/index.html slides.pdf --size 1280x720
 - `JOIN` kommt weder auf den Folien noch im Code-Along 12 vor. Die
   Kontrollabfrage dort fragt pro Stadt einzeln nach. Für Block E ist das die
   offene Stelle: Aus dem `SELECT` mit Fremdschlüssel wird dort ein `JOIN`.
-- Für den Deployment-Teil am Kursende gibt es noch kein Material. Ein
-  Foliensatz `theorie/00_deployment/` analog zu den beiden Setup-Sätzen fehlt;
-  Folie 8 verweist bereits darauf, dass der Umzug nur die Zugangsdaten
-  betrifft.
+- Die Einrichtung von Webserver, FTP-Upload in PhpStorm und Datenbank läuft
+  über die YouTube-Playlist im Tooling-Teil vor dem Input. Einen eigenen
+  Foliensatz dafür gibt es nicht; `theorie/00_lokale_db/` bleibt als
+  Ausweichweg ohne Server.
 - Für Gruppen mit Live-Sammlung steht das Beispiel mit `UNIQUE` und
   `INSERT IGNORE` inzwischen im optionalen Teil von
   [`code-alongs/D_load/13_sharkdaten_laden`](../../code-alongs/D_load/13_sharkdaten_laden/Ablauf/13_sharkdaten_laden_ablauf.md).

@@ -110,12 +110,17 @@ eine Begleitspur (kein nummerierter Block).
 - Tag 1 nicht mit PHP-Syntax ueberladen. PHP wird dort nur im Rahmen des
   Toolings geprueft und mit einer minimalen Testdatei ueber den lokalen Server
   aufgerufen.
-- Die Arbeitsumgebung des Kurses ist der eigene Rechner: PHP ueber
-  `php -S localhost:8000` (eingerichtet in `theorie/00_lokaler_php_server/`)
-  und die Datenbank ueber MAMP (eingerichtet in `theorie/00_lokale_db/`).
-  Beide Foliensaetze sind Standard und nicht Zusatzmaterial. Ein Webhosting
-  kommt erst im Deployment-Teil am Kursende dazu. Neues Material deshalb
-  lokal-first formulieren; Hostpoint und Upload gehoeren nur ins Deployment.
+- Editor im ganzen Kurs ist PhpStorm, nicht VS Code. Anleitungen nennen das
+  Terminal von PhpStorm und nie den Live Server von VS Code.
+- Die Arbeitsumgebung wechselt im Kurs einmal. In Block A bis C laeuft PHP
+  lokal ueber `php -S localhost:8000` (eingerichtet in
+  `theorie/00_lokaler_php_server/`). Ab Block D arbeiten die Studierenden auf
+  dem Webserver bei Hostpoint: PhpStorm laedt jede gespeicherte Datei per FTP
+  hoch, die Datenbank liegt ebenfalls bei Hostpoint und wird ueber phpMyAdmin
+  im Control Panel bedient. Die Einrichtung zeigt eine YouTube-Playlist.
+  MAMP wird im Kurs nicht mehr verwendet; `theorie/00_lokale_db/` bleibt nur
+  als Backup und Zusatzmaterial in Block D. Material ab Block D deshalb fuer
+  den Webserver formulieren: Aufruf ueber die eigene Domain, kein `php -S`.
 - Technische Konzepte frueh mit Daten und sichtbaren Ergebnissen verbinden.
 - Auf jeden Input soll zeitnah eine passende Uebung folgen.
 - Code-Alongs sind gefuehrte Unterrichtseinheiten; Uebungen muessen auch

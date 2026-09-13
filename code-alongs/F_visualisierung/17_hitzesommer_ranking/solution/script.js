@@ -13,9 +13,9 @@
  *
  * Diese Datei liegt in solution/, deshalb steht vor jeder URL ein `../`.
  *
- * WICHTIG: Auch die Lösung läuft nur über den PHP-Server. Im Ordner des
- * Code-Alongs `php -S localhost:8000` starten und
- * http://localhost:8000/solution/ öffnen.
+ * WICHTIG: Auch die Lösung läuft nur auf dem Webserver. Hochladen und
+ * https://eure-domain.ch/code-alongs/F_visualisierung/17_hitzesommer_ranking/solution/
+ * öffnen.
  */
 
 // ---------------------------------------------------------------------------
@@ -97,7 +97,7 @@ async function loadSummers(city) {
 
   if (!contentType.includes('application/json')) {
     throw new Error(
-      'Die Antwort ist kein JSON. Läuft die Seite über php -S localhost:8000?',
+      'Die Antwort ist kein JSON. Öffne unload.php direkt im Browser.',
     );
   }
 
