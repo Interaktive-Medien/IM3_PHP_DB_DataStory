@@ -80,13 +80,14 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 
 1. `📕` [Theorie D: Load (bis Kapitel Datenmodell)](theorie/D_load/) `30'`
 2. `📝` Analoge Übung: eigenes Datenmodell zeichnen `35'`
-3. `📕` [Theorie D: Load (ab Kapitel SQL)](theorie/D_load/) `45'`
+3. `📕` [Theorie D: Load (Kapitel SQL und PDO)](theorie/D_load/) `45'`
 4. `🛠️` Tooling: Datenbank einrichten: [YouTube Playlist](https://www.youtube.com/playlist?list=PLLZlqg08CVic) `60'`
 5. `🧑‍🏫` Code-Along: [11 Datenbank testen](code-alongs/D_load/11_datenbank_testen/) `60'`
 6. `🧑‍🏫` Code-Along: [12 Hitzesommer laden](code-alongs/D_load/12_hitzesommer_laden/) `70'`
-7. `🃏` Story-Karten: [Kapitel 4 Datenstory](https://codeanddesign.ch/im3/kartenset.html)
-8. `🎨` Projekt: Daten in Datenbank schreiben
-9. `✅` **M6: Daten stehen in der Datenbank**
+7. `📕` [Theorie D: Load (Kapitel Cronjobs)](theorie/D_load/) `15'`
+8. `🃏` Story-Karten: [Kapitel 4 Datenstory](https://codeanddesign.ch/im3/kartenset.html)
+9. `🎨` Projekt: Daten in Datenbank schreiben
+10. `✅` **M6: Daten stehen in der Datenbank**
 
 #### Zusatzmaterial (Block D)
 

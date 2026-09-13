@@ -5,7 +5,6 @@ Diese Datei enthält weiterführende Infos für Dozierende. Sie ergänzt den Abl
 ## 📌 Offene Todos
 
 - Folien Kickoff mit Admin ergänzen
-- Unterlagen zu CRON
 - Code Along 09 --> Jan zeigt Sensorboxen
 
 ## 🌿 Branches

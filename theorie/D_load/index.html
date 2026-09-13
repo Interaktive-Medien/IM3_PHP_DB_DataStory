@@ -40,8 +40,8 @@
             <li>SQL: die Sprache der Datenbank</li>
             <li>PDO: die Brücke von PHP zur Datenbank</li>
             <li>Was beim zweiten Aufruf passiert</li>
+            <li>Daten automatisch sammeln mit Cronjobs</li>
           </ul>
-          <p class="text-sm text-muted mt-2">Danach: das eigene Datenmodell auf Papier und ein Code-Along.</p>
         </div>
       </section>
 
@@ -810,12 +810,134 @@ $options = [
         </div>
       </section>
 
-      <!-- ============ 35 Schluss ============ -->
+      <!-- ============ 35 Trenner ============ -->
+      <section id="divider-cron" class="section-divider" data-state="is-section-divider">
+        <div class="etl-strip">Extract<span class="sep">→</span>Transform<span class="sep">→</span><span class="is-here">Load</span><span class="sep">→</span>Datenbank<span class="sep">→</span>Unload<span class="sep">→</span>Chart.js</div>
+        <h1>Daten automatisch sammeln</h1>
+        <p>Cronjobs für Projekte mit Live-Daten</p>
+      </section>
+
+      <!-- ============ 36 ============ -->
+      <section id="cron-wer">
+        <h2>Wer einen Cronjob braucht</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+            <div>
+              <h3>Datensatz</h3>
+              <ul class="list-tight text-sm">
+                <li>Die Daten liegen vollständig vor</li>
+                <li>Bleibt der Datensatz gleich, läuft <code>load.php</code> ein einziges Mal</li>
+                <li>Erscheint er monatlich oder jährlich neu, holt ein Cronjob die neue Fassung</li>
+                <li>Beispiele: Landwirtschaftsflächen der Schweiz, SBB-Fahrplan</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Live-Sammlung</h3>
+              <ul class="list-tight text-sm">
+                <li>Die API zeigt nur den aktuellen Stand</li>
+                <li><code>load.php</code> muss regelmässig laufen</li>
+                <li>Ein Cronjob ist nötig</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout callout-orange">
+            <p>Was nicht gesammelt wurde, lässt sich später nicht nachholen.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 37 ============ -->
+      <section id="cron-was">
+        <h2>Ein Cronjob startet ein Skript nach Zeitplan</h2>
+        <div class="content">
+          <div class="flow">
+            <div class="flow-step"><span class="flow-title">Zeitplan</span><span class="flow-sub">alle 15 Minuten</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step is-active"><span class="flow-title">load.php</span><span class="flow-sub">Extract, Transform, Load</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step"><span class="flow-title">Datenbank</span><span class="flow-sub">neue Zeilen kommen dazu</span></div>
+          </div>
+          <ul class="list-tight mt-1">
+            <li>Cron heisst das Programm, das die Zeitpläne auf dem Server abarbeitet</li>
+            <li>Der Server ruft das Skript selbst auf</li>
+            <li>Niemand muss dafür den Browser öffnen</li>
+          </ul>
+          <div class="callout callout-blue">
+            <p>Läuft <code>load.php</code> alle 15 Minuten, darf kein Messwert doppelt gespeichert werden.</p>
+            <p>Das regelt die Datenbank: <code>UNIQUE</code> auf Zeitpunkt und Ort, dazu <code>INSERT IGNORE</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 38 ============ -->
+      <section id="cron-zeitplan">
+        <h2>Der Zeitplan hat fünf Felder</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+            <table>
+              <thead><tr><th>Feld</th><th>Werte</th></tr></thead>
+              <tbody>
+                <tr><td>Minute</td><td>0–59</td></tr>
+                <tr><td>Stunde</td><td>0–23</td></tr>
+                <tr><td>Tag im Monat</td><td>1–31</td></tr>
+                <tr><td>Monat</td><td>1–12</td></tr>
+                <tr><td>Wochentag</td><td>0–7, Sonntag ist 0 oder 7</td></tr>
+              </tbody>
+            </table>
+            <table>
+              <thead><tr><th>Zeitplan</th><th>Bedeutung</th></tr></thead>
+              <tbody>
+                <tr><td><code>*/15 * * * *</code></td><td>alle 15 Minuten</td></tr>
+                <tr><td><code>0 * * * *</code></td><td>zu jeder vollen Stunde</td></tr>
+                <tr><td><code>0 3 * * *</code></td><td>jeden Tag um 3 Uhr</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-sm mt-1">Ein <code>*</code> steht für «jeder Wert».</p>
+        </div>
+      </section>
+
+      <!-- ============ 39 ============ -->
+      <section id="crontab-guru">
+        <h2>crontab.guru übersetzt den Zeitplan</h2>
+        <div class="content">
+          <figure>
+            <img class="shot" src="bilder/crontab-guru.png"
+                 alt="crontab.guru mit dem Zeitplan */15 * * * * und der Übersetzung «At every 15th minute»">
+            <figcaption><a href="https://crontab.guru">crontab.guru</a> – Zeitplan eintippen, Übersetzung und nächsten Lauf ablesen.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 40 ============ -->
+      <section id="cron-hostpoint">
+        <h2>Den Cronjob bei Hostpoint anlegen</h2>
+        <div class="content">
+          <ol class="text-sm">
+            <li>Im Control Panel unter «Advanced» den Cronjobs Manager öffnen</li>
+            <li>Die fünf Felder für den Zeitplan ausfüllen</li>
+            <li>Als Befehl den Aufruf von <code>load.php</code> eintragen</li>
+          </ol>
+          <span class="code-label mt-1">Befehl – ruft load.php über eure Domain auf</span>
+          <pre class="code-sm"><code data-trim data-noescape class="language-bash">
+/usr/local/bin/wget -q -O /dev/null 'https://eure-domain.ch/load.php'
+          </code></pre>
+          <ul class="list-tight text-sm mt-1">
+            <li>Gibt der Befehl etwas aus, schickt Hostpoint eine E-Mail</li>
+            <li><code>-q -O /dev/null</code> unterdrückt jede Ausgabe</li>
+          </ul>
+          <div class="callout callout-blue">
+            <p>Prüft am nächsten Tag in phpMyAdmin, ob neue Zeilen dazugekommen sind.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 41 Schluss ============ -->
       <section id="schluss">
         <h2>Zum Mitnehmen</h2>
         <div class="content" style="justify-content: center;">
           <p class="big-statement">Der Datenvertrag aus dem Transform ist bereits<br>eine gute Grundlage für euer Datenmodell.</p>
-          <p class="mt-2"><span class="next-step">Nächster Schritt: das eigene Datenmodell auf Papier</span></p>
+          <p class="mt-2"><span class="next-step">Nächster Schritt: eure eigenen Daten in die Datenbank schreiben</span></p>
         </div>
       </section>
 
