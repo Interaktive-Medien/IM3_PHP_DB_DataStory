@@ -62,14 +62,14 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 7. `🧑‍🏫` Code-Along: [09 Sensor lesen](code-alongs/B_extract/09_sensor_lesen) _(Sensor-API)_ `30'`
 8. `🃏` Story-Karten: [Kapitel 2 Datenquellen](https://codeanddesign.ch/im3/kartenset.html) `60'`
 9. `✅` **M3: Datensatz gefunden und geprüft**
-10. `🎨` Projekt: Datenvertrag v0 zwischen Frontend und Backend vereinbaren
+10. `🎨` Projekt: [05 Datenvertrag](stift-und-papier/05_datenvertrag/) zwischen Frontend und Backend vereinbaren `45'`
 11. `🎨` Projekt: Extract-Step am eigenen Projekt umsetzen
 12. `✅` **M4: Erster Extract und Datenvertrag stehen**
 
 ### Block C – Transform
 
 1. `📕` [Theorie C: Transform](theorie/C_transform/) `60'`
-2. `📝` Analoge Übung: [05 Wetterdaten transformieren](stift-und-papier/05_transform_weather/) `30'`
+2. `📝` Analoge Übung: [06 Wetterdaten transformieren](stift-und-papier/06_transform_weather/) `30'`
 3. `🧑‍🏫` Code-Along: [09 Hitzesommer transformieren](code-alongs/C_transform/09_hitzesommer_transformieren/) `60'`
 4. `🧑‍🏫` Code-Along: [10 Shark-Daten mit KI transformieren](code-alongs/C_transform/10_sharkdaten_transformieren/) `90'`
 5. `🃏` Story-Karten: [Kapitel 3 Datenaufbereitung](https://codeanddesign.ch/im3/kartenset.html)

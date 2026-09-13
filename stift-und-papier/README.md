@@ -29,10 +29,12 @@ direkt im Übungsordner.
 - [Fetch-Helfer entschlüsseln](04_fetch_helper/): Den vorbereiteten
   `fetchJson()`-Helfer Zeile für Zeile lesen und erklären, wie aus einer URL
   ein PHP-Array wird.
+- [Datenvertrag](05_datenvertrag/): Im Projektteam festlegen, wie die Daten am
+  Ende als JSON aussehen – Feldnamen, Typen und Filter.
 
 ## Block C – Transform
 
-- [Wetterdaten transformieren](05_transform_weather/): In einer schmutzigen
+- [Wetterdaten transformieren](06_transform_weather/): In einer schmutzigen
   Wettertabelle die Transformationsbedarfe finden, benennen und als Regeln
   formulieren.
 

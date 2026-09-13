@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Arbeitsblatt – Datenvertrag</title>
+<!-- Druckstil liegt gemeinsam fuer alle Arbeitsblaetter eine Ebene hoeher. -->
+<link rel="stylesheet" href="../arbeitsblatt.css">
+<style>
+  /* Ein Blatt pro Projektteam, A4 hoch. */
+  table.eintrag td { height: 8mm; }
+  table.eintrag tr.beispiel td {
+    background: var(--box-bg);
+    color: var(--muted);
+    font-size: 8.5pt;
+    height: auto;
+  }
+  table.felder th:nth-child(1) { width: 24%; }
+  table.felder th:nth-child(2) { width: 13%; }
+  table.felder th:nth-child(3) { width: 17%; }
+  table.felder th:nth-child(5) { width: 13%; }
+  table.filter th:nth-child(1) { width: 24%; }
+  table.filter th:nth-child(2) { width: 30%; }
+  .unterschrift { min-height: 16mm; }
+</style>
+</head>
+<body class="a4-hoch">
+<div class="blatt">
+  <section class="seite">
+    <header>
+      <h1>Datenvertrag</h1>
+      <div class="meta">Team: _______________________ · Version: v____<br>Interaktive Medien 3 · Projekt</div>
+    </header>
+
+    <p>Der Datenvertrag legt fest, wie eure Daten am Ende als JSON aussehen.
+      Das Backend liefert genau diese Form, das Frontend baut damit schon heute mit Mock-Daten.</p>
+
+    <h2>1 · Unsere Datenfrage</h2>
+    <div class="linie"></div>
+
+    <h2>2 · Ein Datensatz steht für …</h2>
+    <div class="linie"></div>
+    <p class="klein">Beispiel Hitzesommer: eine Stadt in einem Sommer.</p>
+
+    <h2>3 · Die Felder</h2>
+    <table class="eintrag felder">
+      <thead>
+        <tr><th>Feldname</th><th>Typ</th><th>Beispielwert</th><th>Bedeutung und Einheit</th><th>darf fehlen?</th></tr>
+      </thead>
+      <tbody>
+        <tr class="beispiel"><td class="mono">city</td><td>String</td><td class="mono">"Bern"</td><td>Name der Stadt</td><td>nein</td></tr>
+        <tr class="beispiel"><td class="mono">max_temperature_c</td><td>Number</td><td class="mono">36.3</td><td>höchste Tagestemperatur in °C</td><td>ja, dann <span class="mono">null</span></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <p class="klein">Feldnamen englisch, klein, mit Unterstrich und Einheit im Namen.
+      Typen: String, Number, Boolean. Fehlt ein Wert, steht <span class="mono">null</span>.</p>
+
+    <h2>4 · Filter</h2>
+    <table class="eintrag filter">
+      <thead>
+        <tr><th>Parameter</th><th>Beispiel</th><th>Wofür das Frontend ihn braucht</th></tr>
+      </thead>
+      <tbody>
+        <tr class="beispiel"><td class="mono">city</td><td class="mono">unload.php?city=Bern</td><td>nur eine Stadt im Diagramm zeigen</td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h2>5 · Abgemacht</h2>
+    <div class="raster zwei">
+      <div class="feld unterschrift"><span class="beschriftung">Backend-Team</span></div>
+      <div class="feld unterschrift"><span class="beschriftung">Frontend-Team</span></div>
+    </div>
+    <div class="hinweis">
+      <p>Änderungen am Vertrag nur gemeinsam – und mit neuer Versionsnummer.</p>
+    </div>
+  </section>
+</div>
+</body>
+</html>

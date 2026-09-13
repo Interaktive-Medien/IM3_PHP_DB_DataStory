@@ -1,4 +1,4 @@
-# 05 – Wetterdaten transformieren
+# 06 – Wetterdaten transformieren
 
 > **Ziel:** Die Studierenden wenden die Transformationsformen aus der Theorie
 > auf eine kleine, absichtlich schmutzige Wettertabelle an und formulieren
