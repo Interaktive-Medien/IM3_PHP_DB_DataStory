@@ -54,10 +54,6 @@
             <p>Plant die 45 Minuten ein, bevor ihr mit dem Laden anfangt.</p>
           </div>
         </div>
-        <aside class="notes">Das ist eine bewusste Änderung gegenüber früheren Durchläufen: Früher lief der
-          Kurs auf einem Webserver und lokal war der Zusatz. Jetzt ist es umgekehrt. Der Preis dafür ist
-          dieser Block hier – die Installation lässt sich nicht überspringen. Deshalb genug Zeit einrechnen
-          und Leute, die hängen, sofort zu zweit setzen statt sie allein weitersuchen zu lassen.</aside>
       </section>
 
       <!-- ============ 3 ============ -->
@@ -74,9 +70,6 @@
             <p>Dieselben vier Angaben braucht ihr später beim Deployment – nur mit anderen Werten.</p>
           </div>
         </div>
-        <aside class="notes">Diese vier Punkte sind die Abnahme. Wer sie zeigen kann, ist fertig – egal auf
-          welchem Weg. Das ist wichtig, weil der eine Weg über einen Agenten läuft und niemand vorher weiss,
-          welche Befehle der wählt.</aside>
       </section>
 
       <!-- ============ 4 Trenner ============ -->
@@ -112,9 +105,6 @@
             <p>Eine Installation ist genau die Sorte Fleissarbeit, die ihr abgeben dürft.</p>
           </div>
         </div>
-        <aside class="notes">Anschluss an die Regel aus dem Transform-Input: Die KI macht die Fleissarbeit,
-          die Entscheidungen bleiben bei euch. Hier gibt es fachlich nichts zu entscheiden, deshalb ist das ein
-          guter Einsatz. Wer keinen Agenten hat, nimmt den Weg auf den nächsten Folien.</aside>
       </section>
 
       <!-- ============ 6 ============ -->
@@ -132,10 +122,6 @@ für ein PHP-Schulprojekt.
 Mein Betriebssystem ist macOS.</div>
           <p class="text-sm mt-1">Die letzte Zeile anpassen, wenn ihr Windows benutzt.</p>
         </div>
-        <aside class="notes">Der Auftrag steht auch im README zum Kopieren. Die dritte Zeile ist die
-          wichtigste: Ohne sie bekommt ihr eine laufende Installation, aber nicht die vier Werte, die ihr
-          gleich in config.php braucht. Die letzte Zeile verhindert, dass unbemerkt am System herumgeschraubt
-          wird.</aside>
       </section>
 
       <!-- ============ 7 ============ -->
@@ -153,9 +139,6 @@ Mein Betriebssystem ist macOS.</div>
           <p class="text-sm mt-1">Ein Agent, der nicht weiterkommt, erfindet manchmal einen Weg – dann lieber
             abbrechen und von Hand weitermachen.</p>
         </div>
-        <aside class="notes">Der zweite Punkt klingt banal und ist der häufigste Zeitfresser: Die Werte
-          stehen im Chatverlauf und sind eine Stunde später nicht mehr auffindbar. Notieren heisst hier
-          wirklich aufschreiben, nicht scrollen.</aside>
       </section>
 
       <!-- ============ 8 ============ -->
@@ -188,10 +171,6 @@ $dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
             <p>Die <code>config.php</code> gehört nicht ins Repository.</p>
           </div>
         </div>
-        <aside class="notes">Damit ist der Agentenweg zu Ende – wer hier ankommt, überspringt das nächste
-          Kapitel. Der zweite Punkt ist wichtig: Wenn der Agent etwas anderes als MAMP installiert hat,
-          stimmen Port und Passwort hier nicht, und dann gelten die Werte aus seiner Antwort. Genau dafür
-          waren sie zu notieren. Auf 127.0.0.1 bestehen: Mit localhost sucht PHP eine Socket-Datei statt den Port zu benutzen und meldet «No such file or directory».</aside>
       </section>
 
       <!-- ============ 9 Trenner ============ -->
@@ -217,9 +196,6 @@ $dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
         </div>
         <div class="footnote">MAMP ist kostenlos. Die mitinstallierte PRO-Version ist kostenpflichtig und hier
           nicht nötig.</div>
-        <aside class="notes">Der Installer legt beide Programme an, MAMP und MAMP PRO. Wer versehentlich PRO
-          startet, landet nach der Testphase in einer Kaufaufforderung. Im Dock also auf das graue Elefanten-
-          Symbol ohne den PRO-Schriftzug achten.</aside>
       </section>
 
       <!-- ============ 11 ============ -->
@@ -251,9 +227,6 @@ $dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
             <p>Deshalb den Wert ablesen und nicht abschreiben.</p>
           </div>
         </div>
-        <aside class="notes">Der Port ist die häufigste Fehlerquelle im ganzen lokalen Setup. In MAMP steht er
-          auf der Startseite und unter Einstellungen bei «Ports». Wer ihn falsch hat, bekommt später «Connection
-          refused» und sucht im PHP-Code, obwohl dort nichts falsch ist.</aside>
       </section>
 
       <!-- ============ 12 ============ -->
@@ -270,9 +243,6 @@ $dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
             <p>Dieselbe Oberfläche findet ihr später beim Webhosting wieder.</p>
           </div>
         </div>
-        <aside class="notes">Achtung bei der Adresse: 8888 ist der Webserver von MAMP, 8889 die Datenbank.
-          Zwei Ports, zwei Zwecke – das durcheinanderzubringen ist normal und kostet fünf Minuten. Wer die
-          Adresse nicht erreicht, hat MAMP nicht gestartet.</aside>
       </section>
 
       <!-- ============ 13 ============ -->
@@ -289,10 +259,6 @@ $dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
             <p>Die Datenbank ist jetzt leer – die Tabellen kommen im Unterricht dazu.</p>
           </div>
         </div>
-        <aside class="notes">Kollation heisst: Nach welchen Regeln werden Texte verglichen und sortiert.
-          utf8mb4 ist dieselbe Einstellung, die auch im DSN steht, und sorgt dafür, dass Umlaute und Emojis
-          heil ankommen. Der Name der Datenbank ist frei wählbar, sollte aber ohne Leerzeichen und Umlaute
-          auskommen.</aside>
       </section>
 
       <!-- ============ 14 ============ -->
@@ -325,10 +291,6 @@ $dsn = "mysql:host=$host;port=8889;dbname=$dbname;charset=utf8mb4";
             <p>Die <code>config.php</code> gehört nicht ins Repository.</p>
           </div>
         </div>
-        <aside class="notes">Das ist genau die Datei, die sie im Code-Along vor sich haben – deshalb hier
-          ausgefüllt und nicht als Gegenüberstellung. Der Punkt: Zwischen lokal und Server unterscheiden sich
-          nur diese vier Zeilen, der restliche Code läuft an beiden Orten gleich. Wer beides benutzt, hat
-          einfach zwei Fassungen dieser Datei – sie wandert ja nie mit ins Repository. Warum 127.0.0.1 und nicht localhost: Bei localhost verbindet sich PHP über eine Socket-Datei statt über den Port und sucht sie unter /tmp, wo MAMP keine anlegt. Die Meldung heisst dann «No such file or directory» und der Port im DSN wird ignoriert. Das ist der häufigste Fehler auf diesem Weg.</aside>
       </section>
 
       <!-- ============ 15 ============ -->
@@ -347,9 +309,6 @@ php -S localhost:8000
             <p>So ändert sich an eurer Arbeitsweise aus den letzten Tagen nichts.</p>
           </div>
         </div>
-        <aside class="notes">Die Alternative wäre, alle Dateien in den htdocs-Ordner von MAMP zu legen und
-          über Port 8888 zu arbeiten. Das funktioniert auch, verschiebt aber den Projektordner und bringt alle
-          bisherigen Pfade durcheinander. Deshalb hier bewusst nur die Datenbank aus MAMP.</aside>
       </section>
 
       <!-- ============ 16 ============ -->
@@ -371,9 +330,6 @@ php -S localhost:8000
           <p class="text-sm mt-1">Bleibt es dabei, meldet euch sofort – ohne Datenbank geht es in diesem
             Block nicht weiter.</p>
         </div>
-        <aside class="notes">Diese fünf decken erfahrungsgemäss fast alles ab, und vier davon sind Ports oder
-          Namen. Deshalb der Rat: zuerst die vier Werte nebeneinanderlegen und mit phpMyAdmin vergleichen,
-          bevor irgendwer im PHP-Code sucht.</aside>
       </section>
 
     </div>
@@ -381,7 +337,6 @@ php -S localhost:8000
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       width: 1280,
@@ -393,7 +348,7 @@ php -S localhost:8000
       hash: true,
       transition: 'slide',
       center: false,
-      plugins: [ RevealHighlight, RevealNotes ]
+      plugins: [ RevealHighlight ]
     });
   </script>
 </body>

@@ -8,24 +8,6 @@ Diese Datei enthält weiterführede Infos für Dozierende. Sie ergänzt den Abla
 - Unterlagen zu CRON
 - Code Along 09 --> Jan zeigt Sensorboxen
 
-## 🥵 Beispielprojekt Hitzesommer
-
-**Das Beispielprojekt läuft ohne Datenbank.** Fehlt die `config.php` oder läuft
-PHP nicht, kann das Beispielprojekt trotzdem gezeigt werden. Dazu nur die html Datei lokal im Browser öffnen.
-
-Wer die ganze Kette dennoch vorführen will, richtet die Datenbank nach
-`beispielprojekt/hitzesommer/README.md` ein.
-
-Für alles andere gilt, was auch im `README.md` für die Studierenden steht:
-
-- Bis und mit Block C läuft alles mit PHP – Übungen, Code-Alongs – über
-  `php -S localhost:8000`, nie über das Browser-Symbol von PhpStorm.
-- Ab Block D liegt alles auf dem Webserver bei Hostpoint. PhpStorm lädt jede
-  gespeicherte Datei per FTP hoch, geöffnet wird über die eigene Domain.
-- Die Folien in `theorie/` sind reine HTML-Dateien: Browser-Symbol von
-  PhpStorm, PHP-Server oder direkt über den Dateipfad – alle drei Wege
-  funktionieren.
-
 ## 🤖 Folien mit AI bearbeiten
 
 Die Folien sind mit reveal.js gebaut.

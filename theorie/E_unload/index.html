@@ -40,9 +40,6 @@
             <li>Mit <code>$_GET</code> filtern</li>
           </ul>
         </div>
-        <aside class="notes">Richtwert für den Theorie-Input in Block E: 35 Minuten.
-          Diese fünf Punkte sind genau die Kapitel des Foliensatzes.
-          Die Code-Etappen werden danach im geführten Aufbau von unload.php wiederholt.</aside>
       </section>
 
       <!-- ============ 3 ============ -->
@@ -67,8 +64,6 @@
             <p>Jetzt liefern wir genau die vereinbarte Form an das Frontend.</p>
           </div>
         </div>
-        <aside class="notes">Kurze Repetition: Die Klasse nennt zu jedem bisherigen Schritt ein Verb.
-          Unload ist die Brücke zwischen dem Backend-Team und dem Frontend-Team.</aside>
       </section>
 
       <!-- ============ 4 ============ -->
@@ -93,8 +88,6 @@
             <p>«Unload» ist hier ein praktischer Kursbegriff und kein zusätzlicher Buchstabe in ETL.</p>
           </div>
         </div>
-        <aside class="notes">Den Begriff bewusst begrenzen, damit er später nicht als universeller
-          Fachbegriff ausgegeben wird.</aside>
       </section>
 
       <!-- ============ 5 ============ -->
@@ -130,10 +123,6 @@
           </div>
         </div>
         <div class="footnote">Beispiel zum Anschauen: aareguru.existenz.ch/v2018/current?city=bern</div>
-        <aside class="notes">GET bedeutet hier: Daten anfordern, ohne den gespeicherten Stand zu verändern.
-          Die aare.guru-URL im Browser öffnen und zeigen, dass dort auch nur ein Server JSON zurückgibt.
-          Richtung sauber trennen: In Block B habt ihr mit fetchJson eine fremde API konsumiert, hier werdet
-          ihr selbst zur API, die das Frontend konsumiert.</aside>
       </section>
 
       <!-- ============ 6 ============ -->
@@ -167,8 +156,6 @@
             <p>Der Endpunkt muss genau diese Form liefern, damit das Frontend ihn ohne Anpassung konsumieren kann.</p>
           </div>
         </div>
-        <aside class="notes">Think-Pair-Share: Zwei Personen vergleichen diese Struktur mit dem Transform
-          und suchen mögliche Abweichungen.</aside>
       </section>
 
       <!-- ============ 7 ============ -->
@@ -185,10 +172,6 @@
             <p>Jeder Baustein löst genau eine Aufgabe und ist ein Kapitel dieses Foliensatzes.</p>
           </div>
         </div>
-        <aside class="notes">Das ist die Landkarte für den Rest des Inputs: Jedes folgende Kapitel ist einer
-          dieser Bausteine. Nur Baustein 2 ist SQL, alles andere ist PHP.
-          Im Code-Along wird unload.php in genau dieser Reihenfolge aufgebaut und nach jedem Schritt im
-          Browser geprüft.</aside>
       </section>
 
       <!-- ============ 8 Trenner ============ -->
@@ -236,8 +219,6 @@
             <p>Das Frontend braucht den Namen «Bern» und nicht den Fremdschlüssel <code>city_id = 1</code>.</p>
           </div>
         </div>
-        <aside class="notes">Die Datenbank ist für konsistente Speicherung optimiert, die JSON-Antwort für
-          einfache Nutzung im Frontend.</aside>
       </section>
 
       <!-- ============ 10 ============ -->
@@ -260,8 +241,6 @@
           </div>
           <p class="text-lg mt-2"><code>JOIN</code> sucht zu jeder Sommerzeile die Stadt mit derselben Nummer.</p>
         </div>
-        <aside class="notes">Die Klasse sagt das Resultat der ersten Zeile voraus: Bern, 2023,
-          12 Hitzetage.</aside>
       </section>
 
       <!-- ============ 11 ============ -->
@@ -287,8 +266,6 @@ ORDER BY hs.year, c.name
               <li><code>ORDER BY</code> macht die Reihenfolge verlässlich</li>
           </ul>
         </div>
-        <aside class="notes">Die Reihenfolge ist Teil der Endpunkt-Entscheidung: zuerst Jahr, dann Stadt.
-          Bei 258 Zeilen brauchen wir noch keine Begrenzung.</aside>
       </section>
 
       <!-- ============ 12 ============ -->
@@ -321,8 +298,6 @@ $rows = $statement-&gt;fetchAll();
             <p>Die Verbindung ist dieselbe wie beim Laden.</p>
           </div>
         </div>
-        <aside class="notes">Retrieval-Frage: Woher kommen DSN, Benutzername, Passwort und Optionen?
-          Antwort: aus derselben config.php wie im Load.</aside>
       </section>
 
       <!-- ============ 13 Trenner ============ -->
@@ -352,8 +327,6 @@ header('Content-Type: application/json; charset=utf-8');
             <p>Der Header muss vor jeder Ausgabe stehen.</p>
           </div>
         </div>
-        <aside class="notes">Ein Leerzeichen oder eine Debug-Ausgabe vor header kann bereits die Meldung
-          «headers already sent» auslösen.</aside>
       </section>
 
       <!-- ============ 15 ============ -->
@@ -384,8 +357,6 @@ echo json_encode($data, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
             <li><code>JSON_UNESCAPED_UNICODE</code> hält Umlaute lesbar</li>
           </ul>
         </div>
-        <aside class="notes">JSON ist Text mit strengen Regeln, kein PHP-Array.
-          Die Optionen sind bewusst in Grossbuchstaben, weil es Konstanten sind.</aside>
       </section>
 
       <!-- ============ 16 Split ============ -->
@@ -411,8 +382,6 @@ echo json_encode($data, JSON_THROW_ON_ERROR);
           </code></pre>
           <div class="output">[{"city":"Bern",...}]</div>
         </div>
-        <aside class="notes">Code Prediction: Welche der beiden Antworten kann JSON.parse verarbeiten?
-          Danach die Trennlinie als Grenze zwischen Debug-Werkzeug und öffentlichem Endpunkt lesen.</aside>
       </section>
 
       <!-- ============ 17 Trenner ============ -->
@@ -447,8 +416,6 @@ echo json_encode($data, JSON_THROW_ON_ERROR);
             <p>Für eine Listenabfrage ist <code>[]</code> die stabilste Antwort.</p>
           </div>
         </div>
-        <aside class="notes">Leere Liste und technischer Fehler unterscheiden.
-          Für einen einzelnen Datensatz wäre 404 denkbar, unser Endpunkt liefert aber immer eine Liste.</aside>
       </section>
 
       <!-- ============ 19 ============ -->
@@ -472,8 +439,6 @@ try {
             <p>Interne Datenbankmeldungen gehören ins Server-Log und nicht in die öffentliche Antwort.</p>
           </div>
         </div>
-        <aside class="notes">Im Unterricht absichtlich einen Tabellennamen falsch schreiben und die zwei
-          Orte des Fehlers zeigen: kurze JSON-Antwort im Browser, genauer Text im Log.</aside>
       </section>
 
       <!-- ============ 20 Trenner ============ -->
@@ -502,8 +467,6 @@ $city = trim($_GET['city'] ?? '');
           </code></pre>
           <p class="text-sm text-muted mt-1"><code>?? ''</code> setzt einen leeren String, wenn der Parameter fehlt.</p>
         </div>
-        <aside class="notes">Abgrenzung zu Extract: fetchJson sendet einen Request an eine fremde API.
-          $_GET liest einen Parameter, den unser eigener Endpunkt erhält.</aside>
       </section>
 
       <!-- ============ 22 ============ -->
@@ -530,8 +493,6 @@ $sql .= ' ORDER BY hs.year, c.name';
             <p>Ohne <code>city</code> kommen alle Städte und mit <code>city</code> nur passende Zeilen.</p>
           </div>
         </div>
-        <aside class="notes">Den SQL-Text für beide Fälle laut zusammensetzen lassen.
-          Der Filter verändert die Auswahl, aber nie die Struktur der Antwort.</aside>
       </section>
 
       <!-- ============ 23 ============ -->
@@ -557,8 +518,6 @@ $rows = $statement-&gt;fetchAll();
           </div>
           <p class="text-sm text-muted mt-1">Ohne Filter ist <code>$params</code> einfach eine leere Liste.</p>
         </div>
-        <aside class="notes">Das Muster ist dasselbe wie beim INSERT: prepare bekommt den Bauplan,
-          execute bekommt die Werte.</aside>
       </section>
 
       <!-- ============ 24 ============ -->
@@ -577,8 +536,6 @@ $rows = $statement-&gt;fetchAll();
             <p>Prüfe in der Entwicklerkonsole im Netzwerk-Tab zusätzlich den Statuscode und den <code>Content-Type</code>.</p>
           </div>
         </div>
-        <aside class="notes">Die Zahlen gelten für den Hitzesommer-Code-Along mit drei Städten und
-          86 vollständigen Sommern von 1940 bis 2025.</aside>
       </section>
 
       <!-- ============ 25 ============ -->
@@ -603,8 +560,6 @@ $rows = $statement-&gt;fetchAll();
             <p>Fertig ist der Endpunkt, wenn das Frontend ohne Sonderlösung zwischen Mock und PHP wechseln kann.</p>
           </div>
         </div>
-        <aside class="notes">Tagesabnahme in Paaren: Eine Person aus dem Frontend-Team testet den Endpunkt
-          einer anderen Gruppe anhand dieser Liste.</aside>
       </section>
 
       <!-- ============ 26 Schluss ============ -->
@@ -615,8 +570,6 @@ $rows = $statement-&gt;fetchAll();
           <p class="text-xl mt-2"><code>$_GET</code> macht den Endpunkt filterbar.</p>
           <p class="mt-2"><span class="next-step">Nächster Schritt: Chart.js lädt den Endpunkt</span></p>
         </div>
-        <aside class="notes">Exit Ticket: Welche drei Eigenschaften muss eine stabile JSON-Antwort haben?
-          Erwartet werden Vertrag, gültiges JSON und verlässliches Verhalten bei null Treffern oder Fehlern.</aside>
       </section>
 
     </div>
@@ -624,7 +577,6 @@ $rows = $statement-&gt;fetchAll();
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       width: 1280,
@@ -636,7 +588,7 @@ $rows = $statement-&gt;fetchAll();
       hash: true,
       transition: 'slide',
       center: false,
-      plugins: [ RevealHighlight, RevealNotes ]
+      plugins: [ RevealHighlight ]
     });
   </script>
 </body>

@@ -54,7 +54,6 @@
             <p>Alle Code-Alongs und Übungen bis dahin setzen sie voraus.</p>
           </div>
         </div>
-        <aside class="notes">Lokal läuft der Kurs bis und mit Block C. Ab Block D arbeiten alle auf dem Webserver bei Hostpoint, weil dort PHP und Datenbank nebeneinander liegen: PhpStorm lädt jede gespeicherte Datei per FTP hoch, eingerichtet über die YouTube-Playlist. Für die Grundlagen bleibt es bewusst lokal, weil das Hochladen beim Ausprobieren früher am meisten Zeit gekostet hat. Deshalb hier nicht weitergehen, bevor alle eine laufende Ausgabe im Browser haben. Wer hängen bleibt, meldet sich sofort und wartet nicht bis zur Pause.</aside>
       </section>
 
       <!-- ============ 3 ============ -->
@@ -70,7 +69,6 @@
             <p>Datenbank und Webserver kommen später dazu, wenn wir sie brauchen.</p>
           </div>
         </div>
-        <aside class="notes">Hier kommt nur PHP auf den eigenen Rechner. Datenbank und Webserver folgen in Block D, eingerichtet über die YouTube-Playlist. Bewusst nicht am ersten Tag – eine Einrichtung auf einmal reicht, und die Datenbank ergibt erst dann Sinn, wenn es etwas zu speichern gibt.</aside>
       </section>
 
       <!-- ============ 4 ============ -->
@@ -96,9 +94,6 @@ php -v
           <p class="text-sm text-muted mt-1">Terminal heisst auf Windows Eingabeaufforderung oder
             PowerShell.</p>
         </div>
-        <aside class="notes">Diesen Schritt wirklich machen lassen, bevor irgendjemand etwas herunterlädt.
-          Auf manchen Rechnern ist PHP längst da, etwa über XAMPP oder eine ältere Installation. Wir empfehlen
-          Version 8.1 oder neuer.</aside>
       </section>
 
       <!-- ============ 5 Trenner ============ -->
@@ -134,9 +129,6 @@ php -v
             <p>Eine Installation ist genau die Sorte Fleissarbeit, die ihr abgeben dürft.</p>
           </div>
         </div>
-        <aside class="notes">Dieselbe Logik wie beim Transform: Die Fleissarbeit darf abgegeben werden, die
-          Entscheidungen nicht. Hier gibt es fachlich nichts zu entscheiden, deshalb ist der Einsatz
-          unkritisch. Wer keinen Agenten hat, nimmt den Weg auf den nächsten Folien.</aside>
       </section>
 
       <!-- ============ 7 ============ -->
@@ -154,9 +146,6 @@ lokal im Browser zu testen.
 Mein Betriebssystem ist macOS.</div>
           <p class="text-sm mt-1">Die letzte Zeile anpassen, wenn ihr Windows benutzt.</p>
         </div>
-        <aside class="notes">Die erste Zeile im Auftrag ist wichtig: Ohne sie installiert der Agent unter
-          Umständen ein zweites PHP neben das vorhandene. Danach prüft ihr selbst mit php -v, ob wirklich eine
-          Versionsnummer erscheint – und zwar in einem neu geöffneten Terminalfenster.</aside>
       </section>
 
       <!-- ============ 8 ============ -->
@@ -174,10 +163,6 @@ php -S localhost:8000
           <p class="text-sm">Der Server läuft, solange das Terminal offen ist – beenden mit
             <code>Ctrl</code> + <code>C</code>.</p>
         </div>
-        <aside class="notes">Damit ist der Agentenweg zu Ende – wer hier ankommt, überspringt das nächste
-          Kapitel und macht bei «Was der Befehl bedeutet» weiter. Diesen Befehl hat der Agent vermutlich
-          bereits genannt; ihn hier trotzdem einmal selbst eintippen zu lassen ist Absicht, sie brauchen ihn
-          ab jetzt jeden Tag.</aside>
       </section>
 
       <!-- ============ 9 Trenner ============ -->
@@ -205,10 +190,6 @@ brew install php
 php -v
           </code></pre>
         </div>
-        <aside class="notes">Homebrew fragt beim Installieren nach dem Passwort des Rechners und läuft danach
-          einige Minuten. Am Ende gibt es Hinweise im Terminal, die man tatsächlich lesen muss – manchmal
-          steht dort ein Befehl, der noch auszuführen ist. Ein Paketmanager ist ein Programm, das andere
-          Programme installiert und aktuell hält.</aside>
       </section>
 
       <!-- ============ 11 ============ -->
@@ -229,9 +210,6 @@ php -v
           </div>
           <p class="text-sm text-muted mt-1">Alternative: XAMPP installieren, das bringt PHP fertig mit.</p>
         </div>
-        <aside class="notes">Der häufigste Fehler steht in Schritt fünf: Ein bereits offenes Terminal kennt
-          den neuen PATH nicht, auch das Terminal in PhpStorm nicht. Wer XAMPP nimmt, kann trotzdem mit dem eingebauten Server von der
-          nächsten Folie arbeiten und muss den Apache von XAMPP nicht benutzen.</aside>
       </section>
 
       <!-- ============ 12 ============ -->
@@ -249,9 +227,6 @@ php -S localhost:8000
           <p class="text-sm">Der Server läuft, solange das Terminal offen ist – beenden mit
             <code>Ctrl</code> + <code>C</code>.</p>
         </div>
-        <aside class="notes">Weil das Terminal von PhpStorm schon im Kursordner startet, entfällt das Abtippen von Pfaden –
-          das spart erfahrungsgemäss die meiste Zeit. Wichtig zu betonen: Nach einer Änderung an einer Datei genügt im Browser ein Neu
-          laden, der Server muss nicht neu gestartet werden.</aside>
       </section>
 
       <!-- ============ 13 ============ -->
@@ -271,9 +246,6 @@ php -S localhost:8000
             <p>Ist die Tür belegt, nehmt ihr eine andere: <code>php -S localhost:8080</code>.</p>
           </div>
         </div>
-        <aside class="notes">Der Begriff Port taucht hier zum ersten Mal auf und kommt bei der Datenbank
-          wieder – dort ist es 8889. Deshalb lohnt sich das Bild mit der Tür: dieselbe Adresse, verschiedene
-          Türen für verschiedene Dienste.</aside>
       </section>
 
       <!-- ============ 14 ============ -->
@@ -290,9 +262,6 @@ php -S localhost:8000
               Ergebnis.</p>
           </div>
         </div>
-        <aside class="notes">Der Doppelklick-Fehler passiert in jedem Durchgang: Die Seite zeigt dann den
-          PHP-Quelltext, weil niemand ihn ausgeführt hat. Die Faustregel dazu ist einfach – steht in der
-          Adresszeile nicht localhost, läuft kein PHP.</aside>
       </section>
 
       <!-- ============ 15 ============ -->
@@ -313,10 +282,6 @@ php -S localhost:8000
           <p class="text-sm mt-1">Bleibt es dabei, meldet euch sofort – ohne laufenden Server geht es nicht
             weiter.</p>
         </div>
-        <aside class="notes">Bei «Not Found» hilft die Rückfrage, in welchem Ordner der Server gestartet
-          wurde: php -S liefert immer nur den Ordner aus, in dem es läuft. Gross- und Kleinschreibung im
-          Dateinamen zählt auf dem Webserver, auf dem Mac lokal oft nicht – das erzeugt Fehler, die erst beim
-          Deployment am Schluss auftauchen. Deshalb von Anfang an konsequent kleinschreiben.</aside>
       </section>
 
     </div>
@@ -324,7 +289,6 @@ php -S localhost:8000
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       width: 1280,
@@ -336,7 +300,7 @@ php -S localhost:8000
       hash: true,
       transition: 'slide',
       center: false,
-      plugins: [ RevealHighlight, RevealNotes ]
+      plugins: [ RevealHighlight ]
     });
   </script>
 </body>

@@ -165,7 +165,6 @@ Beispiel im Einsatz: Folie „Datentypen" in `theorie/A_PHP_Basics/`.
 | Taste | Wirkung |
 | --- | --- |
 | `→` / `Leertaste` | nächste Folie |
-| `S` | Referentenansicht mit Notizen (`<aside class="notes">`) |
 | `F` | Vollbild |
 | `Esc` | Übersicht aller Folien |
 

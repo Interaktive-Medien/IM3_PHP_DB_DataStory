@@ -43,10 +43,6 @@
           </ul>
           <p class="text-sm text-muted mt-2">Danach: das eigene Datenmodell auf Papier und ein Code-Along.</p>
         </div>
-        <aside class="notes">Richtwert 45 Minuten für den ganzen Satz. Er lässt sich am Trenner «PDO» sauber
-          teilen: die ersten drei Kapitel als Input vor der Papierübung, das PDO-Kapitel direkt vor dem
-          Code-Along. Der Ablauf sieht genau diese Teilung vor (40 Minuten Datenbank und SQL, später 70
-          Minuten PDO und Code-Along).</aside>
       </section>
 
       <!-- ============ 3 ============ -->
@@ -74,9 +70,6 @@
             <p>Wir bauen heute den Ort und den Weg dorthin.</p>
           </div>
         </div>
-        <aside class="notes">Rückfrage in die Klasse: Was passiert mit dem Array aus dem Transform, wenn ihr
-          den Browser schliesst? Es ist weg – und mit ihm jeder API-Abruf, den ihr dafür gebraucht habt. Genau
-          das ist die Lücke, die heute geschlossen wird.</aside>
       </section>
 
       <!-- ============ 4 Trenner ============ -->
@@ -113,10 +106,6 @@
           </div>
           <p class="text-sm mt-1">Sie beantwortet Fragen an die Daten, statt nur Text aufzubewahren.</p>
         </div>
-        <aside class="notes">Die Frage kommt fast immer, und sie ist berechtigt – für ein kleines historisches
-          Dataset wäre eine Datei tatsächlich vertretbar. Das ehrliche Argument ist deshalb nicht «Dateien sind
-          schlecht», sondern: Sobald gesucht, gefiltert und dazugeschrieben wird, programmiert ihr sonst eine
-          halbe Datenbank nach. Für Gruppen mit Live-Sammlung ist der dritte Punkt der entscheidende.</aside>
       </section>
 
       <!-- ============ 6 ============ -->
@@ -143,9 +132,6 @@
             </ul>
           </div>
         </div>
-        <aside class="notes">Das ist dieselbe Struktur wie das Resultat aus dem Transform, nur an einem
-          anderen Ort. Wer die Excel-Analogie braucht, darf sie hier haben – mit dem Unterschied, dass die
-          Datenbank die Spaltentypen erzwingt und Excel nicht.</aside>
       </section>
 
       <!-- ============ 7 Split ============ -->
@@ -170,10 +156,6 @@
           </ul>
           <p class="text-sm mt-1">Passt, wenn die Struktur offen bleiben muss.</p>
         </div>
-        <aside class="notes">Bewusst kurz gehalten, es ist eine Einordnung und kein Vergleichstest. Der
-          Anschluss an den letzten Block ist das Argument: Nach dem Transform sind alle Zeilen gleich gebaut –
-          das ist die Voraussetzung, unter der eine Tabelle das einfachere Werkzeug ist. «NoSQL» als Begriff
-          nennen, falls er aus der Klasse kommt.</aside>
       </section>
 
       <!-- ============ 8 ============ -->
@@ -203,12 +185,6 @@
           </div>
           <p class="text-sm mt-1">Die Zugangsdaten zur Datenbank stehen in einer eigenen Datei.</p>
         </div>
-        <aside class="notes">Der Umzug passiert genau hier, weil die Datenbank ihn verlangt: Auf dem Server
-          liegen PHP und Datenbank nebeneinander, eine Installation auf dem Laptop entfällt. FTP-Upload in
-          PhpStorm, Datenbank und phpMyAdmin richten alle im Tooling-Teil direkt davor mit der YouTube-Playlist
-          ein. Merkregel für die nächsten Wochen: In der Adressleiste steht die eigene Domain – wer localhost
-          sieht, testet nicht den hochgeladenen Stand. Wer einmal ohne Server arbeiten muss, findet in
-          theorie/00_lokale_db einen Ausweichweg.</aside>
       </section>
 
       <!-- ============ 9 Trenner ============ -->
@@ -253,10 +229,6 @@
           </div>
           <p class="text-sm mt-1">Bei uns ist das eine Stadt in einem Sommer.</p>
         </div>
-        <aside class="notes">Der Datenvertrag ist damit bereits fast das Datenmodell – das ist die gute
-          Nachricht dieses Kapitels. Wer im Transform sauber entschieden hat, was eine Zeile bedeutet, hat die
-          Tabelle schon entworfen. Feld für Feld dasselbe, nur an einem anderen Ort. Dass der Stadtname
-          später noch in eine eigene Tabelle wandert, kommt in fünf Folien.</aside>
       </section>
 
       <!-- ============ 11 ============ -->
@@ -280,10 +252,6 @@
             <p>Der Typ ist eine Zusage: Was nicht hineinpasst, bleibt draussen.</p>
           </div>
         </div>
-        <aside class="notes">Der Unterschied zur Datei auf den Punkt gebracht: In einer JSON-Datei kann in
-          hot_days plötzlich «viele» stehen, in der Spalte nicht. Praktischer Hinweis fürs Projekt: Für Text
-          unbekannter Länge gibt es TEXT, für Zeitpunkte immer DATETIME statt Text nehmen – sonst sortiert
-          später nichts richtig. Genauere Typen stehen im Cheatsheet.</aside>
       </section>
 
       <!-- ============ 12 ============ -->
@@ -303,9 +271,6 @@ id INT AUTO_INCREMENT PRIMARY KEY
             <p>Ohne Primärschlüssel könnt ihr eine einzelne Zeile später nicht sicher ansprechen.</p>
           </div>
         </div>
-        <aside class="notes">Die drei Regeln zuerst, das Beispiel dazu steht auf der nächsten Folie.
-          AUTO_INCREMENT heisst wörtlich «automatisch hochzählen» – die erste Zeile bekommt 1, die nächste 2.
-          Gelöschte Nummern werden nicht wiederverwendet.</aside>
       </section>
 
       <!-- ============ 13 ============ -->
@@ -330,11 +295,6 @@ id INT AUTO_INCREMENT PRIMARY KEY
             <p>Die Nummer bedeutet nichts, sie zeigt nur auf genau diese Zeile.</p>
           </div>
         </div>
-        <aside class="notes">Frage in die Klasse, bevor die Liste kommt: Könnten wir nicht das Jahr als
-          Schlüssel nehmen? Antwort: nur solange eine Stadt drin ist – bei drei Städten kommt 2023 dreimal
-          vor. Die Kombination aus Stadt und Jahr wäre tatsächlich eindeutig, und genau die brauchen wir am
-          Ende noch einmal als UNIQUE-Regel. Als Schlüssel bleibt die eigene, bedeutungslose id die
-          verlässlichste Wahl.</aside>
       </section>
 
       <!-- ============ 14 ============ -->
@@ -366,11 +326,6 @@ id INT AUTO_INCREMENT PRIMARY KEY
             <p>Bei sehr grossen Datenmengen werden sie irgendwann auch ein Platzproblem.</p>
           </div>
         </div>
-        <aside class="notes">«Zürich» und «Zuerich» nebeneinander ist der Klassiker – im Chart erscheinen
-          dann zwei Städte. In unserer Grössenordnung ist Speicherplatz das schwächste Argument: 258-mal ein
-          Wort ist nichts. Bei Millionen Zeilen kippt das, und dann zählt beides. Für eure Projekte gilt
-          trotzdem der erste Satz: Es geht um die eine Stelle, an der ein Wert steht und geändert werden
-          kann.</aside>
       </section>
 
       <!-- ============ 15 ============ -->
@@ -404,10 +359,6 @@ id INT AUTO_INCREMENT PRIMARY KEY
             <li>Jeder Sommer gehört aber nur zu einer Stadt</li>
           </ul>
         </div>
-        <aside class="notes">Diese Zeichnung ist das ERM, das die Klasse gleich selbst für ihre Daten macht.
-          Die Fremdschlüsselspalte trägt den Namen der Zieltabelle im Singular plus _id – das ist Konvention
-          und macht sie sofort erkennbar. Wichtig für den Code-Along: Die Datenbank lehnt eine city_id ab, zu
-          der es keine Stadt gibt, und schützt euch damit vor verwaisten Zeilen.</aside>
       </section>
 
       <!-- ============ 16 ============ -->
@@ -427,10 +378,6 @@ id INT AUTO_INCREMENT PRIMARY KEY
           <p class="text-sm mt-1">Mehr als zwei Tabellen braucht in diesem Kurs kein Projekt – ausser ihr
             kombiniert mehrere Datensätze.</p>
         </div>
-        <aside class="notes">Genau diese vier Fragen stehen auf dem Arbeitsblatt der Papierübung. Die
-          Antworten auf Frage eins und zwei stehen bereits im Datenvertrag aus dem Transform – das laut sagen,
-          es spart den Gruppen die halbe Übung. Zeitrahmen 35 Minuten, danach hängt jede Gruppe ihr Modell
-          auf.</aside>
       </section>
 
       <!-- ============ 17 ============ -->
@@ -460,9 +407,6 @@ id INT AUTO_INCREMENT PRIMARY KEY
           </div>
           <p class="text-sm mt-1">Im Zweifel klein anfangen und die Aufteilung begründen können.</p>
         </div>
-        <aside class="notes">Die Gruppen fragen erfahrungsgemäss genau hier nach ihrem eigenen Fall. Als
-          Faustregel taugt: Wenn ihr die zweite Tabelle nur anlegt, weil es «richtiger» aussieht, lasst es.
-          Wenn ihr sie anlegt, weil ihr sonst einen Namen hundertmal schreibt, macht es.</aside>
       </section>
 
       <!-- ============ 18 Trenner ============ -->
@@ -490,10 +434,6 @@ id INT AUTO_INCREMENT PRIMARY KEY
           <p class="mt-1">SQL ist eine eigene Sprache und hat mit PHP nichts zu tun.</p>
           <p>Wir schicken sie als Text an die Datenbank und bekommen ein Resultat zurück.</p>
         </div>
-        <aside class="notes">Kurz einordnen, dass SQL älter ist als fast alles andere im Kurs und sich seit
-          Jahrzehnten kaum verändert hat – gelernt wird das hier also nicht für dieses Semester. Grossschreibung
-          der Befehle ist Konvention und keine Vorschrift, sie macht die Abfrage lesbar. Das Semikolon am Ende
-          gehört dazu.</aside>
       </section>
 
       <!-- ============ 20 ============ -->
@@ -522,11 +462,6 @@ CREATE TABLE heat_summers (
             <li>Dasselbe könnt ihr in phpMyAdmin auch zusammenklicken</li>
           </ul>
         </div>
-        <aside class="notes">Das ist die Zeichnung von vorhin als Text – Feld für Feld dieselbe Reihenfolge.
-          Die Tabelle cities muss zuerst existieren, sonst zeigt der Fremdschlüssel ins Leere. Wichtig für den
-          Anschluss an den Transform: NULL ist hier erlaubt, weil es «nicht gemessen» heisst, und genau das
-          hatten wir letzten Block als Regel. Im Unterricht klicken wir es im GUI zusammen und lassen uns von
-          phpMyAdmin das SQL dazu anzeigen – dann sehen sie beide Wege nebeneinander.</aside>
       </section>
 
       <!-- ============ 21 ============ -->
@@ -549,10 +484,6 @@ VALUES (1, 2023, 92, 12, 36.3);
             <p>258-mal dieser Befehl mit anderen Werten – das ist der ganze Ladevorgang.</p>
           </div>
         </div>
-        <aside class="notes">Hier lohnt sich der Vorgriff: Genau diesen Befehl schreiben wir gleich einmal
-          hin und lassen ihn von PHP 258-mal mit anderen Werten ausführen. Die 1 in der zweiten Anweisung ist
-          die id, die Bern beim ersten INSERT bekommen hat – dass die von Hand hingeschrieben ist, ist das
-          Problem, das später lastInsertId löst.</aside>
       </section>
 
       <!-- ============ 22 ============ -->
@@ -583,9 +514,6 @@ ORDER BY year;
             <p>Heute braucht ihr das nur, um zu prüfen, ob das Laden geklappt hat.</p>
           </div>
         </div>
-        <aside class="notes">Bewusst knapp – SELECT ist das Thema des nächsten Blocks, hier ist es reines
-          Kontrollwerkzeug nach dem Laden. Praktisch im Unterricht: nach dem Code-Along in phpMyAdmin SELECT
-          COUNT(*) laufen lassen, das Resultat muss 258 sein.</aside>
       </section>
 
       <!-- ============ 23 ============ -->
@@ -608,10 +536,6 @@ DELETE FROM heat_summers;
             <p>Es gibt keine Rückfrage und kein Rückgängig.</p>
           </div>
         </div>
-        <aside class="notes">Der Moment für die Warnung, aber ohne Drama: In unserem Ladeskript ist das
-          letzte Kommando gleich Absicht. Merksatz: erst als SELECT mit derselben WHERE-Bedingung ausprobieren,
-          dann das SELECT durch UPDATE oder DELETE ersetzen. Wer produktiv arbeitet, macht vorher einen Export
-          in phpMyAdmin.</aside>
       </section>
 
       <!-- ============ 24 ============ -->
@@ -638,10 +562,6 @@ DELETE FROM heat_summers;
             <p>Gefüllt wird sie danach nur noch von <code>load.php</code>.</p>
           </div>
         </div>
-        <aside class="notes">Der zweite Satz im goldenen Kasten ist wichtiger, als er klingt: Am Marktstand
-          muss die Pipeline erklärbar sein, und handgetippte Zeilen sind es nicht. Tipp für die Gruppen: Die
-          CREATE-TABLE-Befehle nach dem Klicken exportieren und als schema.sql ins Repository legen – dann
-          kann jede Person im Team dieselbe Struktur wiederherstellen.</aside>
       </section>
 
       <!-- ============ 25 Trenner ============ -->
@@ -671,9 +591,6 @@ DELETE FROM heat_summers;
             <p>PDO ist ein Helfer wie <code>fetchJson()</code> beim Extract, nur für Datenbanken statt APIs.</p>
           </div>
         </div>
-        <aside class="notes">Der Vergleich mit fetchJson trägt weiter, als er zuerst scheint: Auch dort ging
-          eine Anfrage raus und ein Array kam zurück, und auch dort war das Protokoll dazwischen nicht unser
-          Thema. Wer mysqli aus dem Internet kennt: dasselbe Ziel, ältere Schnittstelle, wir nehmen PDO.</aside>
       </section>
 
       <!-- ============ 27 ============ -->
@@ -712,8 +629,6 @@ $pdo = new PDO($dsn, $username, $password, $options);
             <p class="text-sm">Tragt die Datei in <code>.gitignore</code> ein, bevor ihr das erste Mal committet.</p>
           </div>
         </div>
-        <aside class="notes">DSN heisst Data Source Name und ist einfach die Adresse der Datenbank. Der
-          Grund für die eigene Datei: Alle Code-Alongs teilen dieselben Zugangsdaten, und das Passwort bleibt aus dem Repository draussen. Die $options mit ERRMODE_EXCEPTION stehen ebenfalls in config.php und kommen auf der übernächsten Folie. «konto» steht für den eigenen Kontonamen: Hostpoint setzt ihn vor Host, Datenbank und Benutzer, und wer ihn vergisst, bekommt «Access denied» oder «Unknown database». Das ist der häufigste Fehler im ganzen Block.</aside>
       </section>
 
       <!-- ============ 28 ============ -->
@@ -742,10 +657,6 @@ $pdo = new PDO($dsn, $username, $password, $options);
             <p class="text-sm">Wer es trotzdem hochgeladen hat, ändert sofort das Passwort.</p>
           </div>
         </div>
-        <aside class="notes">Im Repository liegt bereits eine config.template.php, die genau dafür gedacht
-          ist. Der letzte Satz ist der Grund, warum das jetzt kommt und nicht später: Nachträglich aus der
-          Historie entfernen ist mühsam, und öffentliche Repositories werden automatisiert nach genau solchen
-          Dateien durchsucht. Wer es doch einmal committet, ändert das Passwort und diskutiert nicht.</aside>
       </section>
 
       <!-- ============ 29 ============ -->
@@ -773,10 +684,6 @@ $insertSummer-&gt;execute([
             <li>Die Datenbank hält beides getrennt, deshalb kann kein Wert zu Code werden</li>
           </ul>
         </div>
-        <aside class="notes">Das Prinzip an der Tafel: Der Satzbau geht einmal hin, die Wörter kommen später
-          und einzeln. Deshalb spielt es keine Rolle mehr, was in einem Wert steht. Die Schlüssel im Array
-          müssen genau den Platzhaltern entsprechen, ohne Doppelpunkt – das ist die häufigste Fehlermeldung
-          im Code-Along.</aside>
       </section>
 
       <!-- ============ 30 ============ -->
@@ -803,10 +710,6 @@ foreach ($rows as $row) {
             <p>Die Werte kommen unverändert aus dem Transform.</p>
           </div>
         </div>
-        <aside class="notes">Hier schliesst sich der Kreis zum letzten Block: Weil der Transform bereits
-          echte Zahlen und den vereinbarten Datenvertrag liefert, ist diese Schleife so kurz. Wer hier noch
-          umrechnen oder umbenennen muss, hat es im Transform vergessen – das ist eine gute Diagnose für die
-          Projektgruppen.</aside>
       </section>
 
       <!-- ============ 31 ============ -->
@@ -829,10 +732,6 @@ if ($id === false) {
             <li><code>lastInsertId</code> gibt die Nummer zurück, die die Datenbank gerade vergeben hat</li>
           </ul>
         </div>
-        <aside class="notes">Das Muster heisst «suchen, sonst anlegen» und begegnet euch in jedem Projekt mit
-          zwei Tabellen wieder. Der Vergleich mit === false ist genau, weil die id 0 sonst wie «nicht gefunden»
-          aussähe. Im Code-Along merken wir uns die gefundenen Nummern zusätzlich in einem Array, damit nicht
-          258-mal dieselbe Abfrage läuft.</aside>
       </section>
 
       <!-- ============ 32 ============ -->
@@ -859,10 +758,6 @@ if ($id === false) {
             <p>Ein Ladeskript muss man mehrmals aufrufen können.</p>
           </div>
         </div>
-        <aside class="notes">Das ist der Fehler, der in diesem Block am häufigsten passiert, und er meldet
-          sich nicht – die Zahlen sehen nur plötzlich doppelt so hoch aus. Frage in die Klasse, bevor die
-          Lösung kommt: Wie verhindert ihr das? Meist kommen beide Antworten der nächsten Folie aus dem
-          Raum.</aside>
       </section>
 
       <!-- ============ 33 ============ -->
@@ -891,10 +786,6 @@ $pdo-&gt;exec('DELETE FROM heat_summers');
             <p>Bei einer Live-Sammlung wäre Leeren fatal, weil die Vergangenheit nirgends sonst steht.</p>
           </div>
         </div>
-        <aside class="notes">Die Entscheidung hängt allein daran, ob die Quelle die Vergangenheit noch einmal
-          liefern kann. Open-Meteo liefert 1940 bis heute jederzeit neu, ein Sensor liefert nur jetzt. Gruppen
-          mit Live-Sammlung müssen das heute festlegen; für sie steht das genaue INSERT-IGNORE-Beispiel im
-          Cheatsheet. Wir bauen im Code-Along das linke Muster.</aside>
       </section>
 
       <!-- ============ 34 ============ -->
@@ -917,10 +808,6 @@ $options = [
           <p class="text-sm mt-1">Die drei häufigsten Fehler sind Tippfehler im Spaltennamen, falsche
             Zugangsdaten und ein Fremdschlüssel ohne passende Stadt.</p>
         </div>
-        <aside class="notes">ERRMODE_EXCEPTION ist die wichtigste Zeile des ganzen Setups: Ohne sie läuft ein
-          fehlgeschlagenes INSERT einfach durch und die Tabelle bleibt leer. Typische Meldungen kurz vorlesen,
-          damit sie im Code-Along wiedererkannt werden: «Unknown column», «Access denied», «Cannot add or
-          update a child row». Alle drei sind eindeutig, wenn man sie einmal gesehen hat.</aside>
       </section>
 
       <!-- ============ 35 Schluss ============ -->
@@ -937,7 +824,6 @@ $options = [
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       width: 1280,
@@ -949,7 +835,7 @@ $options = [
       hash: true,
       transition: 'slide',
       center: false,
-      plugins: [ RevealHighlight, RevealNotes ]
+      plugins: [ RevealHighlight ]
     });
   </script>
 </body>

@@ -57,7 +57,7 @@ Dieselbe Regel für Listen. Zwei Aussagen in einem `<li>` werden zwei `<li>`.
 
 Studierende denken nicht in „Block A" und „Block C". Auf den Folien steht
 „in diesem Kurs", „später", „im Projekt" – nicht die interne Kursstruktur.
-Blocknamen gehören in `ablauf.md` und in die Sprechernotizen.
+Blocknamen gehören in `ablauf.md`.
 
 ## 4. Titel benennt die Sache, nicht die Kategorie
 
@@ -89,10 +89,13 @@ Was absichtlich weggelassen wird, wird gesagt und ins Cheatsheet verwiesen
 („`array_map` und `array_filter` stehen im Cheatsheet"). Sonst wirkt es wie
 eine Lücke.
 
-## 9. Sprechernotizen für alles, was nicht auf die Folie gehört
+## 9. Keine Sprechernotizen
 
-Fragen an die Klasse, Zeitangaben, didaktische Hinweise und Grenzwerte zum
-Durchtesten kommen in `<aside class="notes">`, nicht auf die Folie.
+Folien enthalten keine `<aside class="notes">`. Fragen an die Klasse,
+Zeitangaben und didaktische Hinweise gehören nicht auf die Folie, sondern bei
+Bedarf in `ablauf.md` oder in die Ablauf-Datei des zugehörigen Code-Alongs.
+
+**Prüfen:** `pruefe-folien.py` meldet jede Sprechernotiz.
 
 ## 10. Sprache
 
@@ -104,8 +107,7 @@ Durchtesten kommen in `<aside class="notes">`, nicht auf die Folie.
 ## 11. Interaktive Folien
 
 Soll eine Frage in die Klasse gehen, startet die Folie leer und die Antwort
-wird schrittweise eingeblendet – siehe `.code-lines` in `README.md`. Der
-Ablauf gehört in die Sprechernotizen.
+wird schrittweise eingeblendet – siehe `.code-lines` in `README.md`.
 
 ## 12. Geteilte Folien
 

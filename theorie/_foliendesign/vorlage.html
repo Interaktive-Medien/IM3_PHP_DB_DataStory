@@ -38,7 +38,6 @@
             <li>Zweites Kapitel</li>
           </ul>
         </div>
-        <aside class="notes">Sprechernotizen erscheinen in der Referentenansicht (Taste S).</aside>
       </section>
 
       <!-- ===== Kapiteltrenner: braucht data-state="is-section-divider" (Petrol-Hintergrund) ===== -->
@@ -151,7 +150,6 @@ foreach ($items as $item) {
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       width: 1280,
@@ -163,7 +161,7 @@ foreach ($items as $item) {
       hash: true,
       transition: 'slide',
       center: false,
-      plugins: [ RevealHighlight, RevealNotes ]
+      plugins: [ RevealHighlight ]
     });
   </script>
 </body>

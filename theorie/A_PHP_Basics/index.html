@@ -43,8 +43,6 @@
           <p class="text-sm text-muted">Zum Nachschlagen gibt es zu jedem Thema ein Cheatsheet im Ordner
             <code>cheatsheets/</code>.</p>
         </div>
-        <aside class="notes">Ziel des Blocks: Am Ende könnt ihr einen Messwert speichern, formatieren,
-          bewerten, in einer Liste ablegen und diese Liste durchlaufen. Das ist genau das, was ETL später braucht.</aside>
       </section>
 
       <!-- ============ 3 Trenner ============ -->
@@ -77,8 +75,6 @@ echo $message;
             </div>
           </div>
         </div>
-        <aside class="notes">Wichtig: "Quelltext anzeigen" im Browser zeigt nie PHP-Code. Das ist der Grund,
-          warum Passwörter und API-Keys in PHP sicher sind, in JavaScript aber nicht.</aside>
       </section>
 
       <!-- ============ 5 ============ -->
@@ -113,7 +109,6 @@ echo $message;
               Code als Text.</p>
           </div>
         </div>
-        <aside class="notes">Häufigster Fehler am ersten Tag. Immer zuerst die URL prüfen.</aside>
       </section>
 
       <!-- ============ 6 ============ -->
@@ -184,8 +179,6 @@ echo $message;
             <p>In diesem Kurs machen wir das bewusst <strong>nicht</strong> – siehe nächste Folie.</p>
           </div>
         </div>
-        <aside class="notes">Verweis auf Code-Along 00_hallo_php: dort ging es nur darum, dass der Weg
-          Ordner → Server → Browser funktioniert.</aside>
       </section>
 
       <!-- ============ 8 ============ -->
@@ -202,8 +195,6 @@ header('Content-Type: text/plain; charset=utf-8');   // reine Textausgabe
 echo "Aare in Bern: 19.4 °C\n";
           </code></pre>
         </div>
-        <aside class="notes">Der Header ist kein Selbstzweck: ohne ihn interpretiert der Browser die Ausgabe
-          als HTML und schluckt die Zeilenumbrüche.</aside>
       </section>
 
       <!-- ============ 9 Trenner ============ -->
@@ -257,9 +248,6 @@ $isOfficial   = true;
             <div class="line fragment" data-fragment-index="5">$array   = [<span class="n">18.9</span>, <span class="n">19.4</span>, <span class="n">20.1</span>];    <span class="c">// array  – mehrere Werte</span></div>
           </div>
         </div>
-        <aside class="notes">Zuerst nur der Titel: Welche Datentypen kennt ihr schon? Sammeln lassen,
-          dann pro Nennung eine Zeile einblenden (Leertaste). Falls ein Typ nicht genannt wird, selbst
-          ergänzen.</aside>
       </section>
 
       <!-- ============ 12 ============ -->
@@ -295,8 +283,6 @@ Array
             <li><code>print_r</code> zeigt Arrays lesbar, aber ohne Typen</li>
           </ul>
         </div>
-        <aside class="notes">var_dump ist das wichtigste Debugging-Werkzeug im ganzen Kurs. Wenn etwas nicht
-          funktioniert: var_dump statt raten.</aside>
       </section>
 
       <!-- ============ 13 ============ -->
@@ -345,8 +331,6 @@ echo "Aare in Thun: 18.2 °C um 10:00 Uhr.";
             <li>Eine Funktion beschreibt die Regel <strong>einmal</strong> und du rufst sie beliebig oft auf</li>
           </ul>
         </div>
-        <aside class="notes">Zuerst nur den Titel zeigen. Beim ersten Klick das Beispiel einblenden und
-          fragen, was daran problematisch ist. Beim zweiten Klick die Antworten zeigen.</aside>
       </section>
 
       <!-- ============ 16 ============ -->
@@ -442,8 +426,6 @@ var_dump($x &gt;= $y);   // false
             </div>
           </div>
         </div>
-        <aside class="notes">Vor dem Klick bekannte Vergleichsoperatoren und ihre Bedeutung sammeln.
-          Danach die Tabelle und den Beispielcode gemeinsam einblenden.</aside>
       </section>
 
       <!-- ============ 20 Split ============ -->
@@ -527,8 +509,6 @@ function classifyTemperature($temperatureC)
           <p class="text-sm text-muted">Deshalb braucht der mittlere Fall kein zusätzliches
             <code>&gt;= 16</code>.</p>
         </div>
-        <aside class="notes">Grenzwerte gemeinsam testen: 15.9, 16, 19.9, 20. Und: fachliche Schwellenwerte
-          müssen im Projekt begründet und mit Quelle dokumentiert werden.</aside>
       </section>
 
       <!-- ============ 23 ============ -->
@@ -647,8 +627,6 @@ echo $measurements[1]['temperature_c'];   // 19.4
             <p>Wer diese Struktur lesen kann, kann alle drei lesen.</p>
           </div>
         </div>
-        <aside class="notes">Hier lohnt sich eine Minute an der Wandtafel: aussen die Liste, innen der einzelne
-          Datensatz. Diese Denkfigur trägt bis Block E.</aside>
       </section>
 
       <!-- ============ 28 ============ -->
@@ -700,9 +678,6 @@ print_r($labels);
             <p>Die Anzahl Einträge bleibt gleich – nur die Werte ändern sich.</p>
           </div>
         </div>
-        <aside class="notes">Die benannte Funktion zuerst laut lesen: Nimm eine Temperatur und gib ein
-          beschriftetes Ergebnis zurück. Danach zeigen, dass array_map diese Funktion für jeden Wert
-          aufruft.</aside>
       </section>
 
       <!-- ============ 30 ============ -->
@@ -728,8 +703,6 @@ print_r($warmTemperatures);
             <p><code>array_filter</code> behält die ursprünglichen Schlüssel.</p>
           </div>
         </div>
-        <aside class="notes">Auf die Schlüssel 1 und 2 hinweisen. Falls eine neue lückenlose Liste nötig
-          ist, kann später array_values verwendet werden.</aside>
       </section>
 
       <!-- ============ 31 ============ -->
@@ -755,8 +728,6 @@ echo $total;
             <p><code>$sum</code> trägt das bisherige Ergebnis zum nächsten Wert weiter.</p>
           </div>
         </div>
-        <aside class="notes">Die 0 ist der Startwert. Die drei Rechenschritte bei Bedarf an der Tafel
-          notieren: 0 + 18.9, danach + 19.4, danach + 20.1.</aside>
       </section>
 
       <!-- ============ 32 ============ -->
@@ -784,8 +755,6 @@ print_r($sortedTemperatures);
             <p><code>sort</code> verändert das übergebene Array – deshalb kopieren wir die Liste zuerst.</p>
           </div>
         </div>
-        <aside class="notes">sort liefert nur true oder false zurück. Deshalb zuerst eine Kopie erstellen,
-          danach diese sortieren und ausgeben.</aside>
       </section>
 
       <!-- ============ 33 Trenner ============ -->
@@ -847,8 +816,6 @@ foreach ($measurements as $measurement) {
               </ul>
           </div>
         </div>
-        <aside class="notes">Die Plural/Singular-Konvention konsequent durchziehen – das macht Schleifen
-          fast selbsterklärend.</aside>
       </section>
 
       <!-- ============ 36 ============ -->
@@ -979,7 +946,6 @@ while ($i &lt; 10) {
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       width: 1280,
@@ -991,7 +957,7 @@ while ($i &lt; 10) {
       hash: true,
       transition: 'slide',
       center: false,
-      plugins: [ RevealHighlight, RevealNotes ]
+      plugins: [ RevealHighlight ]
     });
   </script>
 </body>

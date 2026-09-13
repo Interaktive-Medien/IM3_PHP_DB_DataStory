@@ -198,7 +198,7 @@ ohne Build-Schritt. Design, Vorlage und Gestaltungsregeln liegen zentral in
   es formuliert und wie sie gestaltet wird. Wichtigste Regeln: ein Absatz
   enthaelt genau einen Satz, ein Aufzaehlungspunkt genau einen Gedanken, und
   die Blocknamen des Kurses (`Block A`, `Block C`) erscheinen nicht auf den
-  Folien, sondern nur in `ablauf.md` und in den Sprechernotizen.
+  Folien, sondern nur in `ablauf.md`. Folien enthalten keine Sprechernotizen.
 - `theorie/A_PHP_Basics/index.html`: fertiges Referenzbeispiel.
 
 Regeln beim Arbeiten:
@@ -210,8 +210,9 @@ Regeln beim Arbeiten:
   `theorie/_foliendesign/vorlage.html`.
 - Code auf den Folien muss zum zugehoerigen Code-Along passen: gleiche
   Variablennamen, gleiche Schreibweise, gleicher Datensatz.
-- Didaktische Hinweise, Fragen an die Klasse und Zeitangaben gehoeren in
-  `<aside class="notes">`, nicht auf die Folie.
+- Keine Sprechernotizen (`<aside class="notes">`). Didaktische Hinweise,
+  Fragen an die Klasse und Zeitangaben gehoeren bei Bedarf in `ablauf.md` oder
+  in die Ablauf-Datei des Code-Alongs, nicht auf die Folie.
 
 Nach jeder Aenderung pruefen:
 

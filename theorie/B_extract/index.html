@@ -41,9 +41,6 @@
           <p class="text-sm text-muted">Am Ende des Tages solltet ihr eure eigene Datenquelle ausgewählt
             haben.</p>
         </div>
-        <aside class="notes">Richtwert 20 Minuten. Die Übung „01 Daten finden" ist an dieser Stelle
-          schon gemacht: Die Studierenden haben ihre JSON-Dateien bereits heruntergeladen. Diese Folien
-          ordnen ein, was sie dort von Hand gemacht haben, und zeigen, wie PHP dasselbe tut.</aside>
       </section>
 
       <!-- ============ 3 ============ -->
@@ -62,8 +59,6 @@
             <div class="flow-step"><span class="flow-title">Chart.js</span><span class="flow-sub">Story</span></div>
           </div>
         </div>
-        <aside class="notes">Diese Kette taucht in jedem Foliensatz wieder auf. Sie ist der rote Faden
-          des Kurses – hier wird der erste Kasten aktiv.</aside>
       </section>
 
       <!-- ============ 4 ============ -->
@@ -95,8 +90,6 @@
             <p>Am Ende jedes Code-Alongs steht dieselbe Kontrollfrage: Habe ich ein PHP-Array?</p>
           </div>
         </div>
-        <aside class="notes">Wichtig für die Erwartungshaltung: Heute wird nichts schön. Die Daten sehen
-          nach dem Extract genauso unordentlich aus wie vorher – nur sind sie jetzt in PHP.</aside>
       </section>
 
       <!-- ============ 5 ============ -->
@@ -125,8 +118,6 @@
             <p>Ein Google Sheet lässt sich als CSV veröffentlichen und wird damit zur letzten Variante.</p>
           </div>
         </div>
-        <aside class="notes">Kurz durchgehen, nicht vertiefen – jede Quelle bekommt gleich ihr eigenes
-          Code-Along. Frage in die Klasse: Welche dieser vier passt zu eurer Datenfrage?</aside>
       </section>
 
       <!-- ============ 6 Trenner ============ -->
@@ -158,9 +149,6 @@
             <li>Datensatz veraltet mit der Zeit</li>
           </ul>
         </div>
-        <aside class="notes">Häufiges Missverständnis: „Live" klingt anspruchsvoller und ist deshalb
-          besser. Stimmt nicht – historische Daten geben meist die stärkere Story. Live ist dann sinnvoll,
-          wenn das Sammeln über Zeit selbst die Aussage ist.</aside>
       </section>
 
       <!-- ============ 8 ============ -->
@@ -192,8 +180,6 @@
             aktuellen Werte von heute.</p>
         </div>
         <div class="footnote">Quelle: Open-Meteo (open-meteo.com), freie Nutzung ohne API-Key.</div>
-        <aside class="notes">Rückbezug auf die Übung: Genau diese Datei haben sie eben von Hand
-          heruntergeladen. Der Browser hat dabei nichts anderes gemacht als gleich unser PHP-Skript.</aside>
       </section>
 
       <!-- ============ 9 Trenner ============ -->
@@ -226,8 +212,6 @@ echo count($data['daily']['time']);
               (<code>$data['daily']</code>).</p>
           </div>
         </div>
-        <aside class="notes">Der Header ist derselbe wie in den PHP-Basics: PHP ist hier Datenleser,
-          nicht Webseiten-Bauer. Ohne ihn frisst der Browser die Zeilenumbrüche.</aside>
       </section>
 
       <!-- ============ 11 ============ -->
@@ -262,8 +246,6 @@ for ($i = 0; $i &lt; 5; $i++) {
             <li>In unsere eigene Struktur bringen wir das erst im nächsten Schritt</li>
           </ul>
         </div>
-        <aside class="notes">Das ist die inhaltlich wichtigste Folie zu JSON. An der Tafel die beiden
-          Listen untereinander schreiben und den gemeinsamen Index einzeichnen.</aside>
       </section>
 
       <!-- ============ 12 ============ -->
@@ -292,9 +274,6 @@ $data = fetchJson($url);
             <p>cURL ist ein <strong>ausgehender</strong> Aufruf von unserem Server an eine fremde API.</p>
           </div>
         </div>
-        <aside class="notes">Die Richtung des Aufrufs an der Tafel zeigen: ein Pfeil vom Browser auf unseren
-          Server, ein zweiter von unserem Server weg zur fremden API. Später in Block E kommt mit $_GET die
-          Gegenrichtung dazu – erfahrungsgemäss wird das jedes Jahr verwechselt.</aside>
       </section>
 
       <!-- ============ 13 ============ -->
@@ -330,8 +309,6 @@ fclose($handle);
           <p class="text-sm text-muted mt-1">Die Argumente <code>',' '"' ''</code> sind die Standardwerte
             und stehen nur da, damit neuere PHP-Versionen nicht warnen.</p>
         </div>
-        <aside class="notes">Kurz zeigen, was array_combine macht: oben die Namen, unten die Werte,
-          Reissverschluss. Danach hat man dieselbe Struktur wie bei JSON.</aside>
       </section>
 
       <!-- ============ 14 ============ -->
@@ -364,8 +341,6 @@ fclose($handle);
           </div>
         </div>
         <div class="footnote">Global Shark Attack File (GSAF), via Kaggle.</div>
-        <aside class="notes">Guter Moment für Erwartungsmanagement im Projekt: Wer eine echte Quelle
-          nimmt, verbringt mehr Zeit mit Aufräumen als mit Programmieren.</aside>
       </section>
 
       <!-- ============ 15 ============ -->
@@ -391,8 +366,6 @@ fclose($handle);
             <li>Hardware und Programmierung der Box sind nicht Inhalt dieses Kurses</li>
           </ul>
         </div>
-        <aside class="notes">Box im Raum herzeigen und die Endpunkt-URL einmal im Browser öffnen. Ausblick:
-          Solche Boxen können in einem späteren Kurs selbst gebaut werden.</aside>
       </section>
 
       <!-- ============ 16 ============ -->
@@ -414,8 +387,6 @@ fclose($handle);
             <p>Ab dem PHP-Array ist der weitere Weg für alle Projekte derselbe.</p>
           </div>
         </div>
-        <aside class="notes">Kernbotschaft des ganzen Inputs. Wer das verstanden hat, kann jede neue
-          Quelle selbst einordnen.</aside>
       </section>
 
       <!-- ============ 17 Trenner ============ -->
@@ -447,8 +418,6 @@ fclose($handle);
             <p>Eine schöne Projektseite sagt nichts darüber aus, ob die Daten brauchbar sind.</p>
           </div>
         </div>
-        <aside class="notes">Diese Liste ist gleichzeitig die Abnahmegrundlage für den Meilenstein am
-          Ende des Tages. Gruppen sollen zu jedem Punkt eine Antwort geben können.</aside>
       </section>
 
       <!-- ============ 19 ============ -->
@@ -474,8 +443,6 @@ fclose($handle);
               Variable, statt zu raten.</p>
           </div>
         </div>
-        <aside class="notes">Bei „Undefined key" immer zuerst array_keys() auf die Ebene darüber – das
-          löst gefühlt die Hälfte aller Fälle.</aside>
       </section>
 
       <!-- ============ 20 ============ -->
@@ -505,8 +472,6 @@ fclose($handle);
             <p><strong>Meilenstein M3:</strong> Am Ende des Tages steht euer Datensatz.</p>
           </div>
         </div>
-        <aside class="notes">Jede Gruppe zeigt zum Abschluss ihre Rohdaten als PHP-Array – das reicht,
-          es muss noch nichts sauber sein.</aside>
       </section>
 
       <!-- ============ 21 Schluss ============ -->
@@ -524,7 +489,6 @@ fclose($handle);
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       width: 1280,
@@ -536,7 +500,7 @@ fclose($handle);
       hash: true,
       transition: 'slide',
       center: false,
-      plugins: [ RevealHighlight, RevealNotes ]
+      plugins: [ RevealHighlight ]
     });
   </script>
 </body>

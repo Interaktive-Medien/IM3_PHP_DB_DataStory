@@ -41,9 +41,6 @@
             <li>Karten mit Leaflet, wenn die Frage ein Wo ist</li>
           </ul>
         </div>
-        <aside class="notes">Richtwert für diesen Input: 30 Minuten.
-          Die fünf Punkte sind die Kapitel des Foliensatzes.
-          Danach folgt das Code-Along, in dem genau diese Reihenfolge nochmals durchlaufen wird.</aside>
       </section>
 
       <!-- ============ 3 Wo wir stehen ============ -->
@@ -67,9 +64,6 @@
             <p>Alles bisher war Vorbereitung für diesen Schritt.</p>
           </div>
         </div>
-        <aside class="notes">Kurz zurückblicken: Fünf Blöcke, und erst jetzt entsteht etwas, das man
-          jemandem zeigen kann. Das ist keine Kritik am Weg, sondern der Grund, warum die Vorarbeit
-          sauber sein musste.</aside>
       </section>
 
       <!-- ============ 4 Erst die Aussage ============ -->
@@ -85,10 +79,6 @@
           </div>
         </div>
         <div class="footnote">Phasenregel aus dem Data Story Deck, Phase 6 «Datengrafiken»</div>
-        <aside class="notes">Frage an die Klasse, bevor die Sätze eingeblendet werden: Was behauptet
-          eine Linie eigentlich? Antwort: dass zwischen zwei Punkten etwas passiert ist und dass die
-          Reihenfolge stimmt. Deshalb ist eine Linie über zehn Ländernamen falsch.
-          Hier auf das Kartenset verweisen, das im UX-Teil verwendet wird.</aside>
       </section>
 
       <!-- ============ 5 Kapiteltrenner ============ -->
@@ -137,10 +127,6 @@
           </div>
         </div>
         <div class="footnote">Einteilung aus dem Data Story Deck, Phase 6 «Datengrafiken»</div>
-        <aside class="notes">Diese sechs Absichten stehen auf der Titelkarte von Phase 6 im Kartenset.
-          Frage an die Klasse: Welche Absicht hat eure Datenfrage? Die meisten Projekte landen bei
-          Vergleich oder Entwicklung.
-          Wer keine Absicht benennen kann, hat noch keine Datenfrage, sondern einen Datensatz.</aside>
       </section>
 
       <!-- ============ 7 Unsere zwei Fragen ============ -->
@@ -165,9 +151,6 @@
             <p>Dieselben 258 Datensätze, zwei Absichten, zwei Diagrammtypen.</p>
           </div>
         </div>
-        <aside class="notes">Gegenprobe laut durchspielen: Die zehn heissesten Sommer als Linie würde
-          behaupten, dass 2003 in 2015 übergeht. Das ist inhaltlich falsch, auch wenn es hübsch aussieht.
-          Genau diese zwei Diagramme entstehen in den beiden Code-Alongs.</aside>
       </section>
 
       <!-- ============ 8 Was Chart.js kann ============ -->
@@ -190,10 +173,6 @@
           </table>
           <p class="text-sm text-muted mt-1">Dazu kommen <code>radar</code> und <code>polarArea</code>, die man selten braucht.</p>
         </div>
-        <aside class="notes">Sechs Typen decken fast jedes Kursprojekt ab. Liegende Balken sind kein
-          eigener Typ, sondern eine Option: indexAxis 'y'. Dasselbe gilt für die Fläche unter einer
-          Linie (fill) und für gestapelte Balken (stacked).
-          Wer mehr will: Zwei Typen lassen sich in einem Diagramm mischen, etwa Balken plus Linie.</aside>
       </section>
 
       <!-- ============ 9 Was Chart.js nicht kann ============ -->
@@ -218,14 +197,6 @@
             <p>Braucht eure Story eine Karte, nehmt ihr Leaflet – dazu kommt Kapitel 5.</p>
           </div>
         </div>
-        <aside class="notes">Wichtig für die Projektberatung: Wer eine Karte will, muss das früh sagen –
-          das ist eine zweite Bibliothek und kostet Zeit. Der JSON-Endpunkt bleibt derselbe, nur das
-          Frontend wechselt.
-          Hier nur ankündigen und nicht schon erklären, sonst nimmt man Kapitel 5 vorweg.
-          Für Boxplot und Dot Plot bleibt Datawrapper die schnellste Antwort – die zeigt man dort her,
-          statt sie selbst zu bauen.
-          Das Histogramm ist ein guter Hinweis darauf, dass Klassenbildung eine Transform-Aufgabe ist
-          und nicht Sache der Grafikbibliothek. Genau diese Aufgabe kommt in Kapitel 5 wieder.</aside>
       </section>
 
       <!-- ============ 10 Kapiteltrenner ============ -->
@@ -255,10 +226,6 @@ const chart = new Chart(document.querySelector('#verlauf'), {
 });
           </code></pre>
         </div>
-        <aside class="notes">Drei Schlüssel, mehr ist es nicht: type, data, options.
-          options ist Fleissarbeit und steht im Code-Along fertig da – der Lernstoff steckt in data.
-          Die Version im CDN-Link ist bewusst festgeschrieben, damit sich das Diagramm nicht über Nacht
-          anders verhält.</aside>
       </section>
 
       <!-- ============ 12 labels und data ============ -->
@@ -291,10 +258,6 @@ data:   [0, 1, 0]
             <p>Zwei Listen, gleich lang und in derselben Reihenfolge.</p>
           </div>
         </div>
-        <aside class="notes">Das ist die Kernfolie des ganzen Inputs. Wer diese Umformung versteht,
-          kann jedes Chart.js-Diagramm bauen; alles andere ist Nachschlagen.
-          Nachfrage an die Klasse: Was passiert, wenn die beiden Listen unterschiedlich lang sind?
-          Antwort: Chart.js zeichnet trotzdem, und die Werte stehen bei den falschen Jahren.</aside>
       </section>
 
       <!-- ============ 13 Eine Stadt, eine Linie ============ -->
@@ -319,11 +282,6 @@ function datasetFor(rows, city) {
           </code></pre>
           <p class="mt-1">Ein <code>dataset</code> ist eine Linie: die Zahlen und ihr Aussehen.</p>
         </div>
-        <aside class="notes">new Set wirft die dreifach vorkommenden Jahre weg, sort mit
-          Vergleichsfunktion bringt sie in die richtige Reihenfolge.
-          Die Frage, die man leicht überspringt: Warum passen die Werte zu den Jahren? Weil der
-          Endpunkt nach Jahr sortiert und jede Stadt jeden Sommer hat – geprüft haben wir das beim
-          Transformieren.</aside>
       </section>
 
       <!-- ============ 14 Kapiteltrenner ============ -->
@@ -349,10 +307,6 @@ const summers = await response.json();
             <p>Der <code>$_GET</code>-Filter aus dem Endpunkt wird hier zum ersten Mal wirklich benutzt.</p>
           </div>
         </div>
-        <aside class="notes">await braucht type="module" im script-Tag – das steht im Cheatsheet aus IM2
-          und ist im Code-Along schon gesetzt.
-          Die Kette einmal laut durchgehen: Auswahl im Browser, ?city=Bern, WHERE im SQL, kleinere
-          JSON-Antwort, neues Diagramm. Vier Blöcke Arbeit in einem Klick.</aside>
       </section>
 
       <!-- ============ 16 Antwort prüfen ============ -->
@@ -376,7 +330,6 @@ if (!contentType.includes('application/json')) {
             <p>Öffnet ihr die Seite nicht über eure Domain, kommt statt JSON etwas anderes zurück.</p>
           </div>
         </div>
-        <aside class="notes">Hier lohnt sich die Demo: Seite einmal per Doppelklick oder über das Browser-Symbol von PhpStorm öffnen und zeigen, was zurückkommt. Der Content-Type-Header aus dem Endpunkt ist genau dafür da. Merkregel für die Klasse: In der Adressleiste steht die eigene Domain, nicht localhost.</aside>
       </section>
 
       <!-- ============ 17 Übergabe ============ -->
@@ -398,10 +351,6 @@ const DATEN_URL = ENDPUNKT;      // unload.php
             <p>Das funktioniert nur, weil beide Seiten denselben Datenvertrag eingehalten haben.</p>
           </div>
         </div>
-        <aside class="notes">Wenn beim Umschalten etwas bricht, war der Vertrag nicht eingehalten – das ist
-          die eigentliche Abnahme zwischen den beiden Teams.
-          Zweiter Nutzen derselben Datei: Sie ist der Fallback für den Marktstand, wenn die Datenbank
-          streikt.</aside>
       </section>
 
       <!-- ============ 18 Kapiteltrenner ============ -->
@@ -430,9 +379,6 @@ function render() {
             <p>Ein zweites <code>new Chart()</code> auf demselben Canvas meldet «Canvas is already in use».</p>
           </div>
         </div>
-        <aside class="notes">Das ist der häufigste Anfängerfehler mit Chart.js. Wer das Diagramm bei jeder
-          Änderung neu erzeugt, verliert ausserdem die Animation und den Zustand der Legende.
-          update() zeichnet nur, was sich geändert hat.</aside>
       </section>
 
       <!-- ============ 20 Zwei Sorten Interaktion ============ -->
@@ -455,10 +401,6 @@ function render() {
             <p>Der Server filtert, was viel ist – der Browser filtert, was schon da ist.</p>
           </div>
         </div>
-        <aside class="notes">Bei 258 Zeilen wären beide Wege richtig. Bei 200'000 Zeilen ginge nur noch der
-          Server, und bei einem Schieber, der bei jeder Bewegung feuert, nur noch der Browser.
-          Im Code-Along steht der Unterschied als Hinweis unter jedem Bedienelement, und im Netzwerk-Tab
-          wird er sichtbar.</aside>
       </section>
 
       <!-- ============ 21 Ein Zustand ============ -->
@@ -477,9 +419,6 @@ let metric = 'hot_days';   // welcher Messwert
             <p><code>render()</code> ist die einzige Stelle, die ein Diagramm anfassen darf.</p>
           </div>
         </div>
-        <aside class="notes">Die Alternative wäre, in jedem Listener am Diagramm herumzubauen. Das
-          funktioniert bei einem Bedienelement und wird beim dritten unlesbar.
-          Wer diese Trennung einmal gesehen hat, erkennt sie in jedem Frontend-Framework wieder.</aside>
       </section>
 
       <!-- ============ 22 Kapiteltrenner ============ -->
@@ -488,11 +427,6 @@ let metric = 'hot_days';   // welcher Messwert
         <p class="chapter-step">Kapitel 5</p>
         <h1>Karten mit Leaflet</h1>
         <p>Dieselbe Kette, eine andere Zeichenbibliothek</p>
-        <aside class="notes">Richtwert: 8 Minuten für dieses Kapitel.
-          Wichtig für die Rahmung: Alles aus den Kapiteln 2 bis 4 gilt weiter. Nur der letzte Schritt
-          wechselt das Werkzeug.
-          Wer die Klasse abholen will, blättert kurz zur Tabelle in Kapitel 1 zurück – dort stand Leaflet
-          schon als Antwort, jetzt lösen wir das Versprechen ein.</aside>
       </section>
 
       <!-- ============ 23 Leaflet-Bauplan ============ -->
@@ -516,13 +450,6 @@ L.geoJSON(grenzen, { style: stilFuer }).addTo(karte);
             <p>Ohne Höhe im CSS bleibt die Karte unsichtbar, und die Konsole meldet nichts.</p>
           </div>
         </div>
-        <aside class="notes">Die Parallele laut aussprechen: type, data, options hiess bei Chart.js
-          «welcher Typ, was, wie». Hier heisst es «welcher Ausschnitt, welcher Hintergrund, welche Daten».
-          Zwei Unterschiede betonen. Erstens braucht Leaflet auch ein Stylesheet – fehlt es, liegen alle
-          Kacheln übereinander in der Ecke, und das sieht nach einem Fehler im eigenen Code aus.
-          Zweitens der Behälter: canvas hat eine eigene Grösse, ein leeres div ist 0 Pixel hoch.
-          Der häufigste Leaflet-Fehler überhaupt, und er meldet sich nirgends.
-          Die attribution ist keine Höflichkeit, sondern Bedingung der Kachel-Anbieter.</aside>
       </section>
 
       <!-- ============ 24 GeoJSON ============ -->
@@ -559,16 +486,6 @@ L.geoJSON(grenzen, { style: stilFuer }).addTo(karte);
           </div>
         </div>
         <div class="footnote">naturalearthdata.com, «Admin 0 – Countries» in 1:110m, Public Domain</div>
-        <aside class="notes">Die Frage zuerst stellen: Woher weiss der Browser eigentlich, wo Australien
-          aufhört? Antwort: gar nicht. Der Umriss muss als Datei mitkommen, so wie jede andere Zahl auch.
-          Die Koordinaten kurz zeigen und dann wieder zuklappen – niemand liest sie, und genau das ist die
-          Botschaft: Man arbeitet mit properties, nicht mit geometry.
-          Zur Auflösung: 1:110m ist die grobe Weltstufe und genügt für eine Übersichtskarte. 1:50m ist
-          genauer und dreimal so gross, was im Browser sofort spürbar wird.
-          Unsere Datei wurde von 168 Eigenschaften pro Land auf zwei gekürzt. Das ist derselbe Transform
-          wie beim eigenen Datensatz, nur an fremdem Material.
-          Für die Projekte: Wer Schweizer Gemeinden braucht, findet sie bei swisstopo und im Repo
-          swiss-maps auf GitHub.</aside>
       </section>
 
       <!-- ============ 25 Ein Land wird eine Flaeche ============ -->
@@ -605,14 +522,6 @@ L.geoJSON(grenzen, { style: stilFuer }).addTo(karte);
             <p>Zwei Dateien aus verschiedenen Quellen passen zusammen, weil beide denselben Ländercode kennen.</p>
           </div>
         </div>
-        <aside class="notes">Das ist die Kernfolie dieses Kapitels, das Gegenstück zu «Chart.js braucht ein
-          bestimmtes Datenformat».
-          Bei Chart.js war die Verbindung die Reihenfolge zweier gleich langer Listen. Hier ist sie ein
-          Schlüssel, der in beiden Dateien vorkommt.
-          Rückblick auf den Transform: Genau deshalb wurde dort aus «USA» ein ISO-Code nachgeschlagen und
-          nicht bloss der Name behalten. Namen sind Schreibweisen, Codes sind Schlüssel.
-          Frage an die Klasse: Was ist der Schlüssel in eurem Projekt? Bei Gemeinden die BFS-Nummer, bei
-          Kantonen das Kürzel.</aside>
       </section>
 
       <!-- ============ 26 ISO-Codes ============ -->
@@ -644,14 +553,6 @@ return $isoByCountry[$value] ?? null;
             <p>Ohne Ländercode findet das Land seine Fläche nicht und bleibt grau.</p>
           </div>
         </div>
-        <aside class="notes">Diese Folie beantwortet die Frage, die auf der vorigen entsteht: Woher kommt
-          der iso3 in unseren Daten? Nicht aus der Quelle – die kennt nur «AUSTRALIA» als Text.
-          Die Tabelle im Code-Along hat 50 Einträge und ist bewusst unvollständig. Sie entstand aus der
-          Liste der häufigsten Rohwerte, nicht aus dem Gedächtnis.
-          strtoupper und trim sind der Grund, warum «australia » und «AUSTRALIA» denselben Code finden.
-          Das ?? null ist die Haltung aus dem Transform: nicht raten, sondern zugeben, dass wir es nicht
-          wissen. Kanada steht nicht in der Tabelle und ist deshalb grau, obwohl es einen Vorfall gibt.
-          Für die Projekte: Kantone haben Kürzel, Gemeinden die BFS-Nummer, Länder den ISO-3-Code.</aside>
       </section>
 
       <!-- ============ 27 Klassen ============ -->
@@ -687,13 +588,6 @@ const KLASSEN = [
             <p>Wer die Grenzen verschiebt, ändert die Aussage der Karte, ohne eine Zahl anzufassen.</p>
           </div>
         </div>
-        <aside class="notes">Anknüpfen an die Histogramm-Zeile aus Kapitel 1: Klassen bilden ist Datenarbeit
-          und nicht Sache der Grafikbibliothek. Dort war es der Grund, warum Chart.js kein Histogramm kann –
-          hier ist es dieselbe Aufgabe noch einmal.
-          Eine Farbe in sechs Helligkeiten, nicht sechs verschiedene Farben: Dunkler heisst mehr, und das
-          versteht man ohne Legende.
-          Wer mehr will, nennt die Verfahren gleiche Breite, Quantile und Jenks. Für den Kurs genügt eine
-          begründete Wahl von Hand, aufgeschrieben in der Bildlegende.</aside>
       </section>
 
       <!-- ============ 28 Was die Karte verschweigt ============ -->
@@ -710,14 +604,6 @@ const KLASSEN = [
             <p>Was die Karte nicht zeigt, gehört als Satz unter die Karte.</p>
           </div>
         </div>
-        <aside class="notes">Der wichtigste Punkt des Kapitels, deshalb steht er am Schluss.
-          Konkret im Code-Along: Réunion hat 53 Vorfälle und in der Kartendatei gar keine Fläche. Die
-          Bahamas stehen auf Platz 6 und sind kaum zu sehen. Somalia ist hell, weil dort niemand zählt.
-          Der Grönland-Effekt gehört dazu: Die übliche Projektion macht Länder im Norden viel zu gross.
-          Frage in die Klasse: Welches Land fällt auf dieser Karte am meisten auf, und wie viele Vorfälle
-          hat es? Meist wird Russland oder Kanada genannt – beide praktisch ohne Vorfälle.
-          Hinweis auf die Lösung im Code-Along: Der Satz unter der Karte wird gerechnet und nicht
-          hingeschrieben, damit er nicht irgendwann falsch ist.</aside>
       </section>
 
       <!-- ============ 29 Checkliste ============ -->
@@ -742,8 +628,6 @@ const KLASSEN = [
             <p>Ein Diagramm, das seine Aussage ohne Klick zeigt, ist besser als eines, das sie versteckt.</p>
           </div>
         </div>
-        <aside class="notes">Tagesabnahme: Jede Gruppe zeigt ihr Diagramm und sagt in einem Satz, welche
-          Absicht es verfolgt und warum dieser Typ dazu passt.</aside>
       </section>
 
       <!-- ============ 30 Schluss ============ -->
@@ -755,9 +639,6 @@ const KLASSEN = [
           <p class="text-lg mt-1">Die Bibliothek ist austauschbar, die Kette davor nicht.</p>
           <p class="mt-2"><span class="next-step">Nächster Schritt: im Code-Along selbst bauen</span></p>
         </div>
-        <aside class="notes">Exit Ticket: Welche Absicht hat eure Grafik, und welchen Diagrammtyp braucht
-          sie dafür? Zwei Sätze pro Gruppe, mündlich.
-          Wer beides nicht sagen kann, arbeitet zuerst an der Datenfrage und nicht am Code.</aside>
       </section>
 
     </div>
@@ -765,7 +646,6 @@ const KLASSEN = [
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       width: 1280,
@@ -777,7 +657,7 @@ const KLASSEN = [
       hash: true,
       transition: 'slide',
       center: false,
-      plugins: [ RevealHighlight, RevealNotes ]
+      plugins: [ RevealHighlight ]
     });
   </script>
 </body>

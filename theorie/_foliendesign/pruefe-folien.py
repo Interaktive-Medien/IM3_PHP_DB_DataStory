@@ -8,9 +8,7 @@ Geprueft wird, was sich automatisch pruefen laesst:
   1. Absaetze mit mehr als einem Satz          (Regel 1)
   2. Aufzaehlungspunkte mit mehr als einem Satz (Regel 2)
   3. Blocknamen des Kurses auf der Folie        (Regel 3)
-
-Sprechernotizen (<aside class="notes">) sind ausgenommen - dort sind
-Blocknamen und laengere Saetze ausdruecklich erlaubt.
+  4. Sprechernotizen (<aside class="notes">)   (Regel 9)
 
 Exit-Code 1, wenn etwas gefunden wurde.
 """
@@ -37,10 +35,9 @@ def pruefe(pfad: Path) -> list[str]:
         folien_id = block.split('"')[0]
         ort = f"Folie {nummer:>2} [{folien_id}]"
 
-        # Sprechernotizen ausblenden - dort gelten die Regeln nicht.
-        sichtbar = re.sub(
-            r'<aside class="notes">.*?</aside>', "", block, flags=re.S
-        )
+        if '<aside class="notes"' in block:
+            treffer.append(f"{ort} Regel 9: Sprechernotiz vorhanden")
+        sichtbar = block
 
         for tag, regel in (("p", "Regel 1"), ("li", "Regel 2")):
             for m in re.finditer(rf"<{tag}\b[^>]*>(.*?)</{tag}>", sichtbar, re.S):
