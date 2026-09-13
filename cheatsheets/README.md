@@ -61,8 +61,3 @@ Datenquelle -> Extract -> Transform -> Load -> Datenbank -> Unload/JSON -> Chart
 Dieselben Daten begleiten den ganzen Kurs: die Hitzesommer aus Open-Meteo,
 dazu das Shark Attack File für CSV und für die Unordnung echter Daten.
 
-## Älteres Material
-
-`_old/` enthält Cheatsheets aus dem letzten Durchlauf, die nicht mehr zum
-Kursaufbau passen (`001_config.php`, nummerierte ETL-Dateien, eigene
-cURL-Aufrufe). Sie liegen dort als Fundus, sind aber nicht Kursmaterial.

@@ -2,30 +2,22 @@
 
 ## Zweck dieses Repositories
 
-Dieses Repository wird zu einem klar strukturierten Kurs fuer das Modul
-**Interaktive Medien 3 (IM3)** weiterentwickelt. Die vorhandenen Materialien
-stammen teilweise aus dem letzten Durchlauf und sind noch nicht durchgehend
-geordnet oder didaktisch aufeinander abgestimmt.
-
-Die ausfuehrliche Kursplanung steht in `dozierende/PLANUNG.md`. Die operative
-Arbeitsreihenfolge und der aktuelle Umsetzungsstand werden in
-`dozierende/UMSETZUNGSPLAN.md` gepflegt. Der Ordner
-`2026_im2_javascript-main/` dient als Referenz fuer Aufbau, Ablaufplan,
-Code-Alongs und Uebungsstruktur.
+Dieses Repository enthaelt den Kurs fuer das Modul **Interaktive Medien 3
+(IM3)**. Der Kursablauf fuer Studierende und Dozierende steht in `ablauf.md`,
+Hinweise und offene Todos fuer Dozierende in `dozierende/README.md`. Der
+lokale, nicht eingecheckte Ordner `2026_im2_javascript-main/` dient als
+Referenz fuer Aufbau, Ablaufplan, Code-Alongs und Uebungsstruktur.
 
 ## Kursziel
 
 Die Studierenden lernen die notwendigen PHP-, Datenbank-, ETL- und
 Chart.js-Grundlagen und entwickeln danach ein datenjournalistisches Projekt.
-Der Kurs wird in dieser Planung als Folge von zehn Kurstagen behandelt, alle
-als vollwertige Kurstage (kein Halbtag). Tag 10 ist der Marktstand und die
-Abgabe. Tag 1 enthaelt nur Kickoff, Tooling, Servereinrichtung und
-Begleitprogramm, noch keine PHP-Grundlagen. Ein zweistuendiger Input von Pascal
-Albisser zum Datenjournalismus laeuft als Story-Input neben den technischen
-Bloecken und ist auf den 28. September fixiert. Die
-ausstellungsfaehige Fassung sollte bis Ende Tag 9 stehen, spaetestens vor dem
-Marktstand an Tag 10. Details und die genaue Tageszuordnung stehen in
-`dozierende/PLANUNG.md`.
+Der Kurs ist in `ablauf.md` nach Bloecken gegliedert: Kickoff, Block A bis F
+sowie Marktstand und Abgabe. Ein Block kann sich ueber mehrere Kurstage
+erstrecken. Der Kickoff enthaelt noch keine PHP-Grundlagen. Ein zweistuendiger
+Input von Pascal Albisser zum Datenjournalismus laeuft als Story-Input neben
+den technischen Bloecken und ist auf den 28. September fixiert. Die
+ausstellungsfaehige Fassung sollte vor dem Marktstand stehen.
 
 ## Projekt- und Rollenmodell
 
@@ -80,24 +72,25 @@ Das Rueckgrat des Kurses ist die ETL+U-Kette:
 `Extract -> Transform -> Load -> Datenbank -> Unload -> Chart.js`. Jeder
 technische Block ist ein Schritt darin.
 
-1. Tag 1: Kickoff, Gruppenbildung, Tooling, PHP-Check und Servereinrichtung.
-   Keine PHP Basics.
-2. Tag 2: Block A - PHP Basics I: Variablen, Datentypen, Funktionen, Bedingungen.
-3. Tag 3: Block A - PHP Basics II: Arrays und Schleifen.
-4. Tag 4: Block B - Extract: dieselben Daten aus JSON-Datei, Live-API und CSV
-   als PHP-Array lesen.
-5. Tag 5: Block C - Transform: Rohdaten saeubern, reduzieren, umbenennen und
+1. Kickoff: Rueckblick, Data-Story-Workshop, Kursaufbau und Themenboerse.
+   Keine PHP-Grundlagen.
+2. Block A - PHP Basics: Tooling (PhpStorm, Terminal, Git, lokaler
+   PHP-Server), Variablen, Funktionen, Bedingungen, Arrays und Schleifen.
+3. Block B - Extract: dieselben Daten aus JSON-Datei, Live-API und CSV als
+   PHP-Array lesen; Sensor-API als weitere Quelle.
+4. Block C - Transform: Rohdaten saeubern, reduzieren, umbenennen und
    normalisieren (Datenvertrag).
-6. Tag 6: Block D - Load: DB-Tooling, ERM Light, PDO und `INSERT`.
-7. Tag 7: Block E - Unload: PDO `SELECT` -> JSON-Endpunkt bauen und mit `$_GET`
+5. Block D - Load: Datenmodell, SQL, Einrichtung von Webserver und Datenbank,
+   PDO und `INSERT`.
+6. Block E - Unload: PDO `SELECT` -> JSON-Endpunkt bauen und mit `$_GET`
    filtern.
-8. Tag 8: Block F - Chart.js und UX-Slot (flexibel platzierbar).
-9. Tag 9: Integration, Feature-Freeze und UX-Slot.
-10. Tag 10: Aufbau, Marktstand, Abgabe und Reflexion.
+7. Block F - Visualisierung: Datengrafiken mit Chart.js und erste Integration.
+8. Marktstand und Abgabe: Projekt zusammenfuehren, Marktstand im Oktober,
+   Abgabe im Januar.
 
 Datenbanken/PDO sind kein eigener Block, sondern werden dort eingefuehrt, wo man
 sie braucht: `INSERT` in Load (D), `SELECT` in Unload (E). Datenjournalismus ist
-eine Begleitspur (kein nummerierter Block).
+eine Begleitspur (kein nummerierter Block) und laeuft ueber die Story-Karten.
 
 ## Didaktische Leitplanken
 
@@ -107,9 +100,9 @@ eine Begleitspur (kein nummerierter Block).
 - Uebungen muessen extrem niederschwellig sein: ein neues Konzept pro Schritt,
   wenige vorbereitete Daten, kurze Anweisungen und ein sofort sichtbares
   Resultat.
-- Tag 1 nicht mit PHP-Syntax ueberladen. PHP wird dort nur im Rahmen des
-  Toolings geprueft und mit einer minimalen Testdatei ueber den lokalen Server
-  aufgerufen.
+- Den Kickoff nicht mit PHP-Syntax ueberladen. PHP wird erst zu Beginn von
+  Block A im Rahmen des Toolings geprueft und mit einer minimalen Testdatei
+  ueber den lokalen Server aufgerufen.
 - Editor im ganzen Kurs ist PhpStorm, nicht VS Code. Anleitungen nennen das
   Terminal von PhpStorm und nie den Live Server von VS Code.
 - Die Arbeitsumgebung wechselt im Kurs einmal. In Block A bis C laeuft PHP
@@ -140,7 +133,7 @@ eine Begleitspur (kein nummerierter Block).
 - Das Endprodukt und die Zusammenarbeit zwischen Backend und Frontend sind der
   rote Faden des gesamten Kurses.
 - Datenjournalismus ist kein nachgelagerter Block. Themenfindung, Recherche,
-  Datenfrage und Quellenpruefung laufen ab Tag 1 als kleine Begleitspur zur
+  Datenfrage und Quellenpruefung laufen ab dem Kickoff als kleine Begleitspur zur
   technischen Strecke.
 - Der IM2-Kurs ist eine strukturelle Referenz, keine thematische Vorlage.
   Uebungen fuer IM3 eigenstaendig und kreativ im Datenkontext entwickeln.
@@ -148,20 +141,17 @@ eine Begleitspur (kein nummerierter Block).
   roten Faden verwenden, z. B. die Hitzesommer-Daten von Open-Meteo (Block B
   nutzt zusaetzlich ein CSV mit Shark-Attack-Daten). So aendert sich pro Schritt
   die Technik, nicht gleichzeitig auch das Thema.
-- Meilensteine als kurze Abnahmepunkte in die Kurstage integrieren:
-  Gruppen gebildet Ende Tag 1, Datenfrage formuliert Ende Tag 2, Datensatz
-  gefunden Ende Tag 3, erste Integration Ende Tag 9 sowie Marktstand und
-  Abgabe an Tag 10.
+- Die Meilensteine M1 bis M10 stehen in `ablauf.md` und werden als kurze
+  Abnahmepunkte in die Bloecke integriert.
 - Historische Datensaetze im Projektbriefing bevorzugen. Reine Live-Sammlung
   nur zulassen, wenn Datenmenge und Aussage bis zum Marktstand gesichert sind.
-- Der Zehn-Tage-Plan ist dicht: Tag 1 ist Tooling, Tag 10 der Marktstand, kein
-  Halbtag mehr vorgesehen. Projekte deshalb auf eine Datenquelle, ein kleines
+- Der Kursplan ist dicht. Projekte deshalb auf eine Datenquelle, ein kleines
   Datenmodell, einen zentralen JSON-Endpunkt und mindestens eine einfache
-  Chart.js-Visualisierung begrenzen. ETL-Boilerplate bereitstellen.
-- Der UX-Block (Tag 8/9 im Plan) ist laut Miro-Board flexibel im Kurs
-  platzierbar; die endgueltige Platzierung ist noch offen.
-- Es gibt keinen eigenen Fertigstellungs-/Ausstellungstest-Halbtag mehr. Die
-  ausstellungsfaehige Fassung sollte bis Ende Tag 9 stehen und einen
+  Chart.js-Visualisierung begrenzen. `beispielprojekt/hitzesommer/` zeigt die
+  ganze Kette als Orientierung.
+- Ein UX-Block ist laut Miro-Board flexibel im Kurs platzierbar; die
+  Platzierung ist noch offen und steht noch nicht in `ablauf.md`.
+- Die ausstellungsfaehige Fassung sollte vor dem Marktstand stehen und einen
   Offline-/Daten-Fallback besitzen.
 - Den Input von Pascal Albisser als Teil der Story-Begleitspur behandeln: er
   laeuft neben den technischen Bloecken, findet am 28. September statt und
@@ -170,23 +160,29 @@ eine Begleitspur (kein nummerierter Block).
   Zuerich am 13. Oktober, Bern und Chur am 15. Oktober.
 - Die Projektabgabe ist im Januar 2027 und damit deutlich nach dem Marktstand.
 
-## Angestrebte Repository-Struktur
-
-Die Struktur soll sich am IM2-Referenzkurs orientieren und mindestens diese
-Bereiche klar trennen:
+## Repository-Struktur
 
 - `README.md`: Einstieg, Lernziele und Orientierung fuer Studierende.
-- `dozierende/`: interne Planung, Ablauf und Materialinventar.
-- `dozierende/ABLAUF.md`: Tagesplan fuer Dozierende und LBAs.
-- `cheatsheets/`: kurze Nachschlagewerke.
-- `theorie/`: Inputs nach Themenblock, je ein Ordner pro Foliensatz.
+- `ablauf.md`: Kursablauf nach Bloecken mit Meilensteinen, fuer Studierende
+  und Dozierende.
+- `dozierende/`: Hinweise und offene Todos (`README.md`), didaktischer
+  Werkzeugkasten (`unterrichtsplanung/README.md`) und der reveal.js-Skill.
+- `theorie/`: Inputs nach Themenblock, je ein Ordner mit `index.html` und
+  PDF-Export. Keine README-Dateien in den Theorie-Ordnern, der Inhalt steht in
+  den Folien.
 - `theorie/_foliendesign/`: gemeinsames Foliendesign, Vorlage und
   Gestaltungsregeln fuer alle Foliensaetze.
-- `code-alongs/`: gemeinsam entwickelte Beispiele.
+- `code-alongs/`: gefuehrte Beispiele. Startcode im Ordner, fertige Fassung in
+  `solution/`, Regieanweisung fuer Dozierende in `Ablauf/`.
 - `uebungen/`: eigenstaendige Aufgaben mit Loesungen.
-- `stift-und-papier/`: Planung von ETL, Datenmodell, Story und Schnittstelle.
-- `projekt/`: Briefing, Rollen, Meilensteine, Bewertung und Templates.
-- `etl-boilerplate/`: Starterkit fuer die Projektteams.
+- `stift-und-papier/`: analoge Uebungen. Pro Uebung genau ein README mit Ziel,
+  Material, Verlauf und Auswertung, kein eigener `Ablauf/`-Ordner.
+- `cheatsheets/`: kurze Nachschlagewerke.
+- `beispielprojekt/`: fertig gebaute Projekte zum Anschauen.
+- `config.template.php`: Vorlage fuer die Zugangsdaten zur Datenbank.
+
+Noch nicht vorhanden sind ein Projektordner mit Briefing, Rollen und Bewertung
+sowie ein ETL-Starterkit fuer die Projektteams.
 
 ## Foliensaetze erstellen und aendern
 
@@ -202,7 +198,7 @@ ohne Build-Schritt. Design, Vorlage und Gestaltungsregeln liegen zentral in
   es formuliert und wie sie gestaltet wird. Wichtigste Regeln: ein Absatz
   enthaelt genau einen Satz, ein Aufzaehlungspunkt genau einen Gedanken, und
   die Blocknamen des Kurses (`Block A`, `Block C`) erscheinen nicht auf den
-  Folien, sondern nur in `ablauf_studierende.md` und in den Sprechernotizen.
+  Folien, sondern nur in `ablauf.md` und in den Sprechernotizen.
 - `theorie/A_PHP_Basics/index.html`: fertiges Referenzbeispiel.
 
 Regeln beim Arbeiten:
@@ -234,14 +230,21 @@ npx decktape reveal theorie/<ordner>/index.html out.pdf \
   --screenshots --screenshots-directory shots --size 1280x720
 ```
 
+Zum Schluss den PDF-Export im Ordner des Foliensatzes erneuern. Der Dateiname
+bleibt gleich, zum Beispiel `theorie/D_load/load.pdf`:
+
+```bash
+npx decktape reveal theorie/<ordner>/index.html theorie/<ordner>/<name>.pdf --size 1280x720
+```
+
 Neue Erkenntnisse zu Design oder Formulierung nicht in einem einzelnen
 Foliensatz verstecken, sondern in `theorie/_foliendesign/` ergaenzen. Die
 Gestaltungsregeln sind ausdruecklich als wachsendes Dokument gedacht.
 
 ## Hinweise fuer weitere Arbeiten
 
-- Vor groesseren Umbauten zuerst `dozierende/PLANUNG.md`,
-  `dozierende/UMSETZUNGSPLAN.md` und den IM2-Referenzkurs lesen.
+- Vor groesseren Umbauten zuerst `ablauf.md`, `dozierende/README.md` und den
+  IM2-Referenzkurs lesen.
 - Bestehendes Material wenn sinnvoll ueberarbeiten und wiederverwenden.
 - Aenderungen in kleinen, nachvollziehbaren Schritten vornehmen; das gesamte
   Repository nicht ohne ausdruecklichen Auftrag auf einmal umbauen.
@@ -249,5 +252,6 @@ Gestaltungsregeln sind ausdruecklich als wachsendes Dokument gedacht.
 - Fachbegriffe erklaeren und Beispiele konsistent an einem kleinen Datensatz
   oder Mini-Projekt aufbauen.
 - Noch offen sind insbesondere der genaue Stundenplan, Bewertungskriterien,
-  die konkrete Marktstand-Organisation, Datenjournalismus-Inputs und die
-  endgueltige Form des Chart.js-Blocks.
+  die konkrete Marktstand-Organisation, Datenjournalismus-Inputs, die
+  Platzierung des UX-Blocks und der Code-Along `09_sensor_lesen`, der noch in
+  Vorbereitung ist.

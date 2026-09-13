@@ -57,7 +57,7 @@ Dieselbe Regel für Listen. Zwei Aussagen in einem `<li>` werden zwei `<li>`.
 
 Studierende denken nicht in „Block A" und „Block C". Auf den Folien steht
 „in diesem Kurs", „später", „im Projekt" – nicht die interne Kursstruktur.
-Blocknamen gehören in `ablauf_studierende.md` und in die Sprechernotizen.
+Blocknamen gehören in `ablauf.md` und in die Sprechernotizen.
 
 ## 4. Titel benennt die Sache, nicht die Kategorie
 

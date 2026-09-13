@@ -6,6 +6,7 @@ Diese Datei enthält weiterführede Infos für Dozierende. Sie ergänzt den Abla
 
 - Folien Kickoff mit Admin ergänzen
 - Unterlagen zu CRON
+- Code Along 09 --> Jan zeigt Sensorboxen
 
 ## 🥵 Beispielprojekt Hitzesommer
 

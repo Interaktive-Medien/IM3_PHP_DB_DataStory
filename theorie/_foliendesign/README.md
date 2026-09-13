@@ -183,8 +183,9 @@ python3 theorie/_foliendesign/pruefe-folien.py theorie/<ordner>/index.html
 node ~/.claude/skills/revealjs-1.0.0/scripts/check-overflow.js theorie/<ordner>/index.html
 ```
 
-PDF exportieren:
+PDF exportieren – nach jeder inhaltlichen Änderung, der Dateiname bleibt gleich
+(zum Beispiel `theorie/D_load/load.pdf`):
 
 ```bash
-npx decktape reveal theorie/<ordner>/index.html slides.pdf --size 1280x720
+npx decktape reveal theorie/<ordner>/index.html theorie/<ordner>/<name>.pdf --size 1280x720
 ```
