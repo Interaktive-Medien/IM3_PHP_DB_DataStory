@@ -119,16 +119,15 @@ Beenden könnt ihr den Server mit `Ctrl + C` im Terminal.
 > Ab dem Load-Block braucht ihr `php -S` nicht mehr: Dann liegen die Dateien
 > auf dem Webserver von Hostpoint, und ihr öffnet sie über eure Domain.
 
-Nur die Folien in [theorie](theorie/) sind reine HTML-Dateien. Dort ist alles
-erlaubt: das Browser-Symbol von PhpStorm, derselbe PHP-Server oder ein
-Doppelklick auf die `index.html`.
-
 ## 5. Methoden
 
 ### 5.1 📕 Theorie
 
 Die Folien aus dem Unterricht findet ihr im Ordner [theorie](theorie/), pro
-Themenblock ein Ordner.
+Themenblock ein Ordner:
+
+- `index.html` – die Folien, lokal per Doppelklick öffnen.
+- `*.pdf` – dieselben Folien als PDF, auch direkt auf GitHub lesbar.
 
 ### 5.2 🧠 Cheatsheets
 

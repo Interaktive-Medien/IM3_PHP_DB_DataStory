@@ -1,12 +1,23 @@
 # 🧑🏽‍🏫 Hinweise für Dozierende
 
-Diese Datei enthält weiterführede Infos für Dozierende. Sie ergänzt den Ablauf und geht auf ein paar Eigenheiten des Kurses ein.
+Diese Datei enthält weiterführende Infos für Dozierende. Sie ergänzt den Ablauf und geht auf ein paar Eigenheiten des Kurses ein.
 
 ## 📌 Offene Todos
 
 - Folien Kickoff mit Admin ergänzen
 - Unterlagen zu CRON
 - Code Along 09 --> Jan zeigt Sensorboxen
+
+## 🌿 Branches
+
+- **`main`:** wird zu Semesterbeginn eingefroren, damit die Studierenden nicht verwirrt werden.
+- **`next`:** für Änderungen während des Semesters, zum Beispiel Zusatzmaterial oder Korrekturen.
+
+## 🎬 Regieanweisungen
+
+- **Code-Alongs:** `Ablauf/` im Ordner des Code-Alongs.
+- **Stift und Papier:** das README der Übung.
+- **Lösungen:** `solution/` bzw. `loesung.*` – erst nach der Übung zeigen.
 
 ## 🤖 Folien mit AI bearbeiten
 
@@ -42,7 +53,7 @@ Bei einem anderen AI-Tool kann die Installation anders sein.
 
 Installiere dort ebenfalls den entpackten Ordner als lokalen Skill.
 
-Bitte die AI vor jeder Änderung, diese Dateien zu lesen:
+Bitte die AI vor jeder Änderung an den Folien, diese Dateien zu lesen:
 
 - `AGENTS.md`
 - `theorie/_foliendesign/README.md`
