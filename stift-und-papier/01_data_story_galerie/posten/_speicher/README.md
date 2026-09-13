@@ -23,8 +23,8 @@ vorkommt oder der Gastreferent ein Beispiel selbst mitbringt.
 2. In `posten.html` den Buchstaben im `<div class="nr">` durch die
    Postennummer ersetzen.
 3. Titel in [`arbeitsblatt.html`](../../arbeitsblatt.html), in der
-   Postentabelle des [README](../../README.md) und in den beiden Tabellen im
-   [Ablauf](../../Ablauf/01_data_story_galerie_ablauf.md) nachführen.
+   Postentabelle und bei den erwarteten Antworten im
+   [README](../../README.md) nachführen.
 4. Den ersetzten Posten hierher zurücklegen.
 
 Umgekehrt gilt: Wer einen Posten herausnimmt, legt ihn hier ab statt ihn zu

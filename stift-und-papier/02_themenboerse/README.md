@@ -1,71 +1,58 @@
 # 02 – Themenbörse
 
-> **Ziel:** Ihr findet euch zu viert um ein gemeinsames Interesse zusammen und
-> legt fest, wer im Team das Backend und wer das Frontend übernimmt.
+> Abschluss des Kickoffs. Die Klasse bildet Vierergruppen um gemeinsame
+> Interessen und verteilt im Team die beiden Rollen.
+> Endet mit **M1**.
 
-**Dauer:** 45 Minuten
+**Dauer:** 45' · **Sozialform:** Einzelarbeit → Plenum → Projektteam
 
-**Sozialform:** Einzelarbeit → Plenum → Projektteam
-
-**Einsatz:** Abschluss des Kickoffs. Endet mit **M1** aus dem
-[Ablauf](../../ablauf.md).
-
-## Warum diese Übung
-
-Ihr arbeitet die nächsten Wochen in derselben Vierergruppe an demselben Thema.
-Gruppen, die sich nur nach Sitzordnung finden, merken in der zweiten Woche,
-dass sie das Thema niemanden im Team interessiert.
-
-Deshalb kommt hier zuerst das Thema und dann die Gruppe. Und deshalb schätzt
-ihr euch vorher kurz selbst ein: So lässt sich verhindern, dass alle sicheren
-Programmiererinnen und Programmierer in derselben Gruppe landen.
+**Lernphase:** Vertiefen und übertragen (MOMBI 6), Methode: Placemat-Prinzip an
+der Wand, siehe
+[Werkzeugkasten](../../dozierende/unterrichtsplanung/README.md)
 
 ## Material
 
-- [`karten.html`](karten.html), pro Person einmal ausdrucken: im Browser
-  öffnen, `Cmd+P`, A4 hoch, Hintergrundgrafiken einschalten;
-- Stift, Klebeband oder Magnete, eine freie Wand.
+[`karten.html`](karten.html) im Browser öffnen, `Cmd+P`, A4 hoch,
+Hintergrundgrafiken an.
 
-## Auftrag
+- **Seite 1** pro Person einmal drucken.
+- **Seite 2** einmal pro erwarteter Gruppe drucken, also Klassengrösse geteilt
+  durch vier, plus zwei Reserveblätter.
 
-### Schritt 1 – Selbsteinschätzung (5 Minuten, allein)
+Dazu Klebeband oder Magnete und eine freie Wand von mindestens drei Metern.
 
-Kreuzt auf der Karte an, wie sicher ihr euch in drei Bereichen fühlt:
-Programmieren, Gestalten, Schreiben und Recherchieren. Es gibt keine falsche
-Antwort und keine Note.
+## Verlauf
 
-### Schritt 2 – Zwei Themen (5 Minuten, allein)
+| #   | Schritt                                                                                                                                   | Dauer |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----: |
+| 1   | **Selbsteinschätzung:** Karte austeilen, drei Zeilen ankreuzen lassen. Betonen: keine Note, dient nur der Gruppenbildung.                 |    5' |
+| 2   | **Zwei Themen:** still zwei Themen aufschreiben. Wer blockiert, bekommt den Impuls: Woran denkst du beim Aufwachen? Worüber streitest du? |    5' |
+| 3   | **Sortieren:** alle Themenkarten an die Wand, gemeinsam zu Häufchen schieben, jedem Häufchen einen Namen geben.                           |   10' |
+| 4   | **Gruppen bilden:** alle stellen sich zu ihrem Wunschhäufchen, danach werden Vierergruppen daraus gebildet.                               |   15' |
+| 5   | **Rollen und Teamblatt:** im Team Backend und Frontend festlegen, Teamblatt ausfüllen und abgeben.                                        |   10' |
 
-Schreibt zwei Themen auf, die euch wirklich interessieren. Kein Datensatz,
-keine fertige Frage – ein Wort oder ein Satz genügt.
+## Worauf es ankommt
 
-> Gute Themen sind konkret genug, um Zahlen zu vermuten: «Wie laut ist es im
-> Ausgang?» ist besser als «Musik».
+- **Schritt 3 ist die eigentliche Arbeit.** Nicht selbst sortieren, sondern die
+  Klasse schieben lassen. Themen, die niemand anfasst, sind ein Ergebnis.
+- **In Schritt 4 nachjustieren.** Die Selbsteinschätzungen aus Schritt 1
+  einsammeln oder abfragen und darauf achten, dass in keiner Gruppe alle bei
+  «geht so» im Programmieren stehen. Das ist der einzige Eingriff, der nötig
+  ist – ansonsten die Wahl der Klasse respektieren.
+- **Gruppengrössen:** Vier ist die Vorgabe. Drei geht zur Not, fünf nicht –
+  bei fünf sitzt am Ende eine Person ohne Aufgabe da.
+- **Rollen ehrlich verhandeln lassen.** Wer sich vor PHP fürchtet, landet
+  reflexartig im Frontend. Dagegenhalten: Beide Seiten bleiben für das ganze
+  Projekt verantwortlich, und beide müssen es am Marktstand erklären können.
+- **Kein Thema festnageln.** Die Datenfrage kommt erst mit M2, der Datensatz
+  mit M3. Hier reicht die Richtung.
 
-### Schritt 3 – Sortieren (10 Minuten, Plenum)
+## Abnahme M1
 
-Alle Themenkarten kommen an die Wand. Gemeinsam schieben wir sie zu Häufchen
-zusammen und geben jedem Häufchen einen Namen.
+Das ausgefüllte Teamblatt einsammeln oder abfotografieren. Auf dem Blatt stehen
+alle vier Namen, beide Zweierteams, ein Kanal und eine Interessensrichtung.
 
-### Schritt 4 – Gruppen bilden (15 Minuten)
+## Wenn die Zeit knapp wird
 
-Stellt euch zu dem Häufchen, das euch am meisten reizt. Aus jedem Häufchen
-entstehen Vierergruppen. Wo es nicht aufgeht, wird verhandelt oder verschoben.
-
-### Schritt 5 – Rollen festlegen (10 Minuten, im Team)
-
-Füllt gemeinsam das Teamblatt auf der Rückseite aus:
-
-- Wer bildet das **Backend-Zweierteam**: Daten holen, säubern, speichern,
-  ausliefern?
-- Wer bildet das **Frontend-Zweierteam**: Story, Grafik, Gestaltung?
-- Wie erreichen wir uns – welcher Kanal, welche Ablage?
-- Welche Datenfrage interessiert uns gerade am meisten?
-
-## Erwartetes Resultat
-
-Am Ende steht **M1**: Die Vierergruppe steht, beide Zweierteams sind
-festgelegt, das Teamblatt ist ausgefüllt und abgegeben.
-
-> Die Rollenteilung ist keine Wand. Beide Zweierteams bleiben für das ganze
-> Projekt verantwortlich und erklären am Marktstand auch die andere Hälfte.
+Schritt 5 ins nächste Mal verschieben. Gruppen ohne Rollenteilung sind für einen
+Tag verkraftbar, Gruppen ohne Thema nicht.

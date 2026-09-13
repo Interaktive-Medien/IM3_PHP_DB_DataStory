@@ -8,8 +8,9 @@ Der gemeinsame Druckstil der Arbeitsblätter steht in
 [`arbeitsblatt.css`](arbeitsblatt.css). Er wird von den Arbeitsblättern
 verlinkt, nicht kopiert.
 
-In jedem Übungsordner liegt unter `Ablauf/` ein Drehbuch mit Timing,
-erwarteten Antworten und Hinweisen zur Auswertung.
+Jede Übung ist in ihrem README vollständig beschrieben: Ziel, Material, Verlauf
+mit Timing, erwartete Antworten und Hinweise zur Auswertung. Lösungen liegen
+direkt im Übungsordner.
 
 ## Kickoff
 

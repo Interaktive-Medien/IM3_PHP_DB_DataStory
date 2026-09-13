@@ -33,7 +33,7 @@ Der Druckstil kommt aus [`../../arbeitsblatt.css`](../../arbeitsblatt.css) und
    <img src="qr.svg" alt="QR-Code zu …">
    ```
 5. Posten in der Tabelle im
-   [Ablauf](../Ablauf/01_data_story_galerie_ablauf.md) nachführen.
+   [README](../README.md) nachführen.
 
 ## Reserveposten
 
