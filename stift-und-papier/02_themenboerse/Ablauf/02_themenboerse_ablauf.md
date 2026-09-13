@@ -52,10 +52,6 @@ Dazu Klebeband oder Magnete und eine freie Wand von mindestens drei Metern.
 Das ausgefüllte Teamblatt einsammeln oder abfotografieren. Auf dem Blatt stehen
 alle vier Namen, beide Zweierteams, ein Kanal und eine Interessensrichtung.
 
-Der lokale PHP-Server gehört ebenfalls zu M1, wird aber erst im Tooling-Teil des
-Tages eingerichtet. Die Abnahme deshalb an das Ende des ganzen Tages legen, nicht
-an das Ende dieser Übung.
-
 ## Wenn die Zeit knapp wird
 
 Schritt 5 ins nächste Mal verschieben. Gruppen ohne Rollenteilung sind für einen

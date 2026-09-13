@@ -61,10 +61,10 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 6. `🧑‍🏫` Code-Along: [08 CSV lesen](code-alongs/B_extract/08_csv_lesen) _(CSV-Datei)_ `30'`
 7. `🧑‍🏫` Code-Along: [09 Sensor lesen](code-alongs/B_extract/09_sensor_lesen) _(Sensor-API)_ `30'`
 8. `🃏` Story-Karten: [Kapitel 2 Datenquellen](https://codeanddesign.ch/im3/kartenset.html) `60'`
-9. `✅` **M3: Datensatz gefunden**
+9. `✅` **M3: Datensatz gefunden und geprüft**
 10. `🎨` Projekt: Datenvertrag v0 zwischen Frontend und Backend vereinbaren
 11. `🎨` Projekt: Extract-Step am eigenen Projekt umsetzen
-12. `✅` **M4: Erster Extract & Datenvertrag stehen**
+12. `✅` **M4: Erster Extract und Datenvertrag stehen**
 
 ### Block C – Transform
 
@@ -96,8 +96,8 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 
 1. `📕` [Theorie E: Unload](theorie/E_unload/) `30'`
 2. `🧑‍🏫` Code-Along: [14 Hitzesommer unloaden](code-alongs/E_unload/14_hitzesommer_ausliefern/) `60'`
-3. `🛠️` Eigenen JSON-Endpunkt nach dem Datenvertrag bauen und prüfen
-4. `✅` **M7: JSON-Endpunkt funktioniert**
+3. `🛠️` Eigenen Unload-Endpunkt nach dem Datenvertrag bauen und prüfen
+4. `✅` **M7: Unload-Endpunkt funktioniert**
 5. `🛠️` Tooling: Deployment `60'`
 
 #### Zusatzmaterial (Block E)
@@ -119,28 +119,29 @@ Kurstage erstrecken. Die Story-Karten-Spur (`🃏`) und die Arbeit am Gruppenpro
 - `🧑‍🏫` Code-Along: [18 Shark-Balkendiagramme](code-alongs/F_visualisierung/18_sharkdaten_balkendiagramm/) `45'`
 - `🧑‍🏫` Code-Along: [19 Shark-Karte mit Leaflet](code-alongs/F_visualisierung/19_sharkdaten_karte/) `45'`
 
-### Integration, Feature-Freeze & Marktstand
+### Marktstand & Abgabe
 
 1. `🃏` Story-Karten: [Kapitel 6 Cognitive Biases](https://codeanddesign.ch/im3/kartenset.html)
 1. `🎨` Projekt: Datenweg, Story, Oberfläche und Beschriftungen zusammenführen
-1. `✅` **M9: Ausstellungsfähige Fassung steht**
-1. `🎨` Projekt: Marktstand aufbauen, Projekt vorführen und definitiv abgeben
-1. `✅` **M10: Marktstand & Abgabe**
+1. `🎨` Projekt: Marktstand aufbauen und Projekt vorführen
+1. `✅` **M9: Marktstand** _(Oktober)_
+1. `🎨` Projekt: Projekt nach dem Marktstand überarbeiten und finalisieren
+1. `✅` **M10: Abgabe** _(Januar)_
 
 ## Meilensteine
 
 |       | Meilenstein                            | Was ihr zeigt                                                                                                                                                                           |
 | ----- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `M1`  | Gruppen gebildet                       | Der lokale PHP-Server läuft, die Vierergruppe steht, Backend- und Frontend-Zweierteam sind festgelegt.                                                                                  |
-| `M2`  | Datenfrage formuliert                  | Die Gruppe hat eine offene, mit Daten beantwortbare Frage mit Untersuchungseinheit und passendem Zeitraum formuliert.                                                                   |
+| `M2`  | Eigene Datenfrage formuliert           | Die Gruppe hat eine offene, mit Daten beantwortbare Frage mit Untersuchungseinheit und passendem Zeitraum formuliert.                                                                   |
 | `M3`  | Datensatz gefunden und geprüft         | Eine glaubwürdige Quelle, Beispieldaten, vorhandene Felder und Datenmenge passen zur Frage – oder der Plan für eine Live-Sammlung ist bis zum Marktstand realistisch.                   |
 | `M4`  | Erster Extract und Datenvertrag stehen | Ein PHP-Skript liest echte Daten als Array ein. Der Datenvertrag v0 zeigt Feldnamen, Datentypen und Beispielwerte für die spätere JSON-Ausgabe.                                         |
 | `M5`  | Transform funktioniert                 | Einige echte Rohdatensätze werden ins vereinbarte Format umgeformt. Der Umgang mit fehlenden, ungültigen oder uneinheitlichen Werten ist sichtbar entschieden.                          |
 | `M6`  | Daten stehen in der Datenbank          | Das kleine Datenmodell ist umgesetzt, transformierte Daten sind gespeichert und eine Abfrage zeigt die erwarteten Datensätze.                                                           |
-| `M7`  | JSON-Endpunkt funktioniert             | `unload.php` liest aus der Datenbank und liefert valides JSON nach dem Datenvertrag. Ein benötigter Filter funktioniert, falls das Projekt einen Filter braucht.                        |
+| `M7`  | Unload-Endpunkt funktioniert           | `unload.php` liest aus der Datenbank und liefert valides JSON nach dem Datenvertrag. Ein benötigter Filter funktioniert, falls das Projekt einen Filter braucht.                        |
 | `M8`  | Erste Integration steht                | Das Frontend lädt echte Daten vom eigenen Endpunkt statt aus den Mock-Daten und zeigt mindestens eine einfache, zur Datenfrage passende Grafik.                                         |
-| `M9`  | Ausstellungsfähige Fassung steht       | Story, Beschriftungen und Quellen sind verständlich, die Technik wurde getestet, das README erklärt den Betrieb und ein gespeicherter Datenstand funktioniert als Fallback.             |
-| `M10` | Marktstand und Abgabe                  | Das Projekt läuft am Marktstand und auf dem Server. Das Team kann die ETL+U-Kette, die Datenquelle, den Datenvertrag sowie die zentralen Story- und Visualisierungsentscheide erklären. |
+| `M9`  | Marktstand (Oktober)                   | Das Projekt läuft am Marktstand und auf dem Server. Story, Beschriftungen und Quellen sind verständlich, ein gespeicherter Datenstand dient als Fallback. Das Team kann die ETL+U-Kette, die Datenquelle, den Datenvertrag sowie die zentralen Story- und Visualisierungsentscheide erklären. |
+| `M10` | Abgabe (Januar)                        | Die überarbeitete Fassung liegt im Repository und läuft auf dem Server. Das README erklärt den Betrieb, die Rückmeldungen vom Marktstand sind eingearbeitet.                            |
 
 ## Inhaltliche Struktur
 
