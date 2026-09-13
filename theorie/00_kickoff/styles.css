@@ -28,14 +28,35 @@
   border-radius: 50%;
 }
 
-/* Marktstand-Foto in der Terminkarte: Originalverhaeltnis 3:4, Text daneben. */
+/* Marktstand-Foto in der Terminkarte: Querformat 4:3, Text daneben. */
 .reveal .gast .stand {
   display: block;
-  height: 216px;
-  width: auto;
-  aspect-ratio: 3 / 4;
+  width: 216px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   border-radius: var(--box-radius);
   margin: 0;
+}
+
+/* Folie "Semesterinfos": der Vorbereitungsauftrag faellt rot auf. */
+.reveal li.vorbereitung {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* Folie "Marktstand Inspiration": Querformat-Foto gross, linksbuendig. */
+.reveal .marktstand-foto {
+  margin: 0;
+}
+
+.reveal .marktstand-foto img {
+  display: block;
+  height: 470px;
+  width: auto;
+  max-height: none;
+  margin: 0;
+  border-radius: var(--box-radius);
 }
 
 .reveal .gast .gast-name {
