@@ -8,16 +8,20 @@
    jedes Arbeitsblatt selbst mit .a4-hoch bzw. .a4-quer am <body> fest.
    --------------------------------------------------------------------- */
 
+/* Die Blaetter werden schwarzweiss gedruckt. Deshalb keine Farbtoene,
+   sondern nur Schwarz, ein dunkles Grau fuer Nebentext und zwei helle
+   Graustufen fuer Flaechen. Hierarchie entsteht ueber Groesse, Gewicht
+   und Linienstaerke, nicht ueber Farbe. */
 :root {
-  --petrol: #4b93a4;
-  --petrol-dark: #35707f;
-  --petrol-bg: #eef5f7;
-  --oliv: #8b8a6e;
-  --text: #575757;
-  --muted: #9a9a92;
-  --line: #1a1a1a;
-  --box-border: #e4e3da;
-  --box-bg: #f6f6f3;
+  --petrol: #000;
+  --petrol-dark: #000;
+  --petrol-bg: #f0f0f0;
+  --oliv: #000;
+  --text: #000;
+  --muted: #444;
+  --line: #000;
+  --box-border: #000;
+  --box-bg: #f0f0f0;
   --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 }
@@ -166,7 +170,7 @@ th {
 
 td {
   padding: 2mm 3mm 2mm 0;
-  border-bottom: 1px solid #f0f0ea;
+  border-bottom: 1px solid #888;
   vertical-align: top;
   font-size: 9.5pt;
 }

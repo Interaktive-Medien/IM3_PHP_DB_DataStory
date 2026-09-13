@@ -11,11 +11,11 @@
      --------------------------------------------------------------------- */
 
   :root {
-    --petrol: #4b93a4;
-    --oliv: #8b8a6e;
-    --text: #575757;
-    --muted: #9a9a92;
-    --line: #1a1a1a;
+    --petrol: #000;
+    --oliv: #000;
+    --text: #000;
+    --muted: #444;
+    --line: #000;
     --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
@@ -76,14 +76,14 @@
 
   .frage {
     border-left: 3px solid var(--petrol);
-    background: #eef5f7;
+    background: var(--petrol-bg);
     padding: 3mm 4mm;
     margin: 0 0 4mm;
   }
 
   .frage p {
     margin: 0;
-    color: #35707f;
+    color: #000;
     font-size: 12pt;
     font-weight: 600;
   }
@@ -115,7 +115,7 @@
   .namen span {
     display: inline-block;
     width: 42mm;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid var(--line);
   }
 
   /* --- Tabelle -------------------------------------------------------- */
@@ -130,7 +130,7 @@
     border: 1.5px solid var(--line);
     padding: 4mm 4mm;
     text-align: left;
-    color: #1a1a1a;
+    color: #000;
   }
 
   th {
@@ -141,7 +141,7 @@
   td { height: 13mm; }
 
   /* Die leere Spalte bleibt bewusst leer – sie wird ausgefüllt. */
-  .leer { background: #fcfcfa; }
+  .leer { background: #f0f0f0; }
 
   /* --- Fuss ----------------------------------------------------------- */
 
@@ -166,7 +166,7 @@
   }
 
   .linie {
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid var(--line);
     height: 8mm;
   }
 
@@ -174,7 +174,7 @@
     width: 78mm;
     font-size: 9pt;
     color: var(--muted);
-    border-left: 2px solid #e4e3da;
+    border-left: 2px solid var(--line);
     padding-left: 4mm;
   }
 

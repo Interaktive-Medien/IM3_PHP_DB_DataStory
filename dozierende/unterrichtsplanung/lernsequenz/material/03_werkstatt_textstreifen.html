@@ -5,16 +5,16 @@
 <title>Werkstatt – Textstreifen zum Ausschneiden</title>
 <style>
   @page { size: A4 portrait; margin: 12mm; }
-  :root { --petrol: #4b93a4; --oliv: #8b8a6e; }
+  :root { --petrol: #000; --oliv: #000; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+    color: #000;
   }
   .kopf { margin-bottom: 7mm; }
   .kopf h1 { font-size: 15pt; color: var(--oliv); margin: 0 0 2mm; }
-  .kopf p { font-size: 9pt; color: #777; margin: 0; line-height: 1.5; }
+  .kopf p { font-size: 9pt; color: #444; margin: 0; line-height: 1.5; }
   .blatt {
     display: grid;
     grid-template-columns: repeat(2, 88mm);
@@ -22,7 +22,7 @@
     justify-content: start;
   }
   .streifen {
-    border: 1px dashed #bbb;
+    border: 1px dashed #000;
     border-radius: 2px;
     padding: 4mm 5mm;
     font-size: 12pt;
@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
   }
-  .fuss { margin-top: 6mm; font-size: 8pt; color: #999; }
+  .fuss { margin-top: 6mm; font-size: 8pt; color: #444; }
 </style>
 </head>
 <body>

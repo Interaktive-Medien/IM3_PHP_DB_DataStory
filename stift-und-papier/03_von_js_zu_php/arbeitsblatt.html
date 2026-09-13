@@ -13,14 +13,14 @@
      --------------------------------------------------------------------- */
 
   :root {
-    --petrol: #4b93a4;
-    --petrol-dark: #35707f;
-    --petrol-bg: #eef5f7;
-    --oliv: #8b8a6e;
-    --text: #575757;
-    --muted: #9a9a92;
-    --line: #1a1a1a;
-    --box-border: #e4e3da;
+    --petrol: #000;
+    --petrol-dark: #000;
+    --petrol-bg: #f0f0f0;
+    --oliv: #000;
+    --text: #000;
+    --muted: #444;
+    --line: #000;
+    --box-border: #000;
     --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
     --mono: "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
   }
@@ -153,13 +153,13 @@
   .feld .kopf p {
     margin: 0;
     font-size: 9.5pt;
-    color: #1a1a1a;
+    color: #000;
   }
 
   .linien { margin-top: auto; }
 
   .linien div {
-    border-bottom: 1px solid #c8c8c0;
+    border-bottom: 1px solid var(--line);
     height: 9mm;
   }
 
@@ -173,7 +173,7 @@
     display: inline-block;
     width: 3mm;
     height: 3mm;
-    border: 1px solid #aaa;
+    border: 1px solid var(--line);
     margin-right: 1.2mm;
     vertical-align: -0.3mm;
   }
@@ -191,7 +191,7 @@
     padding: 4mm 3mm;
     text-align: left;
     vertical-align: top;
-    color: #1a1a1a;
+    color: #000;
   }
 
   th {
@@ -204,7 +204,7 @@
     font-family: var(--mono);
     font-size: 8.5pt;
     line-height: 1.35;
-    color: #1a1a1a;
+    color: #000;
     white-space: pre;
   }
 

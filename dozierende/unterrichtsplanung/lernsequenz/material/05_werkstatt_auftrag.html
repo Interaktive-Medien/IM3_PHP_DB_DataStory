@@ -5,20 +5,20 @@
 <title>Werkstatt – Auftrag</title>
 <style>
   @page { size: A4 portrait; margin: 15mm; }
-  :root { --petrol: #4b93a4; --oliv: #8b8a6e; }
+  :root { --petrol: #000; --oliv: #000; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+    color: #000;
     line-height: 1.55;
   }
   h1 { font-size: 24pt; color: var(--oliv); margin: 0 0 2mm; }
-  .zeit { font-size: 10pt; color: #999; margin: 0 0 8mm; letter-spacing: .1em; text-transform: uppercase; }
+  .zeit { font-size: 10pt; color: #444; margin: 0 0 8mm; letter-spacing: .1em; text-transform: uppercase; }
   ol { font-size: 13pt; padding-left: 6mm; margin: 0 0 8mm; }
   ol li { margin-bottom: 3mm; }
   .box {
-    background: #f6f6f3; border: 1px solid #e4e3da; border-radius: 3px;
+    background: #f0f0f0; border: 1px solid #000; border-radius: 3px;
     padding: 5mm 6mm; margin-bottom: 7mm;
   }
   .box h2 {
@@ -27,16 +27,16 @@
   }
   .schema { display: flex; align-items: center; gap: 3mm; margin-bottom: 3mm; }
   .kartchen {
-    border: 1px dashed #999; border-radius: 2px;
+    border: 1px dashed #000; border-radius: 2px;
     padding: 3mm 4mm; background: #fff;
     font-family: "SF Mono", Menlo, Consolas, monospace;
     font-size: 12pt; font-weight: 600; color: var(--petrol);
   }
   .streifchen {
-    border: 1px dashed #999; border-radius: 2px;
+    border: 1px dashed #000; border-radius: 2px;
     padding: 3mm 5mm; background: #fff; font-size: 11pt; flex: 1;
   }
-  .schema-text { font-size: 10pt; color: #777; margin: 0; }
+  .schema-text { font-size: 10pt; color: #444; margin: 0; }
   table { border-collapse: collapse; width: 100%; font-size: 11pt; }
   td { padding: 1.5mm 0; vertical-align: top; }
   td.tag {
@@ -44,7 +44,7 @@
     color: var(--petrol); font-weight: 600; width: 28mm;
   }
   .hinweis {
-    border-left: 4px solid var(--petrol); background: #eef5f7;
+    border-left: 4px solid var(--petrol); background: #f0f0f0;
     padding: 4mm 6mm; font-size: 11pt; margin-bottom: 7mm;
   }
   .check { font-size: 11pt; margin: 0; padding-left: 5mm; }
