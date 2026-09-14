@@ -39,11 +39,11 @@ function zustand(string $standort): array
 {
     $pdo = db();
 
-    $tage = $pdo->prepare('SELECT id, datum, notiz FROM planer_tage WHERE standort = ? ORDER BY datum, id');
+    $tage = $pdo->prepare('SELECT id, datum, datum2, notiz, dozierende FROM planer_tage WHERE standort = ? ORDER BY datum, id');
     $tage->execute([$standort]);
 
     $eintraege = $pdo->prepare('SELECT id, typ, block, zusatz, ablauf_pos, emoji, titel, link, dauer, notiz,
-            tag_id, tag_pos, erledigt
+            tag_id, tag_pos, erledigt, gestrichen
         FROM planer_eintraege WHERE standort = ? ORDER BY ablauf_pos, id');
     $eintraege->execute([$standort]);
 
@@ -51,7 +51,11 @@ function zustand(string $standort): array
         'standorte'  => STANDORTE,
         'standort'   => $standort,
         'bearbeiten' => darfBearbeiten(),
-        'tage'       => $tage->fetchAll(),
+        'dozierende' => DOZIERENDE,
+        'tage'       => array_map(function (array $tag): array {
+            $tag['dozierende'] = $tag['dozierende'] === '' ? [] : explode(',', $tag['dozierende']);
+            return $tag;
+        }, $tage->fetchAll()),
         'eintraege'  => $eintraege->fetchAll(),
     ];
 }
@@ -108,7 +112,7 @@ function tagLaden(PDO $pdo, string $standort, mixed $id): array
 // --- Aktionen ---------------------------------------------------------------
 
 // Legt Einträge in der angegebenen Reihenfolge auf einen Kurstag.
-// «neu:pause» und «neu:mittag» erzeugen dabei einen neuen Pausenblock.
+// «neu:pause», «neu:mittag» und «neu:termin» erzeugen dabei eine neue Karte.
 function platzieren(PDO $pdo, string $standort, array $in): void
 {
     $tag = tagLaden($pdo, $standort, $in['tag_id'] ?? null);
@@ -120,10 +124,12 @@ function platzieren(PDO $pdo, string $standort, array $in): void
     $vorlagen = [
         'neu:pause'  => ['pause', '☕', 'Pause', 15],
         'neu:mittag' => ['mittag', '🍽️', 'Mittag', 60],
+        'neu:termin' => ['termin', '📌', 'Pflichttermin', null],
     ];
     $neu = $pdo->prepare('INSERT INTO planer_eintraege (standort, typ, emoji, titel, dauer, tag_id, tag_pos)
         VALUES (?, ?, ?, ?, ?, ?, ?)');
-    $verschieben = $pdo->prepare('UPDATE planer_eintraege SET tag_id = ?, tag_pos = ? WHERE id = ? AND standort = ?');
+    $verschieben = $pdo->prepare('UPDATE planer_eintraege SET tag_id = ?, tag_pos = ?, gestrichen = 0
+        WHERE id = ? AND standort = ?');
 
     foreach (array_values($reihenfolge) as $pos => $wert) {
         if (is_string($wert) && isset($vorlagen[$wert])) {
@@ -154,6 +160,17 @@ function abhaken(PDO $pdo, string $standort, array $in): void
     }
     $pdo->prepare('UPDATE planer_eintraege SET erledigt = ? WHERE id = ?')
         ->execute([empty($in['erledigt']) ? 0 : 1, $eintrag['id']]);
+}
+
+// Offene Einträge im Ablauf lassen sich durchstreichen, wenn sie ausfallen.
+function streichen(PDO $pdo, string $standort, array $in): void
+{
+    $eintrag = eintragLaden($pdo, $standort, $in['id'] ?? null);
+    if ($eintrag['typ'] !== 'eintrag' || $eintrag['tag_id'] !== null) {
+        fehler('Nur offene Einträge im Ablauf lassen sich durchstreichen');
+    }
+    $pdo->prepare('UPDATE planer_eintraege SET gestrichen = ? WHERE id = ?')
+        ->execute([empty($in['gestrichen']) ? 0 : 1, $eintrag['id']]);
 }
 
 // Neue Position am Ende eines Blocks. Nachfolgende Einträge rücken nach.
@@ -206,6 +223,7 @@ function eintragSpeichern(PDO $pdo, string $standort, array $in): void
     }
 
     $erledigt = $tagId !== null && !empty($in['erledigt']) ? 1 : 0;
+    $gestrichen = $tagId === null ? (int) ($alt['gestrichen'] ?? 0) : 0;
 
     if (!$istEintrag) {
         $ablaufPos = 0;
@@ -225,17 +243,17 @@ function eintragSpeichern(PDO $pdo, string $standort, array $in): void
         $tagPos = (int) $st->fetchColumn();
     }
 
-    $werte = [$block, $zusatz, $ablaufPos, $emoji, $titel, $link, $dauer, $notiz, $tagId, $tagPos, $erledigt];
+    $werte = [$block, $zusatz, $ablaufPos, $emoji, $titel, $link, $dauer, $notiz, $tagId, $tagPos, $erledigt, $gestrichen];
 
     if ($alt) {
         $pdo->prepare('UPDATE planer_eintraege SET block = ?, zusatz = ?, ablauf_pos = ?, emoji = ?, titel = ?,
-                link = ?, dauer = ?, notiz = ?, tag_id = ?, tag_pos = ?, erledigt = ?
+                link = ?, dauer = ?, notiz = ?, tag_id = ?, tag_pos = ?, erledigt = ?, gestrichen = ?
             WHERE id = ? AND standort = ?')
             ->execute([...$werte, $id, $standort]);
     } else {
         $pdo->prepare('INSERT INTO planer_eintraege (block, zusatz, ablauf_pos, emoji, titel, link, dauer, notiz,
-                tag_id, tag_pos, erledigt, standort)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                tag_id, tag_pos, erledigt, gestrichen, standort)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
             ->execute([...$werte, $standort]);
     }
 }
@@ -249,20 +267,37 @@ function eintragLoeschen(PDO $pdo, string $standort, array $in): void
 function tagSpeichern(PDO $pdo, string $standort, array $in): void
 {
     $id = zahl($in['id'] ?? null);
-    $datum = text($in, 'datum', 10, true);
+    $datum = datumPruefen(text($in, 'datum', 10, true));
+    $datum2 = datumPruefen(text($in, 'datum2', 10));
+    if ($datum2 !== null && $datum2 <= $datum) {
+        fehler('Das zweite Datum muss nach dem ersten liegen');
+    }
+    $notiz = text($in, 'notiz', 2000);
+
+    // Nur bekannte Namen speichern, immer in der Reihenfolge von DOZIERENDE.
+    $gewaehlt = is_array($in['dozierende'] ?? null) ? $in['dozierende'] : [];
+    $dozierende = implode(',', array_filter(DOZIERENDE, fn(string $name): bool => in_array($name, $gewaehlt, true)));
+
+    if ($id) {
+        tagLaden($pdo, $standort, $id);
+        $pdo->prepare('UPDATE planer_tage SET datum = ?, datum2 = ?, notiz = ?, dozierende = ? WHERE id = ?')
+            ->execute([$datum, $datum2, $notiz, $dozierende, $id]);
+    } else {
+        $pdo->prepare('INSERT INTO planer_tage (standort, datum, datum2, notiz, dozierende) VALUES (?, ?, ?, ?, ?)')
+            ->execute([$standort, $datum, $datum2, $notiz, $dozierende]);
+    }
+}
+
+function datumPruefen(?string $datum): ?string
+{
+    if ($datum === null) {
+        return null;
+    }
     $geprueft = DateTime::createFromFormat('!Y-m-d', $datum);
     if (!$geprueft || $geprueft->format('Y-m-d') !== $datum) {
         fehler('Ungültiges Datum');
     }
-    $notiz = text($in, 'notiz', 2000);
-
-    if ($id) {
-        tagLaden($pdo, $standort, $id);
-        $pdo->prepare('UPDATE planer_tage SET datum = ?, notiz = ? WHERE id = ?')->execute([$datum, $notiz, $id]);
-    } else {
-        $pdo->prepare('INSERT INTO planer_tage (standort, datum, notiz) VALUES (?, ?, ?)')
-            ->execute([$standort, $datum, $notiz]);
-    }
+    return $datum;
 }
 
 // Beim Löschen eines Kurstags wandern seine Einträge zurück in den Ablauf.
@@ -324,6 +359,7 @@ try {
         'platzieren'        => 'platzieren',
         'zurueck'           => 'zurueck',
         'abhaken'           => 'abhaken',
+        'streichen'         => 'streichen',
         'eintrag_speichern' => 'eintragSpeichern',
         'eintrag_loeschen'  => 'eintragLoeschen',
         'tag_speichern'     => 'tagSpeichern',

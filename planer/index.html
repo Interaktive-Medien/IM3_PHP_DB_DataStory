@@ -2,27 +2,42 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>IM3 Planer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400..700&display=swap">
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header class="kopf">
-    <div class="kopf-titel">
-      <h1>IM3 Planer</h1>
-      <p>Herbstsemester 2026</p>
+  <header class="buehne">
+    <div class="buehne-oben">
+      <div class="marke">
+        <strong>IM3 Planer</strong>
+        <span>Herbstsemester 2026</span>
+      </div>
+      <nav id="tabs" class="tabs" aria-label="Standort"></nav>
+      <button id="modus" class="knopf-modus" type="button">Bearbeiten</button>
     </div>
-    <nav id="tabs" class="tabs" aria-label="Standort"></nav>
-    <div id="fortschritt" class="fortschritt"></div>
-    <button id="modus" class="knopf-leise" type="button">Bearbeiten</button>
+    <div class="buehne-haupt">
+      <h1 id="ort-name">&nbsp;</h1>
+      <div class="buehne-stand">
+        <div id="zahlen" class="zahlen"></div>
+        <div class="balken" aria-hidden="true">
+          <span id="balken-erledigt" class="erledigt"></span>
+          <span id="balken-geplant" class="geplant"></span>
+        </div>
+        <p id="prozent" class="prozent"></p>
+      </div>
+    </div>
   </header>
 
   <main class="layout">
     <aside id="ablauf" class="ablauf">
       <div class="spalten-kopf">
         <h2>Offen</h2>
-        <p>Aus dem Ablauf, noch keinem Kurstag zugeteilt.</p>
+        <p>Noch keinem Kurstag zugeteilt.</p>
       </div>
       <div id="legende" class="legende"></div>
       <div id="ablauf-inhalt"></div>
@@ -31,17 +46,31 @@
     <section class="tage">
       <div class="spalten-kopf">
         <h2>Stundenplan</h2>
-        <p>Geplant ist, was auf einem Kurstag liegt. Erledigt ist, was abgehakt ist.</p>
+        <p>Auf einem Kurstag heisst geplant, abgehakt heisst erledigt.</p>
       </div>
       <div id="tage-inhalt"></div>
     </section>
   </main>
 
+  <nav class="ansicht-leiste" aria-label="Ansicht">
+    <button type="button" data-ansicht="offen">Offen <span id="zahl-offen"></span></button>
+    <button type="button" data-ansicht="tage">Stundenplan</button>
+  </nav>
+
   <div id="meldung" class="meldung" role="status" hidden></div>
+
+  <dialog id="aktion-dialog">
+    <div class="blatt-kopf">
+      <span id="aktion-chip" class="chip" aria-hidden="true"></span>
+      <h2 id="aktion-titel"></h2>
+      <button type="button" class="knopf-icon" data-schliessen aria-label="Schliessen">✕</button>
+    </div>
+    <div id="aktion-inhalt"></div>
+  </dialog>
 
   <dialog id="login-dialog">
     <form id="login-form">
-      <h2>Bearbeiten-Modus</h2>
+      <h2>Bearbeiten</h2>
       <label>Passwort <input name="passwort" type="password" autocomplete="current-password" required></label>
       <div class="aktionen">
         <span class="luecke"></span>
@@ -81,7 +110,14 @@
   <dialog id="tag-dialog">
     <form id="tag-form">
       <h2 id="tag-ueberschrift">Kurstag bearbeiten</h2>
-      <label>Datum <input name="datum" type="date" required></label>
+      <div class="zeile zeile-gleich">
+        <label>Datum <input name="datum" type="date" required></label>
+        <label>Zweites Datum (Halbklassen) <input name="datum2" type="date"></label>
+      </div>
+      <fieldset class="personen-wahl">
+        <legend>Dozierende vor Ort</legend>
+        <div id="personen-wahl"></div>
+      </fieldset>
       <label>Notiz <textarea name="notiz" rows="3" maxlength="2000"></textarea></label>
       <p class="hinweis">Wird ein Kurstag gelöscht, wandern seine Einträge zurück in den Ablauf.</p>
       <div class="aktionen">

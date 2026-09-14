@@ -597,152 +597,293 @@
         "bern": [
             {
                 "datum": "2026-09-21",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Nick",
+                    "Siro"
+                ]
             },
             {
                 "datum": "2026-09-22",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Nick",
+                    "Siro"
+                ]
             },
             {
                 "datum": "2026-09-24",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Wolfgang",
+                    "Nick",
+                    "Nils"
+                ]
             },
             {
                 "datum": "2026-09-28",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Nick"
+                ]
             },
             {
                 "datum": "2026-09-29",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Nick"
+                ]
             },
             {
                 "datum": "2026-10-05",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jan",
+                    "Nick"
+                ]
             },
             {
                 "datum": "2026-10-06",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jan",
+                    "Nick"
+                ]
             },
             {
                 "datum": "2026-10-08",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jan",
+                    "Nick"
+                ]
             },
             {
                 "datum": "2026-10-12",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Nick",
+                    "Nils"
+                ]
             },
             {
                 "datum": "2026-10-14",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Wolfgang",
+                    "Jan",
+                    "Nick"
+                ]
             },
             {
                 "datum": "2026-10-15",
-                "notiz": null
-            },
-            {
-                "datum": "2026-10-16",
-                "notiz": "18:00 letzte Coachingmöglichkeit"
-            },
-            {
-                "datum": "2027-01-08",
-                "notiz": "23:59 Abgabe Technik-Leistungsnachweis (Projekt)"
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jan",
+                    "Nick"
+                ]
             }
         ],
         "chur": [
             {
                 "datum": "2026-09-21",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Wolfgang",
+                    "Nils",
+                    "Jasper"
+                ]
             },
             {
                 "datum": "2026-09-22",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Wolfgang",
+                    "Jasper"
+                ]
             },
             {
                 "datum": "2026-09-28",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Wolfgang",
+                    "Jasper"
+                ]
             },
             {
                 "datum": "2026-09-29",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jasper",
+                    "Beni"
+                ]
             },
             {
                 "datum": "2026-09-30",
-                "notiz": "nur mmp25c2"
-            },
-            {
-                "datum": "2026-10-01",
-                "notiz": "nur mmp25c1"
+                "datum2": "2026-10-01",
+                "notiz": "Mi: nur mmp25c2\nDo: nur mmp25c1",
+                "dozierende": [
+                    "Wolfgang",
+                    "Jan",
+                    "Jasper"
+                ]
             },
             {
                 "datum": "2026-10-05",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jasper",
+                    "Beni"
+                ]
             },
             {
                 "datum": "2026-10-06",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jasper",
+                    "Beni"
+                ]
             },
             {
                 "datum": "2026-10-07",
-                "notiz": "nur mmp25c1"
-            },
-            {
-                "datum": "2026-10-08",
-                "notiz": "nur mmp25c2"
+                "datum2": "2026-10-08",
+                "notiz": "Mi: nur mmp25c1\nDo: nur mmp25c2",
+                "dozierende": [
+                    "Jan",
+                    "Jasper",
+                    "Beni"
+                ]
             },
             {
                 "datum": "2026-10-12",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jasper",
+                    "Beni"
+                ]
             },
             {
                 "datum": "2026-10-13",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Nils",
+                    "Jasper"
+                ]
             },
             {
                 "datum": "2026-10-15",
-                "notiz": null
-            },
-            {
-                "datum": "2026-10-16",
-                "notiz": "18:00 letzte Coachingmöglichkeit"
-            },
-            {
-                "datum": "2027-01-08",
-                "notiz": "23:59 Abgabe Technik-Leistungsnachweis (Projekt)"
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Wolfgang",
+                    "Jasper",
+                    "Beni"
+                ]
             }
         ],
         "zuerich": [
             {
                 "datum": "2026-09-21",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jan"
+                ]
             },
             {
                 "datum": "2026-09-22",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jan",
+                    "Nils"
+                ]
             },
             {
                 "datum": "2026-09-28",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Jan"
+                ]
             },
             {
                 "datum": "2026-09-29",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Wolfgang"
+                ]
             },
             {
                 "datum": "2026-10-12",
-                "notiz": null
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Wolfgang"
+                ]
             },
             {
                 "datum": "2026-10-13",
-                "notiz": null
-            },
-            {
-                "datum": "2026-10-16",
-                "notiz": "18:00 letzte Coachingmöglichkeit"
-            },
-            {
-                "datum": "2027-01-08",
-                "notiz": "23:59 Abgabe Technik-Leistungsnachweis (Projekt)"
+                "datum2": null,
+                "notiz": null,
+                "dozierende": [
+                    "Wolfgang",
+                    "Jan",
+                    "Beni"
+                ]
             }
         ]
-    }
+    },
+    "termine": [
+        {
+            "standorte": [
+                "bern",
+                "chur",
+                "zuerich"
+            ],
+            "datum": "2026-09-28",
+            "emoji": "❗",
+            "titel": "Datenjournalismus mit Pascal Albisser",
+            "dauer": 120
+        },
+        {
+            "standorte": [
+                "zuerich"
+            ],
+            "datum": "2026-10-13",
+            "emoji": "❗",
+            "titel": "Marktstand Zürich",
+            "dauer": null
+        },
+        {
+            "standorte": [
+                "bern",
+                "chur"
+            ],
+            "datum": "2026-10-15",
+            "emoji": "❗",
+            "titel": "Marktstand Bern und Chur",
+            "dauer": null
+        }
+    ]
 }

@@ -2,11 +2,25 @@
 
 // IM3 Planer: links der offene Ablauf, rechts die Kurstage eines Standorts.
 
-const LEGENDE = [
-  ['📕', 'Theorie'], ['🧑‍🏫', 'Code-Along'], ['💻', 'Digitale Übung'], ['📝', 'Analoge Übung'],
-  ['🛠️', 'Tooling'], ['🎨', 'Projektarbeit'], ['🃏', 'Story-Karten'], ['✅', 'Meilenstein'],
+// Jede Kategorie trägt die Hauptfarbe ihres Emojis.
+const KATEGORIEN = [
+  ['📕', 'Theorie', '#e5484d'],
+  ['🧑‍🏫', 'Code-Along', '#8e5cf0'],
+  ['💻', 'Digitale Übung', '#3b82f6'],
+  ['📝', 'Analoge Übung', '#e2a610'],
+  ['🛠️', 'Tooling', '#6b7a90'],
+  ['🎨', 'Projektarbeit', '#ec4899'],
+  ['🃏', 'Story-Karten', '#12a594'],
+  ['✅', 'Meilenstein', '#22a559'],
 ];
-const EMOJIS = [...LEGENDE.map(([emoji]) => emoji), '🎲', '☕', '🍽️', '⭐', '❗', '🎤'];
+const WEITERE = [['🎲', '#c0712a'], ['☕', '#8b5e3c'], ['🍽️', '#8a8f98'], ['⭐', '#f2b705'], ['❗', '#e5484d'], ['🎤', '#8e5cf0'], ['📌', '#e5484d'], ['❓', '#e5484d'], ['🏪', '#1d1b17']];
+
+// Jede dozierende Person bekommt eine feste Farbe für ihre Initiale.
+const PERSONEN_FARBEN = ['#0f8b8d', '#d9480f', '#3b5bdb', '#9c36b5', '#c2255c', '#2b8a3e', '#b7791f'];
+
+const ohneVariante = (emoji) => (emoji || '').replace(/️/g, '');
+const FARBEN = new Map([...KATEGORIEN.map(([emoji, , f]) => [emoji, f]), ...WEITERE].map(([emoji, f]) => [ohneVariante(emoji), f]));
+const farbe = (emoji) => FARBEN.get(ohneVariante(emoji)) || '#9a958c';
 
 const $ = (selektor, wurzel = document) => wurzel.querySelector(selektor);
 
@@ -16,6 +30,10 @@ let ziehen = null;
 let markiert = null;
 let offenerEintrag = null;
 let offenerTag = null;
+let ersterAufbau = true;
+
+// Auf Touch-Geräten und schmalen Bildschirmen gibt es kein Drag & Drop, sondern Aktionsblätter.
+const TOUCH = matchMedia('(max-width: 860px), (pointer: coarse)');
 
 const platzhalter = document.createElement('li');
 platzhalter.className = 'platzhalter';
@@ -40,21 +58,9 @@ function datumAus(text) {
   return new Date(jahr, monat - 1, tag);
 }
 
-function kalenderwoche(datum) {
-  const d = new Date(Date.UTC(datum.getFullYear(), datum.getMonth(), datum.getDate()));
-  const wochentag = d.getUTCDay() || 7;
-  d.setUTCDate(d.getUTCDate() + 4 - wochentag);
-  const jahresanfang = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-  return { jahr: d.getUTCFullYear(), woche: Math.ceil(((d - jahresanfang) / 86400000 + 1) / 7) };
-}
-
-function datumText(datum) {
-  return datum.toLocaleDateString('de-CH', { day: '2-digit', month: '2-digit', year: 'numeric' });
-}
-
 function tagName(tag) {
-  const datum = datumAus(tag.datum);
-  return `${datum.toLocaleDateString('de-CH', { weekday: 'short' })} ${datumText(datum)}`;
+  const format = (text) => datumAus(text).toLocaleDateString('de-CH', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
+  return tag.datum2 ? `${format(tag.datum)} + ${format(tag.datum2)}` : format(tag.datum);
 }
 
 function dauerText(minuten) {
@@ -66,29 +72,29 @@ function dauerText(minuten) {
 let meldungTimer = null;
 function meldung(text, istFehler = false) {
   const box = $('#meldung');
+  box.hidden = true;
   box.textContent = text;
   box.classList.toggle('fehler', istFehler);
   box.hidden = false;
   clearTimeout(meldungTimer);
-  meldungTimer = setTimeout(() => { box.hidden = true; }, istFehler ? 5000 : 1800);
+  meldungTimer = setTimeout(() => { box.hidden = true; }, istFehler ? 5000 : 1600);
 }
 
 // --- Server ----------------------------------------------------------------
 
-async function laden() {
+async function laden(animieren = false) {
   try {
     const antwort = await fetch(`api.php?standort=${encodeURIComponent(standort)}`, { cache: 'no-store' });
     const daten = await antwort.json();
     if (!antwort.ok) throw new Error(daten.fehler || antwort.statusText);
     zustand = daten;
-    render();
+    render(animieren);
   } catch (fehler) {
     meldung(`Laden fehlgeschlagen: ${fehler.message}`, true);
   }
 }
 
 async function senden(aktion, daten = {}) {
-  meldung('Speichert …');
   let antwort = null;
   let json;
   try {
@@ -114,39 +120,47 @@ async function senden(aktion, daten = {}) {
 
 // --- Darstellung -----------------------------------------------------------
 
-function render() {
+function render(animieren = false) {
   standort = zustand.standort;
   if (location.hash.slice(1) !== standort) history.replaceState(null, '', `#${standort}`);
-  document.title = `IM3 Planer · ${zustand.standorte[standort]}`;
+  document.title = `${zustand.standorte[standort]} · IM3 Planer`;
+  document.body.dataset.standort = standort;
   document.body.classList.toggle('bearbeiten', zustand.bearbeiten);
   $('#modus').textContent = zustand.bearbeiten ? 'Bearbeiten beenden' : 'Bearbeiten';
 
-  renderTabs();
-  renderFortschritt();
+  for (const bereich of [$('#ablauf-inhalt'), $('#tage-inhalt')]) bereich.classList.toggle('einblenden', animieren);
+
+  renderBuehne();
   renderAblauf();
   renderTage();
+
+  // Auf dem Handy beim ersten Öffnen direkt zum nächsten Kurstag springen.
+  if (ersterAufbau && TOUCH.matches && document.body.dataset.ansicht === 'tage') {
+    const naechster = [...document.querySelectorAll('.tag')].find((tag) => !tag.classList.contains('vorbei'));
+    if (naechster && naechster !== $('.tag')) naechster.scrollIntoView({ block: 'start' });
+  }
+  ersterAufbau = false;
 }
 
-function renderTabs() {
+function renderBuehne() {
   $('#tabs').replaceChildren(...Object.entries(zustand.standorte).map(([slug, name]) =>
-    el('a', { class: 'tab', href: `#${slug}`, 'aria-current': slug === standort ? 'page' : null, text: name })));
-}
+    el('a', { class: `tab ${slug}`, href: `#${slug}`, 'aria-current': slug === standort ? 'page' : null, text: name })));
 
-function renderFortschritt() {
   const eintraege = zustand.eintraege.filter((e) => e.typ === 'eintrag');
-  const erledigt = eintraege.filter((e) => e.erledigt).length;
-  const geplant = eintraege.filter((e) => e.tag_id && !e.erledigt).length;
-  const offen = eintraege.length - erledigt - geplant;
-  const anteil = (zahl) => `${eintraege.length ? (zahl / eintraege.length) * 100 : 0}%`;
+  const zaehle = (test) => eintraege.filter(test).length;
+  const erledigt = zaehle((e) => e.erledigt);
+  const geplant = zaehle((e) => e.tag_id && !e.erledigt);
+  const gestrichen = zaehle((e) => !e.tag_id && e.gestrichen);
+  const offen = eintraege.length - erledigt - geplant - gestrichen;
+  const basis = eintraege.length - gestrichen || 1;
 
-  $('#fortschritt').replaceChildren(
-    el('div', { class: 'balken', 'aria-hidden': 'true' },
-      el('span', { class: 'erledigt', style: `width:${anteil(erledigt)}` }),
-      el('span', { class: 'geplant', style: `width:${anteil(geplant)}` })),
-    el('div', { class: 'fortschritt-text' },
-      el('b', { text: erledigt }), ' erledigt · ',
-      el('b', { text: geplant }), ' geplant · ',
-      el('b', { text: offen }), ` offen von ${eintraege.length}`));
+  $('#ort-name').textContent = zustand.standorte[standort];
+  $('#zahlen').replaceChildren(...[['Erledigt', erledigt], ['Geplant', geplant], ['Offen', offen], ['Gestrichen', gestrichen]]
+    .map(([name, zahl]) => el('div', { class: 'kennzahl' }, el('strong', { text: zahl }), el('span', { text: name }))));
+  $('#balken-erledigt').style.width = `${(erledigt / basis) * 100}%`;
+  $('#balken-geplant').style.width = `${(geplant / basis) * 100}%`;
+  $('#prozent').textContent = `${Math.round((erledigt / basis) * 100)} % erledigt`;
+  $('#zahl-offen').textContent = offen;
 }
 
 function bloecke() {
@@ -160,33 +174,41 @@ function bloecke() {
 }
 
 function renderAblauf() {
-  $('#legende').replaceChildren(...LEGENDE.map(([emoji, name]) => el('span', { text: `${emoji} ${name}` })));
+  $('#legende').replaceChildren(...KATEGORIEN.map(([emoji, name, f]) =>
+    el('span', { style: `--k:${f}`, title: emoji, text: name })));
 
   const teile = [];
   if (zustand.bearbeiten) {
     teile.push(el('div', { class: 'palette' },
-      el('span', { text: 'Ziehen:' }),
+      el('span', { class: 'palette-label', text: 'Ziehen' }),
       el('span', { class: 'baustein', draggable: 'true', 'data-wert': 'neu:pause', text: '☕ Pause' }),
       el('span', { class: 'baustein', draggable: 'true', 'data-wert': 'neu:mittag', text: '🍽️ Mittag' }),
-      el('span', { class: 'luecke' }),
+      el('span', { class: 'baustein', draggable: 'true', 'data-wert': 'neu:termin', text: '📌 Termin' }),
       el('button', { class: 'knopf-leise', type: 'button', text: '+ Eintrag', onclick: () => eintragDialog(null) })));
   }
 
-  for (const [block, alle] of bloecke()) {
-    const offen = alle.filter((e) => !e.tag_id);
-    const kern = offen.filter((e) => !e.zusatz);
-    const zusatz = offen.filter((e) => e.zusatz);
-    teile.push(el('section', { class: 'block' },
+  [...bloecke()].forEach(([block, alle], index) => {
+    const liegen = alle.filter((e) => !e.tag_id);
+    const offen = liegen.filter((e) => !e.gestrichen).length;
+    const gestrichen = liegen.length - offen;
+    const zahl = [
+      offen || !gestrichen ? (offen ? `${offen} offen` : 'alles eingeplant') : null,
+      gestrichen ? `${gestrichen} gestrichen` : null,
+    ].filter(Boolean).join(' · ');
+    const kern = liegen.filter((e) => !e.zusatz);
+    const zusatz = liegen.filter((e) => e.zusatz);
+
+    teile.push(el('section', { class: 'block', style: `--i:${index}` },
       el('header', { class: 'block-kopf' },
         el('h3', { text: block || 'Ohne Block' }),
-        el('span', { class: 'zahl', text: offen.length ? `${offen.length} offen` : 'alles eingeplant' })),
+        el('span', { class: 'zahl', text: zahl })),
       kern.length ? el('ul', { class: 'liste' }, ...kern.map((e) => karte(e))) : null,
       zusatz.length ? el('p', { class: 'zusatz-titel', text: 'Zusatzmaterial' }) : null,
       zusatz.length ? el('ul', { class: 'liste' }, ...zusatz.map((e) => karte(e))) : null,
       zustand.bearbeiten
-        ? el('button', { class: 'knopf-leise', type: 'button', text: '+ Eintrag', onclick: () => eintragDialog(null, { block }) })
+        ? el('button', { class: 'block-plus', type: 'button', text: '+ Eintrag', onclick: () => eintragDialog(null, { block }) })
         : null));
-  }
+  });
 
   $('#ablauf-inhalt').replaceChildren(...teile);
 }
@@ -202,59 +224,103 @@ function renderTage() {
   const heute = new Date();
   heute.setHours(0, 0, 0, 0);
 
-  const wochen = new Map();
-  for (const tag of zustand.tage) {
-    const datum = datumAus(tag.datum);
-    const { jahr, woche } = kalenderwoche(datum);
-    const schluessel = `${jahr}-${woche}`;
-    if (!wochen.has(schluessel)) wochen.set(schluessel, { woche, tage: [] });
+  // Das Jahr nur zeigen, wenn es vom ersten Kurstag abweicht, zum Beispiel bei der Abgabe im Januar.
+  const semesterJahr = zustand.tage.length ? datumAus(zustand.tage[0].datum).getFullYear() : null;
 
+  const karten = zustand.tage.map((tag, index) => {
+    // Ein zweites Datum heisst: Halbklassen machen dasselbe an zwei Tagen.
+    const datum = datumAus(tag.datum);
+    const datum2 = tag.datum2 ? datumAus(tag.datum2) : null;
+    const daten = datum2 ? [datum, datum2] : [datum];
+    const istHeute = daten.some((d) => +d === +heute);
+    const istVorbei = daten.every((d) => d < heute);
+    const monatVon = (d, laenge) => d.toLocaleDateString('de-CH', d.getFullYear() === semesterJahr ? { month: laenge } : { month: laenge, year: 'numeric' });
+    const wochentag = datum2
+      ? daten.map((d) => d.toLocaleDateString('de-CH', { weekday: 'short' })).join(' & ')
+      : datum.toLocaleDateString('de-CH', { weekday: 'long' });
+    let monat = monatVon(datum, 'long');
+    if (datum2) {
+      monat = `Halbklassen · ${datum.getMonth() === datum2.getMonth() ? monat : `${monatVon(datum, 'short')} / ${monatVon(datum2, 'short')}`}`;
+    }
     const liste = (proTag.get(tag.id) || []).sort((a, b) => a.tag_pos - b.tag_pos || a.id - b.id);
     const inhalte = liste.filter((e) => e.typ === 'eintrag');
     const minuten = liste.reduce((summe, e) => summe + (e.dauer || 0), 0);
-    const info = [
-      minuten ? dauerText(minuten) : null,
-      inhalte.length ? `${inhalte.filter((e) => e.erledigt).length}/${inhalte.length} ✓` : null,
-    ].filter(Boolean).join(' · ');
 
-    wochen.get(schluessel).tage.push(el('article', { class: `tag${+datum === +heute ? ' heute' : ''}` },
+    return el('article', { class: ['tag', istHeute && 'heute', istVorbei && 'vorbei'].filter(Boolean).join(' '), style: `--i:${index}` },
       el('header', { class: 'tag-kopf' },
-        el('h3', {},
-          el('span', { text: datum.toLocaleDateString('de-CH', { weekday: 'long' }) }), ' ',
-          el('span', { class: 'datum', text: datumText(datum) })),
-        el('span', { class: 'tag-info', text: info }),
-        zustand.bearbeiten
-          ? el('button', { class: 'knopf-icon', type: 'button', title: 'Kurstag bearbeiten', 'aria-label': 'Kurstag bearbeiten', text: '✎', onclick: () => tagDialog(tag) })
-          : null),
+        el('span', { class: 'tag-nummer' }, String(datum.getDate()), datum2 ? el('span', { class: 'zweite', text: `/${datum2.getDate()}` }) : null),
+        el('div', { class: 'tag-name' },
+          el('strong', { text: wochentag }),
+          el('span', { text: monat })),
+        el('div', { class: 'tag-meta' },
+          istHeute ? el('span', { class: 'heute-marke', text: 'Heute' }) : null,
+          minuten ? el('span', { class: 'pille', text: dauerText(minuten) }) : null,
+          inhalte.length ? el('span', { class: 'pille', text: `${inhalte.filter((e) => e.erledigt).length}/${inhalte.length} ✓` }) : null,
+          zustand.bearbeiten
+            ? el('button', { class: 'knopf-icon', type: 'button', title: 'Kurstag bearbeiten', 'aria-label': 'Kurstag bearbeiten', text: '✎', onclick: () => tagDialog(tag) })
+            : null,
+          zustand.bearbeiten
+            ? el('button', { class: 'knopf-icon nur-touch tag-plus', type: 'button', 'aria-label': 'Einträge hinzufügen', text: '+', onclick: () => hinzufuegenZu(tag) })
+            : null)),
+      personen(tag),
       tag.notiz ? el('p', { class: 'tag-notiz', text: tag.notiz }) : null,
       el('ul', {
         class: 'liste tag-liste',
         'data-tag-id': tag.id,
-        'data-leer': zustand.bearbeiten ? 'Einträge hierher ziehen' : 'Noch nichts geplant',
-      }, ...liste.map((e) => karte(e, true)))));
+        'data-leer': zustand.bearbeiten ? (TOUCH.matches ? 'Mit + hinzufügen' : 'Hierher ziehen') : 'Noch nichts geplant',
+      }, ...liste.map((e) => karte(e, true))));
+  });
+
+  if (zustand.bearbeiten) {
+    karten.push(el('button', { class: 'neuer-tag', type: 'button', text: '+ Kurstag', onclick: () => tagDialog(null) }));
   }
 
-  $('#tage-inhalt').replaceChildren(
-    ...[...wochen.values()].map(({ woche, tage }) =>
-      el('section', { class: 'kw' }, el('h3', { class: 'kw-titel', text: `KW ${woche}` }), el('div', { class: 'kw-tage' }, ...tage))),
-    zustand.bearbeiten ? el('button', { class: 'knopf-leise', type: 'button', text: '+ Kurstag', onclick: () => tagDialog(null) }) : null);
+  $('#tage-inhalt').replaceChildren(el('div', { class: 'tage-raster' }, ...karten));
+}
+
+function personFarbe(name) {
+  return PERSONEN_FARBEN[Math.max(zustand.dozierende.indexOf(name), 0) % PERSONEN_FARBEN.length];
+}
+
+function person(name) {
+  return el('span', { class: 'person', style: `--p:${personFarbe(name)}` },
+    el('span', { class: 'initial', 'aria-hidden': 'true', text: name[0] }), name);
+}
+
+function personen(tag) {
+  if (tag.dozierende.length) return el('div', { class: 'dozierende' }, ...tag.dozierende.map(person));
+  if (!zustand.bearbeiten) return null;
+  return el('div', { class: 'dozierende' },
+    el('button', { type: 'button', class: 'person-plus', text: '+ Dozierende', onclick: () => tagDialog(tag) }));
 }
 
 function karte(eintrag, aufTag = false) {
-  const istPause = eintrag.typ !== 'eintrag';
-  const klassen = ['karte', istPause && 'pause', eintrag.erledigt && 'erledigt', eintrag.emoji === '✅' && 'meilenstein'];
+  const istEintrag = eintrag.typ === 'eintrag';
+  const istTermin = eintrag.typ === 'termin';
+  const gestrichen = !aufTag && Boolean(eintrag.gestrichen);
+  const klassen = [
+    'karte',
+    (eintrag.typ === 'pause' || eintrag.typ === 'mittag') && 'pause',
+    istTermin && 'termin',
+    eintrag.erledigt && 'erledigt',
+    gestrichen && 'gestrichen',
+    ohneVariante(eintrag.emoji) === '✅' && 'meilenstein',
+  ];
   const link = /^https?:\/\//i.test(eintrag.link || '') ? eintrag.link : null;
 
   return el('li', {
     class: klassen.filter(Boolean).join(' '),
+    style: `--k:${farbe(eintrag.emoji)}`,
     'data-wert': eintrag.id,
-    draggable: zustand.bearbeiten ? 'true' : null,
+    'data-typ': eintrag.typ,
+    draggable: zustand.bearbeiten && !TOUCH.matches ? 'true' : null,
     onclick: (ereignis) => {
-      if (!zustand.bearbeiten || ereignis.target.closest('input, a')) return;
-      eintragDialog(eintrag);
+      if (!zustand.bearbeiten || ereignis.target.closest('input, a, button')) return;
+      if (TOUCH.matches) aktionenFuer(eintrag);
+      else eintragDialog(eintrag);
     },
   },
-  aufTag && !istPause
+  aufTag && istEintrag
     ? el('input', {
       type: 'checkbox',
       class: 'haken',
@@ -264,12 +330,131 @@ function karte(eintrag, aufTag = false) {
       onchange: (ereignis) => senden('abhaken', { id: eintrag.id, erledigt: ereignis.target.checked }),
     })
     : null,
-  el('span', { class: 'emoji', 'aria-hidden': 'true', text: eintrag.emoji }),
+  el('span', { class: 'chip', 'aria-hidden': 'true', text: eintrag.emoji }),
   el('div', { class: 'inhalt' },
+    istTermin ? el('span', { class: 'termin-label', text: 'Pflichttermin' }) : null,
     el('span', { class: 'titel', text: eintrag.titel }),
     link ? el('a', { class: 'link', href: link, target: '_blank', rel: 'noopener', draggable: 'false', title: 'Material öffnen', text: '↗' }) : null,
     eintrag.notiz ? el('p', { class: 'notiz', text: eintrag.notiz }) : null),
-  eintrag.dauer ? el('span', { class: 'dauer', text: `${eintrag.dauer}'` }) : null);
+  eintrag.dauer ? el('span', { class: 'dauer', text: `${eintrag.dauer}'` }) : null,
+  !aufTag && istEintrag && zustand.bearbeiten
+    ? el('button', {
+      class: 'streichen',
+      type: 'button',
+      title: gestrichen ? 'Wieder aufnehmen' : 'Durchstreichen',
+      'aria-label': `${eintrag.titel} ${gestrichen ? 'wieder aufnehmen' : 'durchstreichen'}`,
+      text: gestrichen ? '↺' : '✕',
+      onclick: () => senden('streichen', { id: eintrag.id, gestrichen: !gestrichen }),
+    })
+    : null);
+}
+
+// --- Touch: Aktionsblatt statt Drag & Drop ---------------------------------
+
+function tagesListe(tagId) {
+  return zustand.eintraege.filter((e) => e.tag_id === tagId).sort((a, b) => a.tag_pos - b.tag_pos || a.id - b.id);
+}
+
+function aufTagLegen(tagId, werte) {
+  const bleiben = tagesListe(tagId).map((e) => e.id).filter((id) => !werte.includes(id));
+  return senden('platzieren', { tag_id: tagId, reihenfolge: [...bleiben, ...werte] });
+}
+
+function kurzerTag(tag) {
+  const format = (text) => datumAus(text).toLocaleDateString('de-CH', { weekday: 'short', day: 'numeric', month: 'short' });
+  return tag.datum2 ? `${format(tag.datum)} + ${format(tag.datum2)}` : format(tag.datum);
+}
+
+function blatt(titel, emoji, ...inhalt) {
+  const chip = $('#aktion-chip');
+  chip.hidden = !emoji;
+  chip.textContent = emoji || '';
+  chip.style.setProperty('--k', farbe(emoji));
+  $('#aktion-titel').textContent = titel;
+  $('#aktion-inhalt').replaceChildren(...inhalt.filter(Boolean));
+  if (!$('#aktion-dialog').open) $('#aktion-dialog').showModal();
+}
+
+function aktion(text, ausfuehren) {
+  return el('button', {
+    type: 'button',
+    class: 'aktion',
+    text,
+    onclick: () => {
+      $('#aktion-dialog').close();
+      ausfuehren();
+    },
+  });
+}
+
+function tagWahl(eintrag) {
+  return el('div', { class: 'tag-wahl' }, ...zustand.tage
+    .filter((tag) => tag.id !== eintrag.tag_id)
+    .map((tag) => aktion(kurzerTag(tag), () => aufTagLegen(tag.id, [eintrag.id]))));
+}
+
+function aktionenFuer(eintrag) {
+  const istEintrag = eintrag.typ === 'eintrag';
+
+  if (!eintrag.tag_id) {
+    blatt(eintrag.titel, eintrag.emoji,
+      el('p', { class: 'blatt-titel', text: 'Auf Kurstag legen' }),
+      tagWahl(eintrag),
+      el('div', { class: 'aktionen-liste' },
+        aktion(eintrag.gestrichen ? '↺ Wieder aufnehmen' : '✕ Durchstreichen', () => senden('streichen', { id: eintrag.id, gestrichen: !eintrag.gestrichen })),
+        aktion('✎ Bearbeiten', () => eintragDialog(eintrag))));
+    return;
+  }
+
+  const ids = tagesListe(eintrag.tag_id).map((e) => e.id);
+  const pos = ids.indexOf(eintrag.id);
+  const tauschen = (versatz) => {
+    [ids[pos], ids[pos + versatz]] = [ids[pos + versatz], ids[pos]];
+    return senden('platzieren', { tag_id: eintrag.tag_id, reihenfolge: ids });
+  };
+
+  blatt(eintrag.titel, eintrag.emoji,
+    el('div', { class: 'aktionen-liste' },
+      istEintrag ? aktion(eintrag.erledigt ? '○ Nicht mehr erledigt' : '✓ Erledigt', () => senden('abhaken', { id: eintrag.id, erledigt: !eintrag.erledigt })) : null,
+      pos > 0 ? aktion('↑ Nach oben', () => tauschen(-1)) : null,
+      pos < ids.length - 1 ? aktion('↓ Nach unten', () => tauschen(1)) : null,
+      eintrag.typ !== 'termin' ? aktion(istEintrag ? '← Zurück in den Ablauf' : '✕ Entfernen', () => senden('zurueck', { id: eintrag.id })) : null,
+      aktion('✎ Bearbeiten', () => eintragDialog(eintrag))),
+    el('p', { class: 'blatt-titel', text: 'Auf anderen Kurstag' }),
+    tagWahl(eintrag));
+}
+
+// Vom Kurstag aus hinzufügen. Das Blatt bleibt offen, damit man mehrere Einträge nacheinander wählen kann.
+function hinzufuegenZu(tag) {
+  const hinzufuegen = async (werte) => {
+    if (await aufTagLegen(tag.id, werte)) hinzufuegenZu(tag);
+  };
+
+  const gruppen = new Map();
+  for (const e of zustand.eintraege) {
+    if (e.typ !== 'eintrag' || e.tag_id || e.gestrichen) continue;
+    if (!gruppen.has(e.block)) gruppen.set(e.block, []);
+    gruppen.get(e.block).push(e);
+  }
+
+  blatt(`Hinzufügen · ${kurzerTag(tag)}`, null,
+    el('div', { class: 'baustein-wahl' },
+      ...[['neu:pause', '☕ Pause'], ['neu:mittag', '🍽️ Mittag'], ['neu:termin', '📌 Termin']].map(([wert, text]) =>
+        el('button', { type: 'button', class: 'baustein', text, onclick: () => hinzufuegen([wert]) }))),
+    ...[...gruppen].flatMap(([block, liste]) => [
+      el('p', { class: 'blatt-titel', text: block || 'Ohne Block' }),
+      el('div', { class: 'liste' }, ...liste.map((e) => el('button', {
+        type: 'button',
+        class: 'karte wahl-karte',
+        style: `--k:${farbe(e.emoji)}`,
+        onclick: () => hinzufuegen([e.id]),
+      },
+      el('span', { class: 'chip', text: e.emoji }),
+      el('span', { class: 'inhalt titel', text: e.titel }),
+      e.dauer ? el('span', { class: 'dauer', text: `${e.dauer}'` }) : null))),
+    ]),
+    gruppen.size ? null : el('p', { class: 'hinweis', text: 'Alle Einträge sind eingeplant.' }),
+    el('button', { type: 'button', class: 'knopf blatt-fertig', text: 'Fertig', onclick: () => $('#aktion-dialog').close() }));
 }
 
 // --- Drag & Drop -----------------------------------------------------------
@@ -294,7 +479,7 @@ function aufraeumen() {
 document.addEventListener('dragstart', (ereignis) => {
   const quelle = ereignis.target instanceof Element ? ereignis.target.closest('[data-wert]') : null;
   if (!quelle || !zustand?.bearbeiten) return;
-  ziehen = { wert: quelle.dataset.wert, element: quelle };
+  ziehen = { wert: quelle.dataset.wert, typ: quelle.dataset.typ, element: quelle };
   ereignis.dataTransfer.effectAllowed = 'move';
   ereignis.dataTransfer.setData('text/plain', quelle.dataset.wert);
   requestAnimationFrame(() => quelle.classList.add('wird-gezogen'));
@@ -305,7 +490,8 @@ document.addEventListener('dragover', (ereignis) => {
   const zone = zoneAus(ereignis.target);
   const istNeu = ziehen.wert.startsWith('neu:');
 
-  if (!zone || (zone.id === 'ablauf' && istNeu)) {
+  // Pflichttermine gehören zu einem Datum und wandern nie zurück in den Ablauf.
+  if (!zone || (zone.id === 'ablauf' && (istNeu || ziehen.typ === 'termin'))) {
     platzhalter.remove();
     markiere(null);
     return;
@@ -343,7 +529,7 @@ document.addEventListener('drop', (ereignis) => {
 
   if (zone.id === 'ablauf') {
     aufraeumen();
-    if (!istNeu && element.closest('.tag-liste')) {
+    if (!istNeu && ziehen.typ !== 'termin' && element.closest('.tag-liste')) {
       element.remove();
       senden('zurueck', { id: Number(wert) });
     }
@@ -412,15 +598,23 @@ function tagDialog(tag) {
   const felder = $('#tag-form').elements;
   $('#tag-ueberschrift').textContent = tag ? 'Kurstag bearbeiten' : 'Neuer Kurstag';
   felder.datum.value = tag?.datum ?? '';
+  felder.datum2.value = tag?.datum2 ?? '';
   felder.notiz.value = tag?.notiz ?? '';
+  const gewaehlt = tag?.dozierende ?? [];
+  $('#personen-wahl').replaceChildren(...zustand.dozierende.map((name) =>
+    el('label', { class: 'person-wahl', style: `--p:${personFarbe(name)}` },
+      el('input', { type: 'checkbox', name: 'dozierende', value: name, checked: gewaehlt.includes(name) }),
+      el('span', { class: 'initial', 'aria-hidden': 'true', text: name[0] }),
+      name)));
   const loeschen = $('#tag-loeschen');
   loeschen.hidden = !tag;
   loeschKnopf(loeschen);
   $('#tag-dialog').showModal();
 }
 
-$('#emoji-wahl').append(...EMOJIS.map((emoji) => el('button', {
+$('#emoji-wahl').append(...[...KATEGORIEN.map(([emoji, , f]) => [emoji, f]), ...WEITERE].map(([emoji, f]) => el('button', {
   type: 'button',
+  style: `--k:${f}`,
   text: emoji,
   'aria-label': `Emoji ${emoji}`,
   onclick: () => { $('#eintrag-form').elements.emoji.value = emoji; },
@@ -456,6 +650,8 @@ $('#tag-form').addEventListener('submit', async (ereignis) => {
   const gespeichert = await senden('tag_speichern', {
     id: offenerTag?.id ?? null,
     datum: f.datum.value,
+    datum2: f.datum2.value || null,
+    dozierende: [...ereignis.target.querySelectorAll('input[name="dozierende"]:checked')].map((feld) => feld.value),
     notiz: f.notiz.value.trim() || null,
   });
   if (gespeichert) $('#tag-dialog').close();
@@ -497,10 +693,29 @@ $('#modus').addEventListener('click', () => {
 
 // --- Start -----------------------------------------------------------------
 
+// Handy: unten zwischen offenem Ablauf und Stundenplan wechseln. Start ist der Stundenplan.
+function ansichtSetzen(neu) {
+  document.body.dataset.ansicht = neu;
+  for (const knopf of document.querySelectorAll('.ansicht-leiste button')) {
+    knopf.setAttribute('aria-pressed', String(knopf.dataset.ansicht === neu));
+  }
+}
+
+for (const knopf of document.querySelectorAll('.ansicht-leiste button')) {
+  knopf.addEventListener('click', () => {
+    ansichtSetzen(knopf.dataset.ansicht);
+    const oben = $('.layout').getBoundingClientRect().top + window.scrollY;
+    if (window.scrollY > oben) window.scrollTo({ top: oben - 8 });
+  });
+}
+
+ansichtSetzen('tage');
+TOUCH.addEventListener('change', () => { if (zustand) render(); });
+
 window.addEventListener('hashchange', () => {
   if (location.hash.slice(1) === standort) return;
   standort = location.hash.slice(1);
-  laden();
+  laden(true);
 });
 
 // Wer zurück in den Tab wechselt, sieht Änderungen anderer Dozierender.
@@ -508,8 +723,4 @@ document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible' && !ziehen && !document.querySelector('dialog[open]')) laden();
 });
 
-new ResizeObserver(([eintrag]) => {
-  document.documentElement.style.setProperty('--kopf-hoehe', `${eintrag.target.offsetHeight}px`);
-}).observe($('.kopf'));
-
-laden();
+laden(true);
