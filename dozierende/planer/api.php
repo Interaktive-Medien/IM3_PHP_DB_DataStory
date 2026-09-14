@@ -336,7 +336,8 @@ try {
     $aktion = $in['aktion'] ?? '';
 
     if ($aktion === 'login') {
-        if (!is_string($in['passwort'] ?? null) || !hash_equals($planerPasswort, $in['passwort'])) {
+        // Ohne gesetztes Passwort in config.php bleibt der Bearbeiten-Modus zu.
+        if ($planerPasswort === '' || !is_string($in['passwort'] ?? null) || !hash_equals($planerPasswort, $in['passwort'])) {
             sleep(1);
             fehler('Falsches Passwort', 401);
         }
