@@ -32,6 +32,10 @@ let offenerEintrag = null;
 let offenerTag = null;
 let ersterAufbau = true;
 
+// Eingeklappte Blöcke in der Spalte «Offen», gespeichert pro Browser.
+let zugeklappteBloecke = new Set();
+try { zugeklappteBloecke = new Set(JSON.parse(localStorage.getItem('planer-bloecke-zu') || '[]')); } catch { /* kein Speicher */ }
+
 // Auf Touch-Geräten und schmalen Bildschirmen gibt es kein Drag & Drop, sondern Aktionsblätter.
 const TOUCH = matchMedia('(max-width: 860px), (pointer: coarse)');
 
@@ -212,19 +216,33 @@ function renderAblauf() {
     const kern = liegen.filter((e) => !e.zusatz);
     const zusatz = liegen.filter((e) => e.zusatz);
 
-    teile.push(el('section', { class: 'block', style: `--i:${index}` },
+    const zu = zugeklappteBloecke.has(block);
+
+    teile.push(el('section', { class: `block${zu ? ' zu' : ''}`, style: `--i:${index}` },
       el('header', { class: 'block-kopf' },
-        el('h3', { text: block || 'Ohne Block' }),
+        el('h3', {},
+          el('button', { class: 'block-umschalten', type: 'button', 'aria-expanded': String(!zu), onclick: () => blockUmschalten(block) },
+            el('span', { class: 'pfeil', 'aria-hidden': 'true', text: '▾' }),
+            block || 'Ohne Block')),
         el('span', { class: 'zahl', text: zahl })),
-      kern.length ? el('ul', { class: 'liste' }, ...kern.map((e) => karte(e))) : null,
-      zusatz.length ? el('p', { class: 'zusatz-titel', text: 'Zusatzmaterial' }) : null,
-      zusatz.length ? el('ul', { class: 'liste' }, ...zusatz.map((e) => karte(e))) : null,
-      zustand.bearbeiten
-        ? el('button', { class: 'block-plus', type: 'button', text: '+ Eintrag', onclick: () => eintragDialog(null, { block }) })
-        : null));
+      el('div', { class: 'block-inhalt', hidden: zu },
+        kern.length ? el('ul', { class: 'liste' }, ...kern.map((e) => karte(e))) : null,
+        zusatz.length ? el('p', { class: 'zusatz-titel', text: 'Zusatzmaterial' }) : null,
+        zusatz.length ? el('ul', { class: 'liste' }, ...zusatz.map((e) => karte(e))) : null,
+        zustand.bearbeiten
+          ? el('button', { class: 'block-plus', type: 'button', text: '+ Eintrag', onclick: () => eintragDialog(null, { block }) })
+          : null)));
   });
 
   $('#ablauf-inhalt').replaceChildren(...teile);
+}
+
+function blockUmschalten(block) {
+  if (zugeklappteBloecke.has(block)) zugeklappteBloecke.delete(block);
+  else zugeklappteBloecke.add(block);
+  try { localStorage.setItem('planer-bloecke-zu', JSON.stringify([...zugeklappteBloecke])); } catch { /* gilt nur bis zum Neuladen */ }
+  $('#ablauf-inhalt').classList.remove('einblenden');
+  renderAblauf();
 }
 
 function renderTage() {
@@ -367,7 +385,9 @@ function karte(eintrag, aufTag = false) {
   el('div', { class: 'inhalt' },
     istTermin ? el('span', { class: 'termin-label', text: 'Pflichttermin' }) : null,
     el('span', { class: 'titel', text: eintrag.titel }),
-    link ? el('a', { class: 'link', href: link, target: '_blank', rel: 'noopener', draggable: 'false', title: 'Material öffnen', text: '↗' }) : null,
+    link
+      ? el('a', { class: 'link', href: link, target: '_blank', rel: 'noopener', draggable: 'false', title: 'Material öffnen', text: 'Link' })
+      : null,
     eintrag.notiz ? el('p', { class: 'notiz', text: eintrag.notiz }) : null),
   eintrag.dauer ? el('span', { class: 'dauer', text: `${eintrag.dauer}'` }) : null,
   !aufTag && istEintrag && zustand.bearbeiten
