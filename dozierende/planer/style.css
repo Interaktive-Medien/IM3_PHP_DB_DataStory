@@ -174,10 +174,40 @@ button, input, select, textarea { font: inherit; color: inherit; }
   gap: 28px;
   align-items: start;
   padding: 28px 32px 72px;
+  transition: grid-template-columns 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .spalten-kopf h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
 .spalten-kopf p { margin: 2px 0 0; font-size: 13px; color: var(--leise); }
+
+.ablauf-kopf { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+
+.ablauf-zahl {
+  display: inline-block;
+  padding: 1px 8px;
+  font-family: var(--schrift);
+  font-size: 13px;
+  font-weight: 700;
+  vertical-align: 4px;
+  letter-spacing: 0;
+  background: color-mix(in oklab, var(--ort) 22%, white);
+  border-radius: 999px;
+}
+
+.ablauf-zahl:empty { display: none; }
+.ablauf-umschalten { flex: none; font-size: 18px; transition: transform 0.3s; }
+
+/* Eingeklappt: nur eine schmale Leiste mit senkrechtem Titel. Einträge lassen sich trotzdem hineinziehen. */
+@media (min-width: 861px) {
+  body.ablauf-zu .layout { grid-template-columns: 64px minmax(0, 1fr); }
+  .ablauf-zu .ablauf { padding: 12px 0; overflow: hidden; cursor: pointer; }
+  .ablauf-zu .ablauf:hover { background: color-mix(in oklab, var(--ort) 10%, white); }
+  .ablauf-zu .ablauf-kopf { flex-direction: column; align-items: center; gap: 14px; }
+  .ablauf-zu .ablauf-kopf p, .ablauf-zu .legende, .ablauf-zu #ablauf-inhalt { display: none; }
+  .ablauf-zu .ablauf-kopf h2 { font-size: 20px; writing-mode: vertical-rl; transform: rotate(180deg); }
+  .ablauf-zu .ablauf-zahl { padding: 8px 1px; vertical-align: 0; }
+  .ablauf-zu .ablauf-umschalten { order: -1; transform: rotate(180deg); }
+}
 
 .ablauf {
   position: sticky;
@@ -455,15 +485,43 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* --- Kurstage ------------------------------------------------------------ */
 
+.tage { container-type: inline-size; }
+
+/* Eine Spalte pro genutztem Wochentag (--spalten), jeder Kurstag in seiner Spalte (--spalte). */
 .tage-raster {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  grid-template-columns: repeat(var(--spalten, 1), minmax(0, 1fr));
   gap: 16px;
   align-items: start;
   margin-top: 16px;
 }
 
+/* Die Woche selbst bildet keine Box: Überschrift und Kurstage liegen direkt im Raster. */
+.woche { display: contents; }
+
+.woche-kopf {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: baseline;
+  gap: 8px;
+  margin: 12px 0 -4px;
+  padding-bottom: 6px;
+  font-family: var(--schrift);
+  font-size: 13px;
+  border-bottom: 1.5px solid color-mix(in oklab, var(--ort) 35%, var(--linie));
+}
+
+.woche:first-child .woche-kopf { margin-top: 0; }
+.woche-kopf strong { font-family: var(--display); font-size: 16px; font-weight: 700; color: var(--tinte); }
+.woche-kopf span { font-weight: 600; color: var(--leise); }
+
+@container (max-width: 640px) {
+  .tage-raster { grid-template-columns: minmax(0, 1fr); }
+  .tage-raster .tag { grid-column: auto; }
+}
+
 .tag {
+  grid-column: var(--spalte, auto);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -476,6 +534,16 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 .tag.heute { outline: 3px solid var(--ort); outline-offset: -3px; }
 .tag.drop-ziel { outline: 3px dashed var(--ort); outline-offset: 3px; box-shadow: var(--schatten-hoch); }
+
+/* Schmale Spalten, zum Beispiel vier Wochentage neben offener Spalte «Offen»: Karten ohne Emoji-Chip,
+   die Farbe zeigt die Kategorie weiterhin. Titel brechen nur zwischen Wörtern oder mit Trennstrich. */
+.tag { container-type: inline-size; }
+
+@container (max-width: 250px) {
+  .tag-liste .karte { gap: 7px; padding-left: 6px; }
+  .tag-liste .karte:not(.termin, .pause) .chip { display: none; }
+  .tag-liste .karte .titel { overflow-wrap: break-word; hyphens: auto; }
+}
 
 .tag-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
 
@@ -612,8 +680,10 @@ dialog label.person-wahl:has(input:checked) { background: color-mix(in oklab, va
 
 .neuer-tag {
   display: grid;
+  grid-column: 1 / -1;
   place-items: center;
-  min-height: 120px;
+  min-height: 64px;
+  margin-top: 8px;
   font-family: var(--display);
   font-size: 16px;
   font-weight: 700;
@@ -861,6 +931,7 @@ textarea { resize: vertical; }
   .layout { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 16px 16px 24px; }
   .spalten-kopf h2 { font-size: 20px; }
   .ablauf { position: static; max-height: none; padding: 16px; }
+  .ablauf-umschalten { display: none; }
   .tage-raster { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 12px; }
 
   body[data-ansicht="tage"] .ablauf,

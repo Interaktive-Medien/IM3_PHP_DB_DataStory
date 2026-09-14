@@ -35,9 +35,12 @@
 
   <main class="layout">
     <aside id="ablauf" class="ablauf">
-      <div class="spalten-kopf">
-        <h2>Offen</h2>
-        <p>Noch keinem Kurstag zugeteilt.</p>
+      <div class="spalten-kopf ablauf-kopf">
+        <div>
+          <h2>Offen <span id="ablauf-zahl" class="ablauf-zahl"></span></h2>
+          <p>Noch keinem Kurstag zugeteilt.</p>
+        </div>
+        <button id="ablauf-umschalten" class="knopf-icon ablauf-umschalten" type="button" aria-controls="ablauf-inhalt" aria-expanded="true" aria-label="Offen einklappen" title="Offen einklappen">«</button>
       </div>
       <div id="legende" class="legende"></div>
       <div id="ablauf-inhalt"></div>

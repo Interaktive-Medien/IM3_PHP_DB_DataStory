@@ -69,6 +69,19 @@ function dauerText(minuten) {
   return `${Math.floor(minuten / 60)} h${rest ? ` ${rest}'` : ''}`;
 }
 
+// Montag ist 0, Sonntag 6.
+function wochentagVon(datum) {
+  return (datum.getDay() + 6) % 7;
+}
+
+// Kalenderwoche nach ISO: Die Woche gehört zum Jahr ihres Donnerstags.
+function kalenderwoche(montag) {
+  const donnerstag = new Date(montag);
+  donnerstag.setDate(montag.getDate() + 3);
+  const jahresbeginn = new Date(donnerstag.getFullYear(), 0, 1);
+  return Math.floor(Math.round((donnerstag - jahresbeginn) / 86400000) / 7) + 1;
+}
+
 let meldungTimer = null;
 function meldung(text, istFehler = false) {
   const box = $('#meldung');
@@ -161,6 +174,7 @@ function renderBuehne() {
   $('#balken-geplant').style.width = `${(geplant / basis) * 100}%`;
   $('#prozent').textContent = `${Math.round((erledigt / basis) * 100)} % erledigt`;
   $('#zahl-offen').textContent = offen;
+  $('#ablauf-zahl').textContent = offen;
 }
 
 function bloecke() {
@@ -227,6 +241,9 @@ function renderTage() {
   // Das Jahr nur zeigen, wenn es vom ersten Kurstag abweicht, zum Beispiel bei der Abgabe im Januar.
   const semesterJahr = zustand.tage.length ? datumAus(zustand.tage[0].datum).getFullYear() : null;
 
+  // Eine Spalte pro Wochentag, an dem dieser Standort Kurstage hat, Montag links.
+  const spalten = [...new Set(zustand.tage.map((tag) => wochentagVon(datumAus(tag.datum))))].sort((a, b) => a - b);
+
   const karten = zustand.tage.map((tag, index) => {
     // Ein zweites Datum heisst: Halbklassen machen dasselbe an zwei Tagen.
     const datum = datumAus(tag.datum);
@@ -246,7 +263,7 @@ function renderTage() {
     const inhalte = liste.filter((e) => e.typ === 'eintrag');
     const minuten = liste.reduce((summe, e) => summe + (e.dauer || 0), 0);
 
-    return el('article', { class: ['tag', istHeute && 'heute', istVorbei && 'vorbei'].filter(Boolean).join(' '), style: `--i:${index}` },
+    return el('article', { class: ['tag', istHeute && 'heute', istVorbei && 'vorbei'].filter(Boolean).join(' '), style: `--i:${index}; --spalte:${spalten.indexOf(wochentagVon(datum)) + 1}` },
       el('header', { class: 'tag-kopf' },
         el('span', { class: 'tag-nummer' }, String(datum.getDate()), datum2 ? el('span', { class: 'zweite', text: `/${datum2.getDate()}` }) : null),
         el('div', { class: 'tag-name' },
@@ -271,11 +288,27 @@ function renderTage() {
       }, ...liste.map((e) => karte(e, true))));
   });
 
+  // Jede Woche beginnt auf einer neuen Zeile. Die Kurstage kommen nach Datum sortiert vom Server.
+  const wochen = new Map();
+  zustand.tage.forEach((tag, index) => {
+    const montag = datumAus(tag.datum);
+    montag.setDate(montag.getDate() - wochentagVon(montag));
+    if (!wochen.has(+montag)) wochen.set(+montag, { montag, karten: [] });
+    wochen.get(+montag).karten.push(karten[index]);
+  });
+
+  const raster = [...wochen.values()].map(({ montag, karten: wochenKarten }) =>
+    el('section', { class: 'woche' },
+      el('h3', { class: 'woche-kopf' },
+        el('strong', { text: `KW ${kalenderwoche(montag)}` }),
+        el('span', { text: `ab ${montag.toLocaleDateString('de-CH', montag.getFullYear() === semesterJahr ? { day: 'numeric', month: 'long' } : { day: 'numeric', month: 'long', year: 'numeric' })}` })),
+      ...wochenKarten));
+
   if (zustand.bearbeiten) {
-    karten.push(el('button', { class: 'neuer-tag', type: 'button', text: '+ Kurstag', onclick: () => tagDialog(null) }));
+    raster.push(el('button', { class: 'neuer-tag', type: 'button', text: '+ Kurstag', onclick: () => tagDialog(null) }));
   }
 
-  $('#tage-inhalt').replaceChildren(el('div', { class: 'tage-raster' }, ...karten));
+  $('#tage-inhalt').replaceChildren(el('div', { class: 'tage-raster', style: `--spalten:${Math.max(spalten.length, 1)}` }, ...raster));
 }
 
 function personFarbe(name) {
@@ -710,6 +743,33 @@ for (const knopf of document.querySelectorAll('.ansicht-leiste button')) {
 }
 
 ansichtSetzen('tage');
+
+// Breite Bildschirme: Die Spalte «Offen» lässt sich einklappen. Der Browser merkt sich die Wahl.
+const BREIT = matchMedia('(min-width: 861px)');
+
+function ablaufZuklappen(zu) {
+  document.body.classList.toggle('ablauf-zu', zu);
+  const knopf = $('#ablauf-umschalten');
+  const text = zu ? 'Offen ausklappen' : 'Offen einklappen';
+  knopf.setAttribute('aria-expanded', String(!zu));
+  knopf.setAttribute('aria-label', text);
+  knopf.title = text;
+  try { localStorage.setItem('planer-ablauf-zu', zu ? '1' : ''); } catch { /* ohne Speicher gilt die Wahl nur bis zum Neuladen */ }
+}
+
+$('#ablauf-umschalten').addEventListener('click', (ereignis) => {
+  ereignis.stopPropagation();
+  ablaufZuklappen(!document.body.classList.contains('ablauf-zu'));
+});
+
+// Eingeklappt ist die ganze schmale Leiste ein Knopf zum Ausklappen.
+$('#ablauf').addEventListener('click', () => {
+  if (BREIT.matches && document.body.classList.contains('ablauf-zu')) ablaufZuklappen(false);
+});
+
+let ablaufWarZu = false;
+try { ablaufWarZu = localStorage.getItem('planer-ablauf-zu') === '1'; } catch { /* kein Speicher */ }
+ablaufZuklappen(ablaufWarZu);
 TOUCH.addEventListener('change', () => { if (zustand) render(); });
 
 window.addEventListener('hashchange', () => {
