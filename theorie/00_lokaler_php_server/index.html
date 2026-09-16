@@ -1,307 +1,441 @@
 <!doctype html>
 <html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IM3 – Lokaler PHP-Server</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IM3 – Lokaler PHP-Server</title>
 
-  <!-- Reveal.js core -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <!-- Reveal.js core -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+    />
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-  <!-- FHGR Foliendesign (gemeinsam fuer alle Foliensaetze) -->
-  <link rel="stylesheet" href="../_foliendesign/fhgr-slides.css">
-</head>
-<body>
-  <div class="reveal">
-    <div class="slides">
+    <!-- FHGR Foliendesign (gemeinsam fuer alle Foliensaetze) -->
+    <link rel="stylesheet" href="../_foliendesign/fhgr-slides.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- ============ 1 Titel ============ -->
+        <section id="title" class="title-slide" data-state="is-title">
+          <h1>Lokaler PHP-Server</h1>
+          <div class="rule"></div>
+          <p>Interaktive Medien 3</p>
+          <p class="sub">nick.schneeberger@fhgr.ch</p>
+        </section>
 
-      <!-- ============ 1 Titel ============ -->
-      <section id="title" class="title-slide" data-state="is-title">
-        <h1>Lokaler PHP-Server</h1>
-        <div class="rule"></div>
-        <p>Interaktive Medien 3</p>
-        <p class="sub">nick.schneeberger@fhgr.ch</p>
-      </section>
-
-      <!-- ============ 2 ============ -->
-      <section id="wofuer">
-        <h2>Wofür das gut ist</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
-            <div>
-              <p class="list-intro">PHP läuft direkt auf eurem Laptop.</p>
-              <ul class="list-tight text-sm">
-                <li>Speichern, im Browser neu laden, fertig</li>
-                <li>Kein Hochladen zwischendurch</li>
-                <li>Funktioniert auch ohne Internet</li>
-              </ul>
+        <!-- ============ 2 ============ -->
+        <section id="wofuer">
+          <h2>Wofür das gut ist</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+              "
+            >
+              <div>
+                <p class="list-intro">PHP läuft direkt auf eurem Laptop.</p>
+                <ul class="list-tight text-sm">
+                  <br /><br />
+                  <li>Speichern, im Browser neu laden, fertig</li>
+                  <li>Kein Hochladen zwischendurch</li>
+                  <li>Funktioniert auch ohne Internet</li>
+                </ul>
+              </div>
+              <div>
+                <p class="list-intro">
+                  Sobald die Datenbank ins Spiel kommt, zieht ihr auf einen
+                  Webserver um.
+                </p>
+                <ul class="list-tight text-sm">
+                  <li>Dort liegen PHP-Dateien und Datenbank zusammen</li>
+                  <li>PhpStorm lädt dann jede gespeicherte Datei hoch</li>
+                  <li>Dort muss das Projekt am Marktstand laufen</li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <p class="list-intro">Mit der Datenbank zieht ihr auf einen Webserver um.</p>
-              <ul class="list-tight text-sm">
-                <li>Dort liegen PHP-Dateien und Datenbank zusammen</li>
-                <li>PhpStorm lädt dann jede gespeicherte Datei hoch</li>
-                <li>Dort muss das Projekt am Marktstand laufen</li>
-              </ul>
+            <div class="callout callout-blue">
+              <p>
+                Das hier ist eure Arbeitsumgebung, bis die Datenbank dazukommt.
+              </p>
+              <p>Alle Code-Alongs und Übungen bis dahin setzen sie voraus.</p>
             </div>
           </div>
-          <div class="callout callout-blue">
-            <p>Das hier ist eure Arbeitsumgebung, bis die Datenbank dazukommt.</p>
-            <p>Alle Code-Alongs und Übungen bis dahin setzen sie voraus.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ============ 3 ============ -->
-      <section id="ziel">
-        <h2>Was am Ende stehen soll</h2>
-        <div class="content">
-          <ul class="text-lg">
-            <li><code>php -v</code> zeigt eine Versionsnummer an</li>
-            <li>Ihr könnt in eurem Projektordner einen Server starten</li>
-            <li>Eure Seite erscheint unter <code>localhost:8000</code></li>
-          </ul>
-          <div class="callout callout-blue">
-            <p>Datenbank und Webserver kommen später dazu, wenn wir sie brauchen.</p>
+        <!-- ============ 3 ============ -->
+        <section id="ziel">
+          <h2>Was am Ende stehen soll</h2>
+          <div class="content">
+            <ul class="text-lg">
+              <li><code>php -v</code> zeigt eine Versionsnummer an</li>
+              <li>Ihr könnt in eurem Projektordner einen Server starten</li>
+              <li>Eure Seite erscheint unter <code>localhost:8000</code></li>
+            </ul>
+            <div class="callout callout-blue">
+              <p>
+                Datenbank und Webserver kommen später dazu, wenn wir sie
+                brauchen.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ============ 4 ============ -->
-      <section id="pruefen">
-        <h2>Zuerst prüfen, ob PHP schon da ist</h2>
-        <div class="content">
-          <p class="list-intro">Terminal öffnen und eintippen:</p>
-          <pre class="code-sm"><code data-trim data-noescape class="language-bash">
+        <!-- ============ 4 ============ -->
+        <section id="pruefen">
+          <h2>Zuerst prüfen, ob PHP schon da ist</h2>
+          <div class="content">
+            <p class="list-intro">Terminal öffnen und eintippen:</p>
+            <pre
+              class="code-sm"
+            ><code data-trim data-noescape class="language-bash">
 php -v
           </code></pre>
-          <div class="mt-1" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
-            <div>
-              <span class="code-label">so sieht gut aus</span>
-              <div class="output">PHP 8.3.6 (cli)</div>
-              <p class="text-sm">Dann seid ihr fertig mit dem Installieren.</p>
+            <div
+              class="mt-1"
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+              "
+            >
+              <div>
+                <span class="code-label">so sieht gut aus</span>
+                <div class="output">PHP 8.3.6 (cli)</div>
+                <p class="text-sm">
+                  Dann seid ihr fertig mit dem Installieren.
+                </p>
+              </div>
+              <div>
+                <span class="code-label">so fehlt es noch</span>
+                <div class="output">command not found: php</div>
+                <p class="text-sm">Dann kommt jetzt die Installation.</p>
+              </div>
             </div>
-            <div>
-              <span class="code-label">so fehlt es noch</span>
-              <div class="output">command not found: php</div>
-              <p class="text-sm">Dann kommt jetzt die Installation.</p>
+            <p class="text-sm text-muted mt-1">
+              Terminal heisst auf Windows Eingabeaufforderung oder PowerShell.
+            </p>
+          </div>
+        </section>
+
+        <!-- ============ 5 Trenner ============ -->
+        <section
+          id="divider-agent"
+          class="section-divider"
+          data-state="is-section-divider"
+        >
+          <h1>Der schnelle Weg</h1>
+          <p>Lasst euren Agenten installieren</p>
+        </section>
+
+        <!-- ============ 6 ============ -->
+        <section id="agent">
+          <h2>Wenn ihr einen Agenten habt</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+              "
+            >
+              <div>
+                <p class="list-intro">Gemeint sind Werkzeuge wie diese:</p>
+                <ul class="list-tight text-sm">
+                  <li>Claude Code</li>
+                  <li>Codex</li>
+                  <li>Cursor</li>
+                  <li>GitHub Copilot</li>
+                </ul>
+              </div>
+              <div>
+                <p class="list-intro">Warum sich das hier lohnt:</p>
+                <ul class="list-tight text-sm">
+                  <li>
+                    Sie sehen euer Betriebssystem und was schon installiert ist
+                  </li>
+                  <li>Sie kennen die Pfad- und Rechteprobleme</li>
+                  <li>Sie lesen Fehlermeldungen mit</li>
+                </ul>
+              </div>
+            </div>
+            <div class="callout callout-blue">
+              <p>
+                Eine Installation ist genau die Sorte Fleissarbeit, die ihr
+                abgeben dürft.
+              </p>
             </div>
           </div>
-          <p class="text-sm text-muted mt-1">Terminal heisst auf Windows Eingabeaufforderung oder
-            PowerShell.</p>
-        </div>
-      </section>
+        </section>
 
-      <!-- ============ 5 Trenner ============ -->
-      <section id="divider-agent" class="section-divider" data-state="is-section-divider">
-        <h1>Der schnelle Weg</h1>
-        <p>Lasst euren Agenten installieren</p>
-      </section>
-
-      <!-- ============ 6 ============ -->
-      <section id="agent">
-        <h2>Wenn ihr einen Agenten habt</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
-            <div>
-              <p class="list-intro">Gemeint sind Werkzeuge wie diese:</p>
-              <ul class="list-tight text-sm">
-                <li>Claude Code</li>
-                <li>Codex</li>
-                <li>Cursor</li>
-                <li>GitHub Copilot</li>
-              </ul>
+        <!-- ============ 7 ============ -->
+        <section id="agent-auftrag">
+          <h2>Der Auftrag zum Kopieren</h2>
+          <div class="content">
+            <div class="output">
+              Ich brauche PHP auf diesem Rechner, um ein Schulprojekt lokal im
+              Browser zu testen. - Prüfe, ob PHP schon installiert ist. - Wenn
+              nicht, installiere PHP 8.1 oder neuer. - Zeig mir danach, wie ich
+              den eingebauten Testserver starte. - Erkläre mir jeden Schritt,
+              bevor du ihn ausführst. Mein Betriebssystem ist macOS.
             </div>
-            <div>
-              <p class="list-intro">Warum sich das hier lohnt:</p>
-              <ul class="list-tight text-sm">
-                <li>Sie sehen euer Betriebssystem und was schon installiert ist</li>
-                <li>Sie kennen die Pfad- und Rechteprobleme</li>
-                <li>Sie lesen Fehlermeldungen mit</li>
-              </ul>
-            </div>
+            <p class="text-sm mt-1">
+              Die letzte Zeile anpassen, wenn ihr Windows benutzt.
+            </p>
           </div>
-          <div class="callout callout-blue">
-            <p>Eine Installation ist genau die Sorte Fleissarbeit, die ihr abgeben dürft.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ============ 7 ============ -->
-      <section id="agent-auftrag">
-        <h2>Der Auftrag zum Kopieren</h2>
-        <div class="content">
-          <div class="output">Ich brauche PHP auf diesem Rechner, um ein Schulprojekt
-lokal im Browser zu testen.
-
-- Prüfe, ob PHP schon installiert ist.
-- Wenn nicht, installiere PHP 8.1 oder neuer.
-- Zeig mir danach, wie ich den eingebauten Testserver starte.
-- Erkläre mir jeden Schritt, bevor du ihn ausführst.
-
-Mein Betriebssystem ist macOS.</div>
-          <p class="text-sm mt-1">Die letzte Zeile anpassen, wenn ihr Windows benutzt.</p>
-        </div>
-      </section>
-
-      <!-- ============ 8 ============ -->
-      <section id="server-starten-agent">
-        <h2>Server starten</h2>
-        <div class="content">
-          <span class="code-label">1. Kursordner in PhpStorm öffnen und das Terminal starten</span>
-          <div class="output">View → Tool Windows → Terminal</div>
-          <p class="text-sm">Kürzel: <code>⌥</code> + <code>F12</code>, unter Windows <code>Alt</code> + <code>F12</code>.</p>
-          <p class="text-sm">Das Terminal startet direkt im Kursordner.</p>
-          <span class="code-label mt-1">2. Server starten</span>
-          <pre class="code-sm"><code data-trim data-noescape class="language-bash">
+        <!-- ============ 8 ============ -->
+        <section id="server-starten-agent">
+          <h2>Server starten</h2>
+          <div class="content">
+            <span class="code-label"
+              >1. Kursordner in PhpStorm öffnen und das Terminal starten</span
+            >
+            <div class="output">View → Tool Windows → Terminal</div>
+            <p class="text-sm">
+              Kürzel: <code>⌥</code> + <code>F12</code>, unter Windows
+              <code>Alt</code> + <code>F12</code>.
+            </p>
+            <p class="text-sm">Das Terminal startet direkt im Kursordner.</p>
+            <span class="code-label mt-1">2. Server starten</span>
+            <pre
+              class="code-sm"
+            ><code data-trim data-noescape class="language-bash">
 php -S localhost:8000
           </code></pre>
-          <p class="text-sm">Der Server läuft, solange das Terminal offen ist – beenden mit
-            <code>Ctrl</code> + <code>C</code>.</p>
-        </div>
-      </section>
+            <p class="text-sm">
+              Der Server läuft, solange das Terminal offen ist – beenden mit
+              <code>Ctrl</code> + <code>C</code>.
+            </p>
+          </div>
+        </section>
 
-      <!-- ============ 9 Trenner ============ -->
-      <section id="divider-hand" class="section-divider" data-state="is-section-divider">
-        <h1>Von Hand</h1>
-        <p>Wenn ihr keinen Agenten habt</p>
-      </section>
+        <!-- ============ 9 Trenner ============ -->
+        <section
+          id="divider-hand"
+          class="section-divider"
+          data-state="is-section-divider"
+        >
+          <h1>Von Hand</h1>
+          <p>Wenn ihr keinen Agenten habt</p>
+        </section>
 
-      <!-- ============ 10 ============ -->
-      <section id="install-mac">
-        <h2>PHP installieren – macOS</h2>
-        <div class="content">
-          <p class="list-intro">Neuere macOS-Versionen liefern kein PHP mehr mit.</p>
-          <span class="code-label">1. Homebrew prüfen, dem Paketmanager für den Mac</span>
-          <pre class="code-sm"><code data-trim data-noescape class="language-bash">
+        <!-- ============ 10 ============ -->
+        <section id="install-mac">
+          <h2>PHP installieren – macOS</h2>
+          <div class="content">
+            <p class="list-intro">
+              Neuere macOS-Versionen liefern kein PHP mehr mit.
+            </p>
+            <span class="code-label"
+              >1. Homebrew prüfen, dem Paketmanager für den Mac</span
+            >
+            <pre
+              class="code-sm"
+            ><code data-trim data-noescape class="language-bash">
 brew -v
           </code></pre>
-          <span class="code-label">2. Falls er fehlt, Homebrew installieren</span>
-          <pre class="code-sm"><code data-trim data-noescape class="language-bash">
+            <span class="code-label"
+              >2. Falls er fehlt, Homebrew installieren</span
+            >
+            <pre
+              class="code-sm"
+            ><code data-trim data-noescape class="language-bash">
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           </code></pre>
-          <span class="code-label">3. PHP installieren und prüfen</span>
-          <pre class="code-sm"><code data-trim data-noescape class="language-bash">
+            <span class="code-label">3. PHP installieren und prüfen</span>
+            <pre
+              class="code-sm"
+            ><code data-trim data-noescape class="language-bash">
 brew install php
 php -v
           </code></pre>
-        </div>
-      </section>
-
-      <!-- ============ 11 ============ -->
-      <section id="install-windows">
-        <h2>PHP installieren – Windows</h2>
-        <div class="content">
-          <ol class="text-sm">
-            <li>Auf <a href="https://windows.php.net/download/">windows.php.net</a> die aktuelle
-              <strong>Zip</strong>-Version unter «Thread Safe» herunterladen</li>
-            <li>Das Zip in einen einfachen Ordner entpacken, zum Beispiel <code>C:\php</code></li>
-            <li>In der Windows-Suche «Umgebungsvariablen bearbeiten» öffnen</li>
-            <li>Bei <em>Path</em> auf <em>Bearbeiten</em>, dann <em>Neu</em>, dann <code>C:\php</code>
-              eintragen</li>
-            <li>Ein <strong>neues</strong> PowerShell-Fenster öffnen und <code>php -v</code> eingeben</li>
-          </ol>
-          <div class="callout callout-blue">
-            <p>Der PATH sagt Windows, wo es den Befehl <code>php</code> suchen soll.</p>
           </div>
-          <p class="text-sm text-muted mt-1">Alternative: XAMPP installieren, das bringt PHP fertig mit.</p>
-        </div>
-      </section>
+        </section>
 
-      <!-- ============ 12 ============ -->
-      <section id="server-starten">
-        <h2>Server starten</h2>
-        <div class="content">
-          <span class="code-label">1. Kursordner in PhpStorm öffnen und das Terminal starten</span>
-          <div class="output">View → Tool Windows → Terminal</div>
-          <p class="text-sm">Kürzel: <code>⌥</code> + <code>F12</code>, unter Windows <code>Alt</code> + <code>F12</code>.</p>
-          <p class="text-sm">Das Terminal startet direkt im Kursordner.</p>
-          <span class="code-label mt-1">2. Server starten</span>
-          <pre class="code-sm"><code data-trim data-noescape class="language-bash">
+        <!-- ============ 11 ============ -->
+        <section id="install-windows">
+          <h2>PHP installieren – Windows</h2>
+          <div class="content">
+            <ol class="text-sm">
+              <li>
+                Auf
+                <a href="https://windows.php.net/download/">windows.php.net</a>
+                die aktuelle <strong>Zip</strong>-Version unter «Thread Safe»
+                herunterladen
+              </li>
+              <li>
+                Das Zip in einen einfachen Ordner entpacken, zum Beispiel
+                <code>C:\php</code>
+              </li>
+              <li>
+                In der Windows-Suche «Umgebungsvariablen bearbeiten» öffnen
+              </li>
+              <li>
+                Bei <em>Path</em> auf <em>Bearbeiten</em>, dann <em>Neu</em>,
+                dann <code>C:\php</code> eintragen
+              </li>
+              <li>
+                Ein <strong>neues</strong> PowerShell-Fenster öffnen und
+                <code>php -v</code> eingeben
+              </li>
+            </ol>
+            <div class="callout callout-blue">
+              <p>
+                Der PATH sagt Windows, wo es den Befehl <code>php</code> suchen
+                soll.
+              </p>
+            </div>
+            <p class="text-sm text-muted mt-1">
+              Alternative: XAMPP installieren, das bringt PHP fertig mit.
+            </p>
+          </div>
+        </section>
+
+        <!-- ============ 12 ============ -->
+        <section id="server-starten">
+          <h2>Server starten</h2>
+          <div class="content">
+            <span class="code-label"
+              >1. Kursordner in PhpStorm öffnen und das Terminal starten</span
+            >
+            <div class="output">View → Tool Windows → Terminal</div>
+            <p class="text-sm">
+              Kürzel: <code>⌥</code> + <code>F12</code>, unter Windows
+              <code>Alt</code> + <code>F12</code>.
+            </p>
+            <p class="text-sm">Das Terminal startet direkt im Kursordner.</p>
+            <span class="code-label mt-1">2. Server starten</span>
+            <pre
+              class="code-sm"
+            ><code data-trim data-noescape class="language-bash">
 php -S localhost:8000
           </code></pre>
-          <p class="text-sm">Der Server läuft, solange das Terminal offen ist – beenden mit
-            <code>Ctrl</code> + <code>C</code>.</p>
-        </div>
-      </section>
+            <p class="text-sm">
+              Der Server läuft, solange das Terminal offen ist – beenden mit
+              <code>Ctrl</code> + <code>C</code>.
+            </p>
+          </div>
+        </section>
 
-      <!-- ============ 13 ============ -->
-      <section id="befehl-verstehen">
-        <h2>Was der Befehl bedeutet</h2>
-        <div class="content">
-          <pre class="code-lg"><code data-trim data-noescape class="language-bash">
+        <!-- ============ 13 ============ -->
+        <section id="befehl-verstehen">
+          <h2>Was der Befehl bedeutet</h2>
+          <div class="content">
+            <pre
+              class="code-lg"
+            ><code data-trim data-noescape class="language-bash">
 php -S localhost:8000
           </code></pre>
-          <ul class="list-tight">
-            <li><code>php</code> ist das PHP-Programm</li>
-            <li><code>-S</code> startet den eingebauten Testserver, mit grossem S</li>
-            <li><code>localhost</code> ist euer eigener Rechner</li>
-            <li><code>8000</code> ist die Portnummer, also die Tür</li>
-          </ul>
-          <div class="callout callout-blue">
-            <p>Ist die Tür belegt, nehmt ihr eine andere: <code>php -S localhost:8080</code>.</p>
+            <ul class="list-tight">
+              <li><code>php</code> ist das PHP-Programm</li>
+              <li>
+                <code>-S</code> startet den eingebauten Testserver, mit grossem
+                S
+              </li>
+              <li><code>localhost</code> ist euer eigener Rechner</li>
+              <li><code>8000</code> ist die Portnummer, also die Tür</li>
+            </ul>
+            <div class="callout callout-blue">
+              <p>
+                Ist die Tür belegt, nehmt ihr eine andere:
+                <code>php -S localhost:8080</code>.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ============ 14 ============ -->
-      <section id="browser">
-        <h2>Im Browser aufrufen</h2>
-        <div class="content">
-          <span class="code-label">Startseite des Ordners</span>
-          <div class="output">http://localhost:8000</div>
-          <span class="code-label">Datei in einem Unterordner</span>
-          <div class="output">http://localhost:8000/00_hallo_php/index.php</div>
-          <div class="callout callout-orange">
-            <p>Öffnet die Datei nie per Doppelklick.</p>
-            <p>Dann steht <code>file://</code> in der Adresszeile und ihr seht den Code statt das
-              Ergebnis.</p>
+        <!-- ============ 14 ============ -->
+        <section id="browser">
+          <h2>Im Browser aufrufen</h2>
+          <div class="content">
+            <span class="code-label">Startseite des Ordners</span>
+            <div class="output">http://localhost:8000</div>
+            <span class="code-label">Datei in einem Unterordner</span>
+            <div class="output">
+              http://localhost:8000/00_hallo_php/index.php
+            </div>
+            <div class="callout callout-orange">
+              <p>Öffnet die Datei nie per Doppelklick.</p>
+              <p>
+                Dann steht <code>file://</code> in der Adresszeile und ihr seht
+                den Code statt das Ergebnis.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ============ 15 ============ -->
-      <section id="fehler">
-        <h2>Wenn es nicht läuft</h2>
-        <div class="content">
-          <table>
-            <tr>
-              <th style="width: 44%;">Meldung oder Symptom</th>
-              <th>Ursache</th>
-            </tr>
-            <tr><td><code>command not found</code></td><td>PHP ist nicht installiert oder nicht im PATH</td></tr>
-            <tr><td><code>Failed to listen on ...:8000</code></td><td>Der Port ist belegt, andere Nummer nehmen</td></tr>
-            <tr><td>Browser zeigt den PHP-Code</td><td>Die Datei wurde per Doppelklick geöffnet</td></tr>
-            <tr><td><code>Not Found</code></td><td>Falscher Dateiname oder falscher Startordner</td></tr>
-            <tr><td>Nichts passiert nach dem Speichern</td><td>Im Browser neu laden, nicht den Server neu starten</td></tr>
-          </table>
-          <p class="text-sm mt-1">Bleibt es dabei, meldet euch sofort – ohne laufenden Server geht es nicht
-            weiter.</p>
-        </div>
-      </section>
-
+        <!-- ============ 15 ============ -->
+        <section id="fehler">
+          <h2>Wenn es nicht läuft</h2>
+          <div class="content">
+            <table>
+              <tr>
+                <th style="width: 44%">Meldung oder Symptom</th>
+                <th>Ursache</th>
+              </tr>
+              <tr>
+                <td><code>command not found</code></td>
+                <td>PHP ist nicht installiert oder nicht im PATH</td>
+              </tr>
+              <tr>
+                <td><code>Failed to listen on ...:8000</code></td>
+                <td>Der Port ist belegt, andere Nummer nehmen</td>
+              </tr>
+              <tr>
+                <td>Browser zeigt den PHP-Code</td>
+                <td>Die Datei wurde per Doppelklick geöffnet</td>
+              </tr>
+              <tr>
+                <td><code>Not Found</code></td>
+                <td>Falscher Dateiname oder falscher Startordner</td>
+              </tr>
+              <tr>
+                <td>Nichts passiert nach dem Speichern</td>
+                <td>Im Browser neu laden, nicht den Server neu starten</td>
+              </tr>
+            </table>
+            <p class="text-sm mt-1">
+              Bleibt es dabei, meldet euch sofort – ohne laufenden Server geht
+              es nicht weiter.
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script>
-    Reveal.initialize({
-      width: 1280,
-      height: 720,
-      margin: 0,
-      controls: true,
-      progress: true,
-      slideNumber: 'c',
-      hash: true,
-      transition: 'slide',
-      center: false,
-      plugins: [ RevealHighlight ]
-    });
-  </script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1280,
+        height: 720,
+        margin: 0,
+        controls: true,
+        progress: true,
+        slideNumber: "c",
+        hash: true,
+        transition: "slide",
+        center: false,
+        plugins: [RevealHighlight],
+      });
+    </script>
+  </body>
 </html>

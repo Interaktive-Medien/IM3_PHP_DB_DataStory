@@ -386,7 +386,7 @@ function karte(eintrag, aufTag = false) {
     istTermin ? el('span', { class: 'termin-label', text: 'Pflichttermin' }) : null,
     el('span', { class: 'titel', text: eintrag.titel }),
     link
-      ? el('a', { class: 'link', href: link, target: '_blank', rel: 'noopener', draggable: 'false', title: 'Material öffnen', text: 'Link' })
+      ? el('a', { class: 'link', href: link, target: '_blank', rel: 'noopener', draggable: 'false', title: 'Material öffnen', 'data-emoji': eintrag.emoji, text: 'Link' })
       : null,
     eintrag.notiz ? el('p', { class: 'notiz', text: eintrag.notiz }) : null),
   eintrag.dauer ? el('span', { class: 'dauer', text: `${eintrag.dauer}'` }) : null,

@@ -73,8 +73,7 @@ Datengrundlage bis zur Story.
 
 ## 3. Technisches Setup
 
-Ihr entwickelt zuerst auf eurem eigenen Rechner und zieht mit der Datenbank auf
-einen Webserver um:
+Ihr entwickelt zuerst auf eurem eigenen Rechner und zieht auf einen Webserver um, sobald die Datenbank ins Spiel kommt:
 
 - [Lokaler PHP-Server](theorie/00_lokaler_php_server/index.html): richten wir
   ganz am Anfang ein, bevor die PHP-Grundlagen starten. Damit arbeitet ihr bis

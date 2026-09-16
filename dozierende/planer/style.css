@@ -566,7 +566,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
   .tag-liste .karte:not(.termin, .pause) {
     display: grid;
-    grid-template-columns: auto auto auto minmax(0, 1fr);
+    grid-template-columns: auto auto minmax(0, 1fr);
     align-items: center;
     column-gap: 7px;
   }
@@ -575,10 +575,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .tag-liste .karte:not(.termin, .pause) .haken { grid-column: 1; grid-row: 1 / span 3; }
   .tag-liste .karte:not(.termin, .pause) .titel { grid-column: 2 / -1; grid-row: 1; }
   .tag-liste .karte:not(.termin, .pause) .chip { grid-column: 2; grid-row: 2; width: 24px; height: 24px; margin-top: 5px; font-size: 14px; border-radius: 7px; }
-  .tag-liste .karte:not(.termin, .pause) .link { grid-column: 3; grid-row: 2; margin: 5px 0 0; justify-self: start; }
-  .tag-liste .karte:not(.termin, .pause) .dauer { grid-column: 4; grid-row: 2; margin-top: 5px; justify-self: start; }
-  .tag-liste .karte:not(.termin, .pause):not(:has(.link)) .dauer { grid-column: 3; }
+  .tag-liste .karte:not(.termin, .pause) .link { grid-column: 2; grid-row: 2; margin: 5px 0 0; justify-self: start; }
+  .tag-liste .karte:not(.termin, .pause) .dauer { grid-column: 3; grid-row: 2; margin-top: 5px; justify-self: start; }
   .tag-liste .karte:not(.termin, .pause) .notiz { grid-column: 2 / -1; grid-row: 3; }
+
+  /* Versuch: Mit Link steht das Emoji im Knopf statt als eigener Chip. */
+  .tag-liste .karte:not(.termin, .pause):has(.link) .chip { display: none; }
+  .tag-liste .karte:not(.termin, .pause) .link::before { content: attr(data-emoji); font-size: 13px; }
 }
 
 .tag-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
