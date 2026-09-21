@@ -1,675 +1,977 @@
 <!doctype html>
 <html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IM3 – Kickoff</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IM3 – Kickoff</title>
 
-  <!-- Reveal.js core -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <!-- Reveal.js core -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+    />
 
-  <!-- Font Awesome fuer Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome fuer Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-  <!-- FHGR Foliendesign (gemeinsam fuer alle Foliensaetze) -->
-  <link rel="stylesheet" href="../_foliendesign/fhgr-slides.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="reveal">
-    <div class="slides">
-
-      <!-- =========================================================
+    <!-- FHGR Foliendesign (gemeinsam fuer alle Foliensaetze) -->
+    <link rel="stylesheet" href="../_foliendesign/fhgr-slides.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- =========================================================
            TITEL
            ========================================================= -->
 
-      <section id="title" class="title-slide" data-state="is-title">
-        <h1>Kickoff</h1>
-        <div class="rule"></div>
-        <p>Interaktive Medien 3</p>
-        <p class="sub">nick.schneeberger@fhgr.ch</p>
-      </section>
+        <section id="title" class="title-slide" data-state="is-title">
+          <h1>Kickoff</h1>
+          <div class="rule"></div>
+          <p>Interaktive Medien 3</p>
+          <p class="sub">nick.schneeberger@fhgr.ch</p>
+        </section>
 
-      <!-- =========================================================
+        <!-- =========================================================
            KAPITEL 1 – WO WIR HERKOMMEN
            ========================================================= -->
 
-      <section id="divider-herkunft" class="section-divider" data-state="is-section-divider">
-        <h1>Rückblick</h1>
-      </section>
+        <section
+          id="divider-herkunft"
+          class="section-divider"
+          data-state="is-section-divider"
+        >
+          <h1>Rückblick</h1>
+        </section>
 
-      <section id="was-ihr-koennt">
-        <h2>Was wir schon kennen</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch;">
-            <div class="box fragment">
-              <h3>HTML</h3>
-              <p class="text-sm mb-0">Der Aufbau einer Seite.</p>
+        <section id="was-ihr-koennt">
+          <h2>Was wir schon kennen</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                align-items: stretch;
+              "
+            >
+              <div class="box fragment">
+                <h3>HTML</h3>
+                <p class="text-sm mb-0">Der Aufbau einer Seite.</p>
+              </div>
+              <div class="box fragment">
+                <h3>CSS</h3>
+                <p class="text-sm mb-0">Ihr Aussehen.</p>
+              </div>
+              <div class="box fragment">
+                <h3>JavaScript</h3>
+                <p class="text-sm mb-0">Interaktivität.</p>
+              </div>
+              <div class="box fragment">
+                <h3>fetch()</h3>
+                <p class="text-sm mb-0">Daten von einer API laden.</p>
+              </div>
             </div>
-            <div class="box fragment">
-              <h3>CSS</h3>
-              <p class="text-sm mb-0">Ihr Aussehen.</p>
-            </div>
-            <div class="box fragment">
-              <h3>JavaScript</h3>
-              <p class="text-sm mb-0">Interaktivität.</p>
-            </div>
-            <div class="box fragment">
-              <h3>fetch()</h3>
-              <p class="text-sm mb-0">Daten von einer API laden.</p>
+            <div class="callout callout-blue mt-2 fragment">
+              <p>Alles davon läuft im Browser und heisst zusammen Frontend.</p>
             </div>
           </div>
-          <div class="callout callout-blue mt-2 fragment">
-            <p>Alles davon läuft im Browser und heisst zusammen Frontend.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="bisher-fremde-api">
-        <h2>Frontend endet hier</h2>
-        <div class="content">
-          <div class="flow">
-            <div class="flow-step is-active">
-              <span class="flow-title">Euer Frontend</span>
-              <span class="flow-sub">HTML, CSS, JavaScript</span>
+        <section id="bisher-fremde-api">
+          <h2>Frontend endet hier</h2>
+          <div class="content">
+            <div class="flow">
+              <div class="flow-step is-active">
+                <span class="flow-title">Euer Frontend</span>
+                <span class="flow-sub">HTML, CSS, JavaScript</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <span class="flow-title">fetch()</span>
+                <span class="flow-sub">eine Anfrage im Browser</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <span class="flow-title">Fremde API</span>
+                <span class="flow-sub">liefert JSON zurück</span>
+              </div>
             </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-              <span class="flow-title">fetch()</span>
-              <span class="flow-sub">eine Anfrage im Browser</span>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-              <span class="flow-title">Fremde API</span>
-              <span class="flow-sub">liefert JSON zurück</span>
+            <p class="mt-2">
+              Die Daten hat jemand anderes gesammelt, geprüft und gespeichert.
+            </p>
+            <div class="callout callout-orange">
+              <p>Verschwindet die API, verschwindet auch euer Projekt.</p>
             </div>
           </div>
-          <p class="mt-2">Die Daten hat jemand anderes gesammelt, geprüft und gespeichert.</p>
-          <div class="callout callout-orange">
-            <p>Verschwindet die API, verschwindet auch euer Projekt.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="neu-eigenes-backend">
-        <h2>Neu: die andere Seite gehört euch</h2>
-        <div class="content">
-          <div class="flow">
-            <div class="flow-step">
-              <span class="flow-title">Datenquelle</span>
-              <span class="flow-sub">API, JSON oder CSV</span>
+        <section id="neu-eigenes-backend">
+          <h2>Neu: die andere Seite gehört euch</h2>
+          <div class="content">
+            <div class="flow">
+              <div class="flow-step">
+                <span class="flow-title">Datenquelle</span>
+                <span class="flow-sub">API, JSON oder CSV</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step is-active">
+                <span class="flow-title">Euer PHP-Server</span>
+                <span class="flow-sub">holt und säubert</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step is-active">
+                <span class="flow-title">Eure Datenbank</span>
+                <span class="flow-sub">behält die Werte</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <span class="flow-title">Euer Frontend</span>
+                <span class="flow-sub">zeigt die Grafik</span>
+              </div>
             </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step is-active">
-              <span class="flow-title">Euer PHP-Server</span>
-              <span class="flow-sub">holt und säubert</span>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step is-active">
-              <span class="flow-title">Eure Datenbank</span>
-              <span class="flow-sub">behält die Werte</span>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-              <span class="flow-title">Euer Frontend</span>
-              <span class="flow-sub">zeigt die Grafik</span>
+            <p class="mt-2">
+              Die beiden markierten Schritte sind neu und heissen zusammen
+              Backend.
+            </p>
+            <div class="callout callout-green">
+              <p>
+                Ab jetzt gehören euch die Daten, weil ihr sie selbst speichert.
+              </p>
             </div>
           </div>
-          <p class="mt-2">Die beiden markierten Schritte sind neu und heissen zusammen Backend.</p>
-          <div class="callout callout-green">
-            <p>Ab jetzt gehören euch die Daten, weil ihr sie selbst speichert.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- =========================================================
+        <!-- =========================================================
            KAPITEL 2 – ZIEL DIESES SEMESTERS
            ========================================================= -->
 
-      <section id="divider-ziel" class="section-divider" data-state="is-section-divider">
-        <h1>Ziel: eine Data-Story</h1>
-        <p>Eine Geschichte, die ohne Daten nicht erzählbar wäre.</p>
-      </section>
+        <section
+          id="divider-ziel"
+          class="section-divider"
+          data-state="is-section-divider"
+        >
+          <h1>Ziel: eine Data-Story</h1>
+          <p>Eine Geschichte, die ohne Daten nicht erzählbar wäre.</p>
+        </section>
 
-      <section id="beispiel-1kwh">
-        <h2>Wie viel Strom exportiert die Schweiz gerade?</h2>
-        <div class="content">
-          <figure>
-            <a href="https://1kwh.ch" target="_blank" rel="noopener">
-              <img class="shot" src="bilder/data-story-1kwh.jpg"
-                   alt="Liniendiagramm der Schweizer Stromexporte nach Deutschland, Frankreich, Italien und Österreich">
-            </a>
-            <figcaption>1kwh.ch – die Zahlen kommen alle zehn Sekunden von Swissgrid und werden laufend gesammelt.</figcaption>
-          </figure>
-        </div>
-      </section>
+        <section id="beispiel-1kwh">
+          <h2>Wie viel Strom exportiert die Schweiz gerade?</h2>
+          <div class="content">
+            <figure>
+              <a href="https://1kwh.ch" target="_blank" rel="noopener">
+                <img
+                  class="shot"
+                  src="bilder/data-story-1kwh.jpg"
+                  alt="Liniendiagramm der Schweizer Stromexporte nach Deutschland, Frankreich, Italien und Österreich"
+                />
+              </a>
+              <figcaption>
+                1kwh.ch – die Zahlen kommen alle zehn Sekunden von Swissgrid und
+                werden laufend gesammelt.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
 
-      <section id="divider-workshop" class="section-divider" data-state="is-section-divider">
-        <h1>Workshop<br>Data-Storys</h1>
-      </section>
+        <section
+          id="divider-workshop"
+          class="section-divider"
+          data-state="is-section-divider"
+        >
+          <h1>Workshop<br />Data-Storys</h1>
+        </section>
 
-      <!-- =========================================================
+        <!-- =========================================================
            KAPITEL 3 – AUSWERTUNG DES WORKSHOPS
            ========================================================= -->
 
-      <section id="workshop-posten">
-        <h2>Fünf Data-Storys im Raum</h2>
-        <div class="content">
-          <div class="posten-galerie">
-            <figure>
-              <img src="bilder/posten-1.jpg"
-                   alt="Karte von San Francisco mit den Standorten der Parkbussen-Kontrolleure">
-              <figcaption><span class="nr">1</span>Wo die Parkbussen herkommen</figcaption>
-            </figure>
-            <figure>
-              <img src="bilder/posten-2.jpg"
-                   alt="Jahreskalender mit allen Tagen, an denen sich jemand mit welcher Person getroffen hat">
-              <figcaption><span class="nr">2</span>My Social Year 2024</figcaption>
-            </figure>
-            <figure>
-              <img src="bilder/posten-3.jpg"
-                   alt="Streudiagramm von Preis und Bewertung für Weine mit Tieren auf dem Etikett">
-              <figcaption><span class="nr">3</span>The Pour-igin of Species</figcaption>
-            </figure>
-            <figure>
-              <img src="bilder/posten-4.jpg"
-                   alt="Bewegungsprofil einzelner Handys über eine Woche auf einer Schweizer Karte">
-              <figcaption><span class="nr">4</span>Der Spion in unseren Handys</figcaption>
-            </figure>
-            <figure>
-              <img src="bilder/posten-5.jpg"
-                   alt="Liniendiagramm der Schweizer Stromexporte in die vier Nachbarländer">
-              <figcaption><span class="nr">5</span>Stromexporte der Schweiz</figcaption>
-            </figure>
+        <section id="workshop-posten">
+          <h2>Fünf Data-Storys im Raum</h2>
+          <div class="content">
+            <div class="posten-galerie">
+              <figure>
+                <img
+                  src="bilder/posten-1.jpg"
+                  alt="Karte von San Francisco mit den Standorten der Parkbussen-Kontrolleure"
+                />
+                <figcaption>
+                  <span class="nr">1</span>Wo die Parkbussen herkommen
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="bilder/posten-2.jpg"
+                  alt="Jahreskalender mit allen Tagen, an denen sich jemand mit welcher Person getroffen hat"
+                />
+                <figcaption>
+                  <span class="nr">2</span>My Social Year 2024
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="bilder/posten-3.jpg"
+                  alt="Streudiagramm von Preis und Bewertung für Weine mit Tieren auf dem Etikett"
+                />
+                <figcaption>
+                  <span class="nr">3</span>The Pour-igin of Species
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="bilder/posten-4.jpg"
+                  alt="Bewegungsprofil einzelner Handys über eine Woche auf einer Schweizer Karte"
+                />
+                <figcaption>
+                  <span class="nr">4</span>Der Spion in unseren Handys
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="bilder/posten-5.jpg"
+                  alt="Liniendiagramm der Schweizer Stromexporte in die vier Nachbarländer"
+                />
+                <figcaption>
+                  <span class="nr">5</span>Stromexporte der Schweiz
+                </figcaption>
+              </figure>
+            </div>
+            <div class="auftrag">
+              <p class="list-intro">
+                Bewegt euch zu zweit durch den Raum und notiert pro Posten zwei
+                Dinge:
+              </p>
+              <ul class="list-tight">
+                <li>Welche Daten stecken dahinter?</li>
+                <li>
+                  Woher stammen sie, und über welchen Zeitraum wurden sie
+                  gesammelt?
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="auftrag">
-            <p class="list-intro">Bewegt euch zu zweit durch den Raum und notiert pro Posten zwei Dinge:</p>
-            <ul class="list-tight">
-              <li>Welche Daten stecken dahinter?</li>
-              <li>Woher stammen sie, und über welchen Zeitraum wurden sie gesammelt?</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="auswertung-workshop">
-        <h2>Resultate Workshop</h2>
-        <div class="content">
-          <table class="resultate">
-            <tr>
-              <th style="width: 21%;">Data-Story</th>
-              <th style="width: 33%;">Welche Daten</th>
-              <th style="width: 24%;">Woher</th>
-              <th>Über welchen Zeitraum</th>
-            </tr>
-            <tr class="fragment">
-              <td><span class="nr">1</span>Parkbussen</td>
-              <td>Kontrolleur, Adresse, Zeit, Bussenart, Betrag</td>
-              <td>Ticketsystem der Stadt, ausgelesen</td>
-              <td>wenige Stunden an einem Tag</td>
-            </tr>
-            <tr class="fragment">
-              <td><span class="nr">2</span>My Social Year</td>
-              <td>Datum, Person, Begegnung ja oder nein</td>
-              <td>selbst geführt</td>
-              <td>ein ganzes Kalenderjahr</td>
-            </tr>
-            <tr class="fragment">
-              <td><span class="nr">3</span>Pour-igin</td>
-              <td>Wein, Preis, Bewertung, Rebsorte, erkanntes Tier</td>
-              <td>Vivino, Tiere per Bilderkennung ergänzt</td>
-              <td>einmalige Sammlung</td>
-            </tr>
-            <tr class="fragment">
-              <td><span class="nr">4</span>Handy-Ortung</td>
-              <td>Geräte-Kennung, Koordinaten, Zeitstempel</td>
-              <td>Apps und Datenhändler, gekauft</td>
-              <td>rund eine Woche</td>
-            </tr>
-            <tr class="fragment">
-              <td><span class="nr">5</span>Stromexporte</td>
-              <td>Zeitpunkt, Nachbarland, Leistung in MW</td>
-              <td>Swissgrid</td>
-              <td>laufend, alle zehn Sekunden</td>
-            </tr>
-          </table>
-          <div class="callout callout-blue fragment">
-            <p>Hinter jeder dieser Grafiken steht eine Tabelle.</p>
+        <section id="auswertung-workshop">
+          <h2>Resultate Workshop</h2>
+          <div class="content">
+            <table class="resultate">
+              <tr>
+                <th style="width: 21%">Data-Story</th>
+                <th style="width: 33%">Welche Daten</th>
+                <th style="width: 24%">Woher</th>
+                <th>Über welchen Zeitraum</th>
+              </tr>
+              <tr class="fragment">
+                <td><span class="nr">1</span>Parkbussen</td>
+                <td>Kontrolleur, Adresse, Zeit, Bussenart, Betrag</td>
+                <td>Ticketsystem der Stadt, ausgelesen</td>
+                <td>wenige Stunden an einem Tag</td>
+              </tr>
+              <tr class="fragment">
+                <td><span class="nr">2</span>My Social Year</td>
+                <td>Datum, Person, Begegnung ja oder nein</td>
+                <td>selbst geführt</td>
+                <td>ein ganzes Kalenderjahr</td>
+              </tr>
+              <tr class="fragment">
+                <td><span class="nr">3</span>Pour-igin</td>
+                <td>Wein, Preis, Bewertung, Rebsorte, erkanntes Tier</td>
+                <td>Vivino, Tiere per Bilderkennung ergänzt</td>
+                <td>einmalige Sammlung</td>
+              </tr>
+              <tr class="fragment">
+                <td><span class="nr">4</span>Handy-Ortung</td>
+                <td>Geräte-Kennung, Koordinaten, Zeitstempel</td>
+                <td>Apps und Datenhändler, gekauft</td>
+                <td>rund eine Woche</td>
+              </tr>
+              <tr class="fragment">
+                <td><span class="nr">5</span>Stromexporte</td>
+                <td>Zeitpunkt, Nachbarland, Leistung in MW</td>
+                <td>Swissgrid</td>
+                <td>laufend, alle zehn Sekunden</td>
+              </tr>
+            </table>
+            <div class="callout callout-blue fragment">
+              <p>Hinter jeder dieser Grafiken steht eine Tabelle.</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- =========================================================
+        <!-- =========================================================
            KAPITEL 4 – KURSAUFBAU
            ========================================================= -->
 
-      <section id="divider-kursaufbau" class="section-divider" data-state="is-section-divider">
-        <h1>Kursaufbau</h1>
-      </section>
+        <section
+          id="divider-kursaufbau"
+          class="section-divider"
+          data-state="is-section-divider"
+        >
+          <h1>Kursaufbau</h1>
+        </section>
 
-      <section id="die-kette">
-        <h2>Wie kommen wir zur Data-Story?</h2>
-        <div class="content">
-          <div class="flow">
-            <div class="flow-step">
-              <span class="flow-title">Extract</span>
-              <span class="flow-sub">Daten beschaffen</span>
+        <section id="die-kette">
+          <h2>Wie kommen wir zur Data-Story?</h2>
+          <div class="content">
+            <div class="flow">
+              <div class="flow-step">
+                <span class="flow-title">Extract</span>
+                <span class="flow-sub">Daten beschaffen</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <span class="flow-title">Transform</span>
+                <span class="flow-sub">Daten bereinigen</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <span class="flow-title">Load</span>
+                <span class="flow-sub">Daten speichern</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <span class="flow-title">Unload</span>
+                <span class="flow-sub">Daten ausgeben</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <span class="flow-title">Frontend</span>
+                <span class="flow-sub">Daten zeigen</span>
+              </div>
             </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-              <span class="flow-title">Transform</span>
-              <span class="flow-sub">Daten bereinigen</span>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-              <span class="flow-title">Load</span>
-              <span class="flow-sub">Daten speichern</span>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-              <span class="flow-title">Unload</span>
-              <span class="flow-sub">Daten ausgeben</span>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-              <span class="flow-title">Frontend</span>
-              <span class="flow-sub">Daten zeigen</span>
+            <p class="mt-2">
+              Jeder Schritt ist eine eigene PHP-Datei mit genau einer Aufgabe.
+            </p>
+            <div class="callout callout-blue">
+              <p>
+                Extract, Transform und Load werden in der Praxis so genannt und
+                zu <strong>ETL</strong> abgekürzt.
+              </p>
+              <p>Unload ist unser eigener Name für den Schritt danach.</p>
             </div>
           </div>
-          <p class="mt-2">Jeder Schritt ist eine eigene PHP-Datei mit genau einer Aufgabe.</p>
-          <div class="callout callout-blue">
-            <p>Extract, Transform und Load werden in der Praxis so genannt und zu <strong>ETL</strong> abgekürzt.</p>
-            <p>Unload ist unser eigener Name für den Schritt danach.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="kursaufbau">
-        <h2>Kursaufbau</h2>
-        <div class="content">
-          <div class="kursaufbau">
-            <div class="box fragment">
-              <span class="stufe">A</span>
-              <span class="name">PHP Basics</span>
-              <span class="was">Variablen, Funktionen, Arrays und Schleifen</span>
+        <section id="kursaufbau">
+          <h2>Kursaufbau</h2>
+          <div class="content">
+            <div class="kursaufbau">
+              <div class="box fragment">
+                <span class="stufe">A</span>
+                <span class="name">PHP Basics</span>
+                <span class="was"
+                  >Variablen, Funktionen, Arrays und Schleifen</span
+                >
+              </div>
+              <div class="box fragment">
+                <span class="stufe">B</span>
+                <span class="name">Extract</span>
+                <span class="was">Daten aus JSON, API und CSV einlesen</span>
+              </div>
+              <div class="box fragment">
+                <span class="stufe">C</span>
+                <span class="name">Transform</span>
+                <span class="was">Daten säubern und in Form bringen</span>
+              </div>
+              <div class="box fragment">
+                <span class="stufe">D</span>
+                <span class="name">Load</span>
+                <span class="was">Daten in der Datenbank speichern</span>
+              </div>
+              <div class="box fragment">
+                <span class="stufe">E</span>
+                <span class="name">Unload</span>
+                <span class="was"
+                  >Daten als eigenen JSON-Endpunkt ausgeben</span
+                >
+              </div>
+              <div class="box fragment">
+                <span class="stufe">F</span>
+                <span class="name">Visualisierung</span>
+                <span class="was"
+                  >Aus den Daten eine Grafik und eine Story machen</span
+                >
+              </div>
             </div>
-            <div class="box fragment">
-              <span class="stufe">B</span>
-              <span class="name">Extract</span>
-              <span class="was">Daten aus JSON, API und CSV einlesen</span>
-            </div>
-            <div class="box fragment">
-              <span class="stufe">C</span>
-              <span class="name">Transform</span>
-              <span class="was">Daten säubern und in Form bringen</span>
-            </div>
-            <div class="box fragment">
-              <span class="stufe">D</span>
-              <span class="name">Load</span>
-              <span class="was">Daten in der Datenbank speichern</span>
-            </div>
-            <div class="box fragment">
-              <span class="stufe">E</span>
-              <span class="name">Unload</span>
-              <span class="was">Daten als eigenen JSON-Endpunkt ausgeben</span>
-            </div>
-            <div class="box fragment">
-              <span class="stufe">F</span>
-              <span class="name">Visualisierung</span>
-              <span class="was">Aus den Daten eine Grafik und eine Story machen</span>
+            <div class="callout callout-blue fragment">
+              <p>
+                Alle Folien, Übungen und Cheatsheets liegen im
+                <a
+                  href="https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory"
+                  target="_blank"
+                  rel="noopener"
+                  >GitHub-Repo des Kurses</a
+                >.
+              </p>
             </div>
           </div>
-          <div class="callout callout-blue fragment">
-            <p>Alle Folien, Übungen und Cheatsheets liegen im <a href="https://github.com/Interaktive-Medien/IM3_PHP_DB_DataStory" target="_blank" rel="noopener">GitHub-Repo des Kurses</a>.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="blockaufbau">
-        <h2>Wie ein Block abläuft</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: start;">
-            <div class="fragment">
-              <span class="eyebrow">Immer dieselben Bausteine</span>
-              <ul class="icon-list list-tight">
-                <li>📕 Theorie-Input</li>
-                <li>🧑‍🏫 Code-Along</li>
-                <li>💻 Digitale Übung</li>
-                <li>📝 Analoge Übung</li>
-                <li>🛠️ Tooling</li>
-                <li>🃏 Story-Karten</li>
-                <li>🎨 Projektarbeit</li>
-                <li>✅ Meilenstein</li>
-              </ul>
+        <section id="blockaufbau">
+          <h2>Wie ein Block abläuft</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 0.9fr 1.1fr;
+                gap: 40px;
+                align-items: start;
+              "
+            >
+              <div class="fragment">
+                <span class="eyebrow">Immer dieselben Bausteine</span>
+                <ul class="icon-list list-tight">
+                  <li>📕 Theorie-Input</li>
+                  <li>🧑‍🏫 Code-Along</li>
+                  <li>💻 Digitale Übung</li>
+                  <li>📝 Analoge Übung</li>
+                  <li>🛠️ Tooling</li>
+                  <li>🃏 Story-Karten</li>
+                  <li>🎨 Projektarbeit</li>
+                  <li>✅ Meilenstein</li>
+                </ul>
+              </div>
+              <div class="fragment">
+                <span class="eyebrow">Beispiel Extract</span>
+                <ul class="icon-list list-tight">
+                  <li>💻 Daten finden und herunterladen</li>
+                  <li>📕 Theorie: Extract</li>
+                  <li>🧑‍🏫 JSON lesen, dann eine API lesen</li>
+                  <li>📝 Fetch-Helper auf Papier durchspielen</li>
+                  <li>🧑‍🏫 CSV lesen, dann die Sensorbox lesen</li>
+                  <li>🃏 Karten zu Datenquellen</li>
+                  <li>✅ Datensatz gefunden und geprüft</li>
+                  <li>🎨 Datenvertrag und eigener Extract</li>
+                  <li>✅ Erster Extract und Datenvertrag stehen</li>
+                </ul>
+              </div>
             </div>
-            <div class="fragment">
-              <span class="eyebrow">Beispiel Extract</span>
-              <ul class="icon-list list-tight">
-                <li>💻 Daten finden und herunterladen</li>
-                <li>📕 Theorie: Extract</li>
-                <li>🧑‍🏫 JSON lesen, dann eine API lesen</li>
-                <li>📝 Fetch-Helper auf Papier durchspielen</li>
-                <li>🧑‍🏫 CSV lesen, dann die Sensorbox lesen</li>
-                <li>🃏 Karten zu Datenquellen</li>
-                <li>✅ Datensatz gefunden und geprüft</li>
-                <li>🎨 Datenvertrag und eigener Extract</li>
-                <li>✅ Erster Extract und Datenvertrag stehen</li>
-              </ul>
+            <div class="callout callout-gray fragment">
+              <p>
+                Auf jeden Input folgt möglichst schnell etwas zum Selbermachen.
+              </p>
             </div>
           </div>
-          <div class="callout callout-gray fragment">
-            <p>Auf jeden Input folgt möglichst schnell etwas zum Selbermachen.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- =========================================================
+        <!-- =========================================================
            KAPITEL 5 – PROJEKT
            ========================================================= -->
 
-      <section id="divider-projekt-start" class="section-divider" data-state="is-section-divider">
-        <h1>Projekt</h1>
-      </section>
+        <section
+          id="divider-projekt-start"
+          class="section-divider"
+          data-state="is-section-divider"
+        >
+          <h1>Projekt</h1>
+        </section>
 
-      <section id="projekt-in-einem-satz">
-        <h2>Der Auftrag in einem Satz</h2>
-        <div class="content" style="justify-content: center;">
-          <p class="big-statement">Ihr beantwortet eine Frage mit Daten, die ihr selbst beschafft, gespeichert und sichtbar gemacht habt.</p>
-        </div>
-      </section>
+        <section id="projekt-in-einem-satz">
+          <h2>Der Auftrag in einem Satz</h2>
+          <div class="content" style="justify-content: center">
+            <p class="big-statement">
+              Ihr beantwortet eine Frage mit Daten, die ihr selbst beschafft,
+              gespeichert und sichtbar gemacht habt.
+            </p>
+          </div>
+        </section>
 
-      <section id="was-ist-data-story">
-        <h2>Vier Bestandteile</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch;">
-            <div class="box">
-              <h3>Daten</h3>
-              <p class="text-sm mb-0">Zahlen, die eine Frage wirklich beantworten können.</p>
+        <section id="was-ist-data-story">
+          <h2>Vier Bestandteile</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                align-items: stretch;
+              "
+            >
+              <div class="box">
+                <h3>Daten</h3>
+                <p class="text-sm mb-0">
+                  Zahlen, die eine Frage wirklich beantworten können.
+                </p>
+              </div>
+              <div class="box">
+                <h3>Zeit</h3>
+                <p class="text-sm mb-0">
+                  Ein Zeitraum, über den sich etwas verändert.
+                </p>
+              </div>
+              <div class="box">
+                <h3>Darstellung</h3>
+                <p class="text-sm mb-0">
+                  Eine Grafik, in der man die Veränderung sieht.
+                </p>
+              </div>
+              <div class="box">
+                <h3>Einbettung</h3>
+                <p class="text-sm mb-0">
+                  Text, der sagt, warum das jemanden angeht.
+                </p>
+              </div>
             </div>
-            <div class="box">
-              <h3>Zeit</h3>
-              <p class="text-sm mb-0">Ein Zeitraum, über den sich etwas verändert.</p>
-            </div>
-            <div class="box">
-              <h3>Darstellung</h3>
-              <p class="text-sm mb-0">Eine Grafik, in der man die Veränderung sieht.</p>
-            </div>
-            <div class="box">
-              <h3>Einbettung</h3>
-              <p class="text-sm mb-0">Text, der sagt, warum das jemanden angeht.</p>
+            <div class="callout callout-blue mt-2">
+              <p>
+                Die ersten beiden Teile beschafft ihr, die letzten beiden
+                gestaltet ihr.
+              </p>
             </div>
           </div>
-          <div class="callout callout-blue mt-2">
-            <p>Die ersten beiden Teile beschafft ihr, die letzten beiden gestaltet ihr.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="was-braucht-es">
-        <h2>Was ihr dafür bauen werdet</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
-            <div>
-              <span class="eyebrow">Backend</span>
-              <ul class="list-tight">
-                <li>Eine Datenquelle, die euch Zahlen liefert</li>
-                <li>Ein Skript, das diese Zahlen säubert</li>
-                <li>Eine Datenbank, die sie behält</li>
-                <li>Ein Endpunkt, der sie als JSON ausgibt</li>
-              </ul>
-            </div>
-            <div>
-              <span class="eyebrow">Frontend</span>
-              <ul class="list-tight">
-                <li>HTML, CSS und JavaScript</li>
-                <li>Chart.js für die Grafik</li>
-                <li>Text, Titel und Quellenangaben</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projekt-grenzen">
-        <h2>Woran ihr euch halten solltet</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; align-items: start;">
-            <div class="box">
-              <h3>Eine Datenquelle</h3>
-              <p class="text-sm mb-0">Nicht drei, auch wenn es verlockend klingt.</p>
-            </div>
-            <div class="box">
-              <h3>Ein kleines Datenmodell</h3>
-              <p class="text-sm mb-0">Eine oder zwei Tabellen reichen völlig.</p>
-            </div>
-            <div class="box">
-              <h3>Ein JSON-Endpunkt</h3>
-              <p class="text-sm mb-0">Er versorgt euer Frontend mit allem Nötigen.</p>
-            </div>
-            <div class="box">
-              <h3>Mindestens eine Grafik</h3>
-              <p class="text-sm mb-0">Sie muss eure Frage beantworten, nicht beeindrucken.</p>
+        <section id="was-braucht-es">
+          <h2>Was ihr dafür bauen werdet</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+              "
+            >
+              <div>
+                <span class="eyebrow">Backend</span>
+                <ul class="list-tight">
+                  <li>Eine Datenquelle, die euch Zahlen liefert</li>
+                  <li>Ein Skript, das diese Zahlen säubert</li>
+                  <li>Eine Datenbank, die sie behält</li>
+                  <li>Ein Endpunkt, der sie als JSON ausgibt</li>
+                </ul>
+              </div>
+              <div>
+                <span class="eyebrow">Frontend</span>
+                <ul class="list-tight">
+                  <li>HTML, CSS und JavaScript</li>
+                  <li>Chart.js für die Grafik</li>
+                  <li>Text, Titel und Quellenangaben</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="meilensteine">
-        <h2>Meilensteine</h2>
-        <div class="content">
-          <table class="meilensteine">
-            <tr><th style="width: 12%;"></th><th>Was steht</th></tr>
-            <tr><td>M1</td><td>Gruppen gebildet</td></tr>
-            <tr><td>M2</td><td>Eigene Datenfrage formuliert</td></tr>
-            <tr><td>M3</td><td>Datensatz gefunden und geprüft</td></tr>
-            <tr><td>M4</td><td>Erster Extract und Datenvertrag stehen</td></tr>
-            <tr><td>M5</td><td>Transform funktioniert</td></tr>
-            <tr><td>M6</td><td>Daten stehen in der Datenbank</td></tr>
-            <tr><td>M7</td><td>Unload-Endpunkt funktioniert</td></tr>
-            <tr><td>M8</td><td>Erste Integration steht</td></tr>
-            <tr><td>M9</td><td>Marktstand (Oktober)</td></tr>
-            <tr><td>M10</td><td>Abgabe (Januar)</td></tr>
-          </table>
-          <div class="callout callout-green">
-            <p>Den ersten Meilenstein macht ihr heute: Die Gruppen bilden wir direkt im Anschluss an diese Folien.</p>
+        <section id="projekt-grenzen">
+          <h2>Woran ihr euch halten solltet</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px 40px;
+                align-items: start;
+              "
+            >
+              <div class="box">
+                <h3>Eine Datenquelle</h3>
+                <p class="text-sm mb-0">
+                  Nicht drei, auch wenn es verlockend klingt.
+                </p>
+              </div>
+              <div class="box">
+                <h3>Ein kleines Datenmodell</h3>
+                <p class="text-sm mb-0">
+                  Eine oder zwei Tabellen reichen völlig.
+                </p>
+              </div>
+              <div class="box">
+                <h3>Ein JSON-Endpunkt</h3>
+                <p class="text-sm mb-0">
+                  Er versorgt euer Frontend mit allem Nötigen.
+                </p>
+              </div>
+              <div class="box">
+                <h3>Mindestens eine Grafik</h3>
+                <p class="text-sm mb-0">
+                  Sie muss eure Frage beantworten, nicht beeindrucken.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- =========================================================
+        <section id="meilensteine">
+          <h2>Meilensteine</h2>
+          <div class="content">
+            <table class="meilensteine">
+              <tr>
+                <th style="width: 12%"></th>
+                <th>Was steht</th>
+              </tr>
+              <tr>
+                <td>M1</td>
+                <td>Gruppen gebildet</td>
+              </tr>
+              <tr>
+                <td>M2</td>
+                <td>Eigene Datenfrage formuliert</td>
+              </tr>
+              <tr>
+                <td>M3</td>
+                <td>Datensatz gefunden und geprüft</td>
+              </tr>
+              <tr>
+                <td>M4</td>
+                <td>Erster Extract und Datenvertrag stehen</td>
+              </tr>
+              <tr>
+                <td>M5</td>
+                <td>Transform funktioniert</td>
+              </tr>
+              <tr>
+                <td>M6</td>
+                <td>Daten stehen in der Datenbank</td>
+              </tr>
+              <tr>
+                <td>M7</td>
+                <td>Unload-Endpunkt funktioniert</td>
+              </tr>
+              <tr>
+                <td>M8</td>
+                <td>Erste Integration steht</td>
+              </tr>
+              <tr>
+                <td>M9</td>
+                <td>Marktstand (Oktober)</td>
+              </tr>
+              <tr>
+                <td>M10</td>
+                <td>Abgabe (Januar)</td>
+              </tr>
+            </table>
+            <div class="callout callout-green">
+              <p>
+                Den ersten Meilenstein macht ihr heute: Die Gruppen bilden wir
+                direkt im Anschluss an diese Folien.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- =========================================================
            KAPITEL 6 – ADMINISTRATIVES
            ========================================================= -->
 
-      <section id="divider-administratives" class="section-divider" data-state="is-section-divider">
-        <h1>Administratives</h1>
-      </section>
+        <section
+          id="divider-administratives"
+          class="section-divider"
+          data-state="is-section-divider"
+        >
+          <h1>Administratives</h1>
+        </section>
 
-      <section id="pflichttermine">
-        <h2>Pflichttermine</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch;">
-            <div class="box">
-              <span class="eyebrow">28. September</span>
-              <h3>Input Datenjournalismus</h3>
-              <div class="gast">
-                <img class="portrait" src="bilder/pflichttermin-albisser.jpg"
-                     alt="Porträt von Pascal Albisser">
-                <div>
-                  <p class="text-sm gast-name">Pascal Albisser</p>
-                  <p class="text-sm">Datenjournalist bei SRF und ehemaliger MMP-Student.</p>
-                  <img class="srf-logo" src="bilder/srf-logo.png"
-                       alt="Logo von Schweizer Radio und Fernsehen">
+        <section id="pflichttermine">
+          <h2>Pflichttermine</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: stretch;
+              "
+            >
+              <div class="box">
+                <span class="eyebrow">28. September</span>
+                <h3>Input Datenjournalismus</h3>
+                <div class="gast">
+                  <img
+                    class="portrait"
+                    src="bilder/pflichttermin-albisser.jpg"
+                    alt="Porträt von Pascal Albisser"
+                  />
+                  <div>
+                    <p class="text-sm gast-name">Pascal Albisser</p>
+                    <p class="text-sm">
+                      Datenjournalist bei SRF und ehemaliger MMP-Student.
+                    </p>
+                    <img
+                      class="srf-logo"
+                      src="bilder/srf-logo.png"
+                      alt="Logo von Schweizer Radio und Fernsehen"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="box">
+                <span class="eyebrow">13. und 15. Oktober</span>
+                <h3>Marktstand</h3>
+                <div class="gast">
+                  <img
+                    class="stand"
+                    src="bilder/pflichttermin-marktstand.jpg"
+                    alt="Ausstellungsstand mit Bildschirm, bemalter Rückwand und gestalteter Tischdecke"
+                  />
+                  <div>
+                    <p class="text-sm">
+                      Zürich am 13.10., Bern und Chur am 15.10.
+                    </p>
+                    <p class="text-sm mb-0">
+                      Ihr führt euer Projekt am eigenen Stand vor.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="box">
-              <span class="eyebrow">13. und 15. Oktober</span>
-              <h3>Marktstand</h3>
-              <div class="gast">
-                <img class="stand" src="bilder/pflichttermin-marktstand.jpg"
-                     alt="Ausstellungsstand mit Bildschirm, bemalter Rückwand und gestalteter Tischdecke">
-                <div>
-                  <p class="text-sm">Zürich am 13.10., Bern und Chur am 15.10.</p>
-                  <p class="text-sm mb-0">Ihr führt euer Projekt am eigenen Stand vor.</p>
-                </div>
+            <div class="callout callout-orange mt-2">
+              <p>An beiden Terminen ist Anwesenheitspflicht.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="marktstand-beispiel">
+          <h2>Marktstand Inspiration</h2>
+          <div class="content">
+            <figure class="marktstand-foto">
+              <img
+                src="bilder/pflichttermin-marktstand.jpg"
+                alt="Ausstellungsstand mit Bildschirm, bemalter Rückwand, Lichterkette und gestalteter Tischdecke"
+              />
+              <figcaption>
+                Projekt auf dem Bildschirm, bemalte Rückwand, gestaltete
+                Tischdecke und Postkarten zum Mitnehmen.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="termine">
+          <h2>Termine und Fristen</h2>
+          <div class="content">
+            <table>
+              <tr>
+                <th style="width: 46%">Was</th>
+                <th>Wann</th>
+              </tr>
+              <tr>
+                <td>Vorbereitungsauftrag Tooling</td>
+                <td>vor dem ersten Kurstag</td>
+              </tr>
+              <tr>
+                <td>Gruppen und Rollen stehen</td>
+                <td>heute</td>
+              </tr>
+              <tr>
+                <td>Datenjournalismus mit Pascal Albisser</td>
+                <td>28. September</td>
+              </tr>
+              <tr>
+                <td>Marktstand Zürich</td>
+                <td>13. Oktober</td>
+              </tr>
+              <tr>
+                <td>Marktstand Bern und Chur</td>
+                <td>15. Oktober</td>
+              </tr>
+              <tr>
+                <td>Letzte Coachingmöglichkeit</td>
+                <td>Freitag, 16. Oktober, 18:00 Uhr</td>
+              </tr>
+              <tr>
+                <td>Projektabgabe</td>
+                <td>8. Januar 2027, 23:59 Uhr</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+
+        <section id="detailstundenplan">
+          <h2>Planer</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+              "
+            >
+              <div>
+                <span class="eyebrow">Ein Tab pro Standort</span>
+                <ul class="list-tight">
+                  <li>Chur</li>
+                  <li>Bern</li>
+                  <li>Zürich</li>
+                </ul>
+              </div>
+              <div>
+                <span class="eyebrow">Für jeden Kurstag</span>
+                <ul class="list-tight">
+                  <li>Uhrzeiten</li>
+                  <li>Inputs, Übungen und Projektarbeit</li>
+                  <li>Hinweise zu einzelnen Klassen</li>
+                </ul>
               </div>
             </div>
-          </div>
-          <div class="callout callout-orange mt-2">
-            <p>An beiden Terminen ist Anwesenheitspflicht.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="marktstand-beispiel">
-        <h2>Marktstand Inspiration</h2>
-        <div class="content">
-          <figure class="marktstand-foto">
-            <img src="bilder/pflichttermin-marktstand.jpg"
-                 alt="Ausstellungsstand mit Bildschirm, bemalter Rückwand, Lichterkette und gestalteter Tischdecke">
-            <figcaption>Projekt auf dem Bildschirm, bemalte Rückwand, gestaltete Tischdecke und Postkarten zum Mitnehmen.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section id="termine">
-        <h2>Termine und Fristen</h2>
-        <div class="content">
-          <table>
-            <tr><th style="width: 46%;">Was</th><th>Wann</th></tr>
-            <tr><td>Vorbereitungsauftrag Tooling</td><td>vor dem ersten Kurstag</td></tr>
-            <tr><td>Gruppen und Rollen stehen</td><td>heute</td></tr>
-            <tr><td>Datenjournalismus mit Pascal Albisser</td><td>28. September</td></tr>
-            <tr><td>Marktstand Zürich</td><td>13. Oktober</td></tr>
-            <tr><td>Marktstand Bern und Chur</td><td>15. Oktober</td></tr>
-            <tr><td>Letzte Coachingmöglichkeit</td><td>Freitag, 16. Oktober, 18:00 Uhr</td></tr>
-            <tr><td>Projektabgabe</td><td>8. Januar 2027, 23:59 Uhr</td></tr>
-          </table>
-        </div>
-      </section>
-
-      <section id="detailstundenplan">
-        <h2>Detailstundenplan</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
-            <div>
-              <span class="eyebrow">Ein Tab pro Standort</span>
-              <ul class="list-tight">
-                <li>Chur</li>
-                <li>Bern</li>
-                <li>Zürich</li>
-              </ul>
-            </div>
-            <div>
-              <span class="eyebrow">Für jeden Kurstag</span>
-              <ul class="list-tight">
-                <li>Uhrzeiten</li>
-                <li>Inputs, Übungen und Projektarbeit</li>
-                <li>Hinweise zu einzelnen Klassen</li>
-              </ul>
+            <div class="callout callout-blue">
+              <p>
+                Den
+                <a
+                  href="https://planer.nickschnee.ch/"
+                  target="_blank"
+                  rel="noopener"
+                  >Planer</a
+                >
+                findet ihr online.
+              </p>
+              <p>Änderungen bleiben vorbehalten.</p>
             </div>
           </div>
-          <div class="callout callout-blue">
-            <p>Den <a href="https://docs.google.com/spreadsheets/d/15O2AQXVUzGkFAMEFGKPe8KQaKRPyJdmPVkzoRn2wbik/edit?gid=836719563#gid=836719563" target="_blank" rel="noopener">Detailstundenplan</a> findet ihr online.</p>
-            <p>Änderungen bleiben vorbehalten.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="semesterinfos">
-        <h2>Semesterinfos</h2>
-        <div class="content">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
-            <div>
-              <span class="eyebrow">Rund ums Semester</span>
-              <ul class="list-tight">
-                <li class="vorbereitung">Vorbereitungsauftrag Tooling</li>
-                <li>Pflichttermine und Coaching-Frist</li>
-                <li>Ziele und Themen des Semesters</li>
-                <li>API-Boxen zum Ausleihen</li>
-              </ul>
+        <section id="semesterinfos">
+          <h2>Semesterinfos</h2>
+          <div class="content">
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+              "
+            >
+              <div>
+                <span class="eyebrow">Rund ums Semester</span>
+                <ul class="list-tight">
+                  <li class="vorbereitung">Vorbereitungsauftrag Tooling</li>
+                  <li>Pflichttermine und Coaching-Frist</li>
+                  <li>Ziele und Themen des Semesters</li>
+                  <li>API-Boxen zum Ausleihen</li>
+                </ul>
+              </div>
+              <div>
+                <span class="eyebrow">Leistungsnachweis</span>
+                <ul class="list-tight">
+                  <li>Auftrag und Deliverables</li>
+                  <li>Projekteinschreibung</li>
+                  <li>Regeln fürs GitHub-Repo</li>
+                  <li>Abgabe und Punktabzug bei Verspätung</li>
+                  <li>Bewertungsraster</li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <span class="eyebrow">Leistungsnachweis</span>
-              <ul class="list-tight">
-                <li>Auftrag und Deliverables</li>
-                <li>Projekteinschreibung</li>
-                <li>Regeln fürs GitHub-Repo</li>
-                <li>Abgabe und Punktabzug bei Verspätung</li>
-                <li>Bewertungsraster</li>
-              </ul>
+            <div class="callout callout-blue">
+              <p>
+                Die
+                <a
+                  href="https://docs.google.com/document/d/12t53cLszcfwyYwEw6W_jDXZe2y7wyvksOri0IlL_oUQ/edit?tab=t.0"
+                  target="_blank"
+                  rel="noopener"
+                  >Semesterinfos</a
+                >
+                gehen wir jetzt gemeinsam direkt im Dokument durch.
+              </p>
             </div>
           </div>
-          <div class="callout callout-blue">
-            <p>Die <a href="https://docs.google.com/document/d/12t53cLszcfwyYwEw6W_jDXZe2y7wyvksOri0IlL_oUQ/edit?tab=t.0" target="_blank" rel="noopener">Semesterinfos</a> gehen wir jetzt gemeinsam direkt im Dokument durch.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- =========================================================
+        <!-- =========================================================
            KAPITEL 6 – GRUPPENBILDUNG
            ========================================================= -->
 
-      <section id="divider-gruppenbildung" class="section-divider" data-state="is-section-divider">
-        <h1>Gruppenbildung</h1>
-      </section>
+        <section
+          id="divider-gruppenbildung"
+          class="section-divider"
+          data-state="is-section-divider"
+        >
+          <h1>Gruppenbildung</h1>
+        </section>
 
-      <section id="gruppenbildung">
-        <h2>Gruppenbildung</h2>
-        <div class="content">
-          <p class="list-intro">Ihr arbeitet zu viert und teilt euch in zwei Zweierteams:</p>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
-            <div class="box">
-              <h3>Backend zu zweit</h3>
-              <p class="text-sm">Ihr holt die Daten, säubert sie und speichert sie in der Datenbank.</p>
-              <p class="text-sm mb-0">Am Ende liefert ihr einen JSON-Endpunkt aus.</p>
+        <section id="gruppenbildung">
+          <h2>Gruppenbildung</h2>
+          <div class="content">
+            <p class="list-intro">
+              Ihr arbeitet zu viert und teilt euch in zwei Zweierteams:
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: start;
+              "
+            >
+              <div class="box">
+                <h3>Backend zu zweit</h3>
+                <p class="text-sm">
+                  Ihr holt die Daten, säubert sie und speichert sie in der
+                  Datenbank.
+                </p>
+                <p class="text-sm mb-0">
+                  Am Ende liefert ihr einen JSON-Endpunkt aus.
+                </p>
+              </div>
+              <div class="box">
+                <h3>Frontend zu zweit</h3>
+                <p class="text-sm">Ihr baut die Story und die Grafik.</p>
+                <p class="text-sm mb-0">
+                  Ihr startet mit erfundenen Daten und wechselt später auf den
+                  echten Endpunkt.
+                </p>
+              </div>
             </div>
-            <div class="box">
-              <h3>Frontend zu zweit</h3>
-              <p class="text-sm">Ihr baut die Story und die Grafik.</p>
-              <p class="text-sm mb-0">Ihr startet mit erfundenen Daten und wechselt später auf den echten Endpunkt.</p>
+            <div class="callout callout-orange">
+              <p>
+                Damit das zusammenpasst, einigt ihr euch auf einen Datenvertrag.
+              </p>
             </div>
           </div>
-          <div class="callout callout-orange">
-            <p>Damit das zusammenpasst, einigt ihr euch auf einen Datenvertrag.</p>
+        </section>
+
+        <section id="uebung-themenboerse">
+          <span class="eyebrow">Workshop</span>
+          <h2>Themenbörse: Gruppen finden</h2>
+          <div class="content">
+            <ol class="text-lg">
+              <li>
+                Schätzt euch selbst kurz ein: Programmieren, Gestalten,
+                Schreiben
+              </li>
+              <li>Schreibt zwei Themen auf, die euch wirklich interessieren</li>
+              <li>Wir hängen alle Karten auf und sortieren sie gemeinsam</li>
+              <li>Ihr findet euch zu viert um ein Thema zusammen</li>
+              <li>Ihr verteilt im Team Backend und Frontend</li>
+              <li>
+                Ihr tragt euer Projekt in die
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1loXxzb0wD2xP93FD4VI_eKn71BzmArqAyCbs7fZQcFs/edit?gid=0#gid=0"
+                  target="_blank"
+                  rel="noopener"
+                  >Projekteinschreibung</a
+                >
+                ein
+              </li>
+            </ol>
           </div>
-        </div>
-      </section>
-
-      <section id="uebung-themenboerse">
-        <span class="eyebrow">Workshop</span>
-        <h2>Themenbörse: Gruppen finden</h2>
-        <div class="content">
-          <ol class="text-lg">
-            <li>Schätzt euch selbst kurz ein: Programmieren, Gestalten, Schreiben</li>
-            <li>Schreibt zwei Themen auf, die euch wirklich interessieren</li>
-            <li>Wir hängen alle Karten auf und sortieren sie gemeinsam</li>
-            <li>Ihr findet euch zu viert um ein Thema zusammen</li>
-            <li>Ihr verteilt im Team Backend und Frontend</li>
-            <li>Ihr tragt euer Projekt in die <a href="https://docs.google.com/spreadsheets/d/1loXxzb0wD2xP93FD4VI_eKn71BzmArqAyCbs7fZQcFs/edit?gid=0#gid=0" target="_blank" rel="noopener">Projekteinschreibung</a> ein</li>
-          </ol>
-        </div>
-      </section>
-
+        </section>
+      </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
-  <script>
-    Reveal.initialize({
-      width: 1280,
-      height: 720,
-      margin: 0,
-      controls: true,
-      progress: true,
-      slideNumber: 'c',
-      hash: true,
-      transition: 'slide',
-      center: false,
-      plugins: [ RevealHighlight ]
-    });
-  </script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1280,
+        height: 720,
+        margin: 0,
+        controls: true,
+        progress: true,
+        slideNumber: "c",
+        hash: true,
+        transition: "slide",
+        center: false,
+        plugins: [RevealHighlight],
+      });
+    </script>
+  </body>
 </html>
