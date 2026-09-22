@@ -33,13 +33,13 @@ dürfen – vom persönlichen Begegnungsprotokoll bis zu gekauften Ortungsdaten.
 
 ## Die Posten
 
-| #   | Posten                                                              | Story                                                                                                       | Was am Posten steht                     |
-| --- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| 1   | [Wo die Parkbussen herkommen](posten/01_parkbussen)                 | [WIRED-Artikel zur stillgelegten Live-Karte](https://www.wired.com/story/san-francisco-find-my-parking-cops/) | Blatt, ausgedruckter WIRED-Artikel      |
-| 2   | [My Social Year 2024](posten/02_my_social_year)                     | [verwandter Post auf r/dataisbeautiful](https://www.reddit.com/r/dataisbeautiful/comments/1ib3r2m)          | Blatt, persönliche Jahreskarte          |
-| 3   | [The Pour-igin of Species](posten/03_pourigin_of_species)           | [The Pudding](https://pudding.cool/2025/04/wine-animals/)                                                   | Blatt, Laptop mit offener Seite         |
-| 4   | [Der Spion in unseren Handys](posten/04_handy_ortungsdaten)         | [SRF Data](https://www.srf.ch/news/schweiz/tracking-mit-ortungsdiensten-der-spion-in-unseren-handys)        | Blatt, Laptop mit offener SRF-Recherche |
-| 5   | [Stromexporte der Schweiz](posten/05_1kwh)                          | [1kwh.ch](https://1kwh.ch)                                                                                  | Blatt, Laptop mit offener Live-Seite    |
+| #   | Posten                                                      | Story                                                                                                         | Was am Posten steht                     |
+| --- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| 1   | [Wo die Parkbussen herkommen](posten/01_parkbussen)         | [WIRED-Artikel zur stillgelegten Live-Karte](https://www.wired.com/story/san-francisco-find-my-parking-cops/) | Blatt, ausgedruckter WIRED-Artikel      |
+| 2   | [My Social Year 2024](posten/02_my_social_year)             | [verwandter Post auf r/dataisbeautiful](https://www.reddit.com/r/dataisbeautiful/comments/1ib3r2m)            | Blatt, persönliche Jahreskarte          |
+| 3   | [The Pour-igin of Species](posten/03_pourigin_of_species)   | [The Pudding](https://pudding.cool/2025/04/wine-animals/)                                                     | Blatt, Laptop mit offener Seite         |
+| 4   | [Der Spion in unseren Handys](posten/04_handy_ortungsdaten) | [SRF Data](https://www.srf.ch/news/schweiz/tracking-mit-ortungsdiensten-der-spion-in-unseren-handys)          | Blatt, Laptop mit offener SRF-Recherche |
+| 5   | [Stromexporte der Schweiz](posten/05_1kwh)                  | [1kwh.ch](https://1kwh.ch)                                                                                    | Blatt, Laptop mit offener Live-Seite    |
 
 Jeder Posten-Ordner enthält das Blatt zum Ausdrucken (`posten.html`), das Bild,
 den QR-Code und die erwarteten Antworten. Details zum Drucken stehen in
@@ -57,8 +57,7 @@ den QR-Code und die erwarteten Antworten. Details zum Drucken stehen in
 
 ## Auftrag
 
-Die Paare gehen frei herum, in der Reihenfolge, die sie interessiert. **Drei
-ausgefüllte Posten reichen.** Pro Posten beantworten sie auf dem Laufzettel
+Die Paare gehen frei herum, in der Reihenfolge, die sie interessiert. Pro Posten beantworten sie auf dem Laufzettel
 zwei Fragen:
 
 1. **Welche Daten stecken dahinter?** Eine Zeile der Tabelle aufschreiben, die
@@ -81,13 +80,13 @@ Wenn es an einem Posten staut: darauf hinweisen, dass die Reihenfolge egal ist.
 
 ## Erwartete Antworten
 
-| Posten             | Daten                                                | Quelle                                      | Zeitraum                              |
-| ------------------ | ---------------------------------------------------- | ------------------------------------------- | ------------------------------------- |
-| 1 Parkbussen       | Kontrolleur, Adresse, Zeit, Bussenart und Betrag      | Ticketsystem der SFMTA, ausgelesen          | wenige Stunden am 23. September 2025  |
-| 2 My Social Year   | Datum, Person, bewusste Begegnung ja/nein             | selbst geführt                              | ein Kalenderjahr, 2024                |
-| 3 Pour-igin        | Wein, Preis, Bewertung, Rebsorte, erkanntes Tier      | Vivino, Tiere per Bilderkennung ergänzt     | einmalige Sammlung im März 2024       |
-| 4 Handy-Ortung     | Geräte-Kennung, Koordinaten, Zeitstempel              | Apps und Datenhändler, von SRF gekauft      | rund eine Woche im März 2024          |
-| 5 Stromexporte     | Zeitpunkt, Nachbarland, Leistung in MW                | Swissgrid                                   | laufend, alle zehn Sekunden           |
+| Posten           | Daten                                            | Quelle                                  | Zeitraum                             |
+| ---------------- | ------------------------------------------------ | --------------------------------------- | ------------------------------------ |
+| 1 Parkbussen     | Kontrolleur, Adresse, Zeit, Bussenart und Betrag | Ticketsystem der SFMTA, ausgelesen      | wenige Stunden am 23. September 2025 |
+| 2 My Social Year | Datum, Person, bewusste Begegnung ja/nein        | selbst geführt                          | ein Kalenderjahr, 2024               |
+| 3 Pour-igin      | Wein, Preis, Bewertung, Rebsorte, erkanntes Tier | Vivino, Tiere per Bilderkennung ergänzt | einmalige Sammlung im März 2024      |
+| 4 Handy-Ortung   | Geräte-Kennung, Koordinaten, Zeitstempel         | Apps und Datenhändler, von SRF gekauft  | rund eine Woche im März 2024         |
+| 5 Stromexporte   | Zeitpunkt, Nachbarland, Leistung in MW           | Swissgrid                               | laufend, alle zehn Sekunden          |
 
 Resultat: pro Person ein Laufzettel mit mindestens drei ausgefüllten Posten.
 
@@ -95,8 +94,7 @@ Resultat: pro Person ein Laufzettel mit mindestens drei ausgefüllten Posten.
 
 - Die Zeitspalte wird fast immer vergessen. Genau daran zeigt sich, dass eine
   Data-Story eine Entwicklung braucht und nicht nur eine Zahl.
-- Die Posten sammeln unterschiedlich: laufend (5), einmalig abgegriffen (1, 3,
-  4) und über lange Zeit selbst geführt (2). Dieser Unterschied ist der
+- Die Posten sammeln unterschiedlich: laufend (5), einmalig abgegriffen (1, 3, 4) und über lange Zeit selbst geführt (2). Dieser Unterschied ist der
   Aufhänger für das Kapitel zu den Datenquellen.
 - Posten 1 ist das Argument für einen eigenen Datenbestand: Die Seite lief nur
   vier Stunden, dann war die Quelle weg.
