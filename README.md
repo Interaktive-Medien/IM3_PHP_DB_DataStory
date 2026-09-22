@@ -3,7 +3,7 @@
 ![Static Badge](https://img.shields.io/badge/Sprache-PHP-%23777bb4)
 ![Static Badge](https://img.shields.io/badge/DB-MySQL-%2300758f)
 ![Static Badge](https://img.shields.io/badge/Kurs-MMP_IM3-blue)
-![Static Badge](https://img.shields.io/badge/Aktualisiert-16.09.2026-coral)
+![Static Badge](https://img.shields.io/badge/Aktualisiert-22.09.2026-coral)
 ![Static Badge](https://img.shields.io/badge/Status-Freigegeben-green)
 
 > Im 3. Semester der Interaktiven Medien lernt ihr, mit PHP echte Daten zu verarbeiten und in einer Data-Story datenjournalistisch aufzubereiten.
