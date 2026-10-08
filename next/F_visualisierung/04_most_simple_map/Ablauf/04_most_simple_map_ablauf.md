@@ -23,8 +23,9 @@ erscheinen. Ist man weiter weg, fliegt der Knopf nach Bern.
 
 Doku: <https://maplibre.org/maplibre-gl-js/docs/>
 
-Leaflet ist einfacher und wird in Code-Along 19 (`19_sharkdaten_karte`)
-verwendet. Für diese Karte passt MapLibre besser:
+MapLibre ist die modernere Bibliothek. Leaflet stammt aus einer Zeit, in der
+Karten aus fertigen Bildkacheln bestanden. MapLibre zeichnet die Karte selbst
+im Browser, mit WebGL. Daraus folgt:
 
 - **Vektorkacheln:** OpenFreeMap liefert Vektorkacheln mit fertigen Stilen.
   MapLibre zeichnet sie direkt, Leaflet bräuchte dafür ein Plugin.
