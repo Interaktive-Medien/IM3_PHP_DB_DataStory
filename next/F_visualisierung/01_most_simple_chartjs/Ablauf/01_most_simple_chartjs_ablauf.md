@@ -104,3 +104,4 @@ Wird in der Werkstatt oder im Projekt nachgeholt, nicht hier:
 | `Cannot read properties of undefined (reading 'time')` | `json.daily` falsch geschrieben, z. B. `json.days` |
 | Diagramm leer, keine Fehlermeldung | `data` und `labels` vertauscht oder Tippfehler in `temperature_2m_max` |
 | `Canvas is already in use` | `new Chart(...)` zweimal ausgeführt, z. B. die Funktion zweimal aufgerufen |
+| `blocked by CORS policy` | Erst später, mit dem eigenen Unload-Endpunkt statt Open-Meteo: Liegt die Seite auf einer anderen Domain oder wird sie per Doppelklick geöffnet, blockiert der Browser die Antwort. Lösung: im `unload.php` `header("Access-Control-Allow-Origin: *");` ergänzen |
