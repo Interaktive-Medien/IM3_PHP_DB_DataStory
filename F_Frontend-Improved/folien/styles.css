@@ -1,0 +1,81 @@
+/* Sonderregeln nur fuer den Foliensatz "Chart.js in der Werkstatt".
+ * Das gemeinsame Design steht in ../../theorie/_foliendesign/fhgr-slides.css. */
+
+/* Zeichenflaeche fuer ein Live-Diagramm. Chart.js nimmt Breite und Hoehe
+   vom Elternelement, deshalb braucht der Rahmen eine feste Hoehe. */
+.reveal .chart-frame {
+  position: relative;
+  height: 330px;
+  width: 100%;
+}
+
+.reveal .chart-frame.is-small {
+  height: 290px;
+}
+
+/* Drei Diagramme nebeneinander, je mit grossem Buchstaben darueber. */
+.reveal .chart-trio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  align-items: start;
+}
+
+.reveal .chart-letter {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-size: 26pt;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Code links, Diagramm rechts: gleiche Hoehe der beiden Spalten. */
+.reveal .predict {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+/* Leerer Rahmen, solange das Diagramm noch verborgen ist. */
+.reveal .predict .chart-slot {
+  position: relative;
+  height: 330px;
+  border: 1px dashed var(--box-border);
+  border-radius: 4px;
+}
+
+.reveal .predict .chart-slot .chart-frame {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  background: #ffffff;
+}
+
+/* Fehler-Zuordnung: Buchstaben links, Ziffern rechts. */
+.reveal .match {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.reveal .match ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reveal .match li {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.reveal .match .tag {
+  flex: 0 0 34px;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+

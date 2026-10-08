@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Code-Matching – Welcher Code zeichnet welche Grafik?</title>
+<!-- Druckstil der Arbeitsblaetter. Drucken: A4 hoch, Hintergrundgrafiken an,
+     farbig. Seite 1 = Codekarten, Seite 2 = Grafiken. Entweder als Blatt
+     verwenden (Buchstaben eintragen) oder entlang der Linien ausschneiden. -->
+<link rel="stylesheet" href="../../stift-und-papier/arbeitsblatt.css">
+<style>
+  .karten {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+  }
+  .schnittkarte {
+    min-height: 0;
+    height: 59mm;
+    padding: 2.5mm 4mm;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .kopf {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.8mm;
+  }
+  .buchstabe, .nummer-gross {
+    font-size: 16pt;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .bonus {
+    font-family: var(--mono);
+    font-size: 8pt;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  pre {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 7.3pt;
+    line-height: 1.25;
+    white-space: pre;
+  }
+  .grafik {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+  .grafik canvas {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .antwort {
+    font-size: 9pt;
+    color: var(--muted);
+  }
+  .antwort .feld-klein {
+    display: inline-block;
+    width: 12mm;
+    height: 7mm;
+    margin-left: 2mm;
+    border: 1px solid var(--line);
+    border-radius: 1mm;
+    vertical-align: middle;
+  }
+  .seite-kopf { margin-bottom: 3mm; }
+</style>
+</head>
+<body class="a4-hoch">
+<div class="blatt">
+
+  <section class="seite">
+    <header class="seite-kopf">
+      <h1>Welcher Code zeichnet welche Grafik?</h1>
+      <div class="meta">Codekarten A–H<br>Interaktive Medien 3 · Datengrafiken</div>
+    </header>
+    <div class="karten" id="codekarten"></div>
+  </section>
+
+  <section class="seite">
+    <header class="seite-kopf">
+      <h1>Grafiken 1–8</h1>
+      <div class="meta">Tragt bei jeder Grafik den Buchstaben ein<br>Zwei Grafiken gehören zu den Bonuskarten</div>
+    </header>
+    <div class="karten" id="grafikkarten"></div>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+<script src="karten.js"></script>
+<script>
+  // Feste Groesse statt responsive: so bleibt die Grafik beim Drucken stabil.
+  Chart.defaults.animation = false;
+  Chart.defaults.responsive = false;
+  Chart.defaults.devicePixelRatio = 3;
+  Chart.defaults.font.family = '"Helvetica Neue", Helvetica, Arial, sans-serif';
+  Chart.defaults.color = '#575757';
+
+  const codekarten = document.querySelector('#codekarten');
+  const grafikkarten = document.querySelector('#grafikkarten');
+
+  // Seite 1: Codekarten in alphabetischer Reihenfolge.
+  KARTEN.forEach((karte) => {
+    const div = document.createElement('div');
+    div.className = 'schnittkarte';
+    div.innerHTML = `
+      <div class="kopf">
+        <span class="buchstabe">${karte.code}</span>
+        ${karte.bonus ? '<span class="bonus">Bonus</span>' : ''}
+      </div>
+      <pre></pre>`;
+    div.querySelector('pre').textContent = karte.js;
+    codekarten.append(div);
+  });
+
+  // Seite 2: Grafiken nach ihrer (gemischten) Nummer sortiert.
+  [...KARTEN]
+    .sort((a, b) => a.grafik - b.grafik)
+    .forEach((karte) => {
+      const div = document.createElement('div');
+      div.className = 'schnittkarte';
+      div.innerHTML = `
+        <div class="kopf">
+          <span class="nummer-gross">${karte.grafik}</span>
+          <span class="antwort">Code<span class="feld-klein"></span></span>
+        </div>
+        <div class="grafik"><canvas width="330" height="175"></canvas></div>`;
+      grafikkarten.append(div);
+      zeichneKarte(karte, div.querySelector('canvas'));
+    });
+</script>
+</body>
+</html>

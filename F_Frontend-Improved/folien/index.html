@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IM3 – Chart.js in der Werkstatt</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Font Awesome fuer Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- FHGR Foliendesign, verlinkt aus theorie/_foliendesign/ -->
+  <link rel="stylesheet" href="../../theorie/_foliendesign/fhgr-slides.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============ Titel ============ -->
+      <section id="title" class="title-slide" data-state="is-title">
+        <h1>Chart.js in der Werkstatt</h1>
+        <div class="rule"></div>
+        <p>Vom Endpunkt zur eigenen Grafik</p>
+        <p class="sub">nick.schneeberger@fhgr.ch</p>
+      </section>
+
+      <!-- ============ Einstieg: Survivorship Bias ============ -->
+      <section id="flugzeuge">
+        <h2>Wo würdet ihr die Flugzeuge verstärken?</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: stretch; flex: 1; min-height: 0;">
+            <figure>
+              <img src="bilder/survivorship-bias.jpg" alt="Umriss eines Bombers von oben mit vielen roten Punkten auf Flügeln, Rumpf und Heck">
+              <figcaption>Hypothetisches Schadensbild nach Abraham Wald (1943). Illustration: Martin Grandjean, McGeddon, CC BY-SA 4.0, Wikimedia Commons.</figcaption>
+            </figure>
+            <div>
+              <p>Zweiter Weltkrieg: Die US-Armee untersucht Bomber, die von ihrem Einsatz zurückkommen.</p>
+              <p>Jeder rote Punkt ist ein Einschussloch.</p>
+              <p>Panzerung ist schwer – ihr dürft nur wenige Stellen verstärken.</p>
+              <div class="callout callout-blue mt-2">
+                <p>Zeigt auf die Stellen, die ihr verstärken würdet.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="wald">
+        <h2>Die wichtigen Löcher fehlen</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: stretch; flex: 1; min-height: 0;">
+            <figure>
+              <img src="bilder/survivorship-bias.jpg" alt="Derselbe Bomber: Motoren und Cockpit haben keine roten Punkte">
+              <figcaption>Motoren und Cockpit sind fast ohne Treffer.</figcaption>
+            </figure>
+            <div>
+              <p>Der Statistiker Abraham Wald fragte: Wo sind die Löcher der Flugzeuge, die nicht zurückkamen?</p>
+              <p>Wer am Motor oder im Cockpit getroffen wurde, stürzte ab.</p>
+              <p>Diese Flugzeuge fehlen in den Daten.</p>
+              <div class="callout callout-green mt-2">
+                <p>Verstärkt wird dort, wo keine Punkte sind.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="was-fehlt">
+        <h2>Was fehlt in euren Daten?</h2>
+        <div class="content">
+          <p><strong>Survivorship Bias</strong> heisst: Wir sehen nur die Fälle, die einen Filter überstanden haben.</p>
+          <p class="list-intro mt-1">Der Filter ist oft unsichtbar:</p>
+          <ul class="list-tight">
+            <li>Bewertungen schreibt vor allem, wer sehr zufrieden oder sehr verärgert ist.</li>
+            <li>Von Start-ups hören wir meist die erfolgreichen.</li>
+            <li>Eine Umfrage per App erreicht nur Leute, die die App haben.</li>
+          </ul>
+          <p class="mt-2"><strong>Für euer Projekt:</strong> Wer oder was fällt bei eurer Datenquelle durch den Filter?</p>
+          <div class="callout callout-orange">
+            <p>Eine Grafik zeigt nur, was in den Daten steht – nicht, was fehlt.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Was heute passiert ============ -->
+      <section id="heute">
+        <h2>Was heute passiert</h2>
+        <div class="content">
+          <div class="flow">
+            <div class="flow-step"><span class="flow-title">Hinschauen</span><span class="flow-sub">Welche Grafik ist neutral?</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step"><span class="flow-title">Matching</span><span class="flow-sub">Welcher Code, welche Grafik?</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step"><span class="flow-title">Code-Along</span><span class="flow-sub">ein Balkendiagramm</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step"><span class="flow-title">Werkstatt</span><span class="flow-sub">Karten zu zweit</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step is-active"><span class="flow-title">Eure Grafik</span><span class="flow-sub">mit echten Daten</span></div>
+          </div>
+          <div class="callout callout-green">
+            <p>Am Ende des Tages zeigt eure Projektgrafik Daten aus eurem eigenen Endpunkt.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Kapitel: Welche Grafik ist am neutralsten? ============ -->
+      <section id="divider-luegen" class="section-divider" data-state="is-section-divider">
+        <h1>Welche Grafik ist am neutralsten?</h1>
+        <p>Dieselben Daten, drei Grafiken</p>
+      </section>
+
+      <section id="welche-neutral">
+        <h2>Hitzetage in Bern, 2017 bis 2026</h2>
+        <div class="content">
+          <div class="chart-trio">
+            <div>
+              <span class="chart-letter">A</span>
+              <div class="chart-frame is-small"><canvas data-chart="luege-a"></canvas></div>
+            </div>
+            <div>
+              <span class="chart-letter">B</span>
+              <div class="chart-frame is-small"><canvas data-chart="luege-b"></canvas></div>
+            </div>
+            <div>
+              <span class="chart-letter">C</span>
+              <div class="chart-frame is-small"><canvas data-chart="luege-c"></canvas></div>
+            </div>
+          </div>
+          <div class="callout callout-blue">
+            <p>Stimmt mit der Hand ab: Welche Grafik zeigt die Daten am neutralsten – und warum?</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="eine-zeile">
+        <h2>Der Unterschied ist jeweils eine Zeile</h2>
+        <div class="content">
+          <div class="chart-trio">
+            <div>
+              <span class="chart-letter">A</span>
+              <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
+type: 'bar'
+              </code></pre>
+              <p class="text-sm mt-1">Die Achse beginnt bei null, die Länge der Balken entspricht dem Wert.</p>
+            </div>
+            <div>
+              <span class="chart-letter">B</span>
+              <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
+scales: { y: { min: 6 } }
+              </code></pre>
+              <p class="text-sm mt-1">Die Werte stimmen, aber drei Sommer verschwinden und die Unterschiede wirken grösser.</p>
+            </div>
+            <div>
+              <span class="chart-letter">C</span>
+              <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
+type: 'pie'
+              </code></pre>
+              <p class="text-sm mt-1">Jahre sind keine Anteile an einem Ganzen.</p>
+            </div>
+          </div>
+          <div class="callout callout-orange">
+            <p>In Chart.js programmiert ihr Entscheidungen – und jede Entscheidung verändert die Aussage.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Kapitel: Code-Matching ============ -->
+      <section id="divider-matching" class="section-divider" data-state="is-section-divider">
+        <h1>Welcher Code zeichnet welche Grafik?</h1>
+        <p>Zu zweit, zehn Minuten, ohne Laptop</p>
+      </section>
+
+      <section id="matching">
+        <h2>So geht das Matching</h2>
+        <div class="content">
+          <ul class="list-tight">
+            <li>Ihr bekommt acht Codekarten (A bis H) und acht Grafiken (1 bis 8).</li>
+            <li>Ordnet zuerst die Codekarten A bis F zu.</li>
+            <li>G und H sind Bonuskarten für schnelle Paare.</li>
+            <li>Tragt bei jeder Grafik den Buchstaben ein.</li>
+          </ul>
+          <div class="callout callout-orange">
+            <p>Für A bis F gibt es zwei Grafiken zu viel – die letzte Karte ergibt sich also nicht von selbst.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="matching-loesung">
+        <h2>Die Auflösung</h2>
+        <div class="content">
+          <table style="font-size: 24pt;">
+            <tr><th>Code</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr>
+            <tr class="fragment"><td>Grafik</td><td>4</td><td>8</td><td>2</td><td>6</td><td>1</td><td>7</td><td>5</td><td>3</td></tr>
+          </table>
+          <div class="callout callout-blue">
+            <p>Bei welchem Paar wart ihr euch am wenigsten sicher – und welche Zeile hat entschieden?</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="matching-falle">
+        <h2>A und C zeigen dieselben Zahlen</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start;">
+            <div>
+              <span class="chart-letter">A</span>
+              <div class="chart-frame is-small"><canvas data-karte="A"></canvas></div>
+            </div>
+            <div>
+              <span class="chart-letter">C</span>
+              <div class="chart-frame is-small"><canvas data-karte="C"></canvas></div>
+              <pre class="code-sm mt-1"><code data-trim data-noescape class="language-javascript">
+options: { scales: { y: { min: 20 } } }
+              </code></pre>
+            </div>
+          </div>
+          <div class="callout callout-orange">
+            <p>Bei Balken liest man den Wert an der Länge ab – deshalb beginnt die Achse bei null.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Kapitel: Code-Along ============ -->
+      <section id="divider-code-along" class="section-divider" data-state="is-section-divider">
+        <h1>Vom Endpunkt zum Balken</h1>
+        <p>Ein kurzer Code-Along in drei Schritten</p>
+      </section>
+
+      <section id="drei-dinge">
+        <h2>Ein Diagramm braucht drei Dinge</h2>
+        <div class="content">
+          <span class="code-label">im HTML: die Bibliothek und eine Zeichenfläche</span>
+          <pre class="code-sm"><code data-trim data-noescape class="language-html">
+&lt;script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"&gt;&lt;/script&gt;
+&lt;canvas id="hitzetage"&gt;&lt;/canvas&gt;
+          </code></pre>
+          <span class="code-label mt-2">im JavaScript: der Auftrag an Chart.js</span>
+          <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
+new Chart(document.querySelector('#hitzetage'), {
+  type: 'bar',                          // welcher Diagrammtyp
+  data: { labels: [], datasets: [] },   // was gezeigt wird
+  options: {},                          // wie es aussieht
+});
+          </code></pre>
+        </div>
+      </section>
+
+      <section id="zwei-listen">
+        <h2>Chart.js will zwei Listen</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+            <div>
+              <span class="code-label">was der Endpunkt liefert</span>
+              <pre class="code-sm"><code data-trim data-noescape class="language-json">
+[
+  {"city": "Bern", "year": "1940", "hitzetage": 0},
+  {"city": "Bern", "year": "1941", "hitzetage": 1},
+  {"city": "Bern", "year": "1942", "hitzetage": 0}
+]
+              </code></pre>
+            </div>
+            <div>
+              <span class="code-label">was Chart.js will</span>
+              <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
+labels: ['1940', '1941', '1942']
+data:   [0, 1, 0]
+              </code></pre>
+            </div>
+          </div>
+          <span class="code-label mt-1">die Umformung</span>
+          <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
+const labels = rows.map((row) => row.year);
+const data = rows.map((row) => row.hitzetage);
+          </code></pre>
+          <div class="callout callout-orange">
+            <p>Beide Listen sind gleich lang und stehen in derselben Reihenfolge.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ganzer-code">
+        <h2>Holen, umformen, zeichnen</h2>
+        <div class="content">
+          <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
+async function zeichneHitzetage() {
+  // 1 Holen
+  const response = await fetch(ENDPUNKT);
+  const rows = await response.json();
+
+  // 2 Umformen
+  const labels = rows.map((row) => row.year);
+  const data = rows.map((row) => row.hitzetage);
+
+  // 3 Zeichnen
+  new Chart(document.querySelector('#hitzetage'), {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{ label: 'Hitzetage in Bern', data: data }],
+    },
+  });
+}
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- ============ Kapitel: Werkstatt ============ -->
+      <section id="divider-werkstatt" class="section-divider" data-state="is-section-divider">
+        <h1>Chart-Werkstatt</h1>
+        <p>Elf Karten, ein Joker, zu zweit</p>
+      </section>
+
+      <section id="werkstatt-regeln">
+        <h2>So spielt ihr</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start;">
+            <ul class="list-tight">
+              <li>Ihr arbeitet zu zweit an einem Laptop.</li>
+              <li>Eine Person tippt, die andere liest Karte und Doku.</li>
+              <li>Nach jeder Karte tauscht ihr die Rollen.</li>
+              <li>Ihr wählt die Karten selbst – Stufe 1 vor Stufe 3.</li>
+              <li>Gelöste Karten kommen an die Kartenwand.</li>
+            </ul>
+            <div class="box">
+              <p class="list-intro"><strong>Erlaubt</strong></p>
+              <ul class="list-tight text-sm">
+                <li><code>chartjs.org/docs</code></li>
+                <li>Das Cheatsheet zu Chart.js</li>
+                <li>AI mit «Erkläre mir …»</li>
+                <li>Nicht: AI mit «Schreib mir …»</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout callout-green">
+            <p>Stimmt euer Diagramm mit dem Zielbild auf der Karte überein, ist die Karte gelöst.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="luegen-karte">
+        <h2>Zum Schluss ziehen alle die Lügen-Karte</h2>
+        <div class="content" style="justify-content: center;">
+          <p class="big-statement">Macht die Grafik so irreführend wie möglich – ohne einen einzigen Wert zu verändern.</p>
+          <p class="mt-2">Drei Paare zeigen ihre Grafik, die Klasse findet den Trick.</p>
+        </div>
+      </section>
+
+      <!-- ============ Kapitel: Echte Daten ============ -->
+      <section id="divider-fehler" class="section-divider" data-state="is-section-divider">
+        <h1>Echte Daten, echte Fehler</h1>
+        <p>Was passiert, wenn der Endpunkt nicht mitspielt</p>
+      </section>
+
+      <section id="fehler-zuordnen">
+        <h2>Welche Ursache gehört zu welcher Meldung?</h2>
+        <div class="content">
+          <div class="match">
+            <div>
+              <span class="code-label">Meldung in der Konsole</span>
+              <ol>
+                <li><span class="tag">A</span><code>blocked by CORS policy</code></li>
+                <li><span class="tag">B</span><code>Unexpected token '&lt;'</code></li>
+                <li><span class="tag">C</span><code>Chart is not defined</code></li>
+                <li><span class="tag">D</span><code>Canvas is already in use</code></li>
+              </ol>
+            </div>
+            <div>
+              <span class="code-label">Ursache</span>
+              <ol>
+                <li><span class="tag">1</span>Auf derselben Zeichenfläche wird ein zweites Diagramm erzeugt.</li>
+                <li><span class="tag">2</span>Der Endpunkt erlaubt keine Anfragen von anderen Domains.</li>
+                <li><span class="tag">3</span>Die Antwort ist eine HTML-Seite statt JSON.</li>
+                <li><span class="tag">4</span>Die Bibliothek wurde nicht geladen.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="callout callout-green fragment">
+            <p>A – 2 · B – 3 · C – 4 · D – 1</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="cors">
+        <h2>Der Endpunkt muss andere Domains erlauben</h2>
+        <div class="content">
+          <p>Liegt die Grafik auf einer anderen Domain als der Endpunkt, blockiert der Browser die Antwort.</p>
+          <p>Eine Zeile im PHP-Endpunkt erlaubt den Zugriff:</p>
+          <pre class="code-sm"><code data-trim data-noescape class="language-php">
+header("Content-type: application/json");
+header("Access-Control-Allow-Origin: *");
+          </code></pre>
+          <div class="callout callout-blue">
+            <p><strong>CORS</strong> heisst Cross-Origin Resource Sharing: Der Server sagt, wer seine Daten abholen darf.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="uebergabe">
+        <h2>Die Übergabe ist eine einzige Zeile</h2>
+        <div class="content">
+          <span class="code-label">zuerst: Mock-Daten nach dem Datenvertrag</span>
+          <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
+const ENDPUNKT = 'data/mock.json';
+          </code></pre>
+          <span class="code-label mt-2">sobald das Backend steht: der eigene Endpunkt</span>
+          <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
+const ENDPUNKT = 'https://eure-domain.ch/unload.php';
+          </code></pre>
+          <div class="callout callout-green">
+            <p>Funktioniert die Grafik danach unverändert, haben beide Teams den Datenvertrag eingehalten.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Kapitel: Eure Grafik ============ -->
+      <section id="divider-projekt" class="section-divider" data-state="is-section-divider">
+        <h1>Eure Grafik</h1>
+        <p>Erst das Ticket, dann der Laptop</p>
+      </section>
+
+      <section id="grafik-ticket">
+        <h2>Das Grafik-Ticket</h2>
+        <div class="content">
+          <p class="list-intro">Ihr füllt das Ticket zu viert aus, auf Papier:</p>
+          <ol class="list-tight">
+            <li>Eure Aussage in einem Satz</li>
+            <li>Der Diagrammtyp und warum</li>
+            <li>Welches Feld aus dem Datenvertrag zu <code>labels</code> und <code>data</code> wird</li>
+            <li>Eine Skizze mit Titel und Achsentiteln</li>
+            <li>Der Lügen-Check</li>
+          </ol>
+          <div class="callout callout-orange">
+            <p>Mit dem Visum auf dem Ticket geht es an den Laptop.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="board">
+        <h2>Wo steht eure Grafik?</h2>
+        <div class="content">
+          <div class="flow">
+            <div class="flow-step"><span class="flow-title">1 · Skizze</span><span class="flow-sub">Ticket mit Visum</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step"><span class="flow-title">2 · Mock-Grafik</span><span class="flow-sub">Frontend-Paar</span></div>
+            <div class="flow-arrow">+</div>
+            <div class="flow-step"><span class="flow-title">3 · Endpunkt</span><span class="flow-sub">Backend-Paar</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step is-active"><span class="flow-title">4 · Echte Daten</span><span class="flow-sub">erste Integration</span></div>
+          </div>
+          <p class="mt-2">Ihr verschiebt euren Punkt auf dem Board selbst.</p>
+          <p>Hängt ihr länger als 15 Minuten in einer Spalte, holt euch Hilfe.</p>
+        </div>
+      </section>
+
+      <!-- ============ Abschluss ============ -->
+      <section id="speed-galerie">
+        <h2>Speed-Galerie</h2>
+        <div class="content">
+          <ul class="list-tight">
+            <li>Je zwei Gruppen tauschen die Laptops.</li>
+            <li>Ihr schaut die fremde Grafik eine Minute lang an.</li>
+            <li>Dann sagt ihr ihre Aussage in einem Satz.</li>
+          </ul>
+          <div class="callout callout-blue">
+            <p>Stimmt euer Satz mit dem Satz auf ihrem Ticket überein, erzählt die Grafik, was sie soll.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="schluss">
+        <h2>Zum Mitnehmen</h2>
+        <div class="content" style="justify-content: center;">
+          <p class="big-statement">Eine Grafik ist eine Aussage, keine Dekoration.</p>
+          <p class="mt-2"><span class="next-step">Zum Schluss: Exit Ticket ausfüllen</span></p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <script src="../daten/hitzesommer.js"></script>
+  <script src="../00_code_matching/karten.js"></script>
+  <script>
+    // Die Live-Diagramme auf den Folien. Die Konfigurationen entsprechen
+    // genau dem Code, der auf den Folien steht.
+    Chart.defaults.animation = false;
+    Chart.defaults.font.family = '"Helvetica Neue", Helvetica, Arial, sans-serif';
+    Chart.defaults.font.size = 14;
+    Chart.defaults.color = '#575757';
+    Chart.defaults.maintainAspectRatio = false;
+
+    const bern = HITZESOMMER.filter((row) => row.city === 'Bern' && row.year >= 2017);
+    const bernJahre = bern.map((row) => row.year);
+    const bernTage = bern.map((row) => row.hitzetage);
+    const bernDataset = () => ({ label: 'Hitzetage in Bern', data: bernTage });
+
+    const diagramme = {
+      'luege-a': { type: 'bar', data: { labels: bernJahre, datasets: [bernDataset()] } },
+      'luege-b': {
+        type: 'bar',
+        data: { labels: bernJahre, datasets: [bernDataset()] },
+        options: { scales: { y: { min: 6 } } },
+      },
+      'luege-c': {
+        type: 'pie',
+        data: { labels: bernJahre, datasets: [bernDataset()] },
+        options: { plugins: { legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } } } },
+      },
+    };
+
+    document.querySelectorAll('canvas[data-chart]').forEach((canvas) => {
+      new Chart(canvas, diagramme[canvas.dataset.chart]);
+    });
+
+    // Karten aus dem Code-Matching: gezeichnet mit genau dem Code der Karte.
+    document.querySelectorAll('canvas[data-karte]').forEach((canvas) => {
+      const karte = KARTEN.find((k) => k.code === canvas.dataset.karte);
+      zeichneKarte(karte, canvas);
+    });
+
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c',
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealHighlight ]
+    });
+  </script>
+</body>
+</html>

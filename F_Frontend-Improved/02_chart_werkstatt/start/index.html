@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitzetage in Bern</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js kommt fertig aus dem Netz. -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+
+  <!-- defer: script.js läuft erst, wenn die Seite geladen ist. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Hitzetage in Bern pro Sommer</h1>
+
+  <div class="chart-box">
+    <canvas id="hitzetage"></canvas>
+  </div>
+
+  <footer>
+    Quelle: Open-Meteo, Tage mit mindestens 30 °C von Juni bis August.
+  </footer>
+</body>
+</html>

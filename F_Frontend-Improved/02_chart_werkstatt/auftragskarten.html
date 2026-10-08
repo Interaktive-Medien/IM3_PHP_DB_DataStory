@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Chart-Werkstatt – Auftragskarten</title>
+<!-- Druckstil der Arbeitsblaetter. Drucken: A4 hoch, Raender "Standard",
+     Hintergrundgrafiken an, am besten farbig (Karten 3 und 7 drehen sich um
+     Farbe). Zwei Seiten mit je 2 x 4 Karten ohne Zwischenraum: pro Seite
+     ein senkrechter und drei waagrechte Schnitte, ideal fuer den
+     Papierschneider. -->
+<link rel="stylesheet" href="../../stift-und-papier/arbeitsblatt.css">
+<style>
+  /* Raster ohne Abstand: Nachbarkarten teilen sich die Schnittlinie. */
+  .karten {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 65mm;
+    border-top: 1px dashed var(--muted);
+    border-left: 1px dashed var(--muted);
+  }
+  .karte-w {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2mm;
+    padding: 3.5mm 4mm;
+    border-right: 1px dashed var(--muted);
+    border-bottom: 1px dashed var(--muted);
+    overflow: hidden;
+  }
+  .karte-w h3 {
+    margin: 0;
+    font-size: 11.5pt;
+  }
+  .kopf {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 8pt;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .stufe { font-weight: 700; color: var(--text); }
+  .auftrag { margin: 0; font-size: 9.5pt; }
+  .tipp {
+    margin: 0;
+    font-size: 8pt;
+    line-height: 1.35;
+    color: var(--muted);
+  }
+  .tipp code, .auftrag code {
+    font-family: var(--mono);
+    font-size: 8pt;
+  }
+  /* Das Zielbild fuellt den Rest der Karte, egal wie lang der Text ist. */
+  .ziel {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 22mm;
+    border: 1px solid #bbb;
+    border-radius: 1mm;
+    background: #fff;
+  }
+  .ziel img {
+    position: absolute;
+    inset: 1mm;
+    margin: auto;
+    max-width: calc(100% - 2mm);
+    max-height: calc(100% - 2mm);
+  }
+  .joker { background: var(--box-bg); }
+  .joker .gross {
+    margin-top: auto;
+    font-size: 30pt;
+    line-height: 1;
+    text-align: right;
+  }
+  .regeln { margin: 0; padding-left: 4.5mm; font-size: 8.5pt; }
+  .regeln li { margin-bottom: 0.8mm; }
+  .titel-gross {
+    margin: 0;
+    font-size: 15pt;
+    font-weight: 400;
+    color: var(--oliv);
+  }
+  /* Die zweite Seite beginnt immer auf einem neuen Blatt. */
+  @media print {
+    .seite + .seite { break-before: page; }
+  }
+</style>
+</head>
+<body class="a4-hoch">
+<div class="blatt">
+
+  <!-- ============ Seite 1 ============ -->
+  <section class="seite">
+    <div class="karten">
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Regeln</span><span>IM3 · Datengrafiken</span></div>
+        <p class="titel-gross">Chart-Werkstatt</p>
+        <ol class="regeln">
+          <li>Zu zweit an einem Laptop.</li>
+          <li>Eine Person tippt, die andere liest Karte und Doku.</li>
+          <li>Nach jeder Karte die Rollen tauschen.</li>
+          <li>Karten frei wählen – Stufe 1 vor Stufe 3.</li>
+          <li>Verrannt? Neustart mit <span class="mono">start/script.js</span>.</li>
+          <li>Gelöste Karte an die Kartenwand kleben.</li>
+        </ol>
+        <p class="tipp">Erlaubt: <code>chartjs.org/docs</code>, das Cheatsheet, AI mit «Erkläre mir …» – nicht «Schreib mir …».</p>
+        <p class="tipp">Stimmt euer Diagramm mit dem Zielbild überein, ist die Karte gelöst.</p>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Start</span><span>Ausgangslage</span></div>
+        <h3>So sieht euer Diagramm jetzt aus</h3>
+        <p class="auftrag">Der Stand nach dem Code-Along: die Hitzetage in Bern, ein Balken pro Sommer.</p>
+        <p class="tipp">Jede Karte verändert diesen Stand an einer Stelle.</p>
+        <div class="ziel"><img src="zielbilder/start.png" alt="Balkendiagramm der Hitzetage in Bern von 1940 bis 2026"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 1</span><span>Karte 1</span></div>
+        <h3>Linie statt Balken</h3>
+        <p class="auftrag">Zeig die Hitzetage als Linie statt als Balken.</p>
+        <p class="tipp">Tipp: Es ist genau ein Wort.</p>
+        <p class="tipp">Danach: Welche Darstellung passt besser zu dieser Aussage?</p>
+        <div class="ziel"><img src="zielbilder/karte-01.png" alt="Liniendiagramm der Hitzetage in Bern"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 1</span><span>Karte 2</span></div>
+        <h3>Eine andere Stadt</h3>
+        <p class="auftrag">Zeig die Hitzetage von Zürich statt von Bern.</p>
+        <p class="tipp">Tipp: Der Endpunkt filtert selbst – schau dir die URL an.</p>
+        <p class="tipp">Vergiss die Beschriftung nicht.</p>
+        <div class="ziel"><img src="zielbilder/karte-02.png" alt="Balkendiagramm der Hitzetage in Zürich"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 1</span><span>Karte 3</span></div>
+        <h3>Eine eigene Farbe</h3>
+        <p class="auftrag">Gib den Balken die Farbe <code>#b5723a</code>.</p>
+        <p class="tipp">Tipp: Die Farbe gehört zum Dataset und heisst <code>backgroundColor</code>.</p>
+        <div class="ziel"><img src="zielbilder/karte-03.png" alt="Balkendiagramm mit orangebraunen Balken"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 1</span><span>Karte 4</span></div>
+        <h3>Titel statt Legende</h3>
+        <p class="auftrag">Blende die Legende aus und setze einen Titel, der die Aussage nennt.</p>
+        <p class="tipp">Tipp: <code>options</code> → <code>plugins</code> → <code>title</code> und <code>legend</code>.</p>
+        <div class="ziel"><img src="zielbilder/karte-04.png" alt="Balkendiagramm mit Titel und ohne Legende"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 2</span><span>Karte 5</span></div>
+        <h3>Achsen beschriften</h3>
+        <p class="auftrag">x-Achse «Sommer», y-Achse «Tage mit mindestens 30 °C».</p>
+        <p class="tipp">Tipp: <code>options</code> → <code>scales</code> → <code>x</code> und <code>y</code> → <code>title</code>.</p>
+        <div class="ziel"><img src="zielbilder/karte-05.png" alt="Balkendiagramm mit beschrifteten Achsen"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 2</span><span>Karte 6</span></div>
+        <h3>Nur die Sommer ab 1980</h3>
+        <p class="auftrag">Zeig nur die Sommer ab 1980.</p>
+        <p class="tipp">Tipp: Zuerst auswählen mit <code>filter()</code>, dann umformen mit <code>map()</code>.</p>
+        <p class="tipp"><code>year</code> ist ein String – der Vergleich mit <code>1980</code> klappt trotzdem.</p>
+        <div class="ziel"><img src="zielbilder/karte-06.png" alt="Balkendiagramm der Hitzetage in Bern ab 1980"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Seite 2 ============ -->
+  <section class="seite">
+    <div class="karten">
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 2</span><span>Karte 7</span></div>
+        <h3>Heisse Sommer hervorheben</h3>
+        <p class="auftrag">Ab 10 Hitzetagen orange (<code>#b5723a</code>), sonst petrol (<code>#4b93a4</code>).</p>
+        <p class="tipp">Tipp: <code>backgroundColor</code> darf auch eine Liste sein – eine Farbe pro Balken.</p>
+        <div class="ziel"><img src="zielbilder/karte-07.png" alt="Balkendiagramm, heisse Sommer orange hervorgehoben"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 2</span><span>Karte 8</span></div>
+        <h3>Ein Tooltip mit Einheit</h3>
+        <p class="auftrag">Beim Darüberfahren soll «26 Hitzetage» stehen statt «Hitzetage in Bern: 26».</p>
+        <p class="tipp">Tipp: <code>options</code> → <code>plugins</code> → <code>tooltip</code> → <code>callbacks</code> → <code>label</code>. Der Wert steht in <code>context.parsed.y</code>.</p>
+        <div class="ziel"><img src="zielbilder/karte-08.png" alt="Tooltip zeigt 26 Hitzetage für 2026"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 3</span><span>Karte 9</span></div>
+        <h3>Die zehn heissesten Sommer</h3>
+        <p class="auftrag">Die zehn Sommer mit den meisten Hitzetagen als liegende Rangliste.</p>
+        <p class="tipp">Tipp: <code>sort()</code>, dann <code>slice(0, 10)</code>, dann <code>indexAxis: 'y'</code>. Sortiert eine Kopie: <code>[...rows]</code>.</p>
+        <div class="ziel"><img src="zielbilder/karte-09.png" alt="Liegende Rangliste der zehn heissesten Sommer in Bern"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 3</span><span>Karte 10</span></div>
+        <h3>Zwei Städte vergleichen</h3>
+        <p class="auftrag">Bern und Zürich als zwei Linien im selben Diagramm.</p>
+        <p class="tipp">Tipp: Ohne <code>?city=…</code> liefert der Endpunkt alle Städte. Dann zweimal <code>filter()</code> – <code>datasets</code> ist eine Liste.</p>
+        <div class="ziel"><img src="zielbilder/karte-10.png" alt="Zwei Linien für Bern und Zürich"></div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Stufe 3</span><span>Karte 11</span></div>
+        <h3>Per Knopf die Stadt wechseln</h3>
+        <p class="auftrag">Zwei Knöpfe «Bern» und «Zürich» wechseln die Stadt im Diagramm.</p>
+        <p class="tipp">Tipp: Diagramm einmal erzeugen, danach <code>chart.data</code> ändern und <code>chart.update()</code> aufrufen. Ein zweites <code>new Chart()</code> meldet «Canvas is already in use».</p>
+        <div class="ziel"><img src="zielbilder/karte-11.png" alt="Zwei Knöpfe über dem Diagramm, Zürich gewählt"></div>
+      </div>
+
+      <div class="karte-w joker">
+        <div class="kopf"><span class="stufe">Joker</span><span>für alle zum Schluss</span></div>
+        <h3>Die Lügen-Karte</h3>
+        <p class="auftrag">Macht die Grafik so irreführend wie möglich – ohne einen einzigen Wert zu verändern.</p>
+        <p class="tipp">Am Schluss zeigt ihr eure Grafik der Klasse.</p>
+        <p class="tipp">Die Klasse muss euren Trick finden.</p>
+        <div class="gross">?!</div>
+      </div>
+
+      <div class="karte-w">
+        <div class="kopf"><span class="stufe">Notizen</span><span>für euch</span></div>
+        <h3>Was nehmen wir ins Projekt mit?</h3>
+        <p class="tipp">Welche Karte braucht eure eigene Grafik?</p>
+        <div class="linie"></div>
+        <div class="linie"></div>
+        <div class="linie"></div>
+        <div class="linie"></div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

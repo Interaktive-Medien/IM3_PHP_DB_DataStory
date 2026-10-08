@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Fortschrittsboard</title>
+<!-- Druckstil der Arbeitsblaetter. A4 quer drucken und auf A3 vergroessern,
+     an die Wand haengen. Jede Gruppe setzt ihren Magneten oder Klebepunkt. -->
+<link rel="stylesheet" href="../../stift-und-papier/arbeitsblatt.css">
+<style>
+  table.board th {
+    font-size: 11pt;
+    padding: 3mm 3mm 2mm 0;
+    border-bottom: 2px solid var(--line);
+  }
+  table.board th .klein { display: block; font-weight: 400; }
+  table.board td {
+    height: 17mm;
+    border-bottom: 1px solid #888;
+    border-right: 1px solid #ccc;
+  }
+  table.board td:last-child { border-right: 0; }
+  table.board th:first-child { width: 20%; }
+  .m8 { background: var(--box-bg); }
+</style>
+</head>
+<body class="a4-quer">
+<div class="blatt">
+  <section class="seite">
+    <header>
+      <h1>Wo steht eure Grafik?</h1>
+      <div class="meta">Interaktive Medien 3 · Ziel heute: Spalte 4</div>
+    </header>
+
+    <table class="board">
+      <tr>
+        <th>Team</th>
+        <th>1 · Skizze freigegeben<span class="klein">Grafik-Ticket mit Visum</span></th>
+        <th>2 · Grafik mit Mock-Daten<span class="klein">Frontend, JSON-Datei nach Datenvertrag</span></th>
+        <th>3 · Endpunkt liefert JSON<span class="klein">Backend, im Browser geprüft</span></th>
+        <th class="m8">4 · Grafik mit echten Daten<span class="klein">M8 · Erste Integration steht</span></th>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td><td class="m8"></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td class="m8"></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td class="m8"></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td class="m8"></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td class="m8"></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td class="m8"></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td class="m8"></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td class="m8"></td></tr>
+    </table>
+    <p class="klein" style="margin-top: 3mm;">Spalte 2 und 3 laufen parallel. Hängt ihr länger als 15 Minuten in einer Spalte, holt euch Hilfe.</p>
+  </section>
+</div>
+</body>
+</html>

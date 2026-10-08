@@ -1,0 +1,27 @@
+/* Gestaltung der Seite – heute nicht das Thema. Farben wie auf den Folien. */
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #575757;
+  background: #ffffff;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 1.8rem;
+  color: #8b8a6e;
+}
+
+/* Chart.js nimmt die Breite des Elternelements. */
+.chart-box {
+  position: relative;
+}
+
+footer {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: #9a9a92;
+}

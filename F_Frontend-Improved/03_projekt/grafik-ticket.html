@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Grafik-Ticket</title>
+<!-- Druckstil der Arbeitsblaetter. Ein Blatt pro Projektgruppe, A4 hoch. -->
+<link rel="stylesheet" href="../../stift-und-papier/arbeitsblatt.css">
+<style>
+  .skizze {
+    position: relative;
+    height: 66mm;
+    border: 1px solid var(--line);
+    border-radius: 1.5mm;
+  }
+  /* Angedeutete Achsen als Starthilfe fuer die Skizze. */
+  .skizze::before {
+    content: "";
+    position: absolute;
+    left: 14mm;
+    bottom: 12mm;
+    top: 8mm;
+    border-left: 1.5px solid var(--line);
+  }
+  .skizze::after {
+    content: "";
+    position: absolute;
+    left: 14mm;
+    right: 8mm;
+    bottom: 12mm;
+    border-bottom: 1.5px solid var(--line);
+  }
+  .check li {
+    list-style: none;
+    margin-left: -5mm;
+  }
+  .check li::before {
+    content: "☐ ";
+    font-size: 11pt;
+  }
+  .freigabe {
+    display: flex;
+    gap: 6mm;
+    align-items: flex-end;
+  }
+  .freigabe .feld { flex: 1; min-height: 14mm; }
+</style>
+</head>
+<body class="a4-hoch">
+<div class="blatt">
+  <section class="seite">
+    <header>
+      <h1>Grafik-Ticket</h1>
+      <div class="meta">Team: _______________________<br>Interaktive Medien 3 · Projekt</div>
+    </header>
+
+    <p>Zuerst die Aussage, dann der Diagrammtyp, dann der Code.
+      Mit der Freigabe auf diesem Blatt geht es an den Laptop.</p>
+
+    <h2>1 · Unsere Aussage in einem Satz</h2>
+    <p class="klein">Beispiel: «In Bern gibt es seit 2015 deutlich mehr Hitzetage als in den Jahrzehnten davor.»</p>
+    <div class="linie"></div>
+    <div class="linie"></div>
+
+    <div class="raster zwei">
+      <div>
+        <h2>2 · Diagrammtyp</h2>
+        <div class="linie kurz"></div>
+        <p class="klein">Verlauf → Linie · Vergleich, Rangliste → Balken · Anteile → Kreis (selten)</p>
+      </div>
+      <div>
+        <h2>3 · Weil …</h2>
+        <div class="linie kurz"></div>
+        <div class="linie kurz"></div>
+      </div>
+    </div>
+
+    <h2>4 · Aus dem Datenvertrag</h2>
+    <table>
+      <tr><th style="width: 30%;">Chart.js braucht</th><th>unser Feld im JSON</th></tr>
+      <tr><td class="mono">labels</td><td></td></tr>
+      <tr><td class="mono">data</td><td></td></tr>
+      <tr><td>Filter, falls nötig</td><td></td></tr>
+    </table>
+
+    <h2>5 · Skizze mit Achsentiteln und Titel</h2>
+    <div class="skizze"></div>
+
+    <div class="raster zwei">
+      <div>
+        <h2>6 · Lügen-Check</h2>
+        <ul class="check">
+          <li>Die Achse beginnt bei null – oder wir können begründen, warum nicht</li>
+          <li>Wir zeigen alle passenden Daten, nicht nur die schönen</li>
+          <li>Der Titel behauptet nicht mehr, als die Daten zeigen</li>
+          <li>Quelle und Zeitraum stehen bei der Grafik</li>
+          <li>Wir wissen, wer oder was in unseren Daten fehlt</li>
+        </ul>
+      </div>
+      <div>
+        <h2>7 · Freigabe</h2>
+        <div class="freigabe">
+          <div class="feld"><span class="beschriftung">Visum Dozent:in</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
