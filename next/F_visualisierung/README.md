@@ -41,7 +41,7 @@ Die Student:innen können …
 | 0:00 | 10' | **Wo würdet ihr die Flugzeuge verstärken?** Survivorship Bias nach Abraham Wald – Irritation | Plenum: alle zeigen auf die Stellen, Auflösung, dann zwei Minuten Austausch im Projektteam: Was fehlt in unseren Daten? | Folien 2–4 | Jede Gruppe nennt eine mögliche Lücke ihrer Datenquelle |
 | 0:10 | 10' | **Welche Grafik ist am neutralsten?** Drei Grafiken derselben Hitzesommer-Daten – Irritation | Abstimmung per Handzeichen im Plenum, zwei, drei Begründungen | Folien 5–8 | Begründungen nennen Achse und Diagrammtyp |
 | 0:20 | 15' | **Welcher Code zeichnet welche Grafik?** – Vorwissen aktivieren | Code-Matching in Partnerarbeit ohne Laptop (10'), Auflösung im Plenum (5') | Folien 9–12, [`00_code_matching/`](00_code_matching/) | Matching-Blatt; wer A und C verwechselt, übersieht die Achse |
-| 0:35 | 20' | **Vom Endpunkt zum Balken** – Informationen aufnehmen und verarbeiten | Kurzinput (5'), dann Code-Along mit Vorhersagen und Diktat durch die Klasse | Folien 13–16, [`01_code_along_balken/`](01_code_along_balken/) | Jede Person hat ein Balkendiagramm im Browser |
+| 0:35 | 20' | **Vom Endpunkt zum Balken** – Informationen aufnehmen und verarbeiten | Kurzinput (5'), dann Code-Along mit Vorhersagen und Diktat durch die Klasse | Folien 13–16, [`01_most_simple_chartjs/`](01_most_simple_chartjs/) | Jede Person hat ein Balkendiagramm im Browser |
 | 0:55 | 40' | **Chart-Werkstatt** – üben und vertiefen | Pair Programming mit Rollentausch nach jeder Karte | Folien 17–18, [`02_chart_werkstatt/`](02_chart_werkstatt/) | Kartenwand nach Stufen |
 | 1:35 | 15' | **Lügen-Karte und Galerie** – übertragen und reflektieren | Partnerarbeit (5'), dann Galerie im Plenum: drei Paare zeigen, die Klasse findet den Trick | Folie 19, Wandtafel | Liste der gefundenen Tricks an der Wandtafel |
 | 1:50 | 15' | **Pause** | | | |
@@ -73,7 +73,7 @@ bestehenden Header ergänzen und hochladen:
 header("Access-Control-Allow-Origin: *");
 ```
 
-Danach `01_code_along_balken/solution/index.html` per Doppelklick öffnen –
+Danach `01_most_simple_chartjs/solution/index.html` per Doppelklick öffnen –
 das Diagramm muss erscheinen.
 
 ### Drucken
@@ -102,10 +102,10 @@ die Skizzen.
 | --- | --- |
 | [`folien/`](folien/) | Foliensatz für die ganze Einheit, mit Live-Diagrammen; PDF-Export `chartjs-werkstatt.pdf` |
 | [`00_code_matching/`](00_code_matching/) | Acht Codekarten und acht Grafiken zum Zuordnen, Lösung im [README](00_code_matching/README.md) |
-| [`01_code_along_balken/`](01_code_along_balken/) | Sehr kurzer Code-Along: `fetch → map → new Chart`, Startcode, Lösung und [Ablauf](01_code_along_balken/Ablauf/01_code_along_balken_ablauf.md) |
+| [`01_most_simple_chartjs/`](01_most_simple_chartjs/) | Sehr kurzer Code-Along: `fetch → map → new Chart`, Startcode, Lösung und [Ablauf](01_most_simple_chartjs/Ablauf/01_most_simple_chartjs_ablauf.md) |
 | [`02_chart_werkstatt/`](02_chart_werkstatt/) | Auftragskarten mit Zielbildern, Startstand, Lösung pro Karte, [README](02_chart_werkstatt/README.md) |
 | [`03_projekt/`](03_projekt/) | Grafik-Ticket, Fortschrittsboard, Exit Ticket, [README](03_projekt/README.md) |
-| [`04_karte_punkte/`](04_karte_punkte/) | Velostationen als Punkte auf einer OpenFreeMap-Karte mit Liberty, Positron, Dark und 3D; Startcode, Lösung und [Ablauf](04_karte_punkte/Ablauf/04_karte_punkte_ablauf.md) |
+| [`04_most_simple_map/`](04_most_simple_map/) | Velostationen als Punkte auf einer OpenFreeMap-Karte mit Liberty, Positron, Dark und 3D; Startcode, Lösung und [Ablauf](04_most_simple_map/Ablauf/04_most_simple_map_ablauf.md) |
 | `daten/` | Momentaufnahme des Endpunkts vom 07.10.2026 als JSON und als JS-Datei für die Folien |
 
 ## Auswertung und nächste Lektion

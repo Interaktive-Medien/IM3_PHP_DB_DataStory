@@ -1,4 +1,4 @@
-# Ablauf `01_code_along_balken`
+# Ablauf `01_most_simple_chartjs`
 
 > **Ziel:** In 15 Minuten vom Endpunkt zum ersten Balkendiagramm. Kein
 > Fehlerhandling, keine Interaktion, keine Gestaltung – nur die Kette

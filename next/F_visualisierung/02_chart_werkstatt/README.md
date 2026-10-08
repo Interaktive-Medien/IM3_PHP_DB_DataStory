@@ -60,4 +60,4 @@ Diagramm damit überein, ist die Karte gelöst.
 Die Werkstatt holt die Daten vom Endpunkt auf `26hs.nickschnee.ch`. Damit das
 von anderen Domains und per Doppelklick funktioniert, braucht der Endpunkt den
 Header `Access-Control-Allow-Origin: *` (siehe
-[Ablauf des Code-Alongs](../01_code_along_balken/Ablauf/01_code_along_balken_ablauf.md)).
+[Ablauf des Code-Alongs](../01_most_simple_chartjs/Ablauf/01_most_simple_chartjs_ablauf.md)).

@@ -1,4 +1,4 @@
-# Ablauf `04_karte_punkte`
+# Ablauf `04_most_simple_map`
 
 > **Ziel:** In 15 Minuten von einer API zu Punkten auf einer Karte. Die Karte
 > und der Wechsel zwischen den Kartenstilen sind vorbereitet – getippt wird nur
