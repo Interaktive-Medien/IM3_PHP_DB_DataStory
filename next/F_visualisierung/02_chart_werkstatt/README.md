@@ -14,7 +14,7 @@ Doku statt Code abzutippen.
 | Datei | Wofür |
 | --- | --- |
 | [`auftragskarten.html`](auftragskarten.html) | Regelkarte, Startkarte, 11 Auftragskarten, Lügen-Karte und Notizkarte auf zwei A4-Seiten. Farbig drucken, mit dem Papierschneider pro Seite 1 senkrechter und 3 waagrechte Schnitte |
-| `start/` | Der fertige Stand des Code-Alongs – Neustart, wenn man sich verrannt hat |
+| `start/` | Der Startstand: die Hitzetage in Bern als Balkendiagramm – auch für den Neustart, wenn man sich verrannt hat |
 | `zielbilder/` | Die Bilder auf den Karten, Screenshots der Lösungen |
 | [`solution/loesungen.md`](solution/loesungen.md) | Übersicht und eine vollständige Lösung pro Karte |
 
@@ -28,7 +28,7 @@ Karten kommen dorthin, mit den Namen des Paars.
 2. Eine Person tippt, die andere liest die Karte und sucht in der Doku.
 3. Nach jeder Karte werden die Rollen getauscht.
 4. Die Reihenfolge ist frei – Stufe 1 vor Stufe 3.
-5. Gearbeitet wird in der Datei vom Code-Along.
+5. Gearbeitet wird mit einer Kopie von `start/`.
 6. Erlaubt sind `chartjs.org/docs`, das Cheatsheet und AI mit «Erkläre mir …»,
    nicht mit «Schreib mir …».
 
@@ -59,5 +59,5 @@ Diagramm damit überein, ist die Karte gelöst.
 
 Die Werkstatt holt die Daten vom Endpunkt auf `26hs.nickschnee.ch`. Damit das
 von anderen Domains und per Doppelklick funktioniert, braucht der Endpunkt den
-Header `Access-Control-Allow-Origin: *` (siehe
-[Ablauf des Code-Alongs](../01_most_simple_chartjs/Ablauf/01_most_simple_chartjs_ablauf.md)).
+Header `Access-Control-Allow-Origin: *` (siehe Vorbereitung im
+[README der Einheit](../README.md)).

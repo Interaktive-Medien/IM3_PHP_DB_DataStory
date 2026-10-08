@@ -1,30 +1,30 @@
 /**
- * Code-Along: Ein Balkendiagramm aus dem Endpunkt – fertige Fassung
+ * Code-Along: Ein Balkendiagramm aus einer API – fertige Fassung
  *
  *   1 Holen   2 Umformen   3 Zeichnen
  */
 
 const ENDPUNKT =
-  'https://26hs.nickschnee.ch/code-alongs/C_transform/09_hitzesommer_transformieren/unload.php?city=Bern';
+  'https://api.open-meteo.com/v1/forecast?latitude=46.95&longitude=7.45&daily=temperature_2m_max&timezone=Europe%2FZurich';
 
-async function zeichneHitzetage() {
+async function zeichneTemperatur() {
   // --- 1 Holen --------------------------------------------------------------
   const response = await fetch(ENDPUNKT);
-  const rows = await response.json();
-  console.log(rows);
+  const json = await response.json();
+  console.log(json);
 
   // --- 2 Umformen -----------------------------------------------------------
-  const labels = rows.map((row) => row.year);
-  const data = rows.map((row) => row.hitzetage);
+  const labels = json.daily.time;
+  const data = json.daily.temperature_2m_max;
 
   // --- 3 Zeichnen -----------------------------------------------------------
-  new Chart(document.querySelector('#hitzetage'), {
+  new Chart(document.querySelector('#temperatur'), {
     type: 'bar',
     data: {
       labels: labels,
       datasets: [
         {
-          label: 'Hitzetage in Bern',
+          label: 'Höchsttemperatur in Bern (°C)',
           data: data,
         },
       ],
@@ -32,4 +32,4 @@ async function zeichneHitzetage() {
   });
 }
 
-zeichneHitzetage();
+zeichneTemperatur();

@@ -30,7 +30,7 @@ Die Student:innen können …
 | für eine Datenaussage einen passenden Diagrammtyp wählen und die Wahl begründen | Evaluieren | Welche Grafik ist am neutralsten?, Lügen-Karte, Grafik-Ticket | Begründung bei der Abstimmung, Feld 2 und 3 auf dem Ticket |
 | Chart.js-Konfigurationen den passenden Grafiken zuordnen und die entscheidende Zeile benennen | Analysieren | Code-Matching | ausgefülltes Matching-Blatt, Begründung bei der Auflösung |
 | eine Chart.js-Konfiguration anpassen (Typ, Farbe, Titel, Achsen, Datasets) | Anwenden | Chart-Werkstatt | gelöste Karten an der Kartenwand |
-| JSON-Datensätze mit `map()` und `filter()` in `labels` und `data` umformen | Anwenden | Code-Along, Werkstatt-Karten 6, 9, 10 | Diagramm stimmt mit dem Zielbild überein |
+| JSON-Datensätze mit `map()` und `filter()` in `labels` und `data` umformen | Anwenden | Startstand der Werkstatt, Karten 6, 9, 10 | Diagramm stimmt mit dem Zielbild überein |
 | typische Fehlermeldungen beim Laden ihrer Ursache zuordnen | Analysieren | Fehler-Zuordnung | Zuordnung in Paaren |
 | die eigene Projektgrafik an den eigenen Endpunkt anschliessen | Erschaffen | Projektarbeit | Fortschrittsboard Spalte 4 = **M8** |
 
@@ -58,7 +58,7 @@ Einstieg die Frage an die Projektteams weglassen.
 
 ### Am Endpunkt (wichtig)
 
-Code-Along und Werkstatt holen die Daten von
+Die Werkstatt holt die Daten von
 
 ```text
 https://26hs.nickschnee.ch/code-alongs/C_transform/09_hitzesommer_transformieren/unload.php
@@ -73,8 +73,11 @@ bestehenden Header ergänzen und hochladen:
 header("Access-Control-Allow-Origin: *");
 ```
 
-Danach `01_most_simple_chartjs/solution/index.html` per Doppelklick öffnen –
-das Diagramm muss erscheinen.
+Danach `02_chart_werkstatt/start/index.html` per Doppelklick öffnen – das
+Diagramm muss erscheinen.
+
+Der Code-Along braucht keine Vorbereitung. Er holt die Daten direkt von der
+Wetter-API von Open-Meteo, die hier den eigenen Unload-Endpunkt simuliert.
 
 ### Drucken
 
@@ -102,7 +105,7 @@ die Skizzen.
 | --- | --- |
 | [`folien/`](folien/) | Foliensatz für die ganze Einheit, mit Live-Diagrammen; PDF-Export `chartjs-werkstatt.pdf` |
 | [`00_code_matching/`](00_code_matching/) | Acht Codekarten und acht Grafiken zum Zuordnen, Lösung im [README](00_code_matching/README.md) |
-| [`01_most_simple_chartjs/`](01_most_simple_chartjs/) | Sehr kurzer Code-Along: `fetch → map → new Chart`, Startcode, Lösung und [Ablauf](01_most_simple_chartjs/Ablauf/01_most_simple_chartjs_ablauf.md) |
+| [`01_most_simple_chartjs/`](01_most_simple_chartjs/) | Sehr kurzer Code-Along mit der Open-Meteo-API: `fetch → json → new Chart`, Startcode, Lösung und [Ablauf](01_most_simple_chartjs/Ablauf/01_most_simple_chartjs_ablauf.md) |
 | [`02_chart_werkstatt/`](02_chart_werkstatt/) | Auftragskarten mit Zielbildern, Startstand, Lösung pro Karte, [README](02_chart_werkstatt/README.md) |
 | [`03_projekt/`](03_projekt/) | Grafik-Ticket, Fortschrittsboard, Exit Ticket, [README](03_projekt/README.md) |
 | [`04_most_simple_map/`](04_most_simple_map/) | Velostationen als Punkte auf einer OpenFreeMap-Karte mit Liberty, Positron, Dark und 3D; Startcode, Lösung und [Ablauf](04_most_simple_map/Ablauf/04_most_simple_map_ablauf.md) |

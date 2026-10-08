@@ -236,11 +236,11 @@ options: { scales: { y: { min: 20 } } }
           <span class="code-label">im HTML: die Bibliothek und eine Zeichenfläche</span>
           <pre class="code-sm"><code data-trim data-noescape class="language-html">
 &lt;script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"&gt;&lt;/script&gt;
-&lt;canvas id="hitzetage"&gt;&lt;/canvas&gt;
+&lt;canvas id="temperatur"&gt;&lt;/canvas&gt;
           </code></pre>
           <span class="code-label mt-2">im JavaScript: der Auftrag an Chart.js</span>
           <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
-new Chart(document.querySelector('#hitzetage'), {
+new Chart(document.querySelector('#temperatur'), {
   type: 'bar',                          // welcher Diagrammtyp
   data: { labels: [], datasets: [] },   // was gezeigt wird
   options: {},                          // wie es aussieht
@@ -254,27 +254,26 @@ new Chart(document.querySelector('#hitzetage'), {
         <div class="content">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
             <div>
-              <span class="code-label">was der Endpunkt liefert</span>
+              <span class="code-label">was die Wetter-API liefert</span>
               <pre class="code-sm"><code data-trim data-noescape class="language-json">
-[
-  {"city": "Bern", "year": "1940", "hitzetage": 0},
-  {"city": "Bern", "year": "1941", "hitzetage": 1},
-  {"city": "Bern", "year": "1942", "hitzetage": 0}
-]
+"daily": {
+  "time": ["2026-10-08", "2026-10-09", …],
+  "temperature_2m_max": [14.9, 14.7, …]
+}
               </code></pre>
             </div>
             <div>
               <span class="code-label">was Chart.js will</span>
               <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
-labels: ['1940', '1941', '1942']
-data:   [0, 1, 0]
+labels: ['2026-10-08', '2026-10-09', …]
+data:   [14.9, 14.7, …]
               </code></pre>
             </div>
           </div>
-          <span class="code-label mt-1">die Umformung</span>
+          <span class="code-label mt-1">die zwei Listen aus dem JSON holen</span>
           <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
-const labels = rows.map((row) => row.year);
-const data = rows.map((row) => row.hitzetage);
+const labels = json.daily.time;
+const data = json.daily.temperature_2m_max;
           </code></pre>
           <div class="callout callout-orange">
             <p>Beide Listen sind gleich lang und stehen in derselben Reihenfolge.</p>
@@ -286,21 +285,21 @@ const data = rows.map((row) => row.hitzetage);
         <h2>Holen, umformen, zeichnen</h2>
         <div class="content">
           <pre class="code-sm"><code data-trim data-noescape class="language-javascript">
-async function zeichneHitzetage() {
+async function zeichneTemperatur() {
   // 1 Holen
   const response = await fetch(ENDPUNKT);
-  const rows = await response.json();
+  const json = await response.json();
 
   // 2 Umformen
-  const labels = rows.map((row) => row.year);
-  const data = rows.map((row) => row.hitzetage);
+  const labels = json.daily.time;
+  const data = json.daily.temperature_2m_max;
 
   // 3 Zeichnen
-  new Chart(document.querySelector('#hitzetage'), {
+  new Chart(document.querySelector('#temperatur'), {
     type: 'bar',
     data: {
       labels: labels,
-      datasets: [{ label: 'Hitzetage in Bern', data: data }],
+      datasets: [{ label: 'Höchsttemperatur in Bern (°C)', data: data }],
     },
   });
 }

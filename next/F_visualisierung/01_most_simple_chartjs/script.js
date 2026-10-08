@@ -1,5 +1,5 @@
 /**
- * Code-Along: Ein Balkendiagramm aus dem Endpunkt
+ * Code-Along: Ein Balkendiagramm aus einer API
  *
  * Drei Schritte, nach jedem Schritt die Seite neu laden:
  *
@@ -7,24 +7,24 @@
  */
 
 const ENDPUNKT =
-  'https://26hs.nickschnee.ch/code-alongs/C_transform/09_hitzesommer_transformieren/unload.php?city=Bern';
+  'https://api.open-meteo.com/v1/forecast?latitude=46.95&longitude=7.45&daily=temperature_2m_max&timezone=Europe%2FZurich';
 
-async function zeichneHitzetage() {
+async function zeichneTemperatur() {
   // --- 1 Holen --------------------------------------------------------------
   // TODO 1: Den Endpunkt mit fetch() abfragen und die Antwort als JSON lesen.
-  //         Danach console.log(rows) – was steht in der Konsole?
+  //         Danach console.log(json) – was steht in der Konsole?
 
   // --- 2 Umformen -----------------------------------------------------------
-  // Chart.js will keine Datensätze, sondern zwei gleich lange Listen:
+  // Chart.js will zwei gleich lange Listen:
   //
-  //   [{city: 'Bern', year: '1940', hitzetage: 0}, …]   was wir haben
-  //   labels: ['1940', '1941', …]  data: [0, 1, …]      was Chart.js will
+  //   labels: ['2026-10-08', '2026-10-09', …]   die Tage
+  //   data:   [14.9, 14.7, …]                   die Höchsttemperaturen
   //
-  // TODO 2: Mit map() die Liste labels (Jahre) und die Liste data
-  //         (Hitzetage) bauen.
+  // TODO 2: Die beiden Listen in json.daily finden und in labels und data
+  //         speichern.
 
   // --- 3 Zeichnen -----------------------------------------------------------
-  // TODO 3: new Chart(...) mit type 'bar' in das Canvas #hitzetage zeichnen.
+  // TODO 3: new Chart(...) mit type 'bar' in das Canvas #temperatur zeichnen.
 }
 
-zeichneHitzetage();
+zeichneTemperatur();
