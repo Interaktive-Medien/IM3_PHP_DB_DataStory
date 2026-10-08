@@ -19,6 +19,23 @@ Kartenstile: `liberty`, `positron` und `dark` von OpenFreeMap. «3D» ist
 `liberty` schräg von oben: Der Stil enthält 3D-Gebäude, die ab Zoom 14
 erscheinen. Ist man weiter weg, fliegt der Knopf nach Bern.
 
+### Warum MapLibre und nicht Leaflet?
+
+Doku: <https://maplibre.org/maplibre-gl-js/docs/>
+
+Leaflet ist einfacher und wird in Code-Along 19 (`19_sharkdaten_karte`)
+verwendet. Für diese Karte passt MapLibre besser:
+
+- **Vektorkacheln:** OpenFreeMap liefert Vektorkacheln mit fertigen Stilen.
+  MapLibre zeichnet sie direkt, Leaflet bräuchte dafür ein Plugin.
+- **Stil wechseln mit einer URL:** `map.setStyle(…)` tauscht Liberty, Positron
+  und Dark aus, ohne dass die Punkte neu gesetzt werden müssen.
+- **3D:** MapLibre zeichnet mit WebGL und kann die Karte neigen und drehen.
+  Leaflet ist nur flach (2D), 3D-Gebäude gehen damit nicht.
+
+Für die Studierenden ändert sich wenig: Ein Punkt ist auch hier eine Zeile
+mit `Marker`, `setLngLat` und `addTo(map)`.
+
 ## Ausgangslage
 
 | Datei | Rolle |
