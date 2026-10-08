@@ -1,0 +1,60 @@
+/* Gestaltung der Seite – heute nicht das Thema. Farben wie auf den Folien. */
+
+body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #575757;
+  background: #ffffff;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 1.8rem;
+  color: #8b8a6e;
+}
+
+/* Die Karte braucht eine feste Höhe, sonst ist sie 0 Pixel hoch. */
+#karte {
+  height: 600px;
+  border-radius: 8px;
+}
+
+.stile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.stile button {
+  padding: 6px 14px;
+  border: 1px solid #8b8a6e;
+  border-radius: 4px;
+  font: inherit;
+  color: #8b8a6e;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.stile button.aktiv {
+  color: #ffffff;
+  background: #8b8a6e;
+}
+
+/* Ein Punkt auf der Karte: ein kleiner runder Kreis. */
+.punkt {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: #0f7a8a;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: #9a9a92;
+}
