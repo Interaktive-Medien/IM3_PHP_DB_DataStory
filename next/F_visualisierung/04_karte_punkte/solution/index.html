@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velostationen in der Schweiz</title>
+
+  <!-- MapLibre zeichnet die Karte, die Kacheln kommen von OpenFreeMap. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css">
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- defer: script.js läuft erst, wenn die Seite geladen ist. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Velostationen in der Schweiz</h1>
+
+  <!-- Ein Knopf pro Kartenstil. data-stil sagt script.js, welcher gemeint ist. -->
+  <nav class="stile">
+    <button data-stil="liberty" class="aktiv">Liberty</button>
+    <button data-stil="positron">Positron</button>
+    <button data-stil="dark">Dark</button>
+    <button data-stil="3d">3D</button>
+  </nav>
+
+  <div id="karte"></div>
+
+  <footer>
+    Quelle: PubliBike/Velospot-API, Karte: OpenFreeMap © OpenStreetMap.
+  </footer>
+</body>
+</html>

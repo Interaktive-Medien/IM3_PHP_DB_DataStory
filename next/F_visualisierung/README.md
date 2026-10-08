@@ -105,6 +105,7 @@ die Skizzen.
 | [`01_code_along_balken/`](01_code_along_balken/) | Sehr kurzer Code-Along: `fetch → map → new Chart`, Startcode, Lösung und [Ablauf](01_code_along_balken/Ablauf/01_code_along_balken_ablauf.md) |
 | [`02_chart_werkstatt/`](02_chart_werkstatt/) | Auftragskarten mit Zielbildern, Startstand, Lösung pro Karte, [README](02_chart_werkstatt/README.md) |
 | [`03_projekt/`](03_projekt/) | Grafik-Ticket, Fortschrittsboard, Exit Ticket, [README](03_projekt/README.md) |
+| [`04_karte_punkte/`](04_karte_punkte/) | Velostationen als Punkte auf einer OpenFreeMap-Karte mit Liberty, Positron, Dark und 3D; Startcode, Lösung und [Ablauf](04_karte_punkte/Ablauf/04_karte_punkte_ablauf.md) |
 | `daten/` | Momentaufnahme des Endpunkts vom 07.10.2026 als JSON und als JS-Datei für die Folien |
 
 ## Auswertung und nächste Lektion
